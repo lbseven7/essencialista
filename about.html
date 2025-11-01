@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Essencialista</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100 text-gray-800 font-sans pb-20">
+
+    <!-- Header -->
+    <header class="bg-black text-white p-6 shadow-md">
+        <div class="container mx-auto flex justify-between items-center">
+            <!-- Logo -->
+            <div class="flex items-center space-x-3">
+                <a href="./home.html">
+                    <img src="./images/sem-bg-black.png" alt="Essencialista Logo" class="h-10">
+                </a>
+                <h1 class="text-2xl font-bold">Essencialista</h1>
+            </div>
+
+            <!-- Mobile menu button -->
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-white focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+
+            <!-- Navigation -->
+            <nav id="main-nav" class="hidden md:block">
+                <ul class="flex space-x-6">
+                    <li><a href="./home.html" class="hover:text-orange-500">Início</a></li>
+                    <li><a href="./home.html#articles-section" class="hover:text-orange-500">Artigos</a></li>
+                    <li><a href="./about.html" class="hover:text-orange-500">Sobre</a></li>
+                    <li><a href="./contact.html" class="hover:text-orange-500">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mainNav = document.getElementById('main-nav');
+
+            mobileMenuButton.addEventListener('click', function() {
+                mainNav.classList.toggle('hidden');
+            });
+        });
+    </script>
+
+    <!-- Main Content -->
+    <main class="container mx-auto mt-14 p-4 max-w-2xl">
+        <div class="bg-white p-8 rounded-xl shadow-lg">
+            <h2 class="text-4xl font-bold mb-6 text-center">Nossa Visão</h2>
+            <p class="mb-6 text-lg text-justify leading-relaxed">
+                Quando a Palavra de Deus for estudada, compreendida e obedecida, uma luz brilhante se refletirá sobre o
+                mundo; novas verdades, recebidas e postas em prática, ligar-nos-ão, em fortes laços, a Jesus.
+            </p>
+            <p class="mb-6 text-lg text-justify leading-relaxed">
+                A Bíblia, e a Bíblia tão-só, deve ser nosso credo, o único laço de união; todos os que se submeterem a essa Santa
+                Palavra estarão em harmonia entre si. Nossos próprios pontos de vista e idéias não devem controlar nossos
+                esforços.
+            </p>
+            <p class="mb-6 text-lg text-justify leading-relaxed">
+                O homem é falível, mas a Palavra de Deus é infalível. Em vez de lutar uns com os outros, exaltem os
+                homens ao Senhor. Defrontemos toda oposição, como o fez o Mestre, dizendo: "Está escrito." Ergamos o estandarte
+                no qual está escrito: A Bíblia, nossa regra de fé e disciplina. — <strong class="text-orange-500">Revista e Herald, 15 de Dezembro
+                    de 1885.</strong>
+            </p>
+
+            <!-- Botão de Voltar -->
+            <div class="mt-6 text-center">
+                <a href="./home.html"
+                    class="bg-black text-white px-6 py-1 mt-40 rounded-full hover:bg-orange-500 transition duration-300">
+                    <i class="fas fa-arrow-left"></i>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white p-4 mx-auto fixed bottom-0 w-full z-50">
+        <div class="container mx-auto text-center">
+            <p><img src="./images/sem-bg-black.png" alt="Essencialista Logo" class="h-10 inline-block">Essencialista.
+                Todos os direitos reservados &copy; 2025</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
