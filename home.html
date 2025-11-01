@@ -14,34 +14,6 @@
     </style>
 </head>
 
-<script>
-  // Captura IP automaticamente
-  let userIP = "";
-  fetch("https://script.google.com/macros/s/AKfycbwMQtGl1EawVIrYBL7lN6C3TsLDWu-84uPRlGYDv0RzFmkNDcxsPrD2H1-osXFc7OaP/exec")
-    .then(r => r.json())
-    .then(d => userIP = d.ip);
-
-  document.getElementById("visitanteForm").addEventListener("submit", async function(e) {
-    e.preventDefault();
-    const nome = document.getElementById("nome").value.trim();
-    const msg = document.getElementById("msg");
-
-    try {
-      await fetch("https://script.google.com/macros/s/AKfycbyEXEMPLO123/exec", {
-        method: "POST",
-        mode: "no-cors",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ nome, ip: userIP })
-      });
-
-      msg.textContent = "Nome registrado com sucesso!";
-      document.getElementById("visitanteForm").reset();
-    } catch (err) {
-      msg.textContent = "Erro ao enviar. Tente novamente.";
-    }
-  });
-</script>
-
 
 <body class="bg-gray-100 text-gray-800 font-sans">
 
@@ -247,6 +219,34 @@
             </div>
         </div>
     </footer>
+
+    <script>
+  // Captura IP automaticamente
+  let userIP = "";
+  fetch("https://script.google.com/macros/s/AKfycbwMQtGl1EawVIrYBL7lN6C3TsLDWu-84uPRlGYDv0RzFmkNDcxsPrD2H1-osXFc7OaP/exec")
+    .then(r => r.json())
+    .then(d => userIP = d.ip);
+
+  document.getElementById("visitanteForm").addEventListener("submit", async function(e) {
+    e.preventDefault();
+    const nome = document.getElementById("nome").value.trim();
+    const msg = document.getElementById("msg");
+
+    try {
+      await fetch("https://script.google.com/macros/s/AKfycbyEXEMPLO123/exec", {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ nome, ip: userIP })
+      });
+
+      msg.textContent = "Nome registrado com sucesso!";
+      document.getElementById("visitanteForm").reset();
+    } catch (err) {
+      msg.textContent = "Erro ao enviar. Tente novamente.";
+    }
+  });
+</script>
 </body>
 
 </html>
