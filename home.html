@@ -14,6 +14,35 @@
     </style>
 </head>
 
+<script>
+  // Captura IP automaticamente
+  let userIP = "";
+  fetch("https://script.google.com/macros/s/AKfycbwMQtGl1EawVIrYBL7lN6C3TsLDWu-84uPRlGYDv0RzFmkNDcxsPrD2H1-osXFc7OaP/exec")
+    .then(r => r.json())
+    .then(d => userIP = d.ip);
+
+  document.getElementById("visitanteForm").addEventListener("submit", async function(e) {
+    e.preventDefault();
+    const nome = document.getElementById("nome").value.trim();
+    const msg = document.getElementById("msg");
+
+    try {
+      await fetch("https://script.google.com/macros/s/AKfycbyEXEMPLO123/exec", {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ nome, ip: userIP })
+      });
+
+      msg.textContent = "Nome registrado com sucesso!";
+      document.getElementById("visitanteForm").reset();
+    } catch (err) {
+      msg.textContent = "Erro ao enviar. Tente novamente.";
+    }
+  });
+</script>
+
+
 <body class="bg-gray-100 text-gray-800 font-sans">
 
     <!-- Header -->
@@ -48,6 +77,20 @@
             <p class="text-xl">O sacrifício de Cristo é o centro da nossa esperança!"</p>
         </div>
     </section>
+
+    <section class="bg-white p-6 rounded-lg shadow-lg text-center mt-10">
+  <h3 class="text-2xl font-bold mb-4">Deixe registrado que você esteve aqui!</h3>
+  <form id="visitanteForm" class="space-y-4 max-w-md mx-auto">
+    <input type="text" id="nome" placeholder="Seu nome" required
+           class="border border-gray-300 p-2 rounded w-full">
+    <button type="submit"
+            class="bg-black text-white px-6 py-2 rounded-full hover:bg-orange-500 transition duration-300">
+      Enviar
+    </button>
+  </form>
+  <p id="msg" class="mt-3 text-green-600 font-semibold"></p>
+</section>
+
 
     <!-- Main Content - Hero Section -->
     <main class="container mx-auto mt-8 p-4 text-center">
@@ -132,36 +175,37 @@
                 <!-- Artigo em Destaque 8 -->
                 <div class="bg-white p-6 rounded-lg shadow-lg">
                     <h4 class="text-xl font-semibold mb-2">
-                        O Poder da Palavra
+                        Química e o Prefixo "Per-"
                     </h4>
-                    <p class="text-gray-700 mb-4">A Palavra de Deus é viva e eficaz, mais penetrante do que qualquer espada de dois gumes. Ela discerne os pensamentos e intenções do coração.</p>
+                    <p class="text-gray-700 mb-4">A formação de moléculas exige um limite máximo de átomos que podem se ligar; se excedido, a molécula se torna instável.</p>
                     <a href="./articles/article8.html" class="text-blue-600 hover:text-orange-500">Leia Mais</a>
                 </div>
                 
                 <!-- Artigo em Destaque 9 -->
                 <div class="bg-white p-6 rounded-lg shadow-lg">
                     <h4 class="text-xl font-semibold mb-2">
-                        Fé e Obras
+                        Deus, Tempo-Espaço-Matéria
                     </h4>
-                    <p class="text-gray-700 mb-4">A fé sem obras é morta. Como o corpo sem espírito está morto, assim também a fé sem obras é morta. Entenda o equilíbrio entre fé e obras.</p>
+                    <p class="text-gray-700 mb-4">A pergunta fundamental, "De onde veio Deus?", parte de uma suposição incorreta: a de que Deus é afetado por **tempo, espaço ou matéria**.</p>
                     <a href="./articles/article9.html" class="text-blue-600 hover:text-orange-500">Leia Mais</a>
                 </div>
                 
                 <!-- Artigo em Destaque 10 -->
                 <div class="bg-white p-6 rounded-lg shadow-lg">
                     <h4 class="text-xl font-semibold mb-2">
-                        A Graça Transformadora
+                        A Mente Educada e a Convivência com o Contraditório
                     </h4>
-                    <p class="text-gray-700 mb-4">A graça de Deus não apenas nos perdoa, mas também nos transforma. Ela nos ensina a renunciar à impiedade e a viver de maneira sóbria e justa.</p>
+                    <p class="text-gray-700 mb-4">Aristóteles dizia que somente uma mente educada é capaz de compreender um pensamento diferente do seu sem precisar aceitá-lo.
+        Essa frase carrega a essência da verdadeira saúde:</p>
                     <a href="./articles/article10.html" class="text-blue-600 hover:text-orange-500">Leia Mais</a>
                 </div>
                 
                 <!-- Artigo em Destaque 11 -->
                 <div class="bg-white p-6 rounded-lg shadow-lg">
                     <h4 class="text-xl font-semibold mb-2">
-                        O Caráter de Cristo
+                        Espiritualismo vs. Materialismo
                     </h4>
-                    <p class="text-gray-700 mb-4">Contemplando o caráter de Cristo, somos transformados à sua semelhança. Descubra como desenvolver um caráter semelhante ao de Jesus.</p>
+                    <p class="text-gray-700 mb-4">Você vai ver quem é o espiritualista (esteja dentro de uma religião ou não) e o que ele busca realmente como finalidade de sua vida.</p>
                     <a href="./articles/article11.html" class="text-blue-600 hover:text-orange-500">Leia Mais</a>
                 </div>
                 
