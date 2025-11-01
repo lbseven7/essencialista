@@ -20,7 +20,6 @@
     
     return ContentService.createTextOutput(jsonString).setMimeType(ContentService.MimeType.JSON)
     
-  
   }
   
   

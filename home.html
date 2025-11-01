@@ -250,10 +250,11 @@
 
 <script>
     // ⚠️ ATENÇÃO: SUBSTITUA PELA SUA URL DE IMPLANTAÇÃO REAL DO APPS SCRIPT
-    const WEB_APP_URL = 'https://script.google.com/macros/library/d/1VXsfM0SuRVWJWvll3bZsMjzL6RaoYlQKe3X0QhR2EqR-ECG9MgBoj66K/1'; 
+    const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbymc9DwmhGOUyMSPlJW_8rZP74t3_CTzFBQZsirWf2laaVU_x0ubECyPKJp_F5gUrEi/exec'; 
     // Mantenha o Apps Script (GET IP) se precisar:
     const IP_SERVICE_URL = "https://script.google.com/macros/s/AKfycbwMQtGl1EawVIrYBL7lN6C3TsLDWu-84uPRlGYDv0RzFmkNDcxsPrD2H1-osXFc7OaP/exec"; 
     // ----------------------------------------------------------------------
+    const sheet = ss.getSheetByName('Página1');
 
     let userIP = "";
     
@@ -316,7 +317,39 @@
 
     // Se você quiser que o IP seja exibido em algum lugar, adicione um elemento com id="ipDisplay" no HTML
     // e use: document.getElementById('ipDisplay').textContent = userIP;
+    function doGet(e) {
+      const ss = SpreadsheetApp.getActiveSpreadsheet();
+      const sheet = ss.getSheetByName('Página1'); // ou o nome da sua aba  
+
+      const nome = e.parameter.nome || "Anônimo";
+      const ip = e.parameter.ip || "Desconhecido";  
+      const data = new Date();    
+
+      sheet.appendRow([nome, ip, data]);  
+
+       return ContentService
+           .createTextOutput("Registrado com sucesso! (via GET)") 
+           .setMimeType(ContentService.MimeType.TEXT);    
+    }
+
+function doPost(e) {
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  const sheet = ss.getSheetByName('Essencialista'); // altere se o nome da aba for outro
+
+  const nome = e.parameter.nome || "Anônimo";
+  const ip = e.parameter.ip || "Desconhecido";
+  const data = new Date();
+
+  sheet.appendRow([nome, ip, data]);
+
+  return ContentService
+    .createTextOutput("Registrado com sucesso! (via POST)")
+    .setMimeType(ContentService.MimeType.TEXT);
+}
+
 </script>
+
+
 </body>
 
 </html>
