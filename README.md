@@ -1,8 +1,5 @@
-Com certeza. Vou adicionar a seção de Licença ao `README.md` do projeto Essencialista.
 
-Aqui está o `README.md` completo, incluindo a nova seção:
-
-## 📄 README: Projeto Essencialista
+## 📄Projeto Essencialista
 
 ### 🚀 Essencialista
 
@@ -52,7 +49,7 @@ Siga estas etapas simples para colocar o projeto em funcionamento na sua máquin
 1.  **Clone o repositório:**
 
     ```bash
-    git clone [URL_DO_SEU_REPOSITÓRIO]
+    git clone https://github.com/lbseven7/essencialista.git
     cd essencialista
     ```
 
