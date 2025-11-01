@@ -249,105 +249,59 @@
 </script> -->
 
 <script>
-    // ⚠️ ATENÇÃO: SUBSTITUA PELA SUA URL DE IMPLANTAÇÃO REAL DO APPS SCRIPT
-    const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbymc9DwmhGOUyMSPlJW_8rZP74t3_CTzFBQZsirWf2laaVU_x0ubECyPKJp_F5gUrEi/exec'; 
-    // Mantenha o Apps Script (GET IP) se precisar:
-    const IP_SERVICE_URL = "https://script.google.com/macros/s/AKfycbwMQtGl1EawVIrYBL7lN6C3TsLDWu-84uPRlGYDv0RzFmkNDcxsPrD2H1-osXFc7OaP/exec"; 
-    // ----------------------------------------------------------------------
-    const sheet = ss.getSheetByName('Página1');
+  const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbxOf9GW568EqWmTaZape1e3zm_rL082t5P2fpRTeVARNogaxh2gRrFk31XOoAACArle/exec';
+  const IP_SERVICE_URL = "https://api.ipify.org?format=json"; // serviço público simples para capturar IP
 
-    let userIP = "";
-    
-    // 1. Tenta obter o IP do usuário (roda automaticamente ao carregar)
-    fetch(IP_SERVICE_URL)
-        .then(r => r.json())
-        .then(d => userIP = d.ip)
-        .catch(err => console.error("Não foi possível obter o IP.", err)); // Adiciona tratamento de erro
-    
-    const visitanteForm = document.getElementById("visitanteForm");
-    const msg = document.getElementById("msg");
+  let userIP = "";
 
-    // 2. Lida com o envio do formulário
-    visitanteForm.addEventListener("submit", async function(e) {
-        e.preventDefault();
-        
-        const nomeInput = document.getElementById("nome");
-        const nome = nomeInput.value.trim();
-        const submitButton = visitanteForm.querySelector('button[type="submit"]');
+  // Obter IP do visitante
+  fetch(IP_SERVICE_URL)
+      .then(r => r.json())
+      .then(d => userIP = d.ip)
+      .catch(() => userIP = "Desconhecido");
 
-        if (nome === "") {
-            msg.textContent = "Por favor, digite seu nome.";
-            msg.className = "mt-3 text-red-600 font-semibold";
-            return;
-        }
+  const visitanteForm = document.getElementById("visitanteForm");
+  const msg = document.getElementById("msg");
 
-        // Feedback visual
-        submitButton.disabled = true;
-        submitButton.textContent = "Enviando...";
-        msg.textContent = "Registrando sua visita...";
-        msg.className = "mt-3 text-blue-600 font-semibold";
+  visitanteForm.addEventListener("submit", async function(e) {
+      e.preventDefault();
 
-        try {
-            // A CORREÇÃO PRINCIPAL está aqui: enviamos os dados via URL query params
-            // O Apps Script 'doPost(e)' consegue ler isso facilmente.
-            const urlWithParams = `${WEB_APP_URL}?nome=${encodeURIComponent(nome)}&ip=${encodeURIComponent(userIP)}`;
+      const nome = document.getElementById("nome").value.trim();
+      const submitButton = visitanteForm.querySelector('button[type="submit"]');
 
-            await fetch(urlWithParams, {
-                method: "POST",
-                mode: "no-cors", // Necessário para a comunicação com o GAS
-            });
+      if (!nome) {
+          msg.textContent = "Por favor, digite seu nome.";
+          msg.className = "mt-3 text-red-600 font-semibold";
+          return;
+      }
 
-            // Se o fetch não falhou (sucesso provável)
-            msg.textContent = `Obrigado, ${nome}! Sua visita foi registrada.`;
-            msg.className = "mt-3 text-green-600 font-semibold";
-            visitanteForm.reset();
-            
-            // Você precisará chamar a função de carregamento aqui, se a tiver.
-            // Exemplo: loadSignatures(); 
-            
-        } catch (err) {
-            msg.textContent = "Erro ao registrar. Verifique o console ou a URL.";
-            msg.className = "mt-3 text-red-600 font-semibold";
-            console.error("Erro de envio do formulário:", err);
-        } finally {
-            submitButton.disabled = false;
-            submitButton.textContent = "Enviar";
-        }
-    });
+      submitButton.disabled = true;
+      submitButton.textContent = "Enviando...";
+      msg.textContent = "Registrando sua visita...";
+      msg.className = "mt-3 text-blue-600 font-semibold";
 
-    // Se você quiser que o IP seja exibido em algum lugar, adicione um elemento com id="ipDisplay" no HTML
-    // e use: document.getElementById('ipDisplay').textContent = userIP;
-    function doGet(e) {
-      const ss = SpreadsheetApp.getActiveSpreadsheet();
-      const sheet = ss.getSheetByName('Página1'); // ou o nome da sua aba  
+      try {
+          const urlWithParams = `${WEB_APP_URL}?nome=${encodeURIComponent(nome)}&ip=${encodeURIComponent(userIP)}`;
 
-      const nome = e.parameter.nome || "Anônimo";
-      const ip = e.parameter.ip || "Desconhecido";  
-      const data = new Date();    
+          await fetch(urlWithParams, {
+              method: "POST",
+              mode: "no-cors"
+          });
 
-      sheet.appendRow([nome, ip, data]);  
-
-       return ContentService
-           .createTextOutput("Registrado com sucesso! (via GET)") 
-           .setMimeType(ContentService.MimeType.TEXT);    
-    }
-
-function doPost(e) {
-  const ss = SpreadsheetApp.getActiveSpreadsheet();
-  const sheet = ss.getSheetByName('Essencialista'); // altere se o nome da aba for outro
-
-  const nome = e.parameter.nome || "Anônimo";
-  const ip = e.parameter.ip || "Desconhecido";
-  const data = new Date();
-
-  sheet.appendRow([nome, ip, data]);
-
-  return ContentService
-    .createTextOutput("Registrado com sucesso! (via POST)")
-    .setMimeType(ContentService.MimeType.TEXT);
-}
-
+          msg.textContent = `Obrigado, ${nome}! Sua visita foi registrada.`;
+          msg.className = "mt-3 text-green-600 font-semibold";
+          visitanteForm.reset();
+      } catch (err) {
+          console.error(err);
+          msg.textContent = "Erro ao registrar. Tente novamente.";
+          msg.className = "mt-3 text-red-600 font-semibold";
+      } finally {
+          submitButton.disabled = false;
+          submitButton.textContent = "Enviar";
+      }
+  });
 </script>
+
 
 
 </body>
