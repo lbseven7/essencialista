@@ -6,9 +6,6 @@ Compilar: No terminal, execute o script de conversão:
 
 Bash
 
-npm run build
+npm run dev ( O NODEMON IRÁ ATUALIZAR O HTML QUANDO SALVAR ALTERAÇÕES NO MD)
 Isso lerá todos os arquivos .md e criará/atualizará os arquivos .html correspondentes na pasta posts/.
 
-Publicar: Faça o deploy da pasta posts/ (e seus arquivos estáticos como CSS) para a Vercel.
-
-Dessa forma, você resolve o problema de digitar HTML e define a formatação uma única vez no htmlTemplate do convert.js.

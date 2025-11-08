@@ -5,9 +5,9 @@
   "main": "doGet.js",
   "scripts": {
     "build": "node convert.js",
-    "dev": "nodemon --watch artigos --ext md,js --exec 'npm run build'",
+    "dev": "nodemon --watch artigos --ext md,js --exec npm run build",
     "start": "npm run build"
-},
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/lbseven7/essencialista.git"
