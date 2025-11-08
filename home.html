@@ -11,6 +11,13 @@
         html {
             scroll-behavior: smooth;
         }
+        /* Carousel */
+        .carousel {
+            scroll-snap-type: x mandatory;
+        }
+        .snap-start {
+            scroll-snap-align: start;
+        }
     </style>
 </head>
 
@@ -50,24 +57,24 @@
         </div>
     </section>
 
+    <!-- Inicia codigo Contador -->
     <section class="bg-white p-6 rounded-lg shadow-lg text-center mt-10">
-  <h3 class="text-2xl font-bold mb-4">Deixe registrado que você esteve aqui!</h3>
-  <div align="center"><a title='Contador de Visitas do MegaContador' href='https://megacontador.com.br/' ><img src='https://megacontador.com.br/img-NtdYtpR3927CdyGZ-5.gif' border='0' alt='Contador de visitas'></a>Visitantes Essesncialistas</div>
-  <form id="visitanteForm" class="space-y-4 max-w-md mx-auto">
-    <input type="text" id="nome" placeholder="Seu nome" required
-           class="border border-gray-300 p-2 rounded w-full">
-    <button type="submit"
-            class="bg-black text-white px-6 py-2 rounded-full hover:bg-orange-500 transition duration-300">
-      Enviar
-    </button>
-  </form>
-  <p id="msg" class="mt-3 text-green-600 font-semibold"></p>
+        <h3 class="text-2xl font-bold mb-4">Deixe registrado que você esteve aqui!</h3>
+        <div align="center"><a title='Contador de Visitas do MegaContador' href='https://megacontador.com.br/'><img
+                    src='https://megacontador.com.br/img-NtdYtpR3927CdyGZ-5.gif' border='0'
+                    alt='Contador de visitas'></a>Visitantes Essesncialistas</div>
+        <form id="visitanteForm" class="space-y-4 max-w-md mx-auto">
+            <input type="text" id="nome" placeholder="Seu nome" required
+                class="border border-gray-300 p-2 rounded w-full">
+            <button type="submit"
+                class="bg-black text-white px-6 py-2 rounded-full hover:bg-orange-500 transition duration-300">
+                Enviar
+            </button>
+        </form>
+        <p id="msg" class="mt-3 text-green-600 font-semibold"></p>
+        <!-- Fim do codigo Contador -->
 
-  <!-- Inicia codigo Contador -->
-<!-- Fim do codigo Contador -->
-
-</section>
-
+    </section>
 
     <!-- Main Content - Hero Section -->
     <main class="container mx-auto mt-8 p-4 text-center">
@@ -84,116 +91,101 @@
         <!-- Featured Articles Section (Optional) -->
         <section class="mt-12" id="featured-articles">
             <h3 class="text-3xl font-bold mb-8">Artigos em Destaque</h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Exemplo de Artigo em Destaque 1 -->
-                <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <h4 class="text-xl font-semibold mb-2">Ensinados por Deus</h4>
-                    <p class="text-gray-700 mb-4">Muitas pessoas acreditam que compreender as Escrituras é apenas uma
-                        questão de estudo e esforço intelectual...</p>
-                    <a href="./articles/article1.html" class="text-blue-600 hover:text-orange-500">Leia Mais</a>
-                </div>
-                <!-- Exemplo de Artigo em Destaque 2 -->
-                <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <h4 class="text-xl font-semibold mb-2">Revelando o Seu Amor</h4>
-                    <p class="text-gray-700 mb-4">Por isso, não olhe apenas para suas dificuldades ou para o ritmo do
-                        seu crescimento espiritual.
-                        Mantenha os olhos fixos no amor do Pai.</p>
-                    <a href="./articles/article2.html" class="text-blue-600 hover:text-orange-500">Leia Mais</a>
-                </div>
-                <!-- Exemplo de Artigo em Destaque 3 -->
-                <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <h4 class="text-xl font-semibold mb-2">Quem Sustenta Todas as Coisas?</h4>
-                    <p class="text-gray-700 mb-4">Há uma força superior que sustenta cada detalhe da criação. A Bíblia
-                        nos revela que é Deus quem criou todas as coisas e, ainda hoje, mantém tudo em perfeita ordem.
-                    </p>
-                    <a href="./articles/article3.html" class="text-blue-600 hover:text-orange-500">Leia Mais</a>
-                    <!-- <img src="./images/loading.png"  alt="Imagem do Artigo"> -->
-                </div>
-                <!-- Exemplo de Artigo em Destaque 4 -->
-                <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <h4 class="text-xl font-semibold mb-2">
-                        A JUSTIÇA PELA FÉ - Introdução
-                    </h4>
-                    <p class="text-gray-700 mb-4">Assuntos como profecia, doutrina e saúde, têm seu lugar, mas não são o
-                        Evangelho da Salvação e podem ser uma distração das coisas mais importantes.</p>
-                    <a href="./articles/article4.html" class="text-blue-600 hover:text-orange-500">Leia Mais</a>
+
+            <div class="relative">
+                <button id="prevSlide" aria-label="Artigo anterior"
+                    class="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 bg-black/70 text-white p-2 rounded-full hover:bg-orange-500">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+
+                <div id="featuredCarousel" class="carousel flex overflow-x-auto space-x-6 scroll-smooth pb-4 px-2">
+                    <!-- Slide 1 -->
+                    <div class="slide-item snap-start flex-shrink-0 w-80 bg-white p-6 rounded-lg shadow-lg">
+                        <h4 class="text-xl font-semibold mb-2">Ensinados por Deus</h4>
+                        <p class="text-gray-700 mb-4">Muitas pessoas acreditam que compreender as Escrituras é apenas uma
+                            questão de estudo e esforço intelectual...</p>
+                        <a href="./articles/article1.html" class="text-blue-600 hover:text-orange-500">Leia Mais</a>
+                    </div>
+
+                    <!-- Slide 2 -->
+                    <div class="slide-item snap-start flex-shrink-0 w-80 bg-white p-6 rounded-lg shadow-lg">
+                        <h4 class="text-xl font-semibold mb-2">Revelando o Seu Amor</h4>
+                        <p class="text-gray-700 mb-4">Por isso, não olhe apenas para suas dificuldades...
+                        </p>
+                        <a href="./articles/article2.html" class="text-blue-600 hover:text-orange-500">Leia Mais</a>
+                    </div>
+
+                    <!-- Slide 3 -->
+                    <div class="slide-item snap-start flex-shrink-0 w-80 bg-white p-6 rounded-lg shadow-lg">
+                        <h4 class="text-xl font-semibold mb-2">Quem Sustenta Todas as Coisas?</h4>
+                        <p class="text-gray-700 mb-4">Há uma força superior que sustenta cada detalhe da criação...</p>
+                        <a href="./articles/article3.html" class="text-blue-600 hover:text-orange-500">Leia Mais</a>
+                    </div>
+
+                    <!-- Slide 4 -->
+                    <div class="slide-item snap-start flex-shrink-0 w-80 bg-white p-6 rounded-lg shadow-lg">
+                        <h4 class="text-xl font-semibold mb-2">A JUSTIÇA PELA FÉ - Introdução</h4>
+                        <p class="text-gray-700 mb-4">Assuntos como profecia, doutrina e saúde...</p>
+                        <a href="./articles/article4.html" class="text-blue-600 hover:text-orange-500">Leia Mais</a>
+                    </div>
+
+                    <!-- Slide 5 -->
+                    <div class="slide-item snap-start flex-shrink-0 w-80 bg-white p-6 rounded-lg shadow-lg">
+                        <h4 class="text-xl font-semibold mb-2">A JUSTIÇA PELA FÉ - Continuação</h4>
+                        <p class="text-gray-700 mb-4">...</p>
+                        <a href="./articles/article5.html" class="text-blue-600 hover:text-orange-500">Leia Mais</a>
+                    </div>
+
+                    <!-- Slide 6 -->
+                    <div class="slide-item snap-start flex-shrink-0 w-80 bg-white p-6 rounded-lg shadow-lg">
+                        <h4 class="text-xl font-semibold mb-2">Testemunho de Camron Schofield</h4>
+                        <p class="text-gray-700 mb-4">Eu tinha boas intenções, mas meus passos estavam equivocados...</p>
+                        <a href="./articles/article6.html" class="text-blue-600 hover:text-orange-500">Leia Mais</a>
+                    </div>
+
+                    <!-- Slide 7 -->
+                    <div class="slide-item snap-start flex-shrink-0 w-80 bg-white p-6 rounded-lg shadow-lg">
+                        <h4 class="text-xl font-semibold mb-2">Aquisição de conhecimento e cultura mental</h4>
+                        <p class="text-gray-700 mb-4">O uso adequado do tempo é essencial para o crescimento...</p>
+                        <a href="./articles/article7.html" class="text-blue-600 hover:text-orange-500">Leia Mais</a>
+                    </div>
+
+                    <!-- Slides 8 a 12 -->
+                    <div class="slide-item snap-start flex-shrink-0 w-80 bg-white p-6 rounded-lg shadow-lg">
+                        <h4 class="text-xl font-semibold mb-2">O Poder da Palavra</h4>
+                        <p class="text-gray-700 mb-4">A Palavra de Deus é viva e eficaz...</p>
+                        <a href="./articles/article8.html" class="text-blue-600 hover:text-orange-500">Leia Mais</a>
+                    </div>
+
+                    <div class="slide-item snap-start flex-shrink-0 w-80 bg-white p-6 rounded-lg shadow-lg">
+                        <h4 class="text-xl font-semibold mb-2">Fé e Obras</h4>
+                        <p class="text-gray-700 mb-4">A fé sem obras é morta...</p>
+                        <a href="./articles/article9.html" class="text-blue-600 hover:text-orange-500">Leia Mais</a>
+                    </div>
+
+                    <div class="slide-item snap-start flex-shrink-0 w-80 bg-white p-6 rounded-lg shadow-lg">
+                        <h4 class="text-xl font-semibold mb-2">A Graça Transformadora</h4>
+                        <p class="text-gray-700 mb-4">A graça de Deus nos transforma...</p>
+                        <a href="./articles/article10.html" class="text-blue-600 hover:text-orange-500">Leia Mais</a>
+                    </div>
+
+                    <div class="slide-item snap-start flex-shrink-0 w-80 bg-white p-6 rounded-lg shadow-lg">
+                        <h4 class="text-xl font-semibold mb-2">O Caráter de Cristo</h4>
+                        <p class="text-gray-700 mb-4">Contemplando o caráter de Cristo...</p>
+                        <a href="./articles/article11.html" class="text-blue-600 hover:text-orange-500">Leia Mais</a>
+                    </div>
+
+                    <div class="slide-item snap-start flex-shrink-0 w-80 bg-white p-6 rounded-lg shadow-lg">
+                        <h4 class="text-xl font-semibold mb-2">A Oração Eficaz</h4>
+                        <p class="text-gray-700 mb-4">A oração do justo pode muito...</p>
+                        <a href="./articles/article12.html" class="text-blue-600 hover:text-orange-500">Leia Mais</a>
+                    </div>
                 </div>
 
-                <!-- Exemplo de Artigo em Destaque 5 -->
-                <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <h4 class="text-xl font-semibold mb-2">
-                        A JUSTIÇA PELA FÉ - Continuação
-                    </h4>
-                    <p class="text-gray-700 mb-4">...</p>
-                    <a href="./articles/article5.html" class="text-blue-600 hover:text-orange-500">Leia Mais</a>
-                </div>
-
-                <!-- Exemplo de Artigo em Destaque 6 -->
-                <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <h4 class="text-xl font-semibold mb-2">
-                        Testemunho de Camron Schofield
-                    </h4>
-                    <p class="text-gray-700 mb-4">Eu tinha boas intenções, mas meus passos estavam equivocados. Eu havia
-                        começado um
-                        caminho que leva ao mesmo lugar que o extremo oposto. O liberalismo e o legalismo são as
-                        consequências naturais de um evangelho confuso.</p>
-                    <a href="./articles/article6.html" class="text-blue-600 hover:text-orange-500">Leia Mais</a>
-                </div>
-                
-                <!-- Artigo em Destaque 7 -->
-                <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <h4 class="text-xl font-semibold mb-2">
-                        Aquisição de conhecimento e cultura mental
-                    </h4>
-                    <p class="text-gray-700 mb-4">O uso adequado do tempo é essencial para o crescimento no conhecimento e na cultura mental. O cultivo da mente deve ser perseverante, contínuo e bem dirigido.</p>
-                    <a href="./articles/article7.html" class="text-blue-600 hover:text-orange-500">Leia Mais</a>
-                </div>
-                
-                <!-- Artigo em Destaque 8 -->
-                <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <h4 class="text-xl font-semibold mb-2">
-                        Química e o Prefixo "Per-"
-                    </h4>
-                    <p class="text-gray-700 mb-4">A formação de moléculas exige um limite máximo de átomos que podem se ligar; se excedido, a molécula se torna instável.</p>
-                    <a href="./articles/article8.html" class="text-blue-600 hover:text-orange-500">Leia Mais</a>
-                </div>
-                
-                <!-- Artigo em Destaque 9 -->
-                <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <h4 class="text-xl font-semibold mb-2">
-                        Deus, Tempo-Espaço-Matéria
-                    </h4>
-                    <p class="text-gray-700 mb-4">A pergunta fundamental, "De onde veio Deus?", parte de uma suposição incorreta: a de que Deus é afetado por **tempo, espaço ou matéria**.</p>
-                    <a href="./articles/article9.html" class="text-blue-600 hover:text-orange-500">Leia Mais</a>
-                </div>
-                
-                <!-- Artigo em Destaque 10 -->
-                <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <h4 class="text-xl font-semibold mb-2">
-                        A Mente Educada e a Convivência com o Contraditório
-                    </h4>
-                    <p class="text-gray-700 mb-4">Aristóteles dizia que somente uma mente educada é capaz de compreender um pensamento diferente do seu sem precisar aceitá-lo.
-        Essa frase carrega a essência da verdadeira saúde:</p>
-                    <a href="./articles/article10.html" class="text-blue-600 hover:text-orange-500">Leia Mais</a>
-                </div>
-                
-                <!-- Artigo em Destaque 11 -->
-                <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <h4 class="text-xl font-semibold mb-2">
-                        Espiritualismo vs. Materialismo
-                    </h4>
-                    <p class="text-gray-700 mb-4">Você vai ver quem é o espiritualista (esteja dentro de uma religião ou não) e o que ele busca realmente como finalidade de sua vida.</p>
-                    <a href="./articles/article11.html" class="text-blue-600 hover:text-orange-500">Leia Mais</a>
-                </div>
-                
-                <!-- Artigo em Destaque 12 -->
-                <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <h4 class="text-xl font-semibold mb-2">
-                        A Oração Eficaz
-                    </h4>
-                    <p class="text-gray-700 mb-4">A oração do justo pode muito em seus efeitos. Aprenda princípios para uma vida de oração eficaz e transformadora.</p>
-                    <a href="./articles/article12.html" class="text-blue-600 hover:text-orange-500">Leia Mais</a>
-                </div>
+                <button id="nextSlide" aria-label="Próximo artigo"
+                    class="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 bg-black/70 text-white p-2 rounded-full hover:bg-orange-500">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
             </div>
         </section>
     </main>
@@ -226,62 +218,81 @@
     </footer>
 
 
-<script>
-  const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbxOf9GW568EqWmTaZape1e3zm_rL082t5P2fpRTeVARNogaxh2gRrFk31XOoAACArle/exec';
-  const IP_SERVICE_URL = "https://api.ipify.org?format=json"; // serviço público simples para capturar IP
+    <script>
+        const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbxOf9GW568EqWmTaZape1e3zm_rL082t5P2fpRTeVARNogaxh2gRrFk31XOoAACArle/exec';
+        const IP_SERVICE_URL = "https://api.ipify.org?format=json"; // serviço público simples para capturar IP
 
-  let userIP = "";
+        let userIP = "";
 
-  // Obter IP do visitante
-  fetch(IP_SERVICE_URL)
-      .then(r => r.json())
-      .then(d => userIP = d.ip)
-      .catch(() => userIP = "Desconhecido");
+        // Obter IP do visitante
+        fetch(IP_SERVICE_URL)
+            .then(r => r.json())
+            .then(d => userIP = d.ip)
+            .catch(() => userIP = "Desconhecido");
 
-  const visitanteForm = document.getElementById("visitanteForm");
-  const msg = document.getElementById("msg");
+        const visitanteForm = document.getElementById("visitanteForm");
+        const msg = document.getElementById("msg");
 
-  visitanteForm.addEventListener("submit", async function(e) {
-      e.preventDefault();
+        visitanteForm.addEventListener("submit", async function (e) {
+            e.preventDefault();
 
-      const nome = document.getElementById("nome").value.trim();
-      const submitButton = visitanteForm.querySelector('button[type="submit"]');
+            const nome = document.getElementById("nome").value.trim();
+            const submitButton = visitanteForm.querySelector('button[type="submit"]');
 
-      if (!nome) {
-          msg.textContent = "Por favor, digite seu nome.";
-          msg.className = "mt-3 text-red-600 font-semibold";
-          return;
-      }
+            if (!nome) {
+                msg.textContent = "Por favor, digite seu nome.";
+                msg.className = "mt-3 text-red-600 font-semibold";
+                return;
+            }
 
-      submitButton.disabled = true;
-      submitButton.textContent = "Enviando...";
-      msg.textContent = "Registrando sua visita...";
-      msg.className = "mt-3 text-blue-600 font-semibold";
+            submitButton.disabled = true;
+            submitButton.textContent = "Enviando...";
+            msg.textContent = "Registrando sua visita...";
+            msg.className = "mt-3 text-blue-600 font-semibold";
 
-      try {
-          const urlWithParams = `${WEB_APP_URL}?nome=${encodeURIComponent(nome)}&ip=${encodeURIComponent(userIP)}`;
+            try {
+                const urlWithParams = `${WEB_APP_URL}?nome=${encodeURIComponent(nome)}&ip=${encodeURIComponent(userIP)}`;
 
-          await fetch(urlWithParams, {
-              method: "POST",
-              mode: "no-cors"
-          });
+                await fetch(urlWithParams, {
+                    method: "POST",
+                    mode: "no-cors"
+                });
 
-          msg.textContent = `Obrigado, ${nome}! Sua visita foi registrada.`;
-          msg.className = "mt-3 text-green-600 font-semibold";
-          visitanteForm.reset();
-      } catch (err) {
-          console.error(err);
-          msg.textContent = "Erro ao registrar. Tente novamente.";
-          msg.className = "mt-3 text-red-600 font-semibold";
-      } finally {
-          submitButton.disabled = false;
-          submitButton.textContent = "Enviar";
-      }
-  });
-</script>
+                msg.textContent = `Obrigado, ${nome}! Sua visita foi registrada.`;
+                msg.className = "mt-3 text-green-600 font-semibold";
+                visitanteForm.reset();
+            } catch (err) {
+                console.error(err);
+                msg.textContent = "Erro ao registrar. Tente novamente.";
+                msg.className = "mt-3 text-red-600 font-semibold";
+            } finally {
+                submitButton.disabled = false;
+                submitButton.textContent = "Enviar";
+            }
+        });
+    </script>
 
 
 
 </body>
 
 </html>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const carousel = document.getElementById('featuredCarousel');
+            const prev = document.getElementById('prevSlide');
+            const next = document.getElementById('nextSlide');
+
+            const page = () => carousel.clientWidth - 60; // avança quase 1 página
+
+            prev?.addEventListener('click', () => {
+                carousel.scrollBy({ left: -page(), behavior: 'smooth' });
+            });
+
+            next?.addEventListener('click', () => {
+                carousel.scrollBy({ left: page(), behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
