@@ -1,0 +1,24 @@
+{
+  "name": "o-essencialista",
+  "version": "1.0.0",
+  "description": "O projeto **Essencialista** é um website focado em artigos e reflexões sobre a essência da fé, teologia, filosofia e vida espiritual, buscando aprofundar o entendimento das Escrituras e a convivência com o contraditório. O design é limpo e moderno, desenvolvido com **Tailwind CSS**.",
+  "main": "doGet.js",
+  "scripts": {
+    "build": "node convert.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lbseven7/essencialista.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lbseven7/essencialista/issues"
+  },
+  "homepage": "https://github.com/lbseven7/essencialista#readme",
+  "dependencies": {
+    "markdown-it": "^14.1.0"
+  }
+}
