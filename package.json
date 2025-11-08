@@ -5,8 +5,9 @@
   "main": "doGet.js",
   "scripts": {
     "build": "node convert.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+    "dev": "nodemon --watch artigos --ext md,js --exec 'npm run build'",
+    "start": "npm run build"
+},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/lbseven7/essencialista.git"
@@ -19,6 +20,10 @@
   },
   "homepage": "https://github.com/lbseven7/essencialista#readme",
   "dependencies": {
+    "gray-matter": "^4.0.3",
     "markdown-it": "^14.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
   }
 }
