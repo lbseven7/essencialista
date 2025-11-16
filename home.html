@@ -170,7 +170,8 @@
                                     class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
                                 <div
                                     class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-3">
-                                    <h3 class="text-white text-lg font-semibold">Aquisição de Conhecimento e Cultura Mental</h3>
+                                    <h3 class="text-white text-lg font-semibold">Aquisição de Conhecimento e Cultura
+                                        Mental</h3>
                                 </div>
                             </div>
                         </a>
@@ -241,7 +242,7 @@
                         </a>
                     </div>
 
-                     <div class="slide-item snap-start flex-shrink-0 w-80 bg-white p-0 rounded-lg shadow-lg">
+                    <div class="slide-item snap-start flex-shrink-0 w-80 bg-white p-0 rounded-lg shadow-lg">
                         <a href="articles/mortos-vivos.html" class="block group" aria-label="Abrir Artigo mortos-vivos">
                             <div class="relative w-full rounded-lg overflow-hidden" style="aspect-ratio: 16/9;">
                                 <img src="images/mortos-vivos.jpg" alt="mortos-vivos" loading="lazy"
@@ -255,8 +256,9 @@
                     </div>
                     <!-- Slide teste -->
 
-                                         <div class="slide-item snap-start flex-shrink-0 w-80 bg-white p-0 rounded-lg shadow-lg">
-                        <a href="articles/feira-vaidade.html" class="block group" aria-label="Abrir Artigo mortos-vivos">
+                    <div class="slide-item snap-start flex-shrink-0 w-80 bg-white p-0 rounded-lg shadow-lg">
+                        <a href="articles/feira-vaidade.html" class="block group"
+                            aria-label="Abrir Artigo mortos-vivos">
                             <div class="relative w-full rounded-lg overflow-hidden" style="aspect-ratio: 16/9;">
                                 <img src="images/bijuterias.jpg" alt="mortos-vivos" loading="lazy"
                                     class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
@@ -267,6 +269,21 @@
                             </div>
                         </a>
                     </div>
+
+                    <div class="slide-item snap-start flex-shrink-0 w-80 bg-white p-0 rounded-lg shadow-lg">
+                        <a href="articles/ranger-dentes.html" class="block group"
+                            aria-label="Abrir Artigo choro e ranger de dentes">
+                            <div class="relative w-full rounded-lg overflow-hidden" style="aspect-ratio: 16/9;">
+                                <img src="images/ranger.png" alt="ranger de dentes" loading="lazy"
+                                    class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+                                <div
+                                    class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-3">
+                                    <h3 class="text-white text-lg font-semibold">Choro e Ranger de Dentes</h3>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
                 </div>
 
                 <button id="nextSlide" aria-label="Próximo artigo"
@@ -387,6 +404,10 @@
         const carousel = document.getElementById('featuredCarousel');
         const prev = document.getElementById('prevSlide');
         const next = document.getElementById('nextSlide');
+
+        // Inverte a ordem dos slides para mostrar os mais recentes primeiro
+        const slides = Array.from(carousel.children);
+        slides.reverse().forEach(slide => carousel.appendChild(slide));
 
         const page = () => carousel.clientWidth - 60; // avança quase 1 página
 
