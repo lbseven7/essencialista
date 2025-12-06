@@ -26,7 +26,7 @@ function resolveTitle(data, markdownBody, fallbackHtmlName) {
 }
 
 // Função para gerar o HTML completo com os dados variáveis
-const htmlTemplate = (data, content) => `
+const htmlTemplate = (data, content, prevHref, nextHref) => `
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -55,21 +55,23 @@ const htmlTemplate = (data, content) => `
                 </a>
             </div>
 
-            <button id="mobileMenuBtn" class="md:hidden p-2 rounded bg-white/10 hover:bg-white/20"
-                    aria-label="Abrir menu" aria-expanded="false">
-                <i class="fas fa-bars"></i>
-            </button>
+            <div class="ml-auto flex items-center gap-4">
+                <button id="mobileMenuBtn" class="md:hidden p-2 rounded bg-white/10 hover:bg-white/20"
+                        aria-label="Abrir menu" aria-expanded="false">
+                    <i class="fas fa-bars"></i>
+                </button>
 
-            <nav id="main-nav"
-                 class="hidden md:block absolute left-0 right-0 top-full w-full z-50 bg-black text-white p-4 shadow-lg max-h-[60vh] overflow-y-auto
-                        md:static md:bg-transparent md:p-0 md:shadow-none md:max-h-none md:overflow-visible">
-                <ul class="flex flex-col space-y-3 md:flex md:flex-row md:space-y-0 md:space-x-6">
-                    <li><a href="../home.html" class="hover:text-orange-500">Início</a></li>
-                    <li><a href="../home.html#articles-section" class="hover:text-orange-500">Artigos</a></li>
-                    <li><a href="../about.html" class="hover:text-orange-500">Sobre</a></li>
-                    <li><a href="../contact.html" class="hover:text-orange-500">Contato</a></li>
-                </ul>
-            </nav>
+                <nav id="main-nav"
+                     class="hidden md:block absolute left-0 right-0 top-full w-full z-50 bg-black text-white p-4 shadow-lg max-h-[60vh] overflow-y-auto
+                            md:static md:bg-transparent md:p-0 md:shadow-none md:max-h-none md:overflow-visible">
+                    <ul class="flex flex-col space-y-3 md:flex md:flex-row md:space-y-0 md:space-x-6">
+                        <li><a href="../home.html" class="hover:text-orange-500">Início</a></li>
+                        <li><a href="../home.html#articles-section" class="hover:text-orange-500">Artigos</a></li>
+                        <li><a href="../about.html" class="hover:text-orange-500">Sobre</a></li>
+                        <li><a href="../contact.html" class="hover:text-orange-500">Contato</a></li>
+                    </ul>
+                </nav>
+            </div>
         </div>
     </header>
 
@@ -99,11 +101,16 @@ const htmlTemplate = (data, content) => `
                 <i class="fas fa-arrow-up"></i>
             </a>
         </div>
-        <div class="mt-6 text-center">
-            <a href="${data.nextArticle || '../home.html'}" class="bg-black text-white px-6 py-1 rounded-full hover:bg-gray-800 transition duration-300">
+
+        <div class="mt-6 flex justify-center gap-3 flex-wrap">
+            <a href="${prevHref || '../home.html'}" class="bg-black text-white px-6 py-1 rounded-full hover:bg-gray-800 transition duration-300">
+                Artigo Anterior
+            </a>
+            <a href="${nextHref || '../home.html'}" class="bg-black text-white px-6 py-1 rounded-full hover:bg-gray-800 transition duration-300">
                 Próximo Artigo
             </a>
         </div>
+
         <div class="mt-6 text-center">
             <a href="../home.html"
                 class="bg-black text-white px-6 py-1 rounded-full hover:bg-orange-500 transition duration-300">
@@ -148,8 +155,9 @@ function processMarkdownFiles() {
     }
 
     const manifest = []; // manifesto dos posts
+    const toGenerate = []; // posts a gerar com dados completos
 
-    // Converte markdowns -> HTML e popula manifest
+    // Converte markdowns -> HTML e popula manifest (sem escrever ainda)
     fs.readdirSync(inputDir).forEach(file => {
         if (path.extname(file) === '.md') {
             const markdownPath = path.join(inputDir, file);
@@ -164,21 +172,29 @@ function processMarkdownFiles() {
             const outputFilename = file.replace('.md', '.html');
             const title = resolveTitle(data, markdownBody, outputFilename);
 
-            const finalHtml = htmlTemplate({ ...data, title }, htmlContent);
-
             const outputPath = path.join(outputDir, outputFilename);
-            fs.writeFileSync(outputPath, finalHtml, 'utf8');
 
             const stat = fs.statSync(markdownPath);
+            const href = `posts/${outputFilename}`;
+
+            // Adia a escrita para depois
+            toGenerate.push({
+                href,
+                outputPath,
+                data: { ...data, title },
+                htmlContent,
+                mtime: stat.mtime.toISOString()
+            });
+
             manifest.push({
                 title,
                 image: data.image || null,
-                href: `posts/${outputFilename}`,
+                href,
                 date: data.date || null,
                 mtime: stat.mtime.toISOString()
             });
 
-            console.log(`✅ ${file} convertido para ${outputFilename}`);
+            console.log(`✅ ${file} preparado para ${outputFilename}`);
         }
     });
 
@@ -193,7 +209,7 @@ function processMarkdownFiles() {
         }
     }
 
-    // Se não houver manifesto anterior, faz fallback: varre posts/ e inclui .html já existentes
+    // Se não houver manifesto anterior, fallback: varre posts/ e inclui .html já existentes
     if (prevIndex.length === 0) {
         const existingHtml = fs.readdirSync(outputDir)
             .filter(name => path.extname(name) === '.html');
@@ -227,6 +243,33 @@ function processMarkdownFiles() {
         ...manifest,
         ...prevIndex.filter(p => !newHrefs.has(p.href))
     ];
+
+    // Calcula ordem igual ao carrossel (mais recente primeiro)
+    const ts = p => {
+        const tDate = p.date ? new Date(p.date).getTime() : 0;
+        const tMtime = p.mtime ? new Date(p.mtime).getTime() : 0;
+        return Math.max(tDate, tMtime);
+    };
+    const sorted = merged.slice().sort((a, b) => ts(b) - ts(a));
+
+    // Mapa para achar índice rápido
+    const indexByHref = new Map(sorted.map((p, i) => [p.href, i]));
+
+    // Escreve HTMLs com "Anterior" e "Próximo" corretos
+    for (const g of toGenerate) {
+        const i = indexByHref.get(g.href);
+        let nextHref = '../home.html';
+        let prevHref = '../home.html';
+        if (typeof i === 'number' && sorted.length > 1) {
+            const nextItem = sorted[(i + 1) % sorted.length];
+            const prevItem = sorted[(i - 1 + sorted.length) % sorted.length];
+            nextHref = `../${nextItem.href}`; // ex.: ../posts/autodidata.html
+            prevHref = `../${prevItem.href}`; // ex.: ../posts/o-artista-visível.html
+        }
+        const finalHtml = htmlTemplate(g.data, g.htmlContent, prevHref, nextHref);
+        fs.writeFileSync(g.outputPath, finalHtml, 'utf8');
+        console.log(`🧭 Navegação para ${path.basename(g.outputPath)} -> prev: ${prevHref} | next: ${nextHref}`);
+    }
 
     // Salva manifesto JSON
     fs.writeFileSync(indexPath, JSON.stringify(merged, null, 2), 'utf8');

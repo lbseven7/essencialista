@@ -1,7 +1,6 @@
 
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,7 +17,7 @@
 <body class="bg-gray-100 text-gray-800 font-sans">
 
     <header class="bg-black text-white p-6 shadow-md">
-        <div class="container mx-auto flex justify-between items-center">
+        <div class="container mx-auto flex justify-between items-center relative">
             <div class="flex items-center space-x-3">
                 <a href="../home.html">
                     <img src="../images/sem-bg-black.png" alt="Essencialista Logo" class="h-10">
@@ -27,14 +26,24 @@
                     <h1 class="text-2xl font-bold">Essencialista</h1>
                 </a>
             </div>
-            <nav id="main-nav" class="hidden md:block">
-                <ul class="flex space-x-6">
-                    <li><a href="../home.html" class="hover:text-orange-500">Início</a></li>
-                    <li><a href="../home.html#articles-section" class="hover:text-orange-500">Artigos</a></li>
-                    <li><a href="../about.html" class="hover:text-orange-500">Sobre</a></li>
-                    <li><a href="../contact.html" class="hover:text-orange-500">Contato</a></li>
-                </ul>
-            </nav>
+
+            <div class="ml-auto flex items-center gap-4">
+                <button id="mobileMenuBtn" class="md:hidden p-2 rounded bg-white/10 hover:bg-white/20"
+                        aria-label="Abrir menu" aria-expanded="false">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <nav id="main-nav"
+                     class="hidden md:block absolute left-0 right-0 top-full w-full z-50 bg-black text-white p-4 shadow-lg max-h-[60vh] overflow-y-auto
+                            md:static md:bg-transparent md:p-0 md:shadow-none md:max-h-none md:overflow-visible">
+                    <ul class="flex flex-col space-y-3 md:flex md:flex-row md:space-y-0 md:space-x-6">
+                        <li><a href="../home.html" class="hover:text-orange-500">Início</a></li>
+                        <li><a href="../home.html#articles-section" class="hover:text-orange-500">Artigos</a></li>
+                        <li><a href="../about.html" class="hover:text-orange-500">Sobre</a></li>
+                        <li><a href="../contact.html" class="hover:text-orange-500">Contato</a></li>
+                    </ul>
+                </nav>
+            </div>
         </div>
     </header>
 
@@ -71,11 +80,16 @@
                 <i class="fas fa-arrow-up"></i>
             </a>
         </div>
-        <div class="mt-6 text-center">
-            <a href="../home.html" class="bg-black text-white px-6 py-1 rounded-full hover:bg-gray-800 transition duration-300">
+
+        <div class="mt-6 flex justify-center gap-3 flex-wrap">
+            <a href="../posts/o-artista-visível.html" class="bg-black text-white px-6 py-1 rounded-full hover:bg-gray-800 transition duration-300">
+                Artigo Anterior
+            </a>
+            <a href="../posts/autodidata.html" class="bg-black text-white px-6 py-1 rounded-full hover:bg-gray-800 transition duration-300">
                 Próximo Artigo
             </a>
         </div>
+
         <div class="mt-6 text-center">
             <a href="../home.html"
                 class="bg-black text-white px-6 py-1 rounded-full hover:bg-orange-500 transition duration-300">
@@ -91,5 +105,23 @@
         </div>
     </footer>
 
+    <script>
+        (function () {
+            const btn = document.getElementById('mobileMenuBtn');
+            const nav = document.getElementById('main-nav');
+            btn?.addEventListener('click', () => {
+                const isHidden = nav.classList.contains('hidden');
+                if (isHidden) {
+                    nav.classList.remove('hidden');
+                    nav.classList.add('block');
+                    btn.setAttribute('aria-expanded', 'true');
+                } else {
+                    nav.classList.add('hidden');
+                    nav.classList.remove('block');
+                    btn.setAttribute('aria-expanded', 'false');
+                }
+            });
+        })();
+    </script>
 </body>
 </html>
