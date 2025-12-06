@@ -60,8 +60,9 @@ const htmlTemplate = (data, content) => `
                 <i class="fas fa-bars"></i>
             </button>
 
-            <nav id="main-nav" class="hidden md:block absolute left-0 right-0 top-full w-full z-50 bg-black text-white p-4 shadow-lg
-                        md:static md:bg-transparent md:p-0 md:shadow-none">
+            <nav id="main-nav"
+                 class="hidden md:block absolute left-0 right-0 top-full w-full z-50 bg-black text-white p-4 shadow-lg max-h-[60vh] overflow-y-auto
+                        md:static md:bg-transparent md:p-0 md:shadow-none md:max-h-none md:overflow-visible">
                 <ul class="flex flex-col space-y-3 md:flex md:flex-row md:space-y-0 md:space-x-6">
                     <li><a href="../home.html" class="hover:text-orange-500">Início</a></li>
                     <li><a href="../home.html#articles-section" class="hover:text-orange-500">Artigos</a></li>
