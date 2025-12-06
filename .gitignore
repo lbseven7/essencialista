@@ -18,7 +18,7 @@ Thumbs.db
 # Ignorar a pasta de saída do script de conversão
 # (Contém os arquivos HTML que serão gerados a partir do Markdown)
 # Se você chamou a sua pasta de saída de 'posts', mantenha assim:
-/posts/
+# /posts/
 
 # Se você tivesse o Hugo instalado, também ignoraria a pasta de build:
 # /public/

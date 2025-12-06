@@ -1,0 +1,23 @@
+[
+  {
+    "title": "O Artista-Mestre",
+    "image": "artista.png",
+    "href": "posts/artista-mestre.html",
+    "date": "2025-12-06T00:00:00.000Z",
+    "mtime": "2025-12-06T00:48:54.818Z"
+  },
+  {
+    "title": "A Engenharia Reversa da Arte",
+    "image": "autodidata.jpg",
+    "href": "posts/autodidata.html",
+    "date": "2025-12-06T00:00:00.000Z",
+    "mtime": "2025-12-06T00:17:46.625Z"
+  },
+  {
+    "title": "O Jugo de Cristo",
+    "image": "jugo.jpg",
+    "href": "posts/o-jugo-de-cristo.html",
+    "date": "2025-12-05T00:00:00.000Z",
+    "mtime": "2025-12-06T00:02:55.143Z"
+  }
+]
