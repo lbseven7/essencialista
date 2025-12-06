@@ -29,7 +29,6 @@ function resolveTitle(data, markdownBody, fallbackHtmlName) {
 const htmlTemplate = (data, content) => `
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -46,7 +45,7 @@ const htmlTemplate = (data, content) => `
 <body class="bg-gray-100 text-gray-800 font-sans">
 
     <header class="bg-black text-white p-6 shadow-md">
-        <div class="container mx-auto flex justify-between items-center">
+        <div class="container mx-auto flex justify-between items-center relative">
             <div class="flex items-center space-x-3">
                 <a href="../home.html">
                     <img src="../images/sem-bg-black.png" alt="Essencialista Logo" class="h-10">
@@ -61,8 +60,9 @@ const htmlTemplate = (data, content) => `
                 <i class="fas fa-bars"></i>
             </button>
 
-            <nav id="main-nav" class="hidden md:block">
-                <ul class="flex space-x-6">
+            <nav id="main-nav" class="hidden md:block absolute left-0 right-0 top-full w-full z-50 bg-black text-white p-4 shadow-lg
+                        md:static md:bg-transparent md:p-0 md:shadow-none">
+                <ul class="flex flex-col space-y-3 md:flex md:flex-row md:space-y-0 md:space-x-6">
                     <li><a href="../home.html" class="hover:text-orange-500">Início</a></li>
                     <li><a href="../home.html#articles-section" class="hover:text-orange-500">Artigos</a></li>
                     <li><a href="../about.html" class="hover:text-orange-500">Sobre</a></li>
