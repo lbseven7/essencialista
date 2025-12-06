@@ -121,6 +121,7 @@ function processMarkdownFiles() {
 
     const manifest = []; // manifesto dos posts
 
+    // Converte markdowns -> HTML e popula manifest
     fs.readdirSync(inputDir).forEach(file => {
         if (path.extname(file) === '.md') {
             const markdownPath = path.join(inputDir, file);
@@ -153,10 +154,55 @@ function processMarkdownFiles() {
         }
     });
 
-    // Salva manifesto JSON
+    // Lê manifesto anterior para preservar itens existentes
     const indexPath = path.join(outputDir, 'index.json');
-    fs.writeFileSync(indexPath, JSON.stringify(manifest, null, 2), 'utf8');
-    console.log(`📄 Manifesto atualizado: posts/index.json (${manifest.length} itens)`);
+    let prevIndex = [];
+    if (fs.existsSync(indexPath)) {
+        try {
+            prevIndex = JSON.parse(fs.readFileSync(indexPath, 'utf8'));
+        } catch {
+            prevIndex = [];
+        }
+    }
+
+    // Se não houver manifesto anterior, faz fallback: varre posts/ e inclui .html já existentes
+    if (prevIndex.length === 0) {
+        const existingHtml = fs.readdirSync(outputDir)
+            .filter(name => path.extname(name) === '.html');
+        for (const name of existingHtml) {
+            const href = `posts/${name}`;
+            // Evita duplicar o que foi gerado neste ciclo
+            const already = manifest.find(p => p.href === href);
+            if (already) continue;
+
+            let title = name.replace('.html', '');
+            try {
+                const html = fs.readFileSync(path.join(outputDir, name), 'utf8');
+                const m = html.match(/<title>([^<]+)<\/title>/i);
+                if (m && m[1]) title = m[1].trim();
+            } catch {}
+
+            const stat = fs.statSync(path.join(outputDir, name));
+            manifest.push({
+                title,
+                image: null,
+                href,
+                date: null,
+                mtime: stat.mtime.toISOString()
+            });
+        }
+    }
+
+    // Merge: mantém anteriores que não foram substituídos
+    const newHrefs = new Set(manifest.map(p => p.href));
+    const merged = [
+        ...manifest,
+        ...prevIndex.filter(p => !newHrefs.has(p.href))
+    ];
+
+    // Salva manifesto JSON
+    fs.writeFileSync(indexPath, JSON.stringify(merged, null, 2), 'utf8');
+    console.log(`📄 Manifesto atualizado: posts/index.json (${merged.length} itens)`);
 }
 
 processMarkdownFiles();
