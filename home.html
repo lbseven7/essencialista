@@ -30,19 +30,25 @@
     <header class="bg-black text-white p-6 shadow-md">
         <div class="container mx-auto flex justify-between items-center">
             <div class="flex items-center space-x-3">
-                <a href="./home.html">
-                    <img src="./images/sem-bg-black.png" alt="Essencialista Logo" class="h-10">
+                <a href="home.html">
+                    <img src="images/sem-bg-black.png" alt="Essencialista Logo" class="h-10">
                 </a>
-                <a href="./home.html">
+                <a href="home.html">
                     <h1 class="text-2xl font-bold">Essencialista</h1>
                 </a>
             </div>
+
+            <button id="mobileMenuBtn" class="md:hidden p-2 rounded bg-white/10 hover:bg-white/20"
+                aria-label="Abrir menu" aria-expanded="false">
+                <i class="fas fa-bars"></i>
+            </button>
+
             <nav id="main-nav" class="hidden md:block">
                 <ul class="flex space-x-6">
-                    <li><a href="./home.html" class="hover:text-orange-500">Início</a></li>
-                    <li><a href="./home.html#articles-section" class="hover:text-orange-500">Artigos</a></li>
-                    <li><a href="./about.html" class="hover:text-orange-500">Sobre</a></li>
-                    <li><a href="./contact.html" class="hover:text-orange-500">Contato</a></li>
+                    <li><a href="home.html" class="hover:text-orange-500">Início</a></li>
+                    <li><a href="#featured-articles" class="hover:text-orange-500">Artigos</a></li>
+                    <li><a href="about.html" class="hover:text-orange-500">Sobre</a></li>
+                    <li><a href="contact.html" class="hover:text-orange-500">Contato</a></li>
                 </ul>
             </nav>
         </div>
@@ -320,8 +326,10 @@
     <!-- Footer -->
     <footer class="bg-black text-white p-6 mt-10">
         <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
-            <div class="mb-4 md:mb-0">
-                <p>&copy; 2024 Essencialista. Todos os direitos reservados.</p>
+            <div class="container mx-auto text-center">
+                <p><img src="../images/sem-bg-black.png" alt="Essencialista Logo"
+                        class="h-10 inline-block">Essencialista.
+                    Todos os direitos reservados &copy;lbseven7 2025</p>
             </div>
             <div class="flex space-x-6">
                 <a href="https://wa.me/73991182932" target="_blank" class="hover:text-green-400">
@@ -455,3 +463,22 @@
     });
 </script>
 </body>
+
+<script>
+    (function () {
+        const btn = document.getElementById('mobileMenuBtn');
+        const nav = document.getElementById('main-nav');
+        btn?.addEventListener('click', () => {
+            const isHidden = nav.classList.contains('hidden');
+            if (isHidden) {
+                nav.classList.remove('hidden');
+                nav.classList.add('block');
+                btn.setAttribute('aria-expanded', 'true');
+            } else {
+                nav.classList.add('hidden');
+                nav.classList.remove('block');
+                btn.setAttribute('aria-expanded', 'false');
+            }
+        });
+    })();
+</script>

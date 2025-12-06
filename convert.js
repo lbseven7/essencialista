@@ -55,6 +55,12 @@ const htmlTemplate = (data, content) => `
                     <h1 class="text-2xl font-bold">Essencialista</h1>
                 </a>
             </div>
+
+            <button id="mobileMenuBtn" class="md:hidden p-2 rounded bg-white/10 hover:bg-white/20"
+                    aria-label="Abrir menu" aria-expanded="false">
+                <i class="fas fa-bars"></i>
+            </button>
+
             <nav id="main-nav" class="hidden md:block">
                 <ul class="flex space-x-6">
                     <li><a href="../home.html" class="hover:text-orange-500">Início</a></li>
@@ -112,6 +118,24 @@ const htmlTemplate = (data, content) => `
         </div>
     </footer>
 
+    <script>
+        (function () {
+            const btn = document.getElementById('mobileMenuBtn');
+            const nav = document.getElementById('main-nav');
+            btn?.addEventListener('click', () => {
+                const isHidden = nav.classList.contains('hidden');
+                if (isHidden) {
+                    nav.classList.remove('hidden');
+                    nav.classList.add('block');
+                    btn.setAttribute('aria-expanded', 'true');
+                } else {
+                    nav.classList.add('hidden');
+                    nav.classList.remove('block');
+                    btn.setAttribute('aria-expanded', 'false');
+                }
+            });
+        })();
+    </script>
 </body>
 </html>
 `;
