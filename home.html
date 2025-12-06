@@ -408,12 +408,15 @@
         fetch('posts/index.json')
             .then(r => r.json())
             .then(items => {
-                // ordena por data (date/mtime) decrescente: mais recentes primeiro
-                items.sort((a, b) => {
-                    const ad = new Date(a.date || a.mtime || 0);
-                    const bd = new Date(b.date || b.mtime || 0);
-                    return bd - ad;
-                });
+                // ordena pelo MAIS RECENTE considerando date e mtime
+                const getTs = (p) => {
+                    const d1 = p.date ? new Date(p.date) : null;
+                    const d2 = p.mtime ? new Date(p.mtime) : null;
+                    const t1 = d1 && !isNaN(d1) ? d1.getTime() : 0;
+                    const t2 = d2 && !isNaN(d2) ? d2.getTime() : 0;
+                    return Math.max(t1, t2);
+                };
+                items.sort((a, b) => getTs(b) - getTs(a));
 
                 // cria fragmento e insere tudo de uma vez no início
                 const fragment = document.createDocumentFragment();
@@ -436,7 +439,6 @@
                 carousel.prepend(fragment);
 
                 // garante que os novos artigos apareçam de primeira na tela
-                // usa 'auto' para evitar animação e manter instantâneo
                 carousel.scrollTo({ left: 0, behavior: 'auto' });
             })
             .catch(() => {
@@ -444,11 +446,9 @@
             });
 
         const page = () => carousel.clientWidth - 60;
-
         prev?.addEventListener('click', () => {
             carousel.scrollBy({ left: -page(), behavior: 'smooth' });
         });
-
         next?.addEventListener('click', () => {
             carousel.scrollBy({ left: page(), behavior: 'smooth' });
         });
