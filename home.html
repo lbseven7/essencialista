@@ -405,11 +405,46 @@
         const prev = document.getElementById('prevSlide');
         const next = document.getElementById('nextSlide');
 
-        // Inverte a ordem dos slides para mostrar os mais recentes primeiro
-        const slides = Array.from(carousel.children);
-        slides.reverse().forEach(slide => carousel.appendChild(slide));
+        // Carrega posts gerados em /posts/index.json e injeta no carrossel
+        fetch('posts/index.json')
+            .then(r => r.json())
+            .then(items => {
+                // ordena por data (date/mtime) decrescente: mais recentes primeiro
+                items.sort((a, b) => {
+                    const ad = new Date(a.date || a.mtime || 0);
+                    const bd = new Date(b.date || b.mtime || 0);
+                    return bd - ad;
+                });
 
-        const page = () => carousel.clientWidth - 60; // avança quase 1 página
+                // cria fragmento e insere tudo de uma vez no início
+                const fragment = document.createDocumentFragment();
+                items.forEach(p => {
+                    const slide = document.createElement('div');
+                    slide.className = 'slide-item snap-start flex-shrink-0 w-80 bg-white p-0 rounded-lg shadow-lg';
+                    slide.innerHTML = `
+                        <a href="${p.href}" class="block group" aria-label="${p.title}">
+                            <div class="relative w-full rounded-lg overflow-hidden" style="aspect-ratio: 16/9;">
+                                <img src="images/${p.image || 'default_08.png'}" alt="${p.title}" loading="lazy"
+                                    class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+                                <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-3">
+                                    <h3 class="text-white text-lg font-semibold">${p.title}</h3>
+                                </div>
+                            </div>
+                        </a>
+                    `;
+                    fragment.appendChild(slide);
+                });
+                carousel.prepend(fragment);
+
+                // garante que os novos artigos apareçam de primeira na tela
+                // usa 'auto' para evitar animação e manter instantâneo
+                carousel.scrollTo({ left: 0, behavior: 'auto' });
+            })
+            .catch(() => {
+                console.warn('Não foi possível carregar posts/index.json.');
+            });
+
+        const page = () => carousel.clientWidth - 60;
 
         prev?.addEventListener('click', () => {
             carousel.scrollBy({ left: -page(), behavior: 'smooth' });

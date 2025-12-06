@@ -8,6 +8,23 @@ const md = new MarkdownIt();
 const inputDir = path.join(__dirname, 'artigos'); 
 const outputDir = path.join(__dirname, 'posts');  
 
+// Função para resolver o título a partir de várias fontes
+function resolveTitle(data, markdownBody, fallbackHtmlName) {
+    const titleFromFrontMatter = data.title || data['Título'] || data['titulo'];
+    if (titleFromFrontMatter) return String(titleFromFrontMatter).trim();
+
+    // Procura por linha "Título: ..."
+    const matchTitulo = markdownBody.match(/^\s*T[ií]tulo:\s*(.+)$/mi);
+    if (matchTitulo) return matchTitulo[1].trim();
+
+    // Procura primeiro heading H1 "# ..."
+    const matchH1 = markdownBody.match(/^\s*#\s+(.+?)\s*$/m);
+    if (matchH1) return matchH1[1].trim();
+
+    // Fallback para nome do arquivo (sem .html)
+    return fallbackHtmlName.replace('.html', '');
+}
+
 // Função para gerar o HTML completo com os dados variáveis
 const htmlTemplate = (data, content) => `
 <!DOCTYPE html>
@@ -102,30 +119,44 @@ function processMarkdownFiles() {
         fs.mkdirSync(outputDir);
     }
 
+    const manifest = []; // manifesto dos posts
+
     fs.readdirSync(inputDir).forEach(file => {
         if (path.extname(file) === '.md') {
             const markdownPath = path.join(inputDir, file);
             const markdownFile = fs.readFileSync(markdownPath, 'utf8');
 
-            // 1. Ler o Front Matter e o conteúdo
             const contentMatter = matter(markdownFile);
             const data = contentMatter.data;
             const markdownBody = contentMatter.content;
 
-            // 2. Converter Markdown para HTML
             const htmlContent = md.render(markdownBody);
-            
-            // 3. Envolver o conteúdo no template
-            const finalHtml = htmlTemplate(data, htmlContent);
 
-            // 4. Salvar o arquivo HTML
             const outputFilename = file.replace('.md', '.html');
+            const title = resolveTitle(data, markdownBody, outputFilename);
+
+            const finalHtml = htmlTemplate({ ...data, title }, htmlContent);
+
             const outputPath = path.join(outputDir, outputFilename);
             fs.writeFileSync(outputPath, finalHtml, 'utf8');
+
+            const stat = fs.statSync(markdownPath);
+            manifest.push({
+                title,
+                image: data.image || null,
+                href: `posts/${outputFilename}`,
+                date: data.date || null,
+                mtime: stat.mtime.toISOString()
+            });
 
             console.log(`✅ ${file} convertido para ${outputFilename}`);
         }
     });
+
+    // Salva manifesto JSON
+    const indexPath = path.join(outputDir, 'index.json');
+    fs.writeFileSync(indexPath, JSON.stringify(manifest, null, 2), 'utf8');
+    console.log(`📄 Manifesto atualizado: posts/index.json (${manifest.length} itens)`);
 }
 
 processMarkdownFiles();
