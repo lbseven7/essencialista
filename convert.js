@@ -76,12 +76,15 @@ const htmlTemplate = (data, content) => `
                 ${content}
             </div>
 
-            ${data.reflection ? `
+            ${(() => {
+                const signature = data.signature || data.assinatura || data.reflection;
+                return signature ? `
                 <div class="mt-6 p-4 bg-gray-50 border-l-4 border-black rounded">
-                    <p class="italic">👉 Reflexão final: ${data.reflection}</p>
+                    <p class="italic">👉 ${signature}</p>
                     <p class="text-right mt-2 font-semibold">- Essencialista</p>
                 </div>
-            ` : ''}
+                ` : '';
+            })()}
         </article>
 
         <div class="mt-6 text-center">

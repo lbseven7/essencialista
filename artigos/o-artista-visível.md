@@ -1,7 +1,8 @@
 ---
 title: O Resgate do Invisível
 date: 2025-12-06
-image: invisivel.jpg
+image: sala-de-aula.jpg
+assinatura: "Sou artista autodidata. Não pretendo ser um professor para autodidatas e sim um promotor de oportunidades para tornar o caminho da iniciação artística mais visível."
 ---
 # Basta Uma Oportunidade: A Arte de Fazer Artistas
 
