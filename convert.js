@@ -2,6 +2,8 @@ const fs = require('fs');
 const path = require('path');
 const MarkdownIt = require('markdown-it');
 const matter = require('gray-matter'); // Para ler metadados
+
+// Após a inicialização do MarkdownIt
 const md = new MarkdownIt();
 
 // 1. Defina os caminhos (Mantenha como definimos antes)
@@ -23,6 +25,11 @@ function resolveTitle(data, markdownBody, fallbackHtmlName) {
 
     // Fallback para nome do arquivo (sem .html)
     return fallbackHtmlName.replace('.html', '');
+}
+
+// Helper para aplicar negrito aos subtítulos (h1 e h2) do conteúdo gerado
+function applyBoldToSubtitles(html) {
+    return html.replace(/<h([12])([^>]*)>([\s\S]*?)<\/h\1>/g, '<h$1$2><strong>$3</strong></h$1>');
 }
 
 // Função para gerar o HTML completo com os dados variáveis
@@ -87,12 +94,12 @@ const htmlTemplate = (data, content, prevHref, nextHref) => `
 
             ${(() => {
                 const signature = data.signature || data.assinatura || data.reflection;
-                return signature ? `
+                return `
                 <div class="mt-6 p-4 bg-gray-50 border-l-4 border-black rounded">
-                    <p class="italic">👉 ${signature}</p>
+                    ${signature ? `<p class="italic">👉 ${signature}</p>` : ``}
                     <p class="text-right mt-2 font-semibold">- Essencialista</p>
                 </div>
-                ` : '';
+                `;
             })()}
         </article>
 
@@ -167,7 +174,10 @@ function processMarkdownFiles() {
             const data = contentMatter.data;
             const markdownBody = contentMatter.content;
 
-            const htmlContent = md.render(markdownBody);
+            // 1) Render Markdown -> HTML
+            const rawHtmlContent = md.render(markdownBody);
+            // 2) Aplicar negrito nos subtítulos h1/h2
+            const htmlContent = applyBoldToSubtitles(rawHtmlContent);
 
             const outputFilename = file.replace('.md', '.html');
             const title = resolveTitle(data, markdownBody, outputFilename);

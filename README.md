@@ -2,8 +2,9 @@
 ## 📄Projeto Essencialista
 
 ### 🚀 Essencialista
+ * **Acesse o Website Essencialista:** `https://essencialista.vercel.app/`
 
-O projeto **Essencialista** é um website focado em artigos e reflexões sobre a essência da fé, teologia, filosofia e vida espiritual, buscando aprofundar o entendimento das Escrituras e a convivência com o contraditório. O design é limpo e moderno, desenvolvido com **Tailwind CSS**.
+O projeto **Essencialista** é um website pessoal do artista **Leo Barbosa**, focado em artigos e reflexões sobre a essência da sua fé, teologia, filosofia e vida espiritual, buscando aprofundar o entendimento das Escrituras e a convivência com o contraditório. O design é limpo e moderno, desenvolvido com **Tailwind CSS**.
 
 ### ✨ Funcionalidades Principais
 
@@ -72,10 +73,12 @@ Os artigos apresentados na seção de destaque (`featured-articles`) abordam tem
 O rodapé do projeto inclui links para contato:
 
   * **WhatsApp:** `https://wa.me/73991182932`
-  * **Email:** `mailto:contato@essencialista.com`
+  * **Email:** `mailto:leob.com.br@gmail.com`
   * **Website Relacionado:** `https://www.reflorbrasil.com.br`
+ 
 
 -----
+ * **Acesse o Website Essencialista:** `https://essencialista.vercel.app/`
 
 ### ⚖️ Licença
 
