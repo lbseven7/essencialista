@@ -1,5 +1,12 @@
 [
   {
+    "title": "A Mente Forte",
+    "image": "mente.jpg",
+    "href": "posts/a-capital-do-corpo.html",
+    "date": "2025-12-13T00:00:00.000Z",
+    "mtime": "2025-12-13T13:16:37.722Z"
+  },
+  {
     "title": "O Artista-Mestre",
     "image": "artista.png",
     "href": "posts/artista-mestre.html",
