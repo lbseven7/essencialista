@@ -21,6 +21,13 @@
     "mtime": "2025-12-06T00:17:46.625Z"
   },
   {
+    "title": "O Estudo Mais Eficaz",
+    "image": "mcp.jpg",
+    "href": "posts/estudo-eficaz.html",
+    "date": "2026-01-10T00:00:00.000Z",
+    "mtime": "2026-01-10T17:48:18.873Z"
+  },
+  {
     "title": "Luz em Gadara",
     "image": "gadara.jpg",
     "href": "posts/gadara.html",
@@ -40,5 +47,12 @@
     "href": "posts/o-jugo-de-cristo.html",
     "date": "2025-12-05T00:00:00.000Z",
     "mtime": "2025-12-06T00:02:55.143Z"
+  },
+  {
+    "title": "A Tolice e o Rebaixamento Espiritual",
+    "image": "tolice.jpg",
+    "href": "posts/tolice-digital.html",
+    "date": "2026-01-10T00:00:00.000Z",
+    "mtime": "2026-01-10T17:00:26.179Z"
   }
 ]
