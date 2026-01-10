@@ -179,7 +179,8 @@ function processMarkdownFiles() {
             // 2) Aplicar negrito nos subtítulos h1/h2
             const htmlContent = applyBoldToSubtitles(rawHtmlContent);
 
-            const outputFilename = file.replace('.md', '.html');
+            // Remove acentos do nome do arquivo
+            const outputFilename = file.replace('.md', '.html').normalize('NFD').replace(/[\u0300-\u036f]/g, "");
             const title = resolveTitle(data, markdownBody, outputFilename);
 
             const outputPath = path.join(outputDir, outputFilename);
@@ -247,11 +248,16 @@ function processMarkdownFiles() {
         }
     }
 
-    // Merge: mantém anteriores que não foram substituídos
+    // Merge: mantém anteriores que não foram substituídos E que ainda existem
     const newHrefs = new Set(manifest.map(p => p.href));
     const merged = [
         ...manifest,
-        ...prevIndex.filter(p => !newHrefs.has(p.href))
+        ...prevIndex.filter(p => {
+            if (newHrefs.has(p.href)) return false;
+            // Verifica se arquivo existe
+            const filePath = path.join(__dirname, p.href);
+            return fs.existsSync(filePath);
+        })
     ];
 
     // Calcula ordem igual ao carrossel (mais recente primeiro)
