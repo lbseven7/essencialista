@@ -4,7 +4,10 @@ const MarkdownIt = require('markdown-it');
 const matter = require('gray-matter'); // Para ler metadados
 
 // Após a inicialização do MarkdownIt
-const md = new MarkdownIt();
+const md = new MarkdownIt({
+    html: true,
+    linkify: true
+});
 
 // 1. Defina os caminhos (Mantenha como definimos antes)
 const inputDir = path.join(__dirname, 'artigos'); 
