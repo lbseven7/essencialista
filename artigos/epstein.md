@@ -42,7 +42,7 @@ Enquanto o Espírito de Deus ainda exerce Sua influência restritiva, há conten
 
 Os “grandes da terra” são considerados poderosos por seu dinheiro e influência. Entretanto, as Escrituras são claras:
 
-* **A Raiz de Males:** “O dinheiro é a raiz de todos os males” (**1 Timóteo 6:10**).
+* **A Raiz de Males:** “O amor ao dinheiro é a raiz de todos os males” (**1 Timóteo 6:10**).
 * **O Destino da Injustiça:** Tiago 5:1-6 descreve o fim dos ricos que oprimem sem arrependimento.
 
 O problema não é a riqueza em si, mas o **coração não regenerado**. No Grande Conflito, a luta nunca foi apenas política ou social; ela é moral, espiritual e, acima de tudo, sobrenatural.
