@@ -67,8 +67,7 @@ A história está se acelerando. O que vemos nos tribunais e nas coalizões pol�
 
 ---
 
-**Quer entender mais sobre como o Sábado se torna o centro do conflito final?** Peça nosso guia de estudos bíblicos sobre as profecias de Apocalipse 13 e 14!
+**Quer entender mais sobre como o Sábado se torna o centro do conflito final?** Entre em contato comigo para mais informações.
 
 ```
 
-**Deseja que eu sugira um prompt para a imagem `descanso-lei.png` que capture essa tensão entre o congresso americano e o simbolismo bíblico?**
