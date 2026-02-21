@@ -30,15 +30,15 @@ Mateus 25:10 – Deus é Quem fecha a porta.
 Nos nossos dias, temos o dia de hoje para o arrependimento
 Apocalipse 22:11 – Jesus é Quem fecha a porta. Quando Cristo terminar a sua obra de intercessão e disser: “Feito está”, então a porta da graça estará fechada para sempre.
 
-Logicamente que o mundo não acabou nos dias de Noé, nem nos dias da nação judaica e AINDA não acabou em nossos dias. Mas o fato é que, DEUS TEM UM TEMPO DEFINIDO em que vai finalizar a história do pecado aqui nesta Terra. Isto é certo. Mas será que é possível saber sobre este tempo?
-Mateus 24:36 – Mas daquele dia e hora nenhum homem sabe, não, nem os anjos do céu, mas unicamente meu Pai.
-Mateus 24:38 – (...) até o dia em que Noé entrou na arca. 
+Logicamente que o mundo não acabou nos dias de Noé (PORQUE AIDA NÃO HAVIA CHEGADO O TEMPO), nem nos dias da nação judaica e AINDA não acabou em nossos dias. Mas o fato é que, DEUS TEM UM TEMPO DEFINIDO em que vai finalizar a história do pecado aqui nesta Terra. Isto é certo. Mas será que é possível saber sobre este tempo?
+Mateus 24:36 – Mas daquele DIA E HORA nenhum homem sabe, não, nem os anjos do céu, mas unicamente meu Pai.
+Mateus 24:38 – (...) ATÉ O DIA em que Noé entrou na arca. 
 
-Mateus 24:39 – e não o perceberam até que veio o dilúvio
-Mateus 24: 42 – Vigiai, portanto, porque não sabeis em que hora há de vir o vosso Senhor.
-O anúncio do dia e da hora será feito feito por Deus pouco antes da segunda vinda de Cristo, mas nesse tempo, devemos estar selados para a salvação.
+Mateus 24:39 – e não o perceberam ATÉ que veio o dilúvio
+Mateus 24: 42 – Vigiai, portanto, porque não sabeis EM QUE HORA há de vir o vosso Senhor.
+Para a alegria dos salvos, o anúncio do DIA E DA HORA será feito feito por Deus pouco antes de Cristo aparecer no céu, mas nesse tempo, devemos estar selados para a salvação pois já haverá acabado o tempo de graça. "Quem é sujo, continua sujo e quem é justo continue na prática da justiça."
 Quando a porta da graça se fechar, não haverá mais chance de ser salvo.
 
-Por isso, o dia da sua salvação é hoje. Escolha a vida para que vivas!
+Por isso, o dia da sua salvação é HOJE. Escolha pois a vida para que vivas!
 
 ## Se quiser estudar mais comigo, entre em contato!
