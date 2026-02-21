@@ -69,12 +69,68 @@
             font-weight: bold;
             text-transform: uppercase;
         }
+
+        /* Variáveis de transição suave */
+        body {
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        /* Configurações do Dark Mode */
+        body.dark {
+            background-color: #121212;
+            color: #e5e7eb;
+        }
+
+        .dark header {
+            background-color: #000000;
+            border-bottom: 1px solid #333;
+        }
+
+        .dark .bg-white {
+            background-color: #1e1e1e !important;
+            color: #f3f4f6;
+        }
+
+        .dark .text-gray-900 {
+            color: #ffffff !important;
+        }
+
+        .dark .text-gray-700 {
+            color: #d1d5db !important;
+        }
+
+        .dark .text-gray-800 {
+            color: #e5e7eb !important;
+        }
+
+        .dark .border-gray-300 {
+            border-color: #444 !important;
+        }
+
+        .dark input,
+        .dark textarea {
+            background-color: #2d2d2d;
+            color: white;
+            border-color: #444;
+        }
+
+        .dark .filter-btn {
+            background-color: #333;
+            color: #ccc;
+        }
+
+        .dark .filter-btn:hover {
+            background-color: #f97316;
+            color: white;
+        }
     </style>
+
 </head>
+
 
 <body class="bg-gray-100 text-gray-800 font-sans">
 
-    <header class="bg-black text-white p-6 shadow-md">
+    <header class="bg-black text-white p-6 shadow-md sticky top-0 z-50">
         <div class="container mx-auto flex items-center relative">
             <div class="flex items-center space-x-3">
                 <a href="home.html"><img src="images/sem-bg-black.png" alt="Logo" class="h-10"></a>
@@ -82,9 +138,16 @@
                     <h1 class="text-2xl font-bold">Essencialista</h1>
                 </a>
             </div>
-            <div class="ml-auto flex items-center">
-                <button id="mobileMenuBtn" class="md:hidden p-2 rounded bg-white/10 hover:bg-white/20"><i
-                        class="fas fa-bars"></i></button>
+
+            <div class="ml-auto flex items-center space-x-4">
+                <button id="darkModeBtn" class="p-2 rounded-full hover:bg-white/10 transition">
+                    <i id="darkIcon" class="fas fa-moon text-xl"></i>
+                </button>
+
+                <button id="mobileMenuBtn" class="md:hidden p-2 rounded bg-white/10 hover:bg-white/20">
+                    <i class="fas fa-bars"></i>
+                </button>
+
                 <nav id="main-nav"
                     class="hidden md:block absolute left-0 right-0 top-full w-full z-50 bg-black md:static md:bg-transparent md:p-0 md:shadow-none">
                     <ul class="flex flex-col space-y-3 p-4 md:flex-row md:space-y-0 md:space-x-6 md:p-0 text-center">
@@ -216,29 +279,29 @@
         // }
         let todosOsArtigos = []; // Variável global para guardar os dados originais
 
-    async function carregarArtigos() {
-        const grid = document.getElementById('featuredGrid');
-        try {
-            const res = await fetch('posts/index.json');
-            todosOsArtigos = await res.json();
-            
-            todosOsArtigos.sort((a, b) => (new Date(b.date || b.mtime).getTime()) - (new Date(a.date || a.mtime).getTime()));
+        async function carregarArtigos() {
+            const grid = document.getElementById('featuredGrid');
+            try {
+                const res = await fetch('posts/index.json');
+                todosOsArtigos = await res.json();
 
-            renderizarGrid(todosOsArtigos);
-        } catch (e) { console.error(e); }
-    }
+                todosOsArtigos.sort((a, b) => (new Date(b.date || b.mtime).getTime()) - (new Date(a.date || a.mtime).getTime()));
 
-    function renderizarGrid(lista) {
-        const grid = document.getElementById('featuredGrid');
-        grid.innerHTML = '';
-        
-        lista.forEach(p => {
-            const tempoLeitura = p.minutos || "3";
-            const categoria = p.category || "Geral";
-            
-            const card = document.createElement('div');
-            card.className = 'youtube-card bg-white rounded-xl shadow-md overflow-hidden flex flex-col h-full animate-fade-in';
-            card.innerHTML = `
+                renderizarGrid(todosOsArtigos);
+            } catch (e) { console.error(e); }
+        }
+
+        function renderizarGrid(lista) {
+            const grid = document.getElementById('featuredGrid');
+            grid.innerHTML = '';
+
+            lista.forEach(p => {
+                const tempoLeitura = p.minutos || "3";
+                const categoria = p.category || "Geral";
+
+                const card = document.createElement('div');
+                card.className = 'youtube-card bg-white rounded-xl shadow-md overflow-hidden flex flex-col h-full animate-fade-in';
+                card.innerHTML = `
                 <a href="${p.href}" class="block group">
                     <div class="relative w-full aspect-video skeleton">
                         <img src="images/${p.image || 'default.png'}" 
@@ -256,26 +319,26 @@
                 <div class="px-4 pb-4 mt-auto text-right">
                     <a href="#comentar" class="text-gray-400 hover:text-orange-500 text-xs font-bold transition">Comentar</a>
                 </div>`;
-            grid.appendChild(card);
-        });
-    }
-
-    function filtrarArtigos(cat) {
-        // Atualiza a cor dos botões
-        const botoes = document.querySelectorAll('.filter-btn');
-        botoes.forEach(btn => {
-            btn.classList.remove('bg-black', 'text-white');
-            btn.classList.add('bg-gray-200', 'text-gray-800');
-        });
-        event.target.classList.add('bg-black', 'text-white');
-
-        if (cat === 'todos') {
-            renderizarGrid(todosOsArtigos);
-        } else {
-            const filtrados = todosOsArtigos.filter(artigo => artigo.category === cat);
-            renderizarGrid(filtrados);
+                grid.appendChild(card);
+            });
         }
-    }
+
+        function filtrarArtigos(cat) {
+            // Atualiza a cor dos botões
+            const botoes = document.querySelectorAll('.filter-btn');
+            botoes.forEach(btn => {
+                btn.classList.remove('bg-black', 'text-white');
+                btn.classList.add('bg-gray-200', 'text-gray-800');
+            });
+            event.target.classList.add('bg-black', 'text-white');
+
+            if (cat === 'todos') {
+                renderizarGrid(todosOsArtigos);
+            } else {
+                const filtrados = todosOsArtigos.filter(artigo => artigo.category === cat);
+                renderizarGrid(filtrados);
+            }
+        }
 
         // --- COMENTÁRIOS ---
         async function carregarComentarios() {
@@ -374,6 +437,39 @@
 
         window.onload = () => { carregarArtigos(); carregarComentarios(); };
         document.getElementById('mobileMenuBtn').onclick = () => document.getElementById('main-nav').classList.toggle('hidden');
+    </script>
+
+    <!-- Dark Mode -->
+    <script>
+        // --- LÓGICA DO DARK MODE ---
+        const darkModeBtn = document.getElementById('darkModeBtn');
+        const darkIcon = document.getElementById('darkIcon');
+        const body = document.body;
+
+        // Verifica se o usuário já tinha uma preferência salva
+        if (localStorage.getItem('theme') === 'dark') {
+            enableDarkMode();
+        }
+
+        darkModeBtn.onclick = () => {
+            if (body.classList.contains('dark')) {
+                disableDarkMode();
+            } else {
+                enableDarkMode();
+            }
+        };
+
+        function enableDarkMode() {
+            body.classList.add('dark');
+            darkIcon.classList.replace('fa-moon', 'fa-sun');
+            localStorage.setItem('theme', 'dark');
+        }
+
+        function disableDarkMode() {
+            body.classList.remove('dark');
+            darkIcon.classList.replace('fa-sun', 'fa-moon');
+            localStorage.setItem('theme', 'light');
+        }
     </script>
 </body>
 
