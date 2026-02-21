@@ -8,47 +8,28 @@
     <title>Essencialista - Home</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Carousel */
-        .carousel {
-            scroll-snap-type: x mandatory;
-        }
-
-        .snap-start {
-            scroll-snap-align: start;
-        }
+        html { scroll-behavior: smooth; }
+        .youtube-card { transition: transform 0.2s ease, box-shadow 0.2s ease; }
+        .youtube-card:hover { transform: translateY(-4px); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); }
+        .line-clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .animate-fade-in { animation: fadeIn 0.5s ease forwards; }
     </style>
 </head>
 
-
 <body class="bg-gray-100 text-gray-800 font-sans">
 
-    <!-- Header -->
     <header class="bg-black text-white p-6 shadow-md">
         <div class="container mx-auto flex items-center relative">
             <div class="flex items-center space-x-3">
-                <a href="home.html">
-                    <img src="images/sem-bg-black.png" alt="Essencialista Logo" class="h-10">
-                </a>
-                <a href="home.html">
-                    <h1 class="text-2xl font-bold">Essencialista</h1>
-                </a>
+                <a href="home.html"><img src="images/sem-bg-black.png" alt="Logo" class="h-10"></a>
+                <a href="home.html"><h1 class="text-2xl font-bold">Essencialista</h1></a>
             </div>
-
             <div class="ml-auto flex items-center">
-                <button id="mobileMenuBtn" class="md:hidden p-2 rounded bg-white/10 hover:bg-white/20"
-                    aria-label="Abrir menu" aria-expanded="false">
-                    <i class="fas fa-bars"></i>
-                </button>
-
-                <nav id="main-nav" class="hidden md:block absolute left-0 right-0 top-full w-full z-50 bg-black text-white p-4 shadow-lg max-h-[60vh] overflow-y-auto
-                            md:static md:bg-transparent md:p-0 md:shadow-none md:max-h-none md:overflow-visible">
-                    <ul class="flex flex-col space-y-3 md:flex md:flex-row md:space-y-0 md:space-x-6 md:justify-end">
-                        <!-- <li><a href="home.html" class="hover:text-orange-500">Início</a></li> -->
-                        <li><a href="home.html#featured-articles" class="hover:text-orange-500">Artigos</a></li>
+                <button id="mobileMenuBtn" class="md:hidden p-2 rounded bg-white/10 hover:bg-white/20"><i class="fas fa-bars"></i></button>
+                <nav id="main-nav" class="hidden md:block absolute left-0 right-0 top-full w-full z-50 bg-black md:static md:bg-transparent md:p-0 md:shadow-none">
+                    <ul class="flex flex-col space-y-3 p-4 md:flex-row md:space-y-0 md:space-x-6 md:p-0">
+                        <li><a href="#featured-articles" class="hover:text-orange-500">Artigos</a></li>
                         <li><a href="about.html" class="hover:text-orange-500">Sobre</a></li>
                         <li><a href="contact.html" class="hover:text-orange-500">Contato</a></li>
                     </ul>
@@ -57,267 +38,33 @@
         </div>
     </header>
 
-    <!-- Banner Section -->
-    <section class="relative bg-cover bg-center h-96 flex items-center justify-center text-white"
-        style="background-image: url('images/cruz-ceu-tarde.jpeg');">
-        <div class="absolute inset-0 bg-black opacity-0"></div>
-        <div class="relative z-10 text-center">
-            <!-- <h2 class="text-5xl font-bold mb-4">Descubra o Essencial</h2> -->
-
+    <section class="relative h-96 bg-cover bg-center flex items-center justify-center text-white" style="background-image: url('images/cruz-ceu-tarde.jpeg');">
+        <div class="absolute inset-0 bg-black/30"></div>
+        <div class="relative z-10 text-center px-4">
+            <h2 class="text-3xl md:text-5xl font-bold italic">"O sacrifício de Cristo é o centro da nossa esperança!"</h2>
         </div>
     </section>
 
-    </section>
-
-    <!-- Main Content - Hero Section -->
-    <main class="container mx-auto mt-8 p-4 text-center">
-        <section class="bg-white p-10 rounded-lg shadow-lg mb-10">
+    <main class="container mx-auto mt-8 p-4">
+        <section class="bg-white p-10 rounded-lg shadow-lg mb-10 text-center">
             <h2 class="text-4xl font-bold mb-4">Bem-vindo ao Essencialista</h2>
-            <p class="text-lg text-gray-700 mb-6">O sacrifício de Cristo é o centro da nossa esperança!"</p>
-
-            <a href="#featured-articles"
-                class="bg-black text-white px-6 py-1 rounded-full hover:bg-orange-500 transition duration-300">
-                Leia Nossos Artigos
-            </a>
+            <p class="text-lg text-gray-700 mb-6">Conteúdos profundos sobre fé, ciência e vida cristã.</p>
+            <a href="#featured-articles" class="bg-black text-white px-8 py-3 rounded-full hover:bg-orange-500 transition duration-300 font-bold">Leia Nossos Artigos</a>
         </section>
 
-        <!-- Featured Articles Section (Optional) -->
-        <section class="mt-12" id="featured-articles">
-            <h3 class="text-3xl font-bold mb-8">Artigos em Destaque</h3>
-
-            <div class="relative">
-                <button id="prevSlide" aria-label="Artigo anterior"
-                    class="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 bg-black/70 text-white p-2 rounded-full hover:bg-orange-500">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-
-                <div id="featuredCarousel" class="carousel flex overflow-x-auto space-x-6 scroll-smooth pb-4 px-2">
-                    <!-- Slide 1 -->
-                    <div class="slide-item snap-start flex-shrink-0 w-80 bg-white p-0 rounded-lg shadow-lg">
-                        <a href="articles/article1.html" class="block group" aria-label="Abrir Artigo 1">
-                            <div class="relative w-full rounded-lg overflow-hidden" style="aspect-ratio: 16/9;">
-                                <img src="images/lutero.png" alt="Deus ensina" loading="lazy"
-                                    class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
-                                <div
-                                    class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-3">
-                                    <h3 class="text-white text-lg font-semibold">Ensinados por Deus</h3>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <!-- Slide 2 -->
-                    <div class="slide-item snap-start flex-shrink-0 w-80 bg-white p-0 rounded-lg shadow-lg">
-                        <a href="articles/article2.html" class="block group" aria-label="Abrir Artigo 2">
-                            <div class="relative w-full rounded-lg overflow-hidden" style="aspect-ratio: 16/9;">
-                                <img src="images/amor.png" alt="Olhai e vivei" loading="lazy"
-                                    class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
-                                <div
-                                    class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-3">
-                                    <h3 class="text-white text-lg font-semibold">Olhos Fixos no Amor do Pai</h3>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <!-- Slide 3 -->
-                    <div class="slide-item snap-start flex-shrink-0 w-80 bg-white p-0 rounded-lg shadow-lg">
-                        <a href="articles/article3.html" class="block group" aria-label="Abrir Artigo 3">
-                            <div class="relative w-full rounded-lg overflow-hidden" style="aspect-ratio: 16/9;">
-                                <img src="images/sustenta.png" alt="Deus sustenta tudo" loading="lazy"
-                                    class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
-                                <div
-                                    class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-3">
-                                    <h3 class="text-white text-lg font-semibold">Quem Sustenta Todas as Coisas?</h3>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <!-- Slide 4 -->
-                    <div class="slide-item snap-start flex-shrink-0 w-80 bg-white p-0 rounded-lg shadow-lg">
-                        <a href="articles/article4.html" class="block group" aria-label="Abrir Artigo 4">
-                            <div class="relative w-full rounded-lg overflow-hidden" style="aspect-ratio: 16/9;">
-                                <img src="images/fe.png" alt="A JUSTIÇA PELA FÉ" loading="lazy"
-                                    class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
-                                <div
-                                    class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-3">
-                                    <h3 class="text-white text-lg font-semibold">A JUSTIÇA PELA FÉ (Introdução)</h3>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <!-- Slide 5 -->
-                    <div class="slide-item snap-start flex-shrink-0 w-80 bg-white p-0 rounded-lg shadow-lg">
-                        <a href="articles/article5.html" class="block group" aria-label="Abrir Artigo 5">
-                            <div class="relative w-full rounded-lg overflow-hidden" style="aspect-ratio: 16/9;">
-                                <img src="images/cruz.jpg" alt="Materialismo" loading="lazy"
-                                    class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
-                                <div
-                                    class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-3">
-                                    <h3 class="text-white text-lg font-semibold">A JUSTIÇA PELA FÉ - Continuação</h3>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <!-- Slide 6 -->
-                    <div class="slide-item snap-start flex-shrink-0 w-80 bg-white p-0 rounded-lg shadow-lg">
-                        <a href="articles/article6.html" class="block group" aria-label="Abrir Artigo 6">
-                            <div class="relative w-full rounded-lg overflow-hidden" style="aspect-ratio: 16/9;">
-                                <img src="images/cameron.png" alt="Camron Schofield" loading="lazy"
-                                    class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
-                                <div
-                                    class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-3">
-                                    <h3 class="text-white text-lg font-semibold">Testemunho de Camron Schofield</h3>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <!-- Slide 7 -->
-                    <div class="slide-item snap-start flex-shrink-0 w-80 bg-white p-0 rounded-lg shadow-lg">
-                        <a href="articles/article7.html" class="block group" aria-label="Abrir Artigo 7">
-                            <div class="relative w-full rounded-lg overflow-hidden" style="aspect-ratio: 16/9;">
-                                <img src="images/cultura-mental.jpg" alt="Cultura Mental" loading="lazy"
-                                    class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
-                                <div
-                                    class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-3">
-                                    <h3 class="text-white text-lg font-semibold">Aquisição de Conhecimento e Cultura
-                                        Mental</h3>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <!-- Slide 8 -->
-                    <div class="slide-item snap-start flex-shrink-0 w-80 bg-white p-0 rounded-lg shadow-lg">
-                        <a href="articles/article8.html" class="block group" aria-label="Abrir Artigo 8">
-                            <div class="relative w-full rounded-lg overflow-hidden" style="aspect-ratio: 16/9;">
-                                <img src="images/perdao.jpg" alt="Química e o Prefixo 'per'" loading="lazy"
-                                    class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
-                                <div
-                                    class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-3">
-                                    <h3 class="text-white text-lg font-semibold">Química e o Prefixo "Per-"</h3>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <!-- Slide 9 -->
-                    <div class="slide-item snap-start flex-shrink-0 w-80 bg-white p-0 rounded-lg shadow-lg">
-                        <a href="articles/article9.html" class="block group" aria-label="Abrir Artigo 9">
-                            <div class="relative w-full rounded-lg overflow-hidden" style="aspect-ratio: 16/9;">
-                                <img src="images/tempo-espaco.jpg" alt="Tempo-espaço" loading="lazy"
-                                    class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
-                                <div
-                                    class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-3">
-                                    <h3 class="text-white text-lg font-semibold">O Contínuo de Tempo-Espaço-Matéria</h3>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <!-- Slide 10 -->
-                    <div class="slide-item snap-start flex-shrink-0 w-80 bg-white p-0 rounded-lg shadow-lg">
-                        <a href="articles/article10.html" class="block group" aria-label="Abrir Artigo 10">
-                            <div class="relative w-full rounded-lg overflow-hidden" style="aspect-ratio: 16/9;">
-                                <img src="images/contraditório.jpg" alt="Contraditório" loading="lazy"
-                                    class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
-                                <div
-                                    class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-3">
-                                    <h3 class="text-white text-lg font-semibold">Convivência com o Contraditório</h3>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <!-- Slide 11 -->
-                    <div class="slide-item snap-start flex-shrink-0 w-80 bg-white p-0 rounded-lg shadow-lg">
-                        <a href="articles/article11.html" class="block group" aria-label="Abrir Artigo 11">
-                            <div class="relative w-full rounded-lg overflow-hidden" style="aspect-ratio: 16/9;">
-                                <img src="images/materialismo.jpg" alt="Pai e Filho" loading="lazy"
-                                    class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
-                                <div
-                                    class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-3">
-                                    <h3 class="text-white text-lg font-semibold">Materialismo X Espiritualismo</h3>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <!-- Slide 12 -->
-                    <div class="slide-item snap-start flex-shrink-0 w-80 bg-white p-0 rounded-lg shadow-lg">
-                        <a href="articles/article12.html" class="block group" aria-label="Abrir Artigo 12">
-                            <div class="relative w-full rounded-lg overflow-hidden" style="aspect-ratio: 16/9;">
-                                <img src="images/pai-filho.jpg" alt="A Cruz" loading="lazy"
-                                    class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
-                                <div
-                                    class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-3">
-                                    <h3 class="text-white text-lg font-semibold">Nosso Ambiente Natural</h3>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="slide-item snap-start flex-shrink-0 w-80 bg-white p-0 rounded-lg shadow-lg">
-                        <a href="articles/mortos-vivos.html" class="block group" aria-label="Abrir Artigo mortos-vivos">
-                            <div class="relative w-full rounded-lg overflow-hidden" style="aspect-ratio: 16/9;">
-                                <img src="images/mortos-vivos.jpg" alt="mortos-vivos" loading="lazy"
-                                    class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
-                                <div
-                                    class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-3">
-                                    <h3 class="text-white text-lg font-semibold">Mortos-Vivos</h3>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <!-- Slide teste -->
-
-                    <div class="slide-item snap-start flex-shrink-0 w-80 bg-white p-0 rounded-lg shadow-lg">
-                        <a href="articles/feira-vaidade.html" class="block group"
-                            aria-label="Abrir Artigo mortos-vivos">
-                            <div class="relative w-full rounded-lg overflow-hidden" style="aspect-ratio: 16/9;">
-                                <img src="images/bijuterias.jpg" alt="mortos-vivos" loading="lazy"
-                                    class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
-                                <div
-                                    class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-3">
-                                    <h3 class="text-white text-lg font-semibold">Feira das Vaidades</h3>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="slide-item snap-start flex-shrink-0 w-80 bg-white p-0 rounded-lg shadow-lg">
-                        <a href="articles/ranger-dentes.html" class="block group"
-                            aria-label="Abrir Artigo choro e ranger de dentes">
-                            <div class="relative w-full rounded-lg overflow-hidden" style="aspect-ratio: 16/9;">
-                                <img src="images/ranger.png" alt="ranger de dentes" loading="lazy"
-                                    class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
-                                <div
-                                    class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-3">
-                                    <h3 class="text-white text-lg font-semibold">Choro e Ranger de Dentes</h3>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-
+        <section id="featured-articles" class="mt-12">
+            <h3 class="text-3xl font-bold mb-8 border-b-4 border-orange-500 inline-block">Artigos em Destaque</h3>
+            <div id="featuredGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                 </div>
-
-                <button id="nextSlide" aria-label="Próximo artigo"
-                    class="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 bg-black/70 text-white p-2 rounded-full hover:bg-orange-500">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
-            </div>
         </section>
 
-        <!-- Inicia codigo Contador -->
-        <section class="bg-white p-6 rounded-lg shadow-lg mt-10 max-w-2xl mx-auto">
-            <h3 class="text-2xl font-bold mb-4 text-center">Deixe um comentário</h3>
+        <section id="comentar" class="bg-white p-6 rounded-xl shadow-lg mt-20 max-w-2xl mx-auto">
+            <h3 class="text-2xl font-bold mb-6 text-center">Deixe um comentário</h3>
             <form id="commentForm" class="space-y-4">
-                <input type="text" id="nome" placeholder="Seu nome" required
-                    class="border border-gray-300 p-2 rounded w-full">
-
-                <input type="email" id="email" placeholder="Seu e-mail (não será exibido)" required
-                    class="border border-gray-300 p-2 rounded w-full">
-
-                <textarea id="comentario" placeholder="Escreva seu comentário aqui..." required rows="4"
-                    class="border border-gray-300 p-2 rounded w-full"></textarea>
-
-                <button type="submit" id="btnEnviar"
-                    class="bg-black text-white px-6 py-2 rounded-full hover:bg-orange-500 transition duration-300 w-full">
-                    Enviar Comentário
-                </button>
+                <input type="text" id="nome" placeholder="Seu nome" required class="border border-gray-300 p-3 rounded-lg w-full focus:ring-2 focus:ring-orange-500 outline-none">
+                <input type="email" id="email" placeholder="Seu e-mail (privado)" required class="border border-gray-300 p-3 rounded-lg w-full focus:ring-2 focus:ring-orange-500 outline-none">
+                <textarea id="comentario" placeholder="Escreva seu comentário aqui..." required rows="4" class="border border-gray-300 p-3 rounded-lg w-full focus:ring-2 focus:ring-orange-500 outline-none"></textarea>
+                <button type="submit" id="btnEnviar" class="bg-black text-white px-6 py-3 rounded-lg hover:bg-orange-500 transition duration-300 w-full font-bold">Enviar Comentário</button>
             </form>
             <p id="msgStatus" class="mt-3 text-center font-semibold"></p>
         </section>
@@ -326,51 +73,95 @@
             <h3 class="text-xl font-bold border-b-2 border-black inline-block mb-4">Comentários dos Leitores</h3>
             <div id="loader" class="text-gray-500 italic">Carregando comentários...</div>
         </div>
-        <!-- Fim do codigo Contador -->
     </main>
-    <!-- <img src="./images/loading.png" alt="Imagem do Artigo"> -->
-    <!-- Botão de subir ao topo -->
-    <div class="mt-6 text-center">
-        <a href="#" class="bg-black text-white px-6 py-1 rounded-full hover:bg-orange-500 transition duration-300">
-            <i class="fas fa-arrow-up"></i>
-        </a>
-    </div>
 
-    <!-- Footer -->
-    <footer class="bg-black text-white p-6 mt-10">
-        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
-            <div class="container mx-auto text-center">
-                <p><img src="../images/sem-bg-black.png" alt="Essencialista Logo"
-                        class="h-10 inline-block">Essencialista.
-                    Todos os direitos reservados &copy;lbseven7 2025</p>
-            </div>
-            <div class="flex space-x-6">
-                <a href="https://wa.me/73991182932" target="_blank" class="hover:text-green-500">
-                    <i class="fab fa-whatsapp text-2xl"></i>
-                </a>
-                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=essencialista7@gmail.com" target="_blank"
-                    class="hover:text-gray-500">
-                    <i class="fas fa-envelope text-2xl"></i>
-                </a>
-                <a href="https://www.youtube.com/watch?v=fGAFJWtKbHw" target="_blank" class="hover:text-red-500">
-                    <i class="fas fa-play text-2xl"></i>
-                </a>
-            </div>
-        </div>
+    <footer class="bg-black text-white p-10 mt-20 text-center">
+        <p>Essencialista &copy; 2025 - @lbseven7</p>
     </footer>
-
 
     <script>
         const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbzudWcARoxG9MYXxRrO8RvpgzPWjSevzxPzZclEmA_i0Aw9v4PjOV6rkEfed1bfgj0Z/exec';
 
-        const commentForm = document.getElementById("commentForm");
-        const msgStatus = document.getElementById("msgStatus");
+        // --- CARREGAR ARTIGOS (GRID) ---
+        async function carregarArtigos() {
+            const grid = document.getElementById('featuredGrid');
+            try {
+                const res = await fetch('posts/index.json');
+                const items = await res.json();
+                
+                items.sort((a, b) => {
+                    const getT = (p) => new Date(p.date || p.mtime).getTime() || 0;
+                    return getT(b) - getT(a);
+                });
 
-        // --- FUNÇÃO PARA ENVIAR COMENTÁRIO ---
-        commentForm.addEventListener("submit", async function (e) {
+                grid.innerHTML = '';
+                items.forEach(p => {
+                    const card = document.createElement('div');
+                    card.className = 'youtube-card bg-white rounded-xl shadow-md overflow-hidden flex flex-col h-full';
+                    card.innerHTML = `
+                        <a href="${p.href}" class="block group">
+                            <div class="relative w-full aspect-video overflow-hidden">
+                                <img src="images/${p.image || 'default.png'}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                            </div>
+                            <div class="p-4 flex-grow">
+                                <h4 class="text-gray-900 font-bold text-lg leading-tight group-hover:text-orange-600 line-clamp-2">${p.title}</h4>
+                                <p class="text-xs text-gray-400 mt-2 italic">Artigo Essencialista</p>
+                            </div>
+                        </a>
+                        <div class="px-4 pb-4 mt-auto">
+                            <a href="#comentar" class="text-orange-500 hover:text-orange-700 text-sm font-bold"><i class="fas fa-comment-dots mr-1"></i> Comentar</a>
+                        </div>
+                    `;
+                    grid.appendChild(card);
+                });
+            } catch (e) { grid.innerHTML = "<p>Erro ao carregar artigos.</p>"; }
+        }
+
+        // --- CARREGAR COMENTÁRIOS (SOLUÇÃO CACHE + LIMPEZA) ---
+        async function carregarComentarios() {
+            const lista = document.getElementById('listaComentarios');
+            const loader = document.getElementById('loader');
+            const cacheBuster = "?t=" + new Date().getTime();
+
+            try {
+                const resposta = await fetch(WEB_APP_URL + cacheBuster);
+                const dados = await resposta.json();
+                
+                if (loader) loader.classList.add('hidden');
+                
+                // Remove apenas os cards antigos, preservando o título
+                const cardsExistentes = lista.querySelectorAll('.comment-card');
+                cardsExistentes.forEach(c => c.remove());
+
+                if (!dados || dados.length === 0) {
+                    if (loader) {
+                        loader.innerText = "Seja o primeiro a comentar!";
+                        loader.classList.remove('hidden');
+                    }
+                    return;
+                }
+
+                dados.reverse().forEach(item => {
+                    if(!item.nome || !item.comentario) return;
+                    const div = document.createElement('div');
+                    div.className = "comment-card bg-white p-4 rounded-lg shadow-sm border-l-4 border-orange-500 mb-4 animate-fade-in";
+                    div.innerHTML = `
+                        <div class="flex justify-between items-center mb-1">
+                            <span class="font-bold text-gray-900">${item.nome}</span>
+                            <span class="text-xs text-gray-400">${item.data ? new Date(item.data).toLocaleDateString('pt-BR') : ''}</span>
+                        </div>
+                        <p class="text-gray-700 text-sm">${item.comentario}</p>
+                    `;
+                    lista.appendChild(div);
+                });
+            } catch (e) { if(loader) loader.innerText = "Comentários carregados."; }
+        }
+
+        // --- FORMULÁRIO DE ENVIO ---
+        document.getElementById("commentForm").onsubmit = async function(e) {
             e.preventDefault();
-
             const btn = document.getElementById("btnEnviar");
+            const msg = document.getElementById("msgStatus");
             const dados = {
                 nome: document.getElementById("nome").value,
                 email: document.getElementById("email").value,
@@ -378,7 +169,7 @@
             };
 
             btn.disabled = true;
-            btn.textContent = "Enviando...";
+            btn.innerText = "Enviando...";
 
             try {
                 await fetch(WEB_APP_URL, {
@@ -388,145 +179,32 @@
                     body: JSON.stringify(dados)
                 });
 
-                msgStatus.textContent = "Comentário enviado com sucesso! Ele aparecerá aqui em breve.";
-                msgStatus.className = "mt-3 text-green-600 font-semibold";
-                commentForm.reset();
-
-                // Recarrega a lista após 2 segundos
-                setTimeout(carregarComentarios, 2000);
-
+                msg.innerText = "Sucesso! O comentário aparecerá em instantes.";
+                msg.className = "mt-3 text-green-600 font-bold text-center p-2 bg-green-50 rounded";
+                this.reset();
+                
+                // Aguarda 3 segundos para o Google processar e recarrega
+                setTimeout(carregarComentarios, 3000);
             } catch (err) {
-                msgStatus.textContent = "Erro ao enviar. Tente novamente.";
-                msgStatus.className = "mt-3 text-red-600 font-semibold";
+                msg.innerText = "Erro ao enviar.";
+                msg.className = "mt-3 text-red-600 font-bold text-center";
             } finally {
                 btn.disabled = false;
-                btn.textContent = "Enviar Comentário";
+                btn.innerText = "Enviar Comentário";
             }
-        });
+        };
 
-        // --- FUNÇÃO PARA CARREGAR COMENTÁRIOS ---
-        async function carregarComentarios() {
-            const lista = document.getElementById('listaComentarios');
-            const loader = document.getElementById('loader');
+        // INICIALIZAÇÃO
+        window.onload = () => {
+            carregarArtigos();
+            carregarComentarios();
+        };
 
-            try {
-                const resposta = await fetch(WEB_APP_URL);
-                const dados = await resposta.json();
-
-                loader.classList.add('hidden');
-
-                // Limpa a lista atual (exceto o título e loader)
-                const cards = lista.querySelectorAll('.comment-card');
-                cards.forEach(c => c.remove());
-
-                if (dados.length === 0) {
-                    loader.innerText = "Seja o primeiro a comentar!";
-                    loader.classList.remove('hidden');
-                    return;
-                }
-
-                dados.reverse().forEach(item => {
-                    const dataFormatada = new Date(item.data).toLocaleDateString('pt-BR');
-                    const div = document.createElement('div');
-                    div.className = "comment-card bg-white p-4 rounded-lg shadow border-l-4 border-black mb-4";
-                    div.innerHTML = `
-                    <div class="flex justify-between items-center mb-2">
-                        <span class="font-bold text-orange-600">${item.nome}</span>
-                        <span class="text-xs text-gray-400">${dataFormatada}</span>
-                    </div>
-                    <p class="text-gray-700">${item.comentario}</p>
-                `;
-                    lista.appendChild(div);
-                });
-            } catch (erro) {
-                loader.innerText = "Comentários carregados.";
-                console.log("Aguardando novos comentários...");
-            }
-        }
-
-        // Carregar ao abrir a página
-        window.onload = carregarComentarios;
+        // MENU MOBILE
+        document.getElementById('mobileMenuBtn').onclick = () => {
+            const nav = document.getElementById('main-nav');
+            nav.classList.toggle('hidden');
+        };
     </script>
-
-
-
 </body>
-
 </html>
-
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const carousel = document.getElementById('featuredCarousel');
-        const prev = document.getElementById('prevSlide');
-        const next = document.getElementById('nextSlide');
-
-        // Carrega posts gerados em /posts/index.json e injeta no carrossel
-        fetch('posts/index.json')
-            .then(r => r.json())
-            .then(items => {
-                // ordena pelo MAIS RECENTE considerando date e mtime
-                const getTs = (p) => {
-                    const d1 = p.date ? new Date(p.date) : null;
-                    const d2 = p.mtime ? new Date(p.mtime) : null;
-                    const t1 = d1 && !isNaN(d1) ? d1.getTime() : 0;
-                    const t2 = d2 && !isNaN(d2) ? d2.getTime() : 0;
-                    return Math.max(t1, t2);
-                };
-                items.sort((a, b) => getTs(b) - getTs(a));
-
-                // cria fragmento e insere tudo de uma vez no início
-                const fragment = document.createDocumentFragment();
-                items.forEach(p => {
-                    const slide = document.createElement('div');
-                    slide.className = 'slide-item snap-start flex-shrink-0 w-80 bg-white p-0 rounded-lg shadow-lg';
-                    slide.innerHTML = `
-                        <a href="${p.href}" class="block group" aria-label="${p.title}">
-                            <div class="relative w-full rounded-lg overflow-hidden" style="aspect-ratio: 16/9;">
-                                <img src="images/${p.image || 'default_08.png'}" alt="${p.title}" loading="lazy"
-                                    class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
-                                <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-3">
-                                    <h3 class="text-white text-lg font-semibold">${p.title}</h3>
-                                </div>
-                            </div>
-                        </a>
-                    `;
-                    fragment.appendChild(slide);
-                });
-                carousel.prepend(fragment);
-
-                // garante que os novos artigos apareçam de primeira na tela
-                carousel.scrollTo({ left: 0, behavior: 'auto' });
-            })
-            .catch(() => {
-                console.warn('Não foi possível carregar posts/index.json.');
-            });
-
-        const page = () => carousel.clientWidth - 60;
-        prev?.addEventListener('click', () => {
-            carousel.scrollBy({ left: -page(), behavior: 'smooth' });
-        });
-        next?.addEventListener('click', () => {
-            carousel.scrollBy({ left: page(), behavior: 'smooth' });
-        });
-    });
-</script>
-</body>
-
-<script>
-    (function () {
-        const btn = document.getElementById('mobileMenuBtn');
-        const nav = document.getElementById('main-nav');
-        btn?.addEventListener('click', () => {
-            const isHidden = nav.classList.contains('hidden');
-            if (isHidden) {
-                nav.classList.remove('hidden');
-                nav.classList.add('block');
-                btn.setAttribute('aria-expanded', 'true');
-            } else {
-                nav.classList.add('hidden');
-                nav.classList.remove('block');
-                btn.setAttribute('aria-expanded', 'false');
-            }
-        });
-    })();
-</script>
