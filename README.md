@@ -168,10 +168,6 @@ Os artigos abordam a profundidade da experiência humana sob a ótica cristã:
 * **Conteúdo (Textos e Artigos):** Propriedade intelectual do autor, não podendo ser reproduzidos sem permissão expressa.
 * **Código-Fonte:** Disponibilizado para estudo e fins não comerciais. Para replicação ou uso comercial, entre em contato com o proprietário.
 
-```
 
----
-
-**O que achou dessa versão final?** Ela cobre desde o propósito espiritual até a complexidade do código. Se precisar subir isso para o GitHub agora, basta salvar como `README.md`.
 
 ```
