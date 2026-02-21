@@ -5,8 +5,6 @@ draft: false
 image: mentir.jpg
 ---
 
-# Pseudologia: A Ciência do Entretenimento e o Controle da Mente
-
 ## Introdução
 O documentário explora como a indústria da mídia e do entretenimento utiliza descobertas da neurociência, psicologia e hipnose para contornar a vontade humana, moldar comportamentos e alterar sistemas de crenças. O que chamamos de "apenas entretenimento" revela-se uma ferramenta sofisticada de programação mental.
 
