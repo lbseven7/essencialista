@@ -1,92 +1,177 @@
-
-## 📄Projeto Essencialista
+# 🏛️ Projeto Essencialista
 
 ### 🚀 Essencialista
- * **Acesse o Website Essencialista:** `https://essencialista.vercel.app/`
+* **Acesse o Website:** [https://essencialista.vercel.app/](https://essencialista.vercel.app/)
 
-O projeto **Essencialista** é um website pessoal do artista **Leo Barbosa**, focado em artigos e reflexões sobre a essência da sua fé, teologia, filosofia e vida espiritual, buscando aprofundar o entendimento das Escrituras e a convivência com o contraditório. O design é limpo e moderno, desenvolvido com **Tailwind CSS**.
+O **Essencialista** é uma plataforma pessoal do artista **Leo Barbosa**, dedicada a artigos e reflexões sobre teologia, filosofia e vida espiritual. O projeto busca aprofundar o entendimento das Escrituras e a convivência com o contraditório, apresentando um design limpo, moderno e imersivo.
 
-### ✨ Funcionalidades Principais
+---
 
-  * **Página Inicial (Home):** Banner de destaque, citação bíblica central (Romanos 15:4) e chamada para ação.
-  * **Artigos em Destaque:** Exibição em *grid* responsivo dos artigos mais recentes, como "Ensinados por Deus", "A Justiça pela Fé" e "O Poder da Palavra".
-  * **Navegação Clara:** Menu de cabeçalho com links para **Início**, **Artigos**, **Sobre** e **Contato**.
-  * **Responsividade:** Layout adaptável a diferentes tamanhos de tela (desktop, tablet e mobile).
-  * **Scroll Suave:** Configuração de `scroll-behavior: smooth` para uma melhor experiência de navegação entre seções.
+## ✨ Funcionalidades Principais
 
-### 💻 Tecnologias Utilizadas
+### 📖 Experiência de Leitura Imersiva
+* **Barra de Progresso:** Indicador visual no topo que acompanha o avanço da leitura.
+* **Dark Mode (Modo Noturno):** Alternância inteligente com persistência via `localStorage`.
+* **Header Dinâmico:** Efeito de *Glassmorphism* (transparência e desfoque) que se ajusta ao rolar a página.
+* **Scroll Reveal:** Animações de entrada que revelam os artigos suavemente conforme o scroll.
 
-Este projeto é uma Single Page Application (SPA) baseada em HTML puro, estilizada por um framework utilitário.
+### 🏷️ Organização e Navegação
+* **Filtros por Categoria:** Navegação rápida entre temas como **Fé, Ciência, Vida e Profecia**.
+* **Grid Responsivo:** Exibição dinâmica de artigos baseada em um banco de dados JSON (`posts/index.json`).
+* **Skeleton Loading:** Carregamento elegante de imagens para evitar saltos de layout.
+* **Navegação Clara:** Links estruturados para Início, Artigos, Sobre e Contato.
+
+### 💬 Interação e Feedback
+* **Sistema de Comentários:** Integração com Google Sheets (via Google Apps Script) para processamento de comentários em tempo real.
+* **Feedback de Ações:** Botão de copiar e-mail com tooltip de confirmação e validação de formulários.
+
+---
+
+## 💻 Tecnologias Utilizadas
+
+Este projeto é uma **Single Page Application (SPA)** focada em performance e simplicidade técnica.
 
 | Tecnologia | Descrição |
 | :--- | :--- |
-| **HTML5** | Estrutura básica do conteúdo. |
-| **Tailwind CSS** | Framework CSS utilitário para estilização rápida e responsiva. |
-| **Font Awesome** | Biblioteca de ícones (utilizada no footer e no botão "subir ao topo"). |
-| **JavaScript** | Utilizado apenas para o link de *scroll* suave (embutido via CSS `scroll-behavior`). |
+| **HTML5** | Estrutura semântica do conteúdo. |
+| **Tailwind CSS** | Estilização utilitária para um layout moderno e 100% responsivo. |
+| **JavaScript (ES6+)** | Lógica de filtragem, Modo Escuro, manipulação de DOM e integração com API. |
+| **Font Awesome** | Biblioteca de ícones para interface e botões de ação. |
+| **Google Apps Script** | Backend serverless para armazenamento de comentários em planilhas. |
 
-### 📁 Estrutura do Projeto
+---
 
-A estrutura de arquivos esperada é a seguinte:
+## 📂 Estrutura do Projeto
 
-```
-├── articles/
-│   ├── article1.html
-│   ├── article2.html
-│   └── ...
+```text
+├── posts/
+│   ├── index.json          # Banco de dados dos artigos (JSON)
+│   ├── artigo-exemplo.html # Páginas de conteúdo individual
 ├── images/
-│   ├── sem-bg-black.png
-│   ├── cruz.jpg
-│   └── loading.png
-├── home.html (Página principal)
-├── about.html
-└── contact.html
+│   ├── sem-bg-black.png    # Logo oficial
+│   ├── cruz.jpg            # Hero images
+│   └── ...
+├── home.html               # Página principal do portal
+├── about.html              # Sobre o autor e o projeto
+└── contact.html            # Informações de contato
+
+Excelente! Unifiquei as informações técnicas anteriores (Dark Mode, Filtros, Barra de Progresso) com a sua descrição institucional e artística. O README agora reflete tanto a **essência filosófica** do projeto quanto a **robustez técnica** que implementamos.
+
+Aqui está o `README.md` completo e atualizado:
+
+---
+
+```markdown
+# 🏛️ Projeto Essencialista
+
+### 🚀 Essencialista
+* **Acesse o Website:** [https://essencialista.vercel.app/](https://essencialista.vercel.app/)
+
+O **Essencialista** é uma plataforma pessoal do artista **Leo Barbosa**, dedicada a artigos e reflexões sobre teologia, filosofia e vida espiritual. O projeto busca aprofundar o entendimento das Escrituras e a convivência com o contraditório, apresentando um design limpo, moderno e imersivo.
+
+---
+
+## ✨ Funcionalidades Principais
+
+### 📖 Experiência de Leitura Imersiva
+* **Barra de Progresso:** Indicador visual no topo que acompanha o avanço da leitura.
+* **Dark Mode (Modo Noturno):** Alternância inteligente com persistência via `localStorage`.
+* **Header Dinâmico:** Efeito de *Glassmorphism* (transparência e desfoque) que se ajusta ao rolar a página.
+* **Scroll Reveal:** Animações de entrada que revelam os artigos suavemente conforme o scroll.
+
+### 🏷️ Organização e Navegação
+* **Filtros por Categoria:** Navegação rápida entre temas como **Fé, Ciência, Vida e Profecia**.
+* **Grid Responsivo:** Exibição dinâmica de artigos baseada em um banco de dados JSON (`posts/index.json`).
+* **Skeleton Loading:** Carregamento elegante de imagens para evitar saltos de layout.
+* **Navegação Clara:** Links estruturados para Início, Artigos, Sobre e Contato.
+
+### 💬 Interação e Feedback
+* **Sistema de Comentários:** Integração com Google Sheets (via Google Apps Script) para processamento de comentários em tempo real.
+* **Feedback de Ações:** Botão de copiar e-mail com tooltip de confirmação e validação de formulários.
+
+---
+
+## 💻 Tecnologias Utilizadas
+
+Este projeto é uma **Single Page Application (SPA)** focada em performance e simplicidade técnica.
+
+| Tecnologia | Descrição |
+| :--- | :--- |
+| **HTML5** | Estrutura semântica do conteúdo. |
+| **Tailwind CSS** | Estilização utilitária para um layout moderno e 100% responsivo. |
+| **JavaScript (ES6+)** | Lógica de filtragem, Modo Escuro, manipulação de DOM e integração com API. |
+| **Font Awesome** | Biblioteca de ícones para interface e botões de ação. |
+| **Google Apps Script** | Backend serverless para armazenamento de comentários em planilhas. |
+
+---
+
+## 📂 Estrutura do Projeto
+
+```text
+├── posts/
+│   ├── index.json          # Banco de dados dos artigos (JSON)
+│   ├── artigo-exemplo.html # Páginas de conteúdo individual
+├── images/
+│   ├── sem-bg-black.png    # Logo oficial
+│   ├── cruz.jpg            # Hero images
+│   └── ...
+├── home.html               # Página principal do portal
+├── about.html              # Sobre o autor e o projeto
+└── contact.html            # Informações de contato
+
 ```
 
-### ⚙️ Como Executar Localmente
+---
 
-Siga estas etapas simples para colocar o projeto em funcionamento na sua máquina:
+## ⚙️ Como Executar Localmente
 
-1.  **Clone o repositório:**
+O projeto é estático e de fácil execução:
 
-    ```bash
-    git clone https://github.com/lbseven7/essencialista.git
-    cd essencialista
-    ```
+1. **Clone o repositório:**
+```bash
+git clone [https://github.com/lbseven7/essencialista.git](https://github.com/lbseven7/essencialista.git)
+cd essencialista
 
-2.  **Abra o arquivo:**
-    O projeto é estático. Simplesmente abra o arquivo `home.html` no seu navegador de preferência.
+```
 
-    > Nota: Como o Tailwind CSS está sendo carregado via CDN (`<script src="https://cdn.tailwindcss.com"></script>`), não há necessidade de um *build* local para a estilização funcionar.
 
-### 📝 Conteúdo e Artigos
+2. **Abra o projeto:**
+Basta abrir o arquivo `home.html` em qualquer navegador moderno.
+> *Nota: É necessária conexão com a internet para carregar o Tailwind CSS e o Font Awesome via CDN.*
 
-Os artigos apresentados na seção de destaque (`featured-articles`) abordam temas como:
 
-  * A centralidade do sacrifício de Cristo.
-  * A necessidade da revelação divina para o entendimento das Escrituras.
-  * A diferença entre legalismo e o Evangelho da Graça.
-  * Reflexões sobre a vida espiritual, conhecimento e cultura mental.
 
-### 📞 Contato
+---
 
-O rodapé do projeto inclui links para contato:
+## 📝 Conteúdo e Temática
 
-  * **WhatsApp:** `https://wa.me/73991182932`
-  * **Email:** `mailto:leob.com.br@gmail.com`
-  * **Website Relacionado:** `https://www.reflorbrasil.com.br`
- 
+Os artigos abordam a profundidade da experiência humana sob a ótica cristã:
 
------
- * **Acesse o Website Essencialista:** `https://essencialista.vercel.app/`
+* A centralidade do sacrifício de Cristo (Romanos 15:4).
+* A justiça pela fé e a diferença entre legalismo e Evangelho.
+* Reflexões sobre ciência da mente, cultura e educação espiritual.
+* Análises proféticas e os desafios do mundo contemporâneo.
 
-### ⚖️ Licença
+---
 
-O conteúdo e o código deste projeto estão protegidos por direitos autorais (`&copy; 2024 Essencialista`).
+## 📞 Contato
 
-  * **Conteúdo (Textos e Artigos):** Todos os artigos e textos são de propriedade da Essencialista e não podem ser reproduzidos sem permissão expressa.
-  * **Código-Fonte (HTML/CSS):** O código-fonte deste website, incluindo a estrutura HTML e a estilização baseada em Tailwind CSS, é fornecido "no estado em que se encontra". Para usos não comerciais e de aprendizado, é permitido o estudo. Para uso comercial ou replicação, é necessária a autorização do proprietário.
+* **WhatsApp:** [Enviar Mensagem](https://wa.me/73991182932)
+* **Email:** `leob.com.br@gmail.com` | `essencialista7@gmail.com`
+---
+
+## ⚖️ Licença
 
 **Todos os direitos reservados.**
+© 2026 Essencialista - @lbseven7
 
------
+* **Conteúdo (Textos e Artigos):** Propriedade intelectual do autor, não podendo ser reproduzidos sem permissão expressa.
+* **Código-Fonte:** Disponibilizado para estudo e fins não comerciais. Para replicação ou uso comercial, entre em contato com o proprietário.
+
+```
+
+---
+
+**O que achou dessa versão final?** Ela cobre desde o propósito espiritual até a complexidade do código. Se precisar subir isso para o GitHub agora, basta salvar como `README.md`.
+
+```
