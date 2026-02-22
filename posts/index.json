@@ -1,114 +1,130 @@
 [
   {
-    "title": "A Mente Forte",
-    "image": "mente.jpg",
-    "href": "posts/a-capital-do-corpo.html",
-    "date": "2025-12-13T00:00:00.000Z",
-    "mtime": "2025-12-13T13:16:37.722Z"
-  },
-  {
-    "title": "O Artista-Mestre",
-    "image": "artista.png",
-    "href": "posts/artista-mestre.html",
-    "date": "2025-12-06T00:00:00.000Z",
-    "mtime": "2025-12-06T00:48:54.818Z"
+    "title": "O Sétimo Milênio e a Prisão de Satanás",
+    "image": "abismo.png",
+    "href": "posts/terra-desolada.html",
+    "date": "2026-02-22T00:00:00.000Z",
+    "mtime": "2026-02-22T09:18:54.447Z",
+    "category": "Profecia"
   },
   {
     "title": "EUA: A Imagem da Hierarquia Romana e Colapso da Nação",
     "image": "imagem-besta.png",
     "href": "posts/colapso.html",
     "date": "2026-02-21T00:00:00.000Z",
-    "mtime": "2026-02-22T09:08:10.785Z"
+    "mtime": "2026-02-22T09:08:10.785Z",
+    "category": "Profecia"
   },
   {
     "title": "O Mundo à Frente 2026",
     "image": "economist2026.jpg",
     "href": "posts/economist.html",
     "date": "2026-02-21T00:00:00.000Z",
-    "mtime": "2026-02-21T16:15:23.941Z"
-  },
-  {
-    "title": "Epstein: Mais um Personagem no Grande Drama",
-    "image": "epstein.png",
-    "href": "posts/epstein.html",
-    "date": "2026-02-17T00:00:00.000Z",
-    "mtime": "2026-02-18T10:45:42.402Z"
-  },
-  {
-    "title": "O Estudo Mais Eficaz",
-    "image": "mcp.jpg",
-    "href": "posts/estudo-eficaz.html",
-    "date": "2026-01-10T00:00:00.000Z",
-    "mtime": "2026-01-10T17:48:18.873Z"
-  },
-  {
-    "title": "Luz em Gadara",
-    "image": "gadara.jpg",
-    "href": "posts/gadara.html",
-    "date": "2025-12-13T00:00:00.000Z",
-    "mtime": "2025-12-13T13:48:05.507Z"
-  },
-  {
-    "title": "Minha Playlist Recomendada",
-    "image": "eua.jpg",
-    "href": "posts/minha-playlist.html",
-    "date": "2026-02-07T00:00:00.000Z",
-    "mtime": "2026-02-09T23:12:58.219Z"
-  },
-  {
-    "title": "O Jugo de Cristo",
-    "image": "jugo.jpg",
-    "href": "posts/o-jugo-de-cristo.html",
-    "date": "2025-12-05T00:00:00.000Z",
-    "mtime": "2025-12-06T00:02:55.143Z"
-  },
-  {
-    "title": "O Fim da Graça",
-    "image": "porta.png",
-    "href": "posts/porta.html",
-    "date": "1849-07-01T00:00:00.000Z",
-    "mtime": "2026-02-21T12:07:19.715Z"
+    "mtime": "2026-02-21T16:15:23.941Z",
+    "category": "Profecia"
   },
   {
     "title": "A Teoria dos Seis Mil Anos: O Relógio Profético de Deus",
     "image": "6mil.png",
     "href": "posts/seis-mil-anos.html",
     "date": "2026-02-18T00:00:00.000Z",
-    "mtime": "2026-02-21T12:00:02.717Z"
+    "mtime": "2026-02-21T12:00:02.717Z",
+    "category": "Profecia"
+  },
+  {
+    "title": "Epstein: Mais um Personagem no Grande Drama",
+    "image": "epstein.png",
+    "href": "posts/epstein.html",
+    "date": "2026-02-17T00:00:00.000Z",
+    "mtime": "2026-02-18T10:45:42.402Z",
+    "category": "Profecia"
   },
   {
     "title": "O Falso Sábado Avança na America (2026)",
     "image": "ruina2.png",
     "href": "posts/sabado.html",
     "date": "2026-02-17T00:00:00.000Z",
-    "mtime": "2026-02-18T23:20:25.634Z"
+    "mtime": "2026-02-18T23:20:25.634Z",
+    "category": "Profecia"
   },
   {
-    "title": "O Sétimo Milênio e a Prisão de Satanás",
-    "image": "abismo.png",
-    "href": "posts/terra-desolada.html",
-    "date": "2026-02-22T00:00:00.000Z",
-    "mtime": "2026-02-22T09:18:54.447Z"
-  },
-  {
-    "title": "A Tolice e o Rebaixamento Espiritual",
-    "image": "tolice.jpg",
-    "href": "posts/tolice-digital.html",
-    "date": "2026-01-10T00:00:00.000Z",
-    "mtime": "2026-01-10T17:00:26.179Z"
-  },
-  {
-    "title": "Pseudologia: A Ciência do Entretenimento e o Controle da Mente",
-    "image": "mentir.jpg",
-    "href": "posts/tv.html",
-    "date": "2023-08-01T13:00:00.000Z",
-    "mtime": "2026-02-21T13:27:11.589Z"
+    "title": "O Fim da Graça",
+    "image": "porta.png",
+    "href": "posts/porta.html",
+    "date": "1849-07-01T00:00:00.000Z",
+    "mtime": "2026-02-21T12:07:19.715Z",
+    "category": "Profecia"
   },
   {
     "title": "A Verdade Presente | James White",
     "image": "tiago.png",
     "href": "posts/verdade-presente.html",
     "date": "1849-07-01T00:00:00.000Z",
-    "mtime": "2026-02-20T19:03:48.101Z"
+    "mtime": "2026-02-20T19:03:48.101Z",
+    "category": "Profecia"
+  },
+  {
+    "title": "Pseudologia: A Ciência do Entretenimento e o Controle da Mente",
+    "image": "mentir.jpg",
+    "href": "posts/tv.html",
+    "date": "2023-08-01T13:00:00.000Z",
+    "mtime": "2026-02-21T13:27:11.589Z",
+    "category": "Ciência"
+  },
+  {
+    "title": "Luz em Gadara",
+    "image": "gadara.jpg",
+    "href": "posts/gadara.html",
+    "date": "2025-12-13T00:00:00.000Z",
+    "mtime": "2025-12-13T13:48:05.507Z",
+    "category": "Fé"
+  },
+  {
+    "title": "O Artista-Mestre",
+    "image": "artista.png",
+    "href": "posts/artista-mestre.html",
+    "date": "2025-12-06T00:00:00.000Z",
+    "mtime": "2025-12-06T00:48:54.818Z",
+    "category": "Fé"
+  },
+  {
+    "title": "O Jugo de Cristo",
+    "image": "jugo.jpg",
+    "href": "posts/o-jugo-de-cristo.html",
+    "date": "2025-12-05T00:00:00.000Z",
+    "mtime": "2025-12-06T00:02:55.143Z",
+    "category": "Fé"
+  },
+  {
+    "title": "A Tolice e o Rebaixamento Espiritual",
+    "image": "tolice.jpg",
+    "href": "posts/tolice-digital.html",
+    "date": "2026-01-10T00:00:00.000Z",
+    "mtime": "2026-01-10T17:00:26.179Z",
+    "category": "Vida"
+  },
+  {
+    "title": "O Estudo Mais Eficaz",
+    "image": "mcp.jpg",
+    "href": "posts/estudo-eficaz.html",
+    "date": "2026-01-10T00:00:00.000Z",
+    "mtime": "2026-01-10T17:48:18.873Z",
+    "category": "Vida"
+  },
+  {
+    "title": "Minha Playlist Recomendada",
+    "image": "eua.jpg",
+    "href": "posts/minha-playlist.html",
+    "date": "2026-02-07T00:00:00.000Z",
+    "mtime": "2026-02-09T23:12:58.219Z",
+    "category": "Vida"
+  },
+  {
+    "title": "A Mente Forte",
+    "image": "mente.jpg",
+    "href": "posts/a-capital-do-corpo.html",
+    "date": "2025-12-13T00:00:00.000Z",
+    "mtime": "2025-12-13T13:16:37.722Z",
+    "category": "Vida"
   }
 ]
