@@ -2,7 +2,6 @@
   {
     "title": "A Mente Forte",
     "image": "mente.jpg",
-    "category": "Ciência",
     "href": "posts/a-capital-do-corpo.html",
     "date": "2025-12-13T00:00:00.000Z",
     "mtime": "2025-12-13T13:16:37.722Z"
@@ -10,23 +9,20 @@
   {
     "title": "O Artista-Mestre",
     "image": "artista.png",
-    "category": "Fé",
     "href": "posts/artista-mestre.html",
     "date": "2025-12-06T00:00:00.000Z",
     "mtime": "2025-12-06T00:48:54.818Z"
   },
   {
-    "title": "A Imagem da Besta e o Iiminente Colapso do Sistema",
-    "image": "dolar.webp",
-    "category": "Profecia",
+    "title": "EUA: A Imagem da Hierarquia Romana e Colapso da Nação",
+    "image": "imagem-besta.png",
     "href": "posts/colapso.html",
     "date": "2026-02-21T00:00:00.000Z",
-    "mtime": "2026-02-21T13:04:19.916Z"
+    "mtime": "2026-02-22T09:08:10.785Z"
   },
   {
     "title": "O Mundo à Frente 2026",
     "image": "economist2026.jpg",
-    "category": "Vida",
     "href": "posts/economist.html",
     "date": "2026-02-21T00:00:00.000Z",
     "mtime": "2026-02-21T16:15:23.941Z"
@@ -34,7 +30,6 @@
   {
     "title": "Epstein: Mais um Personagem no Grande Drama",
     "image": "epstein.png",
-    "category": "Vida",
     "href": "posts/epstein.html",
     "date": "2026-02-17T00:00:00.000Z",
     "mtime": "2026-02-18T10:45:42.402Z"
@@ -42,7 +37,6 @@
   {
     "title": "O Estudo Mais Eficaz",
     "image": "mcp.jpg",
-    "category": "Ciência",
     "href": "posts/estudo-eficaz.html",
     "date": "2026-01-10T00:00:00.000Z",
     "mtime": "2026-01-10T17:48:18.873Z"
@@ -50,7 +44,6 @@
   {
     "title": "Luz em Gadara",
     "image": "gadara.jpg",
-    "category": "Fé",
     "href": "posts/gadara.html",
     "date": "2025-12-13T00:00:00.000Z",
     "mtime": "2025-12-13T13:48:05.507Z"
@@ -58,7 +51,6 @@
   {
     "title": "Minha Playlist Recomendada",
     "image": "eua.jpg",
-    "category": "Vida",
     "href": "posts/minha-playlist.html",
     "date": "2026-02-07T00:00:00.000Z",
     "mtime": "2026-02-09T23:12:58.219Z"
@@ -66,7 +58,6 @@
   {
     "title": "O Jugo de Cristo",
     "image": "jugo.jpg",
-    "category": "Fé",
     "href": "posts/o-jugo-de-cristo.html",
     "date": "2025-12-05T00:00:00.000Z",
     "mtime": "2025-12-06T00:02:55.143Z"
@@ -74,7 +65,6 @@
   {
     "title": "O Fim da Graça",
     "image": "porta.png",
-    "category": "Profecia",
     "href": "posts/porta.html",
     "date": "1849-07-01T00:00:00.000Z",
     "mtime": "2026-02-21T12:07:19.715Z"
@@ -82,7 +72,6 @@
   {
     "title": "A Teoria dos Seis Mil Anos: O Relógio Profético de Deus",
     "image": "6mil.png",
-    "category": "Profecia",
     "href": "posts/seis-mil-anos.html",
     "date": "2026-02-18T00:00:00.000Z",
     "mtime": "2026-02-21T12:00:02.717Z"
@@ -90,15 +79,20 @@
   {
     "title": "O Falso Sábado Avança na America (2026)",
     "image": "ruina2.png",
-    "category": "Profecia",
     "href": "posts/sabado.html",
     "date": "2026-02-17T00:00:00.000Z",
     "mtime": "2026-02-18T23:20:25.634Z"
   },
   {
+    "title": "O Sétimo Milênio e a Prisão de Satanás",
+    "image": "abismo.png",
+    "href": "posts/terra-desolada.html",
+    "date": "2026-02-22T00:00:00.000Z",
+    "mtime": "2026-02-22T09:18:54.447Z"
+  },
+  {
     "title": "A Tolice e o Rebaixamento Espiritual",
     "image": "tolice.jpg",
-    "category": "Fé",
     "href": "posts/tolice-digital.html",
     "date": "2026-01-10T00:00:00.000Z",
     "mtime": "2026-01-10T17:00:26.179Z"
@@ -106,7 +100,6 @@
   {
     "title": "Pseudologia: A Ciência do Entretenimento e o Controle da Mente",
     "image": "mentir.jpg",
-    "category": "Ciência",
     "href": "posts/tv.html",
     "date": "2023-08-01T13:00:00.000Z",
     "mtime": "2026-02-21T13:27:11.589Z"
@@ -114,7 +107,6 @@
   {
     "title": "A Verdade Presente | James White",
     "image": "tiago.png",
-    "category": "Fé",
     "href": "posts/verdade-presente.html",
     "date": "1849-07-01T00:00:00.000Z",
     "mtime": "2026-02-20T19:03:48.101Z"
