@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel de Moderação - Essencialista</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="bg-gray-100 font-sans min-h-screen">
+
+    <div class="max-w-4xl mx-auto p-4 md:p-8">
+        <div class="flex items-center justify-between mb-8 bg-black text-white p-6 rounded-xl shadow-lg">
+            <div>
+                <h1 class="text-2xl font-bold italic">Essencialista</h1>
+                <p class="text-gray-400 text-sm">Painel de Moderação</p>
+            </div>
+            <a href="home.html" class="text-sm bg-gray-800 hover:bg-gray-700 px-4 py-2 rounded-lg transition">Ver Site</a>
+        </div>
+
+        <div id="loginArea" class="bg-white p-6 rounded-xl shadow-md mb-8 text-center">
+            <h2 class="text-lg font-bold mb-4 text-gray-800">Acesso Restrito</h2>
+            <div class="flex flex-col sm:flex-row gap-3 justify-center">
+                <input type="password" id="senha" placeholder="Digite a senha admin" 
+                    class="border border-gray-300 p-3 rounded-lg focus:ring-2 focus:ring-orange-500 outline-none w-full sm:w-64">
+                <button onclick="carregarAdmin()" 
+                    class="bg-black text-white px-6 py-3 rounded-lg font-bold hover:bg-orange-600 transition">
+                    Acessar Painel
+                </button>
+            </div>
+            <p id="msgErro" class="text-red-500 mt-3 text-sm hidden">Senha incorreta ou erro de conexão.</p>
+        </div>
+
+        <div id="listaAdmin" class="space-y-4">
+            </div>
+    </div>
+
+    <script>
+        // Use a MESMA URL que você usa no home.html
+        const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbxUI4ldRL2s25TWFMI0z_wz9sxQ3ZoleMNaQX9M7OmdglUiEijewj024pd2aAChDdmg/exec';
+
+        async function carregarAdmin() {
+            const pw = document.getElementById('senha').value;
+            const lista = document.getElementById('listaAdmin');
+            const msgErro = document.getElementById('msgErro');
+            
+            lista.innerHTML = '<div class="text-center py-10"><i class="fas fa-spinner animate-spin text-3xl text-orange-500"></i><p class="mt-2 text-gray-500">Buscando comentários...</p></div>';
+            msgErro.classList.add('hidden');
+
+            try {
+                const res = await fetch(`${WEB_APP_URL}?mode=admin&pw=${pw}`);
+                const dados = await res.json();
+                
+                lista.innerHTML = "";
+                
+                if (dados.length === 0) {
+                    lista.innerHTML = '<div class="bg-white p-8 rounded-xl text-center shadow">Nenhum comentário encontrado na planilha.</div>';
+                    return;
+                }
+
+                // Inverte para ver os mais novos primeiro
+                dados.reverse().forEach(c => {
+                    const card = document.createElement('div');
+                    const pendente = c.status !== 'SIM';
+                    
+                    card.className = `bg-white p-6 rounded-xl shadow-md border-l-8 transition-all ${pendente ? 'border-orange-500' : 'border-green-500'}`;
+                    card.innerHTML = `
+                        <div class="flex flex-col md:flex-row justify-between gap-4">
+                            <div class="flex-grow">
+                                <div class="flex items-center gap-2 mb-1">
+                                    <span class="font-bold text-gray-900 text-lg">${c.nome}</span>
+                                    <span class="text-[10px] px-2 py-1 rounded bg-gray-100 text-gray-500 font-bold uppercase">${c.status}</span>
+                                </div>
+                                <p class="text-xs text-gray-400 mb-3">${c.email}</p>
+                                <p class="text-gray-700 leading-relaxed bg-gray-50 p-3 rounded-lg border border-gray-100">${c.comentario}</p>
+                            </div>
+                            <div class="flex md:flex-col gap-2 justify-end">
+                                ${pendente ? `
+                                    <button onclick="acao('aprovar', ${c.row})" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg font-bold text-sm flex items-center gap-2">
+                                        <i class="fas fa-check"></i> Aprovar
+                                    </button>
+                                ` : ''}
+                                <button onclick="acao('excluir', ${c.row})" class="bg-red-50 text-red-600 hover:bg-red-600 hover:text-white px-4 py-2 rounded-lg font-bold text-sm transition flex items-center gap-2">
+                                    <i class="fas fa-trash-alt"></i> Excluir
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                    lista.appendChild(card);
+                });
+            } catch (e) {
+                lista.innerHTML = "";
+                msgErro.classList.remove('hidden');
+            }
+        }
+
+        async function acao(tipo, linha) {
+            const pw = document.getElementById('senha').value;
+            const confirmacao = tipo === 'excluir' ? confirm("Tem certeza que deseja apagar permanentemente este comentário?") : true;
+            
+            if (!confirmacao) return;
+
+            try {
+                const res = await fetch(`${WEB_APP_URL}?action=${tipo}&row=${linha}&pw=${pw}`);
+                const texto = await res.text();
+                if (texto === "Sucesso" || texto === "Excluído") {
+                    carregarAdmin(); // Atualiza a lista automaticamente
+                } else {
+                    alert("Erro na operação.");
+                }
+            } catch (e) {
+                alert("Erro ao conectar com o servidor.");
+            }
+        }
+    </script>
+</body>
+</html>
