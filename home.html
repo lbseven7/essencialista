@@ -266,37 +266,37 @@
     </footer>
 
     <script>
-        const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbzudWcARoxG9MYXxRrO8RvpgzPWjSevzxPzZclEmA_i0Aw9v4PjOV6rkEfed1bfgj0Z/exec';
-        let todosOsArtigos = [];
+    const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbzudWcARoxG9MYXxRrO8RvpgzPWjSevzxPzZclEmA_i0Aw9v4PjOV6rkEfed1bfgj0Z/exec';
+    let todosOsArtigos = [];
 
-        // --- OBSERVAÇÃO DE SCROLL (REVELAÇÃO) ---
-        const observerOptions = { threshold: 0.1 };
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate-fade-in');
-                    entry.target.style.opacity = "1";
-                }
-            });
-        }, observerOptions);
+    // --- OBSERVAÇÃO DE SCROLL (REVELAÇÃO) ---
+    const observerOptions = { threshold: 0.1 };
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate-fade-in');
+                entry.target.style.opacity = "1";
+            }
+        });
+    }, observerOptions);
 
-        async function carregarArtigos() {
-            try {
-                const res = await fetch('posts/index.json');
-                todosOsArtigos = await res.json();
-                todosOsArtigos.sort((a, b) => (new Date(b.date || b.mtime).getTime()) - (new Date(a.date || a.mtime).getTime()));
-                renderizarGrid(todosOsArtigos);
-            } catch (e) { console.error(e); }
-        }
+    async function carregarArtigos() {
+        try {
+            const res = await fetch('posts/index.json');
+            todosOsArtigos = await res.json();
+            todosOsArtigos.sort((a, b) => (new Date(b.date || b.mtime).getTime()) - (new Date(a.date || a.mtime).getTime()));
+            renderizarGrid(todosOsArtigos);
+        } catch (e) { console.error("Erro ao carregar artigos:", e); }
+    }
 
-        function renderizarGrid(lista) {
-            const grid = document.getElementById('featuredGrid');
-            grid.innerHTML = '';
-            lista.forEach(p => {
-                const card = document.createElement('div');
-                card.style.opacity = "0"; // Começa invisível para o efeito de revelação
-                card.className = 'youtube-card bg-white rounded-xl shadow-md overflow-hidden flex flex-col h-full';
-                card.innerHTML = `
+    function renderizarGrid(lista) {
+        const grid = document.getElementById('featuredGrid');
+        grid.innerHTML = '';
+        lista.forEach(p => {
+            const card = document.createElement('div');
+            card.style.opacity = "0";
+            card.className = 'youtube-card bg-white rounded-xl shadow-md overflow-hidden flex flex-col h-full';
+            card.innerHTML = `
                 <a href="${p.href}" class="block group">
                     <div class="relative w-full aspect-video skeleton">
                         <img src="images/${p.image || 'default.png'}" 
@@ -314,61 +314,140 @@
                 <div class="px-4 pb-4 mt-auto text-right">
                     <a href="#comentar" class="text-gray-400 hover:text-orange-500 text-xs font-bold transition">Comentar</a>
                 </div>`;
-                grid.appendChild(card);
-                observer.observe(card); // Ativa o Scroll Reveal neste card
+            grid.appendChild(card);
+            observer.observe(card);
+        });
+    }
+
+    // --- FILTRO CORRIGIDO (CASE INSENSITIVE) ---
+    function filtrarArtigos(cat) {
+        const botoes = document.querySelectorAll('.filter-btn');
+        botoes.forEach(btn => {
+            btn.classList.remove('bg-black', 'text-white');
+            btn.classList.add('bg-gray-200', 'text-gray-800');
+        });
+        
+        // Destaca o botão clicado
+        window.event.currentTarget.classList.remove('bg-gray-200', 'text-gray-800');
+        window.event.currentTarget.classList.add('bg-black', 'text-white');
+
+        const filtrados = cat === 'todos' 
+            ? todosOsArtigos 
+            : todosOsArtigos.filter(a => a.category && a.category.toLowerCase() === cat.toLowerCase());
+        
+        renderizarGrid(filtrados);
+    }
+
+    // --- COMENTÁRIOS: CARREGAR (doGet) ---
+    async function carregarComentarios() {
+        const container = document.getElementById('listaComentarios');
+        try {
+            const res = await fetch(WEB_APP_URL);
+            const dados = await res.json();
+            
+            // Mantém apenas o título H3
+            const titulo = container.querySelector('h3');
+            container.innerHTML = '';
+            container.appendChild(titulo);
+
+            if (dados.length === 0) {
+                container.innerHTML += '<p class="text-gray-500 italic">Nenhum comentário aprovado ainda.</p>';
+                return;
+            }
+
+            dados.forEach(c => {
+                const div = document.createElement('div');
+                div.className = 'bg-white p-4 rounded-lg shadow border-l-4 border-orange-500 animate-fade-in';
+                div.innerHTML = `
+                    <p class="font-bold text-gray-900">${c.nome}</p>
+                    <p class="text-gray-700 text-sm mt-1">${c.comentario}</p>
+                    <p class="text-[10px] text-gray-400 mt-2 uppercase">${new Date(c.data).toLocaleDateString('pt-BR')}</p>
+                `;
+                container.appendChild(div);
             });
+        } catch (e) { 
+            document.getElementById('loader').innerText = "Erro ao carregar comentários.";
         }
+    }
 
-        function filtrarArtigos(cat) {
-            const botoes = document.querySelectorAll('.filter-btn');
-            botoes.forEach(btn => {
-                btn.classList.remove('bg-black', 'text-white');
-                btn.classList.add('bg-gray-200', 'text-gray-800');
-            });
-            event.target.classList.add('bg-black', 'text-white');
-            const filtrados = cat === 'todos' ? todosOsArtigos : todosOsArtigos.filter(a => a.category === cat);
-            renderizarGrid(filtrados);
-        }
-
-        // --- BARRA DE PROGRESSO E HEADER ---
-        window.onscroll = function () {
-            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrolled = (winScroll / height) * 100;
-            document.getElementById("progress-bar").style.width = scrolled + "%";
-
-            const header = document.querySelector('header');
-            if (window.scrollY > 50) header.classList.add('scrolled');
-            else header.classList.remove('scrolled');
+    // --- COMENTÁRIOS: ENVIAR (doPost) ---
+    document.getElementById("commentForm").onsubmit = async function (e) {
+        e.preventDefault();
+        const btn = document.getElementById("btnEnviar");
+        const status = document.getElementById("msgStatus");
+        
+        const payload = {
+            nome: document.getElementById("nome").value,
+            email: document.getElementById("email").value,
+            comentario: document.getElementById("comentario").value
         };
 
-        // --- DARK MODE ---
-        const darkModeBtn = document.getElementById('darkModeBtn');
-        const darkIcon = document.getElementById('darkIcon');
+        btn.disabled = true;
+        btn.innerText = "Enviando...";
 
-        function enableDarkMode() {
-            document.body.classList.add('dark');
-            darkIcon.classList.replace('fa-moon', 'fa-sun');
-            localStorage.setItem('theme', 'dark');
+        try {
+            await fetch(WEB_APP_URL, {
+                method: 'POST',
+                mode: 'no-cors', // Crucial para o Google Script
+                headers: { 'Content-Type': 'text/plain' },
+                body: JSON.stringify(payload)
+            });
+
+            status.className = "mt-3 text-center font-semibold text-green-600";
+            status.innerText = "Enviado com sucesso! Aparecerá após a moderação.";
+            this.reset();
+        } catch (err) {
+            status.className = "mt-3 text-center font-semibold text-red-600";
+            status.innerText = "Erro ao enviar. Tente novamente.";
+        } finally {
+            btn.disabled = false;
+            btn.innerText = "Enviar Comentário";
         }
+    };
 
-        function disableDarkMode() {
-            document.body.classList.remove('dark');
-            darkIcon.classList.replace('fa-sun', 'fa-moon');
-            localStorage.setItem('theme', 'light');
-        }
+    // --- BARRA DE PROGRESSO E HEADER ---
+    window.onscroll = function () {
+        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        document.getElementById("progress-bar").style.width = scrolled + "%";
 
-        darkModeBtn.onclick = () => document.body.classList.contains('dark') ? disableDarkMode() : enableDarkMode();
-        if (localStorage.getItem('theme') === 'dark') enableDarkMode();
+        const header = document.querySelector('header');
+        if (window.scrollY > 50) header.classList.add('scrolled');
+        else header.classList.remove('scrolled');
+    };
 
-        // Funções auxiliares existentes (Comentários e Copiar Email)
-        async function carregarComentarios() { /* ... sua lógica de comentários ... */ }
-        document.getElementById("commentForm").onsubmit = async function (e) { /* ... sua lógica de envio ... */ };
-        document.getElementById('btnCopiarEmail').onclick = function () { /* ... sua lógica de copiar ... */ };
+    // --- DARK MODE ---
+    const darkModeBtn = document.getElementById('darkModeBtn');
+    const darkIcon = document.getElementById('darkIcon');
 
-        window.onload = () => { carregarArtigos(); carregarComentarios(); };
-        document.getElementById('mobileMenuBtn').onclick = () => document.getElementById('main-nav').classList.toggle('hidden');
-    </script>
+    function enableDarkMode() {
+        document.body.classList.add('dark');
+        darkIcon.classList.replace('fa-moon', 'fa-sun');
+        localStorage.setItem('theme', 'dark');
+    }
+
+    function disableDarkMode() {
+        document.body.classList.remove('dark');
+        darkIcon.classList.replace('fa-sun', 'fa-moon');
+        localStorage.setItem('theme', 'light');
+    }
+
+    darkModeBtn.onclick = () => document.body.classList.contains('dark') ? disableDarkMode() : enableDarkMode();
+    if (localStorage.getItem('theme') === 'dark') enableDarkMode();
+
+    // --- E-MAIL COPY ---
+    document.getElementById('btnCopiarEmail').onclick = function() {
+        const email = "essencialista7@gmail.com";
+        navigator.clipboard.writeText(email);
+        const tip = document.getElementById('copyTooltip');
+        tip.style.opacity = "1";
+        setTimeout(() => tip.style.opacity = "0", 2000);
+    };
+
+    window.onload = () => { carregarArtigos(); carregarComentarios(); };
+    document.getElementById('mobileMenuBtn').onclick = () => document.getElementById('main-nav').classList.toggle('hidden');
+</script>
 </body>
 
 </html>
