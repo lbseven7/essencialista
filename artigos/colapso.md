@@ -1,10 +1,8 @@
 ---
-title: "A Imagem da Besta e o Iiminente Colapso do Sistema"
+title: "EUA: A Imagem da Hierarquia Romana e Colapso da Nação"
 date: 2026-02-21
-image: dolar.webp
+image: imagem-besta.png
 ---
-
-# 2026: A Formação da Imagem da Besta e o Colapso do Sistema
 
 ## Introdução
 O cenário delineado para o ano de 2026 aponta para uma convergência sem precedentes entre crises econômicas globais e movimentos político-religiosos nos Estados Unidos. De acordo com a interpretação das profecias de Apocalipse 13 e 14, estes eventos sinalizam a formação da "Imagem da Besta" e a aproximação do fim do tempo da graça.
