@@ -1,7 +1,9 @@
 ---
 title: "A Verdade Presente | James White"
-date: 1849-07-01
-image: tiago.png
+date: "2026-08-01T10:00:00-03:00"
+category: "Profecia"
+image: "tiago.png"
+signature: "..."
 ---
 
 O artigo **"The Present Truth"**, publicado por James White em julho de 1849, fundamenta as bases teológicas do movimento adventista em relação à vigência do Sábado e à distinção entre as leis bíblicas.

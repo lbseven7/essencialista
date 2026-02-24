@@ -1,7 +1,9 @@
 ---
-title: A Tolice e o Rebaixamento Espiritual
-date: 2026-01-10
-image: tolice.jpg
+title: "A Tolice e o Rebaixamento Espiritual"
+date: "2026-01-10"
+image: "tolice.jpg"
+category: "Profecia"
+signature: "..."
 ---
 
 

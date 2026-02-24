@@ -1,7 +1,9 @@
 ---
 title: "O Mundo à Frente 2026"
-date: 2026-02-21
-image: economist2026.jpg
+date: "2026-02-21"
+image: "economist2026.jpg"
+category: "..."
+signature: "..."
 ---
 
 ## Introdução

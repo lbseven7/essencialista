@@ -1,7 +1,9 @@
 ---
 title: "O Fim da Graça"
-date: 1849-07-01
-image: porta.png
+date: "2026-02-20"
+image: "porta.png"
+category: "Profecia"
+signature: "..."
 ---
 
 ## O CONCEITO DA PORTA FECHADA E DA PORTA ABERTA

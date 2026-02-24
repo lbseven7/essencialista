@@ -1,7 +1,9 @@
 ---
 title: O Sétimo Milênio e a Prisão de Satanás
-date: 2026-02-22
-image: abismo.png
+date: "2026-02-22"
+image: "abismo.png"
+category: "Profecia"
+signature: "..."
 ---
 
 ## Introdução 

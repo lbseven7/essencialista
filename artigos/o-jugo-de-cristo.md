@@ -1,7 +1,9 @@
 ---
-title: O Jugo de Cristo
-image: jugo.jpg
-date: 2025-12-05
+title: "O Jugo de Cristo"
+image: "jugo.jpg"
+date: "2025-12-05"
+category: "Vida"
+signature: "..."
 ---
 
 # Tomai sobre vós o Meu jugo: O Caminho para o Descanso

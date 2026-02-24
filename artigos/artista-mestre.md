@@ -1,7 +1,9 @@
 ---
-title: O Artista-Mestre
-date: 2025-12-06
-image: artista.png
+title: "O Artista-Mestre"
+date: "2025-12-06"
+image: "artista.png"
+category: "Fé"
+signature: "A arte é a expressão do espírito humano. É a forma de comunicação entre o ser humano e o mundo exterior. É a forma de expressão do amor e da fé."
 ---
 
 # A Arte Divina Revelada na Natureza

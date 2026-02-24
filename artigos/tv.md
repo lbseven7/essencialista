@@ -1,8 +1,9 @@
 ---
 title: "Pseudologia: A Ciência do Entretenimento e o Controle da Mente"
-date: 2023-08-01T10:00:00-03:00
-draft: false
-image: mentir.png
+date: "2026-08-01T10:00:00-03:00"
+category: "Ciência"
+image: "mentir.png"
+signature: "..."
 ---
 
 ## Introdução

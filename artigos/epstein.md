@@ -1,7 +1,9 @@
 ---
 title: 'Epstein: Mais um Personagem no Grande Drama'
-date: 2026-02-17 
-image: epstein.png
+date: "2026-02-17"
+image: "epstein.png"
+category: "Profecia"
+signature: "..."
 ---
 
 > **Resumo:** Por trás dos escândalos visíveis e das figuras que simbolizam a corrupção moderna, existe um conflito invisível. Entenda como a história de figuras poderosas se encaixa na narrativa bíblica do Grande Conflito.

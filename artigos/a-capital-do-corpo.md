@@ -1,7 +1,9 @@
 ---
-title: A Mente Forte
-date: 2025-12-13
-image: mente.jpg
+title: "A Mente Forte"
+date: "2025-12-13"
+image: "mente.jpg"
+category: "Vida"
+signature: "A mente é a fortaleza onde se decide o rumo da vida. Aquilo que escolhemos alimentar em pensamentos, hábitos e valores determina se ela será um abrigo de luz ou um campo vulnerável à ruína."
 ---
 
 # A Capital do Corpo Humano
@@ -34,6 +36,4 @@ Proteger a mente é um dever diário. Exige vigilância, equilíbrio nos hábito
 
 Cuidar da mente é preservar a fortaleza interior. Quando ela está clara e bem guardada, o ser humano vive com propósito, discernimento e verdadeira liberdade.
 
-> **Reflexão final:**  
-> A mente é a fortaleza onde se decide o rumo da vida. Aquilo que escolhemos alimentar em pensamentos, hábitos e valores determina se ela será um abrigo de luz ou um campo vulnerável à ruína.
 ---

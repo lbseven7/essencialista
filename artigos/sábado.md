@@ -1,7 +1,9 @@
 ---
 title: 'O Falso Sábado Avança na America (2026)'
-date: 2026-02-17 
-image: ruina2.png
+date: "2026-02-17 "
+image: "ruina2.png"
+category: "Profecia"
+signature: "..."
 ---
 
 > **Resumo:** Nos EUA, crescem os movimentos que defendem um dia de descanso nacional por razões sociais e ambientais. Para o estudante da profecia, esse cenário é o prelúdio de um evento há muito anunciado: o fechamento do Grande Conflito.

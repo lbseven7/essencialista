@@ -1,7 +1,9 @@
 ---
-title: O Estudo Mais Eficaz
-date: 2026-01-10 
-image: mcp.jpg
+title: "O Estudo Mais Eficaz"
+date: "2026-01-10"
+image: "mcp.jpg"
+category: "Vida"
+signature: "..."
 
 ---
 

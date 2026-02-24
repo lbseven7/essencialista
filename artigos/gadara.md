@@ -1,7 +1,9 @@
 ---
-title: Luz em Gadara
-date: 2025-12-13
-image: gadara.jpg
+title: "Luz em Gadara"
+date: "2025-12-13"
+image: "gadara.jpg"
+category: "Fé"
+signature: "..."
 ---
 
 ## O Propósito Divino Além do Caos

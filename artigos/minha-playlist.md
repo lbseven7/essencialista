@@ -1,8 +1,9 @@
 ---
-title: Minha Playlist Recomendada
-date: 2026-02-07
-image: eua.jpg
-assinatura: "Cristo disse: Eis que venho sem demora."
+title: "Minha Playlist Recomendada"
+date: "2026-02-07"
+image: "eua.jpg"
+category: "Profecia"
+signature: "Cristo disse: Eis que venho sem demora."
 ---
 
 # O livro para o tempo do fim - A Grande Controvérsia - The Great Controversy

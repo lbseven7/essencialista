@@ -1,7 +1,9 @@
 ---
 title: 'A Teoria dos Seis Mil Anos: O Relógio Profético de Deus'
-date: 2026-02-18 
-image: 6mil.png
+date: "2026-02-18"
+image: "6mil.png"
+category: "Profecia"
+signature: "..."
 ---
 
 > **Resumo:** Existe um limite para o domínio do mal na Terra? Explore a perspectiva adventista sobre a cronologia dos seis mil anos e como o "Sábado da História" aponta para o breve retorno de Cristo.
