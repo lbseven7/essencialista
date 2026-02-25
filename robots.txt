@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /admin.html
+Disallow: /google8518764e7f7d7982.html
+
+Sitemap: https://leob.com.br/sitemap.xml
