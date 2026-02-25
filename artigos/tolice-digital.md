@@ -2,7 +2,7 @@
 title: "A Tolice e o Rebaixamento Espiritual"
 date: "2026-01-10"
 image: "tolice.jpg"
-category: "Profecia"
+category: "Vida"
 signature: "..."
 ---
 
@@ -14,7 +14,7 @@ Vivemos submersos em uma onda de futilidades. Nas redes sociais e no cotidiano, 
 Quando ocupamos a "capital do corpo" com o que é inútil, perdemos a clareza para discernir as realidades eternas. É urgente resgatarmos os filtros bíblicos para proteger nossa mente e nossa caminhada com Deus.
 
 # A Pureza na Comunicação e nas Companhias
-A bíblia é cirúrgica ao tratar da nossa exposição ao erro. O apóstolo Paulo nos orienta a filtrar não apenas o que dizemos, mas com quem nos associamos.
+A Bíblia é cirúrgica ao tratar da nossa exposição ao erro. O apóstolo Paulo nos orienta a filtrar não apenas o que dizemos, mas com quem nos associamos.
 
 Conversas tolas e chocarrices: Efésios 5:4 alerta que piadas obscenas e conversas vazias não convêm ao cristão. O falar deve ser pautado pela gratidão, não pela zombaria.
 

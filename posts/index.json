@@ -40,6 +40,14 @@
     "mtime": "2026-02-24T20:33:38.976Z"
   },
   {
+    "title": "Está Escrito!",
+    "category": "Vida",
+    "image": "falsos.png",
+    "href": "posts/esta-escrito.html",
+    "date": "2026-02-24T00:00:00.000Z",
+    "mtime": "2026-02-24T23:56:16.919Z"
+  },
+  {
     "title": "O Estudo Mais Eficaz",
     "category": "Vida",
     "image": "mcp.jpg",
@@ -64,12 +72,20 @@
     "mtime": "2026-02-24T20:35:05.155Z"
   },
   {
-    "title": "Minha Playlist Recomendada",
+    "title": "A Natureza e os Perigos do Espiritismo",
     "category": "Profecia",
-    "image": "eua.jpg",
+    "image": "erros.png",
+    "href": "posts/imortalidade-da-alma.html",
+    "date": "2026-02-24T00:00:00.000Z",
+    "mtime": "2026-02-24T23:59:12.625Z"
+  },
+  {
+    "title": "The Great Controversy",
+    "category": "Profecia",
+    "image": "esta-escrito.png",
     "href": "posts/minha-playlist.html",
     "date": "2026-02-07",
-    "mtime": "2026-02-24T20:35:40.288Z"
+    "mtime": "2026-02-25T00:26:55.712Z"
   },
   {
     "title": "Essencialista Está Digitando...",
@@ -77,7 +93,7 @@
     "image": "loading.jpg",
     "href": "posts/modelo.html",
     "date": "2026-02-25T00:00:00.000Z",
-    "mtime": "2026-02-24T20:40:40.392Z"
+    "mtime": "2026-02-24T23:00:50.704Z"
   },
   {
     "title": "O Jugo de Cristo",
@@ -121,11 +137,11 @@
   },
   {
     "title": "A Tolice e o Rebaixamento Espiritual",
-    "category": "Profecia",
+    "category": "Vida",
     "image": "tolice.jpg",
     "href": "posts/tolice-digital.html",
     "date": "2026-01-10",
-    "mtime": "2026-02-24T20:38:03.400Z"
+    "mtime": "2026-02-25T00:07:04.830Z"
   },
   {
     "title": "Pseudologia: A Ciência do Entretenimento e o Controle da Mente",

@@ -1,12 +1,12 @@
 ---
-title: "Minha Playlist Recomendada"
+title: "The Great Controversy"
 date: "2026-02-07"
-image: "eua.jpg"
+image: "esta-escrito.png"
 category: "Profecia"
 signature: "Cristo disse: Eis que venho sem demora."
 ---
 
-# O livro para o tempo do fim - A Grande Controvérsia - The Great Controversy
+# O livro para o Tempo do Fim
 
 O livro 'A Grande Controvérsia' ou 'O Grande Cnflito' visa desdobrar as cenas do grande conflito entre a verdade e o erro; revelar os ardis de satanás
  e os meios que lhe podemos opor eficaz resistência; apresentar uma solução satisfatória do grande problema do mal, derramando luz sobre a origem
