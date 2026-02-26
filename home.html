@@ -116,7 +116,7 @@
     </footer>
 
     <script>
-        const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbxUI4ldRL2s25TWFMI0z_wz9sxQ3ZoleMNaQX9M7OmdglUiEijewj024pd2aAChDdmg/exec';
+        const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbxtoRBOkYP97mg98RSIQCWmIzYsAjp66aVLHNOnnnOYRaDMSbWkhZII5joUjFfR5cWJ/exec';
         let todosOsArtigos = [];
 
         const observer = new IntersectionObserver((entries) => {
@@ -190,7 +190,7 @@
         async function carregarComentarios() {
             const container = document.getElementById('listaComentarios');
             try {
-                const res = await fetch(WEB_APP_URL);
+                const res = await fetch(WEB_APP_URL + '?artigoId=home');
                 const dados = await res.json();
                 const loader = document.getElementById('loader');
                 if(loader) loader.remove();
@@ -217,6 +217,7 @@
             const btn = document.getElementById("btnEnviar");
             const status = document.getElementById("msgStatus");
             const payload = {
+                artigoId: "home",
                 nome: document.getElementById("nome").value,
                 email: document.getElementById("email").value,
                 comentario: document.getElementById("comentario").value
