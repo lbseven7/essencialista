@@ -106,7 +106,7 @@ const htmlTemplate = (data, content, prevHref, nextHref, slug) => `
     </footer>
 
     <script>
-        const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbxtoRBOkYP97mg98RSIQCWmIzYsAjp66aVLHNOnnnOYRaDMSbWkhZII5joUjFfR5cWJ/exec';
+        const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbzvsw1a929OYZMd1sT6jYByl0iRE3a7xXBIiRoP51VREkmq0h6emxajQxkz0QadgUo0/exec';
         const slug = document.getElementById('artigoId').value;
 
         // Script para abrir/fechar o menu mobile 
