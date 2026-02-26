@@ -1,6 +1,6 @@
 ---
 title: "O Jugo de Cristo"
-image: "jugo.jpg"
+image: "jugo.webp"
 date: "2025-12-05"
 category: "Vida"
 signature: "..."

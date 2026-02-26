@@ -1,7 +1,7 @@
 ---
 title: O Sétimo Milênio e a Prisão de Satanás
 date: "2026-02-22"
-image: "abismo.png"
+image: "abismo.webp"
 category: "Profecia"
 signature: "..."
 ---
@@ -40,7 +40,7 @@ O capítulo 41 encerra o ciclo de rebelião terrestre com a Terra em um repouso 
 <div class="mt-8 rounded-xl overflow-hidden shadow-lg border border-gray-200">
   <a href="https://www.youtube.com/watch?v=fGAFJWtKbHw" target="_blank" class="relative group block">
     <img 
-      src="https://img.youtube.com/vi/fGAFJWtKbHw/maxresdefault.jpg" 
+      src="https://img.youtube.com/vi/fGAFJWtKbHw/maxresdefault.webp" 
       alt="Assistir O Mundo à Frente 2026 no YouTube" 
       class="w-full h-auto grayscale group-hover:grayscale-0 transition duration-500"
     >

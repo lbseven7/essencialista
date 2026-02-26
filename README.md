@@ -48,8 +48,8 @@ Este projeto é uma **Single Page Application (SPA)** focada em performance e si
 │   ├── index.json          # Banco de dados dos artigos (JSON)
 │   ├── artigo-exemplo.html # Páginas de conteúdo individual
 ├── images/
-│   ├── sem-bg-black.png    # Logo oficial
-│   ├── cruz.jpg            # Hero images
+│   ├── sem-bg-black.webp    # Logo oficial
+│   ├── cruz.webp            # Hero images
 │   └── ...
 ├── home.html               # Página principal do portal
 ├── about.html              # Sobre o autor e o projeto

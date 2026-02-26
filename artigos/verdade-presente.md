@@ -2,7 +2,7 @@
 title: "A Verdade Presente | James White"
 date: "2026-08-01T10:00:00-03:00"
 category: "Profecia"
-image: "tiago.png"
+image: "tiago.webp"
 signature: "..."
 ---
 

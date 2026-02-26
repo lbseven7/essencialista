@@ -58,7 +58,7 @@
 //         <div class="container mx-auto flex justify-between items-center relative">
 //             <div class="flex items-center space-x-3">
 //                 <a href="../home.html">
-//                     <img src="../images/sem-bg-black.png" alt="Essencialista Logo" class="h-10">
+//                     <img src="../images/sem-bg-black.webp" alt="Essencialista Logo" class="h-10">
 //                 </a>
 //                 <a href="../home.html">
 //                     <h1 class="text-2xl font-bold">Essencialista</h1>
@@ -131,7 +131,7 @@
 
 //     <footer class="bg-black text-white p-4 mt-12">
 //         <div class="container mx-auto text-center">
-//             <p><img src="../images/sem-bg-black.png" alt="Essencialista Logo" class="h-10 inline-block">Essencialista.
+//             <p><img src="../images/sem-bg-black.webp" alt="Essencialista Logo" class="h-10 inline-block">Essencialista.
 //                 Todos os direitos reservados &copy; 2025</p>
 //         </div>
 //     </footer>
@@ -343,7 +343,7 @@ const htmlTemplate = (data, content, prevHref, nextHref) => `
     <header class="bg-black text-white p-6 shadow-md">
         <div class="container mx-auto flex justify-between items-center relative">
             <div class="flex items-center space-x-3">
-                <a href="../home.html"><img src="../images/sem-bg-black.png" alt="Logo" class="h-10"></a>
+                <a href="../home.html"><img src="../images/sem-bg-black.webp" alt="Logo" class="h-10"></a>
                 <a href="../home.html"><h1 class="text-2xl font-bold">Essencialista</h1></a>
             </div>
             <div class="ml-auto flex items-center gap-4">

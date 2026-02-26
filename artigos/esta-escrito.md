@@ -1,7 +1,7 @@
 ---
 title: "Está Escrito!"
 category: "Vida"
-image: "falsos.png"
+image: "falsos.webp"
 date: "2026-02-24T00:00:00.000Z"
 signature: "À lei e ao testemunho! se eles não falarem segundo esta Palavra, não haverá manhã para eles.” Isaías 8:20"
 ---

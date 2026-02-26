@@ -1,7 +1,7 @@
 ---
 title: 'Epstein: Mais um Personagem no Grande Drama'
 date: "2026-02-17"
-image: "epstein.png"
+image: "epstein.webp"
 category: "Profecia"
 signature: "..."
 ---

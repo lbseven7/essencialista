@@ -1,7 +1,7 @@
 ---
 title: "O Artista-Mestre"
 date: "2025-12-06"
-image: "artista.png"
+image: "artista.webp"
 category: "Fé"
 signature: "A arte é a expressão do espírito humano. É a forma de comunicação entre o ser humano e o mundo exterior. É a forma de expressão do amor e da fé."
 ---

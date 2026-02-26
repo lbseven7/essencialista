@@ -1,7 +1,7 @@
 ---
 title: "Luz em Gadara"
 date: "2025-12-13"
-image: "gadara.jpg"
+image: "gadara.webp"
 category: "Fé"
 signature: "..."
 ---

@@ -1,7 +1,7 @@
 ---
 title: "O Desfecho do Grande Conflito Segundo a História da Redenção"
 date: "2026-02-24"
-image: "hr.png"
+image: "hr.webp"
 category: "Profecia"
 signature: "..."
 ---

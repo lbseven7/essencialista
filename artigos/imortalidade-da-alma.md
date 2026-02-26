@@ -1,7 +1,7 @@
 ---
 title: "A Natureza e os Perigos do Espiritismo"
 category: "Profecia"
-image: "erros.png"
+image: "erros.webp"
 date: "2026-02-24T00:00:00.000Z"
 signature: "A imortalidade da alma lança o fundamento do espiritismo. Todo cristão sincero deve saber sobre o estado dos mortos para não cair nesse poderoso engano de Satanás."
 ---

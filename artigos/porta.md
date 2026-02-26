@@ -1,7 +1,7 @@
 ---
 title: "O Fim da Graça"
 date: "2026-02-20"
-image: "porta.png"
+image: "porta.webp"
 category: "Profecia"
 signature: "..."
 ---

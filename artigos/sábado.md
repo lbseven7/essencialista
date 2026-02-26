@@ -1,7 +1,7 @@
 ---
 title: 'O Falso Sábado Avança na America (2026)'
 date: "2026-02-17 "
-image: "ruina2.png"
+image: "ruina2.webp"
 category: "Profecia"
 signature: "..."
 ---

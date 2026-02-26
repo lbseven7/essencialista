@@ -1,7 +1,7 @@
 ---
 title: "O Estudo Mais Eficaz"
 date: "2026-01-10"
-image: "mcp.jpg"
+image: "mcp.webp"
 category: "Vida"
 signature: "..."
 

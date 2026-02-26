@@ -1,7 +1,7 @@
 ---
 title: "A Mente Forte"
 date: "2025-12-13"
-image: "mente.jpg"
+image: "mente.webp"
 category: "Vida"
 signature: "A mente é a fortaleza onde se decide o rumo da vida. Aquilo que escolhemos alimentar em pensamentos, hábitos e valores determina se ela será um abrigo de luz ou um campo vulnerável à ruína."
 ---

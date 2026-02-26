@@ -1,7 +1,7 @@
 ---
 title: 'A Teoria dos Seis Mil Anos: O Relógio Profético de Deus'
 date: "2026-02-18"
-image: "6mil.png"
+image: "6mil.webp"
 category: "Profecia"
 signature: "..."
 ---

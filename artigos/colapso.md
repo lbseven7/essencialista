@@ -1,7 +1,7 @@
 ---
 title: "EUA: A Imagem da Hierarquia Romana e Colapso da Nação"
 date: "2026-02-21"
-image: "imagem-besta.png"
+image: "imagem-besta.webp"
 category: "Profecia"
 signature: "A Imagem da Besta é uma réplica do sistema papal, caracterizada pela unificação do poder religioso e civil. O vídeo destaca que, enquanto o Vaticano é a Besta, os Estados Unidos são responsáveis por criar a sua \"imagem\" ao unir as principais igrejas protestantes com o poder do Estado."
 ---
