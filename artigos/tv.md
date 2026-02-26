@@ -55,7 +55,7 @@ A escolha do entretenimento não é apenas uma questão de lazer, mas uma decis�
 <div class="mt-8 rounded-xl overflow-hidden shadow-lg border border-gray-200">
   <a href="https://youtu.be/Fr6YmMFFsQs?t=2468" target="_blank" class="relative group block">
     <img 
-      src="https://img.youtube.com/vi/Fr6YmMFFsQs/maxresdefault.webp" 
+      src="https://img.youtube.com/vi/Fr6YmMFFsQs/maxresdefault.jpg" 
       alt="Assistir Pseudologia no YouTube" 
       class="w-full h-auto grayscale group-hover:grayscale-0 transition duration-500"
     >

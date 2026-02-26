@@ -39,7 +39,7 @@ Como vaticinou Foucault: "O poder vence quando convence você de que ele é prot
 <div class="mt-8 rounded-xl overflow-hidden shadow-lg border border-gray-200">
   <a href="https://youtu.be/3mZpuDXFHF0?t=2" target="_blank" class="relative group block">
     <img 
-      src="https://img.youtube.com/vi/3mZpuDXFHF0/maxresdefault.webp" 
+      src="https://img.youtube.com/vi/3mZpuDXFHF0/maxresdefault.jpg" 
       alt="Assistir O Mundo à Frente 2026 no YouTube" 
       class="w-full h-auto grayscale group-hover:grayscale-0 transition duration-500"
     >
