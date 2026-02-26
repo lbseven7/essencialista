@@ -1,15 +1,15 @@
 const fs = require('fs');
 const path = require('path');
 const MarkdownIt = require('markdown-it');
-const matter = require('gray-matter'); 
+const matter = require('gray-matter');
 
 const md = new MarkdownIt({
     html: true,
     linkify: true
 });
 
-const inputDir = path.join(__dirname, 'artigos'); 
-const outputDir = path.join(__dirname, 'posts');  
+const inputDir = path.join(__dirname, 'artigos');
+const outputDir = path.join(__dirname, 'posts');
 
 function resolveTitle(data, markdownBody, fallbackHtmlName) {
     const titleFromFrontMatter = data.title || data['Título'] || data['titulo'];
@@ -76,6 +76,19 @@ const htmlTemplate = (data, content, prevHref, nextHref, slug) => `
         <div class="mt-6 flex justify-center gap-3">
             <a href="${prevHref}" class="bg-black text-white px-6 py-1 rounded-full">Anterior</a>
             <a href="${nextHref}" class="bg-black text-white px-6 py-1 rounded-full">Próximo</a>
+        </div>
+         <!--Botão Voltar ao Home-->
+          <div class="mt-6 text-center">
+            <a href="../home.html"
+                class="bg-black text-white px-6 py-1 rounded-full hover:bg-orange-500 transition duration-300">
+                Voltar ao Home
+            </a>
+        </div>
+        <!-- Botão de Voltar pra Cima-->
+        <div class="mt-6 text-center">
+            <a href="#" class="bg-black text-white px-6 py-1 rounded-full hover:bg-gray-800 transition duration-300">
+                <i class="fas fa-arrow-up"></i>
+            </a>
         </div>
 
         <!-- Seção de Comentários -->
@@ -236,7 +249,7 @@ function processMarkdownFiles() {
     // Gerar os arquivos HTML físicos
     toGenerate.forEach(g => {
         const currentIndex = sortedManifest.findIndex(m => m.href === g.href);
-        
+
         let nextHref = '../home.html';
         let prevHref = '../home.html';
 
