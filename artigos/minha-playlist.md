@@ -1,7 +1,7 @@
 ---
 title: "The Great Controversy"
 date: "2026-02-07"
-image: "esta-escrito.webp"
+image: "esta-escrito.jpg"
 category: "Profecia"
 signature: "Cristo disse: Eis que venho sem demora."
 ---
@@ -28,7 +28,7 @@ Esta playlist do canal 'Essencialista' que traz a leitura resumida do livro 'A G
 <!-- SUBSTITUA 'VIDEO_ID_AQUI' PELO ID DO SEU VÍDEO DO YOUTUBE -->
 <!-- Exemplo: Se o link é youtube.com/watch?v=dQw4w9WgXcQ, o ID é dQw4w9WgXcQ -->
 <a href="https://www.youtube.com/watch?v=fGAFJWtKbHw" target="_blank" class="block group relative overflow-hidden rounded-lg shadow-lg">
-<img src="https://img.youtube.com/vi/fGAFJWtKbHw/maxresdefault.webp" 
+<img src="https://img.youtube.com/vi/fGAFJWtKbHw/maxresdefault.jpg" 
 alt="Thumbnail do Vídeo 1" 
 class="w-full h-auto object-cover transform transition duration-500 group-hover:scale-105">
 <div class="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition flex items-center justify-center">
