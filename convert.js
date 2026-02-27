@@ -35,7 +35,7 @@ const htmlTemplate = (data, content, prevHref, nextHref, slug) => `
     <meta name="category" content="${data.category || 'Geral'}">
     <title>${data.title} - Essencialista</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <style>
         html { scroll-behavior: smooth; }
         .animate-fade-in { animation: fadeIn 0.6s ease forwards; }
