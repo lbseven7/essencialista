@@ -3,7 +3,7 @@ title: "A Verdade Presente | James White"
 date: "2026-08-01T10:00:00-03:00"
 category: "Profecia"
 image: "tiago.webp"
-signature: "..."
+signature: "Em cada época houve uma verdade presente. Nos dias de Noé, a verdade era: Deixe a rebelião contra o governo de Deus e entre na Arca. No tempo de Sodoma: A cidade será destruída e quem quiser ser salvo da destruição, saia agora. O que está escrito acima é a verdade para o nosso tempo!"
 ---
 
 O artigo **"The Present Truth"**, publicado por James White em julho de 1849, fundamenta as bases teológicas do movimento adventista em relação à vigência do Sábado e à distinção entre as leis bíblicas.

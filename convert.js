@@ -68,29 +68,26 @@ const htmlTemplate = (data, content, prevHref, nextHref, slug, relacionados) => 
             ${data.image ? `<img src="../images/${data.image}" class="w-full h-64 object-cover mb-6 rounded-lg">` : ''}
             <h2 class="text-3xl font-bold mb-4">${data.title}</h2>
             <div class="space-y-4 leading-relaxed text-justify">${content}</div>
+            <!--Link para a section Comentar-->
+            <a href="#comentarios-artigo" class="text-orange-600 hover:underline">Comentar</a>
             <div class="mt-6 p-4 bg-gray-50 border-l-4 border-black rounded">
                 <p class="italic">👉 ${data.signature || data.assinatura || 'Reflexão do dia'}</p>
                 <p class="text-right mt-2 font-semibold">- Essencialista</p>
             </div>
+            <div class="mt-6 flex justify-center gap-3">
+                <a href="${prevHref}" class="bg-black text-white px-6 py-1 rounded-full">Anterior</a>
+                <a href="${nextHref}" class="bg-black text-white px-6 py-1 rounded-full">Próximo</a>
+                <!--Botão Voltar ao Home-->
+                <a href="../home.html"
+                    class="bg-black text-white px-6 py-1 rounded-full hover:bg-orange-500 transition duration-300">
+                    Voltar ao Home
+                </a>
+                <!-- Botão de Voltar pra Cima-->
+                <a href="#" class="bg-black text-white px-6 py-1 rounded-full hover:bg-gray-800 transition duration-300">
+                    <i class="fas fa-arrow-up"></i>
+                </a>
+            </div>
         </article>
-
-        <div class="mt-6 flex justify-center gap-3">
-            <a href="${prevHref}" class="bg-black text-white px-6 py-1 rounded-full">Anterior</a>
-            <a href="${nextHref}" class="bg-black text-white px-6 py-1 rounded-full">Próximo</a>
-        </div>
-         <!--Botão Voltar ao Home-->
-          <div class="mt-6 text-center">
-            <a href="../home.html"
-                class="bg-black text-white px-6 py-1 rounded-full hover:bg-orange-500 transition duration-300">
-                Voltar ao Home
-            </a>
-        </div>
-        <!-- Botão de Voltar pra Cima-->
-        <div class="mt-6 text-center">
-            <a href="#" class="bg-black text-white px-6 py-1 rounded-full hover:bg-gray-800 transition duration-300">
-                <i class="fas fa-arrow-up"></i>
-            </a>
-        </div>
 
         <!-- Artigos Relacionados -->
         ${relacionados.length > 0 ? `
