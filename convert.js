@@ -26,7 +26,7 @@ function applyBoldToSubtitles(html) {
 }
 
 // Template ajustado para incluir a meta-tag de categoria no HTML
-const htmlTemplate = (data, content, prevHref, nextHref, slug) => `
+const htmlTemplate = (data, content, prevHref, nextHref, slug, relacionados) => `
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -34,8 +34,9 @@ const htmlTemplate = (data, content, prevHref, nextHref, slug) => `
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="category" content="${data.category || 'Geral'}">
     <title>${data.title} - Essencialista</title>
+    <link rel="icon" type="image/webp" href="../images/sem-bg-black.webp">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
         html { scroll-behavior: smooth; }
         .animate-fade-in { animation: fadeIn 0.6s ease forwards; }
@@ -90,6 +91,22 @@ const htmlTemplate = (data, content, prevHref, nextHref, slug) => `
                 <i class="fas fa-arrow-up"></i>
             </a>
         </div>
+
+        <!-- Artigos Relacionados -->
+        ${relacionados.length > 0 ? `
+        <section class="mt-12">
+            <h3 class="text-xl font-bold mb-4 border-b-2 border-orange-500 inline-block">Artigos Relacionados</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                ${relacionados.map(r => `
+                    <a href="../${r.href}" class="group bg-white rounded-lg shadow hover:shadow-md transition p-3 flex flex-col h-full">
+                        <img src="../images/${r.image || 'default.webp'}" class="w-full h-24 object-cover rounded mb-2">
+                        <span class="text-[8px] font-black text-orange-600 uppercase tracking-widest mb-1">${r.category}</span>
+                        <h4 class="font-bold text-xs group-hover:text-orange-600 line-clamp-2 leading-tight">${r.title}</h4>
+                    </a>
+                `).join('')}
+            </div>
+        </section>
+        ` : ''}
 
         <!-- Seção de Comentários -->
         <section id="comentarios-artigo" class="mt-20">
@@ -266,7 +283,35 @@ function processMarkdownFiles() {
             }
         }
 
-        const finalHtml = htmlTemplate(g.data, g.htmlContent, prevHref, nextHref, path.basename(g.outputPath, '.html'));
+        // --- LÓGICA DE ARTIGOS RELACIONADOS (SEMELHANÇA DE TEMAS) ---
+        const getPalavrasChave = (texto) => {
+            return texto.toLowerCase()
+                .normalize('NFD').replace(/[\u0300-\u036f]/g, "") // Remove acentos
+                .split(/\W+/)
+                .filter(p => p.length > 3); // Apenas palavras significativas
+        };
+
+        const palavrasAtuais = getPalavrasChave(g.data.title);
+
+        const relacionados = sortedManifest
+            .filter(m => m.href !== g.href) // Exclui o próprio artigo
+            .map(m => {
+                let score = 0;
+                // Pontuação por categoria idêntica
+                if (m.category === g.data.category) score += 10;
+
+                // Pontuação por palavras em comum no título
+                const palavrasComparar = getPalavrasChave(m.title);
+                const palavrasComum = palavrasAtuais.filter(p => palavrasComparar.includes(p));
+                score += palavrasComum.length * 2;
+
+                return { ...m, score };
+            })
+            .filter(m => m.score > 0) // Apenas os que têm alguma semelhança
+            .sort((a, b) => b.score - a.score) // Ordena pela maior pontuação
+            .slice(0, 3); // Pega os 3 mais relevantes
+
+        const finalHtml = htmlTemplate(g.data, g.htmlContent, prevHref, nextHref, path.basename(g.outputPath, '.html'), relacionados);
         fs.writeFileSync(g.outputPath, finalHtml, 'utf8');
     });
 
