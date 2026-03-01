@@ -1,5 +1,5 @@
 ---
-title: "2027: D Fim dos Seis Mil Anos?"
+title: "2027: O Fim dos Seis Mil Anos?"
 category: "Profecia"
 image: "tempo-curto-trump.webp"
 description: "Não importa o quão longe estejamos, o fim dos seis mil anos está chegando."
