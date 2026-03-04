@@ -11,6 +11,17 @@ const md = new MarkdownIt({
 const inputDir = path.join(__dirname, 'artigos');
 const outputDir = path.join(__dirname, 'posts');
 
+// Função para criar nomes de arquivos limpos (slugs)
+function slugify(text) {
+    return text.toString().toLowerCase()
+        .normalize('NFD').replace(/[\u0300-\u036f]/g, "") // Remove acentos
+        .replace(/\s+/g, '-')           // Substitui espaços por hífen
+        .replace(/[^\w\-]+/g, '')       // Remove caracteres não alfanuméricos
+        .replace(/\-\-+/g, '-')         // Remove hífens duplos
+        .replace(/^-+/, '')             // Remove hífen no início
+        .replace(/-+$/, '');            // Remove hífen no fim
+}
+
 function resolveTitle(data, markdownBody, fallbackHtmlName) {
     const titleFromFrontMatter = data.title || data['Título'] || data['titulo'];
     if (titleFromFrontMatter) return String(titleFromFrontMatter).trim();
@@ -18,14 +29,13 @@ function resolveTitle(data, markdownBody, fallbackHtmlName) {
     if (matchTitulo) return matchTitulo[1].trim();
     const matchH1 = markdownBody.match(/^\s*#\s+(.+?)\s*$/m);
     if (matchH1) return matchH1[1].trim();
-    return fallbackHtmlName.replace('.html', '');
+    return fallbackHtmlName.replace('.html', '').replace(/-/g, ' ');
 }
 
 function applyBoldToSubtitles(html) {
     return html.replace(/<h([12])([^>]*)>([\s\S]*?)<\/h\1>/g, '<h$1$2><strong>$3</strong></h$1>');
 }
 
-// Template ajustado para incluir a meta-tag de categoria no HTML
 const htmlTemplate = (data, content, prevHref, nextHref, slug, relacionados) => `
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -41,63 +51,62 @@ const htmlTemplate = (data, content, prevHref, nextHref, slug, relacionados) => 
         html { scroll-behavior: smooth; }
         .animate-fade-in { animation: fadeIn 0.6s ease forwards; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        /* Garante que imagens dentro do conteúdo não estourem o layout */
+        .content-area img { max-width: 100%; height: auto; border-radius: 0.5rem; margin: 1.5rem 0; }
     </style>
 </head>
 <body class="bg-gray-100 text-gray-800 font-sans">
-    <header class="bg-black text-white p-6 shadow-md">
+    <header class="bg-black text-white p-6 shadow-md sticky top-0 z-50">
         <div class="container mx-auto flex justify-between items-center relative">
             <div class="flex items-center space-x-3">
                 <a href="../home.html"><img src="../images/sem-bg-black.webp" alt="Logo" class="h-10"></a>
                 <a href="../home.html"><h1 class="text-2xl font-bold">Essencialista</h1></a>
             </div>
-            <div class="ml-auto flex items-center gap-4">
-                <button id="mobileMenuBtn" class="md:hidden p-2 rounded bg-white/10 hover:bg-white/20"><i class="fas fa-bars"></i></button>
+            <div class="flex items-center gap-4">
+                <button id="mobileMenuBtn" class="md:hidden p-2 rounded bg-white/10 hover:bg-white/20 min-w-[44px]"><i class="fas fa-bars"></i></button>
                 <nav id="main-nav" class="hidden md:block absolute left-0 right-0 top-full w-full z-50 bg-black text-white p-4 md:static md:bg-transparent md:p-0">
                     <ul class="flex flex-col space-y-3 md:flex-row md:space-y-0 md:space-x-6">
-                        <li><a href="../home.html" class="hover:text-orange-500">Início</a></li>
-                        <li><a href="../home.html#articles-section" class="hover:text-orange-500">Artigos</a></li>
-                        <li><a href="../about.html" class="hover:text-orange-500">Sobre</a></li>
-                        <li><a href="../contact.html" class="hover:text-orange-500">Contato</a></li>
+                        <li><a href="../home.html" class="hover:text-orange-500 font-bold">Início</a></li>
+                        <li><a href="../home.html#featured-articles" class="hover:text-orange-500 font-bold">Artigos</a></li>
+                        <li><a href="../about.html" class="hover:text-orange-500 font-bold">Sobre</a></li>
                     </ul>
                 </nav>
             </div>
         </div>
     </header>
     <main class="container mx-auto mt-8 p-4 max-w-2xl">
-        <article class="bg-white p-6 rounded-lg shadow-lg mb-10">
-            ${data.image ? `<img src="../images/${data.image}" class="w-full h-64 object-cover mb-6 rounded-lg">` : ''}
-            <h2 class="text-3xl font-bold mb-4">${data.title}</h2>
-            <div class="space-y-4 leading-relaxed text-justify">${content}</div>
-            <!--Link para a section Comentar-->
-            <a href="#comentarios-artigo" class="text-orange-600 hover:underline">Comentar</a>
-            <div class="mt-6 p-4 bg-gray-50 border-l-4 border-black rounded">
-                <p class="italic">👉 ${data.signature || data.assinatura || 'Reflexão do dia'}</p>
-                <p class="text-right mt-2 font-semibold">- Essencialista</p>
+        <article class="bg-white p-6 rounded-lg shadow-lg mb-10 animate-fade-in">
+            ${data.image ? `<img src="../images/${data.image}" class="w-full h-64 object-cover mb-6 rounded-lg shadow">` : ''}
+            <div class="mb-2"><span class="text-orange-600 font-black text-xs uppercase tracking-widest">${data.category}</span></div>
+            <h2 class="text-3xl font-bold mb-6 leading-tight">${data.title}</h2>
+            <div class="content-area space-y-4 leading-relaxed text-justify text-gray-700">${content}</div>
+            
+            <div class="mt-8 pt-6 border-t border-gray-100">
+                 <a href="#comentarios-artigo" class="inline-block bg-gray-100 text-gray-600 px-4 py-2 rounded-lg hover:text-orange-600 transition">
+                    <i class="far fa-comment-dots mr-2"></i>Deixar um comentário
+                 </a>
             </div>
-            <div class="mt-6 flex justify-center gap-3">
-                <a href="${prevHref}" class="bg-black text-white px-6 py-1 rounded-full">Anterior</a>
-                <a href="${nextHref}" class="bg-black text-white px-6 py-1 rounded-full">Próximo</a>
-                <!--Botão Voltar ao Home-->
-                <a href="../home.html"
-                    class="bg-black text-white px-6 py-1 rounded-full hover:bg-orange-500 transition duration-300">
-                    Voltar ao Home
-                </a>
-                <!-- Botão de Voltar pra Cima-->
-                <a href="#" class="bg-black text-white px-6 py-1 rounded-full hover:bg-gray-800 transition duration-300">
-                    <i class="fas fa-arrow-up"></i>
-                </a>
+
+            <div class="mt-6 p-4 bg-gray-50 border-l-4 border-orange-500 rounded">
+                <p class="italic text-gray-600">👉 ${data.signature || data.assinatura || 'Reflexão para uma vida com propósito.'}</p>
+                <p class="text-right mt-2 font-bold text-sm">- Equipe Essencialista</p>
+            </div>
+
+            <div class="mt-10 flex flex-wrap justify-center gap-3">
+                <a href="${prevHref}" class="bg-black text-white px-5 py-2 rounded-full text-sm hover:bg-orange-600 transition">← Anterior</a>
+                <a href="../home.html" class="bg-black text-white px-5 py-2 rounded-full text-sm hover:bg-orange-600 transition font-bold">Home</a>
+                <a href="${nextHref}" class="bg-black text-white px-5 py-2 rounded-full text-sm hover:bg-orange-600 transition">Próximo →</a>
             </div>
         </article>
 
-        <!-- Artigos Relacionados -->
         ${relacionados.length > 0 ? `
         <section class="mt-12">
-            <h3 class="text-xl font-bold mb-4 border-b-2 border-orange-500 inline-block">Artigos Relacionados</h3>
+            <h3 class="text-xl font-bold mb-6 border-b-4 border-orange-500 inline-block">Você também pode gostar</h3>
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 ${relacionados.map(r => `
-                    <a href="../${r.href}" class="group bg-white rounded-lg shadow hover:shadow-md transition p-3 flex flex-col h-full">
+                    <a href="../${r.href}" class="group bg-white rounded-lg shadow hover:shadow-xl transition-all p-3 flex flex-col h-full">
                         <img src="../images/${r.image || 'default.webp'}" class="w-full h-24 object-cover rounded mb-2">
-                        <span class="text-[8px] font-black text-orange-600 uppercase tracking-widest mb-1">${r.category}</span>
+                        <span class="text-[9px] font-black text-orange-600 uppercase tracking-widest mb-1">${r.category}</span>
                         <h4 class="font-bold text-xs group-hover:text-orange-600 line-clamp-2 leading-tight">${r.title}</h4>
                     </a>
                 `).join('')}
@@ -105,30 +114,30 @@ const htmlTemplate = (data, content, prevHref, nextHref, slug, relacionados) => 
         </section>
         ` : ''}
 
-        <!-- Seção de Comentários -->
         <section id="comentarios-artigo" class="mt-20">
-            <div class="bg-white p-6 rounded-xl shadow-lg">
-                <h3 class="text-2xl font-bold mb-6 text-center">Deixe um comentário</h3>
+            <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-black">
+                <h3 class="text-2xl font-bold mb-6 text-center">Espaço do Leitor</h3>
                 <form id="commentForm" class="space-y-4">
                     <input type="hidden" id="artigoId" value="${slug}">
-                    <input type="text" id="nome" placeholder="Seu nome" required class="border border-gray-300 p-3 rounded-lg w-full focus:ring-2 focus:ring-orange-500 outline-none">
-                    <input type="email" id="email" placeholder="Seu e-mail (privado)" required class="border border-gray-300 p-3 rounded-lg w-full focus:ring-2 focus:ring-orange-500 outline-none">
-                    <textarea id="comentario" placeholder="Escreva seu comentário aqui..." required rows="4" class="border border-gray-300 p-3 rounded-lg w-full focus:ring-2 focus:ring-orange-500 outline-none"></textarea>
-                    <button type="submit" id="btnEnviar" class="bg-black text-white px-6 py-3 rounded-lg hover:bg-orange-500 transition duration-300 w-full font-bold uppercase tracking-wide">Enviar Comentário</button>
+                    <input type="text" id="nome" placeholder="Seu nome" required class="border border-gray-200 p-3 rounded-lg w-full focus:ring-2 focus:ring-orange-500 outline-none transition">
+                    <input type="email" id="email" placeholder="Seu e-mail" required class="border border-gray-200 p-3 rounded-lg w-full focus:ring-2 focus:ring-orange-500 outline-none transition">
+                    <textarea id="comentario" placeholder="O que você achou deste texto?" required rows="4" class="border border-gray-200 p-3 rounded-lg w-full focus:ring-2 focus:ring-orange-500 outline-none transition"></textarea>
+                    <button type="submit" id="btnEnviar" class="bg-black text-white px-6 py-3 rounded-lg hover:bg-orange-600 transition duration-300 w-full font-bold uppercase">Enviar Comentário</button>
                 </form>
                 <p id="msgStatus" class="mt-3 text-center font-semibold"></p>
             </div>
 
             <div id="listaComentarios" class="mt-10 space-y-4 mb-20">
-                <h3 class="text-xl font-bold border-b-2 border-black inline-block mb-4">Comentários</h3>
-                <div id="loader" class="text-gray-500 italic text-sm">Carregando comentários...</div>
+                <h3 class="text-xl font-bold border-b-2 border-orange-500 inline-block mb-4">Comentários</h3>
+                <div id="loader" class="text-gray-500 italic text-sm">Buscando interações...</div>
             </div>
         </section>
     </main>
-    <footer class="bg-black text-white p-4 mt-12">
+
+    <footer class="bg-black text-white p-10 mt-12">
         <div class="container mx-auto text-center">
-            <p><img src="../images/sem-bg-black.webp" alt="Essencialista Logo" class="h-10 inline-block">Essencialista.
-                Todos os direitos reservados &copy; 2025</p>
+            <img src="../images/sem-bg-black.webp" alt="Essencialista Logo" class="h-12 mx-auto mb-4">
+            <p class="text-gray-400 text-sm">Essencialista &copy; 2026 - Fé e Ciência em Equilíbrio</p>
         </div>
     </footer>
 
@@ -136,10 +145,8 @@ const htmlTemplate = (data, content, prevHref, nextHref, slug, relacionados) => 
         const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbzvsw1a929OYZMd1sT6jYByl0iRE3a7xXBIiRoP51VREkmq0h6emxajQxkz0QadgUo0/exec';
         const slug = document.getElementById('artigoId').value;
 
-        // Script para abrir/fechar o menu mobile 
         document.getElementById('mobileMenuBtn').onclick = () => { 
-            const nav = document.getElementById('main-nav'); 
-            nav.classList.toggle('hidden'); 
+            document.getElementById('main-nav').classList.toggle('hidden'); 
         };
 
         async function carregarComentarios() {
@@ -155,7 +162,7 @@ const htmlTemplate = (data, content, prevHref, nextHref, slug, relacionados) => 
                 container.appendChild(titulo);
 
                 if (!dados || dados.length === 0) {
-                    container.innerHTML += '<p class="text-gray-500 italic text-sm">Nenhum comentário ainda. Seja o primeiro!</p>';
+                    container.insertAdjacentHTML('beforeend', '<p class="text-gray-500 italic text-sm">Nenhum comentário ainda. Seja o primeiro a participar!</p>');
                     return;
                 }
 
@@ -163,13 +170,15 @@ const htmlTemplate = (data, content, prevHref, nextHref, slug, relacionados) => 
                     const div = document.createElement('div');
                     div.className = 'bg-white p-4 rounded-lg shadow border-l-4 border-orange-500 animate-fade-in';
                     div.innerHTML = \`
-                        <p class="font-bold text-gray-900 text-sm">\${c.nome}</p>
-                        <p class="text-gray-700 text-sm mt-1">\${c.comentario}</p>
-                        <p class="text-[10px] text-gray-400 mt-2 uppercase">\${new Date(c.data).toLocaleDateString('pt-BR')}</p>\`;
+                        <div class="flex justify-between items-start mb-1">
+                            <p class="font-bold text-gray-900 text-sm">\${c.nome}</p>
+                            <p class="text-[9px] text-gray-400 uppercase">\${new Date(c.data).toLocaleDateString('pt-BR')}</p>
+                        </div>
+                        <p class="text-gray-700 text-sm mt-1 leading-relaxed">\${c.comentario}</p>\`;
                     container.appendChild(div);
                 });
             } catch (e) { 
-                if(document.getElementById('loader')) document.getElementById('loader').innerText = "Erro ao carregar comentários."; 
+                if(document.getElementById('loader')) document.getElementById('loader').innerText = "Não foi possível carregar os comentários."; 
             }
         }
 
@@ -183,7 +192,7 @@ const htmlTemplate = (data, content, prevHref, nextHref, slug, relacionados) => 
                 email: document.getElementById("email").value,
                 comentario: document.getElementById("comentario").value
             };
-            btn.disabled = true; btn.innerText = "Enviando...";
+            btn.disabled = true; btn.innerText = "Processando...";
             try {
                 await fetch(WEB_APP_URL, { 
                     method: 'POST', 
@@ -192,11 +201,11 @@ const htmlTemplate = (data, content, prevHref, nextHref, slug, relacionados) => 
                     body: JSON.stringify(payload) 
                 });
                 status.className = "mt-3 text-center font-semibold text-green-600 text-sm";
-                status.innerText = "Enviado! Aparecerá após a moderação.";
+                status.innerText = "Obrigado! Seu comentário foi enviado para aprovação.";
                 this.reset();
             } catch (err) {
                 status.className = "mt-3 text-center font-semibold text-red-600 text-sm";
-                status.innerText = "Erro ao enviar.";
+                status.innerText = "Falha na conexão. Tente novamente mais tarde.";
             } finally { 
                 btn.disabled = false; btn.innerText = "Enviar Comentário"; 
             }
@@ -209,56 +218,57 @@ const htmlTemplate = (data, content, prevHref, nextHref, slug, relacionados) => 
 `;
 
 function processMarkdownFiles() {
-    if (!fs.existsSync(outputDir)) fs.mkdirSync(outputDir);
+    if (!fs.existsSync(outputDir)) fs.mkdirSync(outputDir, { recursive: true });
 
     const manifest = [];
     const toGenerate = [];
 
-    fs.readdirSync(inputDir).forEach(file => {
-        if (path.extname(file) === '.md') {
-            const markdownPath = path.join(inputDir, file);
-            const markdownFile = fs.readFileSync(markdownPath, 'utf8');
-            const { data, content } = matter(markdownFile);
+    const files = fs.readdirSync(inputDir).filter(f => path.extname(f) === '.md');
 
-            const htmlContent = applyBoldToSubtitles(md.render(content));
-            const outputFilename = file.replace('.md', '.html').normalize('NFD').replace(/[\u0300-\u036f]/g, "");
-            const title = resolveTitle(data, content, outputFilename);
-            const category = data.category || data.categoria || "Fé"; // Pega do Markdown ou define padrão
+    files.forEach(file => {
+        const markdownPath = path.join(inputDir, file);
+        const markdownFile = fs.readFileSync(markdownPath, 'utf8');
+        const { data, content } = matter(markdownFile);
 
-            const outputPath = path.join(outputDir, outputFilename);
-            const stat = fs.statSync(markdownPath);
-            const href = `posts/${outputFilename}`;
+        const htmlContent = applyBoldToSubtitles(md.render(content));
+        
+        // Slugificação melhorada para o nome do arquivo de saída
+        const baseName = file.replace('.md', '');
+        const outputFilename = slugify(baseName) + '.html';
+        
+        const title = resolveTitle(data, content, outputFilename);
+        const category = data.category || data.categoria || "Fé";
 
-            toGenerate.push({
-                href,
-                outputPath,
-                data: { ...data, title, category },
-                htmlContent,
-                mtime: stat.mtime.toISOString()
-            });
+        const outputPath = path.join(outputDir, outputFilename);
+        const stat = fs.statSync(markdownPath);
+        const href = `posts/${outputFilename}`;
 
-            manifest.push({
-                title,
-                category, // ADICIONADO AO MANIFESTO
-                image: data.image || null,
-                href,
-                date: data.date || null,
-                mtime: stat.mtime.toISOString()
-            });
-            console.log(`✅ ${file} [${category}] preparado.`);
-        }
+        toGenerate.push({
+            href,
+            outputPath,
+            data: { ...data, title, category },
+            htmlContent,
+            mtime: stat.mtime.toISOString(),
+            date: data.date || stat.mtime.toISOString() // Prioriza data do front-matter
+        });
+
+        manifest.push({
+            title,
+            category,
+            image: data.image || null,
+            href,
+            date: data.date || stat.mtime.toISOString(),
+            mtime: stat.mtime.toISOString()
+        });
+        
+        console.log(`✅ ${file} [${category}] processado.`);
     });
 
-    const indexPath = path.join(outputDir, 'index.json');
-    fs.writeFileSync(indexPath, JSON.stringify(manifest, null, 2), 'utf8');
+    // Salva o index.json
+    fs.writeFileSync(path.join(outputDir, 'index.json'), JSON.stringify(manifest, null, 2), 'utf8');
 
-    // --- LÓGICA DE NAVEGAÇÃO CORRIGIDA ---
-    // Ordenar manifesto pelo tempo (mais recente primeiro) para definir a sequência
-    const sortedManifest = [...manifest].sort((a, b) => {
-        const tA = new Date(a.date || a.mtime).getTime();
-        const tB = new Date(b.date || b.mtime).getTime();
-        return tB - tA;
-    });
+    // Ordenação do manifesto para navegação (Mais novos primeiro)
+    const sortedManifest = [...manifest].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
     // Gerar os arquivos HTML físicos
     toGenerate.forEach(g => {
@@ -268,51 +278,55 @@ function processMarkdownFiles() {
         let prevHref = '../home.html';
 
         if (currentIndex !== -1) {
-            // Próximo (mais recente que o atual, se houver)
+            // "Próximo" no blog geralmente é o post mais RECENTE (index menor no array ordenado DESC)
             if (currentIndex > 0) {
-                const nextItem = sortedManifest[currentIndex - 1];
-                nextHref = `../${nextItem.href}`;
+                const newerPost = sortedManifest[currentIndex - 1];
+                nextHref = `../${newerPost.href}`;
             }
-            // Anterior (mais antigo que o atual, se houver)
+            // "Anterior" no blog geralmente é o post mais ANTIGO (index maior no array ordenado DESC)
             if (currentIndex < sortedManifest.length - 1) {
-                const prevItem = sortedManifest[currentIndex + 1];
-                prevHref = `../${prevItem.href}`;
+                const olderPost = sortedManifest[currentIndex + 1];
+                prevHref = `../${olderPost.href}`;
             }
         }
 
-        // --- LÓGICA DE ARTIGOS RELACIONADOS (SEMELHANÇA DE TEMAS) ---
+        // Lógica de Relacionados
         const getPalavrasChave = (texto) => {
             return texto.toLowerCase()
-                .normalize('NFD').replace(/[\u0300-\u036f]/g, "") // Remove acentos
+                .normalize('NFD').replace(/[\u0300-\u036f]/g, "")
                 .split(/\W+/)
-                .filter(p => p.length > 3); // Apenas palavras significativas
+                .filter(p => p.length > 3);
         };
 
         const palavrasAtuais = getPalavrasChave(g.data.title);
 
         const relacionados = sortedManifest
-            .filter(m => m.href !== g.href) // Exclui o próprio artigo
+            .filter(m => m.href !== g.href)
             .map(m => {
                 let score = 0;
-                // Pontuação por categoria idêntica
                 if (m.category === g.data.category) score += 10;
-
-                // Pontuação por palavras em comum no título
                 const palavrasComparar = getPalavrasChave(m.title);
                 const palavrasComum = palavrasAtuais.filter(p => palavrasComparar.includes(p));
                 score += palavrasComum.length * 2;
-
                 return { ...m, score };
             })
-            .filter(m => m.score > 0) // Apenas os que têm alguma semelhança
-            .sort((a, b) => b.score - a.score) // Ordena pela maior pontuação
-            .slice(0, 3); // Pega os 3 mais relevantes
+            .filter(m => m.score > 0)
+            .sort((a, b) => b.score - a.score)
+            .slice(0, 3);
 
-        const finalHtml = htmlTemplate(g.data, g.htmlContent, prevHref, nextHref, path.basename(g.outputPath, '.html'), relacionados);
+        const finalHtml = htmlTemplate(
+            g.data, 
+            g.htmlContent, 
+            prevHref, 
+            nextHref, 
+            path.basename(g.outputPath, '.html'), 
+            relacionados
+        );
+        
         fs.writeFileSync(g.outputPath, finalHtml, 'utf8');
     });
 
-    console.log(`📄 Manifesto atualizado com categorias e navegação corrigida!`);
+    console.log(`\n🚀 Conversão finalizada! ${toGenerate.length} artigos gerados.`);
 }
 
 processMarkdownFiles();
