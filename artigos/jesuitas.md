@@ -1,5 +1,5 @@
 ---
-title: "O voto desumano dos Jesuítas"
+title: "O Voto Desumano dos Jesuítas"
 date: "2026-03-06"
 image: "voto-jesuita.webp"
 category: "Profecia"
@@ -8,9 +8,9 @@ signature: "Podemos chamar de humanos pessoas que fazer um tipo de juramento des
 
 ## Introdução
 
-## COMPANHIA de "JESUS" (ORDEM dos JESUÍTAS)
+## COMPANHIA de "jesus" (ORDEM dos JESUÍTAS)
 
-A Companhia de Jesus ou Ordem dos Jesuítas foi fundada pelo ex-soldado espanhol Inácio de Loyola, para combater as Reformas Protestantes, seguindo à risca todos os dogmas do Concílio de Trento, o que fez, desde a sua fundação oficial, em 1540. (Enciclopédia Britânica (9ª Edição.) Artigo – Jesuítas).
+A Companhia de "jesus" ou Ordem dos Jesuítas foi fundada pelo ex-soldado espanhol Inácio de Loyola, para combater as Reformas Protestantes, seguindo à risca todos os dogmas do Concílio de Trento, o que fez, desde a sua fundação oficial, em 1540. (Enciclopédia Britânica (9ª Edição.) Artigo – Jesuítas).
 
 Em 21 de Julho de 1773 foi extinta a Companhia de Jesus pelo papa Clemente XIV, sendo restabelecida em 7 de Agosto de 1814 pelo papa Pio VII.
 
