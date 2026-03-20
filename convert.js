@@ -89,7 +89,7 @@ const htmlTemplate = (data, content, prevHref, nextHref, slug, relacionados) => 
 
             <div class="mt-6 p-4 bg-gray-50 border-l-4 border-orange-500 rounded">
                 <p class="italic text-gray-600">👉 ${data.signature || data.assinatura || 'Reflexão para uma vida com propósito.'}</p>
-                <p class="text-right mt-2 font-bold text-sm">- Equipe Essencialista</p>
+                <p class="text-right mt-2 font-bold text-sm">- Essencialista</p>
             </div>
 
             <div class="mt-10 flex flex-wrap justify-center gap-3">
