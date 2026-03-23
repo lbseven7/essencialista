@@ -250,96 +250,40 @@ signature: "{assinatura}"
     # --- EXECUÇÃO DO SCRIPT ---
 
 # 1. Título do Post
-titulo = "Medalha de Honra ao Papa Leão"
+titulo = "Os Sete Selos"
 categoria = "Profecia"
-assinatura = "E toda a terra se maravilhou seguindo a besta..."
+assinatura = "Estudo feito pelo Dr. Walter Veith na série Ataque Total"
 
 # 2. Cole aqui o texto bruto que você obteve da transcrição
 texto_bruto = """
+Os Sete Selos e a Sala do Trono
+Hoje vamos falar a respeito dos sete selos e depois vamos abordar um outro tema sobre as trombetas. Estes são assuntos importantes e pouco a pouco vamos avançar até chegar a um assunto ainda mais importante. Vamos então falar sobre alguns assuntos que têm que ver com o nosso tempo e, de modo especial, só posso dizer as coisas assim como são. Eu oro enquanto eu explico essas coisas porque há coisas estranhas, difíceis de compreender, e quem sabe as pessoas não queiram compreender; eu oro para que as pessoas não usem isso como desculpa para não assistir mais, mas que continuem a assistir até que todo o quadro fique claro.
+É como um grande mosaico e tudo o que podemos fazer em uma conferência é colocar um pequeno bloco de informação na tela; parece um trabalho de retalhos. Primeiramente não entendemos todos os assuntos, mas se conseguirmos ordenar as informações até que o quadro fique mais claro, então a importância do livro de Apocalipse será perceptível e apreciada. Por isso, tenham paciência com vocês e comigo; se há assuntos que pareçam estranhos ou, quem sabe, fora do equilíbrio ou do alcance, é porque não temos toda a informação disponível.
+Agora, os sete selos são tratados momentaneamente no capítulo 6, mas para preparar o terreno e o cenário para os sete selos há outros dois capítulos: o capítulo 4 e o 5. E é importante recordar que os capítulos eles mesmos não dizem nada porque os números da Bíblia foram acrescentados depois; a Bíblia não foi escrita com capítulos, ela foi escrita com blocos, assim ela não pode ser dividida em capítulos. Os números de capítulos são apenas uma forma conveniente para nós nos situarmos quando precisamos encontrar um texto.
+Havendo o Cordeiro aberto um dos selos — agora, antes que ele abra um dos selos para nos dizer o que vai se passar na terra, primeiramente ele nos dá uma visão da grande sala do trono do céu, uma das visões mais ilustrativas da sala do trono do universo. Agora imaginem: estamos olhando para a sede do Poder Universal. Apocalipse 4:1 diz: "Depois dessas coisas olhei, eis que havia uma porta aberta no céu e a primeira voz como de trombeta que ouvira falar comigo disse: sobe para aqui e te mostrarei as coisas que depois destas devem acontecer". Assim que temos aqui uma visão profética e logo fui arrebatado no espírito, e eis que um trono estava posto no céu e havia alguém assentado sobre o trono.
+"Mas, segundo a tua dureza e teu coração impenitente, entesouras para ti mesmo ira para o dia da ira e da manifestação do juízo de Deus" (Romanos 2:5). E o que esse texto tem que ver com o grande trono? Bem, a sala do grande trono é a sede do Rei do Universo e esse Rei do Universo é também o Juiz do universo. Então, antes que Deus nos permita olhar para o que vai acontecer nesta terra e olhar para as apostasias que virão e para as coisas terríveis que os homens vão fazer, Ele nos dá uma visão da Sua Majestade e do seu poder. Dá-nos a visão de que, apesar de parecer que o outro lado vai ganhar, é Deus quem está no controle e, finalmente, Ele será o juiz e chegará o tempo do juízo.
+Então haverá um juízo, uma investigação e um pronunciamento da sentença. E quando vier esse juízo executivo, será melhor que estejamos do lado certo, porque todos devemos comparecer diante do tribunal de Cristo para que cada um receba segundo o que tiver feito por meio do corpo (Segunda Coríntios 5:10). Não se enganem, Jesus está no comando, está tudo sob o controle de Deus (Atos 17:31); um dia em que com justiça há de julgar o mundo por meio do homem que destinou e disso deu certeza a todos, ressuscitando-o dentre os mortos. Não se engane, não tenha dúvidas, Jesus um dia vai pôr fim ao pecado.
+Apocalipse 4:3 diz que o que estava sentado era, na aparência, semelhante à pedra de jaspe e sardônio, e o arco celeste estava ao redor do trono e parecia semelhante à esmeralda. É inexplicável a glória que João viu ali na sala do trono de Deus. Ao redor do trono havia 24 tronos, e viu assentados sobre os tronos 24 anciãos com vestes brancas e tinham sobre suas cabeças coroas de ouro. Então aqui há 24 indivíduos assentados ao redor do trono de Deus, e do trono saíam relâmpagos, trovões e vozes; ele nem sequer consegue explicar a glória que vê, ele só vê luz e relâmpagos e a voz de Deus como um trovão. Diante do trono ardiam sete lâmpadas de fogo que são os sete espíritos de Deus.
+Agora, já explicamos isso antes: há apenas um Espírito, mas o número sete representa os períodos de tempo. Deus está no controle em todas as eras, inclusive na era que vivemos agora. Mas quem são esses 24 anciãos? No Santuário Terrestre também havia 24 anciãos; nós lemos isso no livro de Primeira Crônicas 24:7. Lançaram sortes e caiu a primeira sorte sobre Joiaribe e a segunda sobre Jedaías, e são mencionados os demais; a lista dos anciãos escolhidos segue até o versículo 19: 24 anciãos. O ofício desses em seu ministério era entrar na casa do Senhor segundo lhes fora ordenado por Arão, seu pai, como o Senhor Deus de Israel lhe tinha mandado.
+No Santuário Terrestre havia 24 anciãos que oficiavam com o sumo sacerdote que era Arão. Agora, se o terrestre era um tipo do celestial, então também no celestial há 24 anciãos oficiando com o Sumo Sacerdote que é Jesus. Seria interessante saber quem são, mas não nos é dito quem são, então só podemos especular algo.
+Apocalipse 4:6 diz que via diante do trono como que um mar de vidro e sob essa luz magnificente em que se pode caminhar semelhante a cristal. No meio do trono e ao redor do trono havia quatro animais cheios de olhos por diante e por detrás. Quem são eles? O primeiro animal era semelhante a um leão, o segundo animal semelhante a um bezerro, o terceiro animal tinha o rosto como que de homem e o quarto animal era semelhante a uma águia que voava. Cada animal tinha para si seis asas ao redor, por dentro estavam cheios de olhos e não descansavam nem de noite nem de dia dizendo: "Santo, Santo, Santo é o Senhor Deus Todo-Poderoso, que era, e que é, e que há de vir".
+Em Isaías, capítulo 6, versículo 2, temos uma outra afirmação: serafins estavam por cima dele; cada um tinha seis asas, com duas cobriam seus rostos, com duas cobriam os pés e com as outras duas voavam. Então estamos falando de querubins; esta é uma ordem de seres angélicos, são seres tão magnificentes e imponentes que João os descreve como bestas e lhes dá os atributos de um leão, de um bezerro, de um homem e de uma águia que voa. Você percebe a reverência com que estão diante de Deus; isso nos dá uma ideia da santidade de Deus.
+O que eles representam? A interpretação tradicional é que o leão representa a força, o bezerro representa a resistência, o homem a inteligência e a águia que voa a rapidez. Outra interpretação é que eles refletem os atributos de Cristo: o leão é o símbolo da realeza, Jesus é o rei; o bezerro representa o que serve, é um símbolo do Cristo como servo; o homem representa a humanidade de Cristo; e a águia que voa é usada como um símbolo da divindade. Vemos na sala do trono de Deus o Cordeiro de Deus: ele é o rei, ele é o servo, ele é humano e ele é divino.
+E quando os animais davam glória e ação de graças àquele que estava sentado sobre o trono para todo o sempre, os 24 anciãos se prostravam e o adoravam, lançando as suas coroas diante dele dizendo: "Digno és, Senhor, de receber glória, honra e poder porque tu criaste todas as coisas". A Bíblia é muito clara em nos dizer quem é o Criador: todas as coisas foram criadas pela palavra de Jesus Cristo.
+E vi na destra do que estava sentado sobre o trono um livro escrito por dentro e por fora, selado com sete selos (Apocalipse 5:1). Vi um anjo forte bradando: "Quem é digno de abrir o livro e desatar os seus selos?". Ninguém no céu, nem na terra, nem debaixo da terra — nem uma pessoa morta pode abrir, mesmo que tenham sido pessoas boas como Abraão, o rei Davi ou Adão. Ninguém está à altura de abrir o livro nem sequer de olhar para dentro dele.
+Quanto aos 24 anciãos, a Bíblia diz que quando Jesus ressuscitou dos mortos as tumbas foram abertas e as primícias se levantaram. Quando ele ascendeu aos céus, ele levou cativo o cativeiro; portanto, as pessoas que foram redimidas ao longo dos séculos ressurgiram naquele momento e foram com Jesus para o céu. A Bíblia nos diz que há alguns indivíduos no céu: Enoque foi transladado sem ver a morte; Elias foi levado em um redemoinho; e Moisés também teve uma ressurreição especial. Há várias pessoas no céu e entre eles obviamente há 24 que servem no santuário celestial.
+Nenhum homem era digno de abrir os selos, mas felizmente há uma solução. Apocalipse 5:4 diz que João chorava muito porque ninguém havia sido achado digno. Se o testamento não fosse aberto, não haveria herança e estaríamos perdidos para sempre. Mas um dos anciãos disse: "Não chore, o Leão da tribo de Judá, a Raiz de Davi, venceu para abrir o livro". No meio do trono estava um Cordeiro como havendo sido morto; ele tinha sete chifres (representando poder e reinado) e sete olhos (vê através dos séculos).
+Ele veio e tomou o livro da destra do que está assentado sobre o trono. Os quatro seres viventes e os 24 anciãos se prostraram diante do Cordeiro tendo harpas e salvas de ouro cheias de incenso, que são as orações dos santos. Cantavam um novo hino dizendo: "Digno és de tomar o livro porque foste morto e com o teu sangue nos compraste para Deus homens de toda tribo, língua, nação e povo". Isso desfaz todo tipo de exclusividade; você não é salvo pelo seu nascimento, nem pelo seu grupo étnico ou roupas, mas por meio da sua relação com Jesus Cristo.
+O número dos que olhavam para o Cordeiro eram milhões de milhões e milhares de milhares. Temos essa visão inacreditável da cena do céu que nos mostra que vai haver uma vitória final de Jesus Cristo, por isso não temos nada a temer. Depois ele muda sua ênfase para nos dizer o que vai acontecer na terra, e os dois estão num contraste tão grande que até faz medo. Aparentemente a maior vitória de Satanás foi a sua maior derrota, quando viu Jesus pregado na cruz. Derrota aparentemente será convertida na maior vitória que o universo já viu.
+Mudando da grande cena do trono para os cavalos do apocalipse: abrem-se os selos. Apocalipse 6:1 diz que ele viu alguém que cavalgava um cavalo branco e saiu como vencedor. Os períodos de tempo recapitulam as sete igrejas, mas os cavalos representam a mensagem e o anúncio do evangelho. O branco representa justiça, e ele tem um arco na mão. A primeira mensagem que saiu quando Jesus começou a sua igreja era a mensagem da salvação com poder e pureza; uma fé que conquista.
+Então o segundo selo é aberto e vem um cavalo vermelho. O vermelho é a cor do sacrifício e do sangue; é o tempo de grande perseguição onde o sangue foi derramado porque Satanás está contra-atacando a mensagem do evangelho. Foi-lhe dada uma grande espada, que é a palavra de Deus; ela sai e diz uma coisa e isso causa guerra. É o tempo da perseguição romana com Nero até os tempos de Constantino, quando a perseguição era o método para se livrar do porta-voz do evangelho.
+Havendo aberto o terceiro selo, olhei e eis um cavalo preto e o que estava sentado tinha uma balança na mão. Ouvi uma voz que dizia: "Uma medida de trigo por um denário e três medidas de cevada por um denário, mas não danifique o azeite e o vinho". A cor preta é oposta à branca; o trigo e a cevada tornam-se escassos, significando que a mensagem evangélica da salvação em Cristo está sob opressão. O azeite é o símbolo do Espírito Santo e o vinho é o símbolo da doutrina. O cavalo negro representa um tempo em que a palavra de Deus se torna escassa por causa do comprometimento; é o tempo em que Constantino casou o paganismo com o cristianismo.
+Entraram lobos vorazes na igreja e a corrupção entrou logo no princípio. A salvação só por meio de Cristo foi substituída pela própria igreja que se pôs como mediadora; mudaram a lei de Deus para satisfazer as suas necessidades. Maria converteu-se em uma mediadora e desenvolveram muitos santos, o que vem do paganismo. Mas com Jesus Cristo não pode haver nenhum tipo de concessão; ou ele é o Senhor dos senhores ou ele não é.
+Chegamos a um cavalo pálido que representa a morte; o evangelho morreu. Constantino foi o primeiro que destacadamente começou a emitir leis que restringiam a consciência do homem e o dia do sol do paganismo substituiu o sábado bíblico durante esse século de negociação. Constantino integrou ao cristianismo os enfeites exteriores dos pagãos para recomendar a nova religião. As moedas de Constantino levavam de um lado o nome de Cristo e do outro a figura do deus sol. O domingo foi recomendado por Constantino aos seus súditos tanto pagãos quanto cristãos.
+Ao final, quando for aberto o último selo, então o testamento de Deus será aberto e o reino será dado ao Senhor. Isso significa que Jesus tem o controle do planeta e ele virá outra vez. Passamos pela história, somos os últimos nesta grande mensagem. Os reis da terra, os grandes, os ricos, os tribunos e todos os poderosos se esconderão nas cavernas das rochas e das montanhas, dizendo aos montes e aos rochedos: "caí sobre nós e escondei-nos". Haverá uma grande alegria entre as multidões quando o juízo vier. Você terá que estar de pé. Não seremos todos salvos; você precisa tomar uma decisão agora. Só os selados são capazes de ficar em pé. E havendo aberto o sétimo selo, houve silêncio no céu quase por meia hora. Se você considerar que isso é um tempo profético, é mais ou menos uma semana. Creio que o céu está vazio porque Cristo e seus anjos estão aqui embaixo para buscar os redimidos. Esta é uma escolha que temos que fazer. Jesus está no comando e podemos fazer parte do Seu reino. A minha oração é que todos aceitemos a salvação no único nome dado entre os homens pelo qual podemos ser salvos. 
+Amém.
 
-0:00Queridos irmãos, recebemos a notícia agora que os Estados Unidos preparam uma medalha de honra ao Papa Leão. Essa
-0:1010 segundosmedalha de honra que será entregue ao Papa Leão, inclusive ele fará um discurso e designado especialmente para as
-0:1919 segundoscelebrações dos 250 anos de liberdade, né, de independência da América. Não somente
-0:2727 segundosisso, os Estados Unidos também prestarão uma homenagem, vão dedicar os Estados Unidos a Maria. Meus amados,
-0:3737 segundoseu estou sorrindo porque nós estamos vendo os cumprimentos proféticos à nossa cara, estampados.
-0:4747 segundosO que mais precisa acontecer para que eu ponha em ordem a minha casa, para que eu ponha em ordem a minha vida?
-0:5757 segundospara que eu não somente decida, mas realmente morra, para que o meu eu morra completamente, porque esse ano promete,
-1:071 minuto e 7 segundosmuitas coisas vão acontecer esse ano. Apertem os cintos, meus queridos.
-1:141 minuto e 14 segundosSentimos o cheiro da volta de Jesus no ar.
-1:191 minuto e 19 segundosMas eu não me refiro esse ano à volta de Jesus. Eu me refiro esse ano a acontecimentos proféticos contundentes.
-1:281 minuto e 28 segundosAquele acontecimento profético que será o último chamado para as pessoas do mundo. E, infelizmente a porta estará se
-1:371 minuto e 37 segundosfechando para os adventistas do sétimo dia para sempre. a porta da misericórdia, esse evento chamado o descanso dominical obrigatório.
-1:481 minuto e 48 segundosTudo está planejado, as pessoas estão nos seus cargos,
-1:531 minuto e 53 segundosos projetos já estão no na presidência dos Estados Unidos, bastando apenas
-2:002 minutosapenas serem assinados ou por uma decisão de Congresso ou por uma assinatura do presidente.
-2:082 minutos e 8 segundosPois a Heritage Foundation está trabalhando com isso. Uma instituição que já conseguiu que mais de 50% de suas
-2:172 minutos e 17 segundospetições fossem aprovadas no governo federal e agora tem essa petição do descanso dominical apresentada ao
-2:262 minutos e 26 segundosgoverno federal. Você acha que vai ser negado? Você tem acompanhado as notícias? Você está vendo as grandes
-2:332 minutos e 33 segundosmovimentações? Você tá vendo a imprensa pedindo descanso dominical? Você tem observado os religiosos pedindo o
-2:402 minutos e 40 segundosdescanso dominical? Você tem observado os políticos, senadores, deputados eh de
-2:472 minutos e 47 segundosestados e também federais, todos unidos nesse grande movimento de descanso dominical, meus queridos, por que que é
-2:552 minutos e 55 segundostão falado a questão do descanso dominical?
-2:592 minutos e 59 segundosPorque o descanso dominical obrigatório será um marco profético, histórico,
-3:053 minutos e 5 segundosprofético, aonde irá desencadear todas as coisas. A ruína dos Estados Unidos, financeira e econômica, a e
-3:143 minutos e 14 segundosmoral, a ruína junto o mundo também, um efeito dominó. E não somente isso, além
-3:203 minutos e 20 segundosdessas ruínas, virá então o decreto de morte no futuro para aqueles que se negarem a guardar os mandamentos de
-3:283 minutos e 28 segundoshomens, as tradições de homens e quiserem seguir somente a Bíblia,
-3:333 minutos e 33 segundosseremos acusados de tradicionalistas, de extremistas,
-3:403 minutos e 40 segundoseh, toda sorte de coisa. E assim como acusaram na época medieval, na Santa
-3:463 minutos e 46 segundosInquisição, entre aspas, né, acusavam pessoas inocentes de bruxaria, de canibalismo e outras coisas. Não fique
-3:553 minutos e 55 segundoscom esse pensamento poético de que você será acusado, preso, levado para os
-4:044 minutos e 4 segundostribunais, paraas prisões, campos de trabalhos forçados, simplesmente porque adventista não tem esse pensamento tão
-4:124 minutos e 12 segundosromântico ou simplesmente porque descansa no dia do sábado, mas seremos acusados de todas as coisas, coisas que
-4:214 minutos e 21 segundospodemos imaginar e coisas que não podemos nem imaginar seremos acusados. É chegado o tempo, meu querido. É chegado
-4:294 minutos e 29 segundoso tempo. E eu tô vendo que muitas famílias não estão preparadas. Eu estou vendo que muitos pais não estão preparados ou filhos não estão
-4:384 minutos e 38 segundospreparados. E muito a gente investe, a gente investe em educação, a gente investe em orientação, a gente investe em aconselhamento.
-4:484 minutos e 48 segundosMas os corações hoje em dia estão obstinados.
-4:514 minutos e 51 segundosOs corações hoje em dia não querem se submeter à palavra de Deus. Não. Existem casos que jovens, por exemplo,
-5:005 minutostem aprendido que quando você eh adultera em pensamento, para Deus é pecado como se fosse o pecado de uma
-5:105 minutos e 10 segundosrelação sexual e corpo a corpo real. E eu escutei uma jovem dizer que não tem
-5:175 minutos e 17 segundosnada a ver, que Deus não olha assim, que é diferente o pecado do contato sexual de adultério com ah o olhar de adúltero.
-5:285 minutos e 28 segundosTambém temos encontrado jovens que defendem o sexo anal. Nós temos encontrado pessoas que defendem todo
-5:365 minutos e 36 segundostipo de esporte, inclusive um dos mais violentos, o esporte de futebol e o esporte de lutas, aonde o sangue jorra.
-5:485 minutos e 48 segundosMeus queridos, não há mais Bíblia para essa geração. Para muitos dos nossos filhos e filhas, já não existe mais Bíblia, não existe mais nada.
-5:575 minutos e 57 segundosA Bíblia agora é a mente deles e o Deus é o Deus do ventre deles. É o ventre que decide.
-6:056 minutos e 5 segundosExiste pessoas que dizem que não vão de mesmo com doenças terríveis,
-6:116 minutos e 11 segundosnão vão mudar de alimentação. Não toque nesse assunto, porque você só, se você tocar nesse assunto, você perderá o a
-6:196 minutos e 19 segundosamizade dessa pessoa ao defender que a palavra de Deus nos diz que o corpo é o templo do Espírito Santo. É uma geração
-6:286 minutos e 28 segundosrebelde, obstinada, uma geração decidida a pecar e a seguir os seus próprios caminhos.
-6:356 minutos e 35 segundosa desprezar a Bíblia. Mas em breve, meus queridos, em breve a porta estará fechando. Em breve a porta da graça, a
-6:436 minutos e 43 segundosporta da misericórdia vai se fechar pela e vai ser definitivo. E eu quero dizer a vocês que será tarde demais para esses
-6:516 minutos e 51 segundoscrentes que têm toda sorte de luz, mas continuam nos seus caminhos rebeldes. E
-6:586 minutos e 58 segundosa nós, os pais, que só nos resta interceder pelos filhos.
-7:047 minutos e 4 segundosE os filhos que têm pais rebeldes, só resta aos filhos muita intercessão,
-7:107 minutos e 10 segundosclamor e lágrimas. Eu tenho derramado lágrimas pela minha família e por mim mesmo. E você tem feito isso? Escreva
-7:197 minutos e 19 segundosaqui nos comentários. Meus queridos, nós estamos no fim do tempo do fim. Esse ano ainda vai acontecer muita coisa. Se prepare.
-7:307 minutos e 30 segundosE eu quero dizer para você que nós estamos indo paraa África.
-7:347 minutos e 34 segundosDepois de passar em Cuba, lá em Cuba nós ajudamos uma família que estava com necessidade de alimentação. Nós ajudamos uma paraplégica com a cadeira de rodas.
-7:447 minutos e 44 segundosNós compramos 40 lâmpadas para igrejas que estariam na escuridão por causa do embargo econômico dos Estados Unidos, o
-7:537 minutos e 53 segundosembargo e de petróleo, onde eles não têm energia elétrica. Então nós compramos 40 lâmpadas para ajudar a 40 pontos de
-8:018 minutos e 1 segundoevangelismo que estará acontecendo agora nas próximas semanas. Também ajudamos a 40 obreiros bíblicos a avançarem o
-8:098 minutos e 9 segundosevangelho junto com a ajuda de outras de outra televisão adventista.
-8:148 minutos e 14 segundosE também, queridos, ajudamos um lar de crianças a poder ter alimentação para
-8:218 minutos e 21 segundosmais três, 4, 5 meses. Tudo isso fizemos com a sua ajuda, porque você entende que o tempo acabou, que chegou o momento de
-8:308 minutos e 30 segundosse desprender e agora nós vamos paraa África, mas nós queremos levar Bíblias,
-8:368 minutos e 36 segundosmas as bíblias são caras, tem que pagar o frete das Bíblias e nós queremos avançar. Vamos lá numa média de dezenas
-8:438 minutos e 43 segundose dezenas de pastores e obreiros bíblicos e precisamos comprar essas bíblias. Se você quiser nos ajudar,
-8:508 minutos e 50 segundosenvia sua doação de amor. Vamos avançar,
-8:538 minutos e 53 segundosigreja. Vamos avançar em doações de amor. Vamos avançar no crescimento do caráter cristão. Vamos avançar na morte
-9:039 minutos e 3 segundosdo eu. Vamos avançar na presença gloriosa de Jesus, do Espírito Santo e do Pai Celestial que habita em nós. A
-9:129 minutos e 12 segundospalavra diz: "Se alguém me ama, guardará a minha palavra e eu e o meu pai viremos e nele faremos morada". O Espírito Santo
-9:219 minutos e 21 segundosestará está conosco também, porque Jesus falou: "Não vos deixarei órfãos, eis que o consolador virá e ele estará e eu
-9:299 minutos e 29 segundosestarei com vocês até o fim dos séculos." Meus queridos, esse é o momento não de desanimar, esse é o
-9:369 minutos e 36 segundosmomento de avançar com toda a força que existe em nosso organismo.
-9:439 minutos e 43 segundosE ainda o Senhor, quando essa força se acabar, o Senhor enviará ainda mais força do seu depósito celestial. Vamos
-9:529 minutos e 52 segundosavançar, igreja. Existe uma igrejinha que nós estamos tentando terminar a construção lá na Tailândia. Existe
-10:0010 minutostambém uma escola num país comunista que estamos tentando construir lá num país
-10:0610 minutos e 6 segundosde laus, mas nós precisamos avançar e só você pode nos ajudar. Então, esteja atentos, olhos bem abertos, coração
-10:1510 minutos e 15 segundosvigilante, sabendo que o tempo tá se acabando. Vamos avançar, igreja, vamos avançar.
-10:2210 minutos e 22 segundosOremos como nunca oramos. Eh, leiamos a palavra de Deus como nós nunca lemos em nossa vida.
-10:2910 minutos e 29 segundose morramos para o eu como nunca aconteceu em nossa vida. Ou os olhos
-10:3610 minutos e 36 segundospregados no céu e os pés na terra. Que o Senhor te abençoe e te guarde. Nos vemos
-10:4310 minutos e 43 segundosem nosso próximo vídeo, em nome de Jesus. Amém. E amém."""
+"""
 
 # 3. Chame a função para gerar o arquivo .md
 gerar_post_blog(titulo, categoria, assinatura, texto_bruto)
