@@ -366,7 +366,8 @@ function resolveTitle(data, markdownBody, fallbackHtmlName) {
 }
 
 function applyBoldToSubtitles(html) {
-    return html.replace(/<h([12])([^>]*)>([\s\S]*?)<\/h$1>/g, '<h$1$2><strong>$3</strong></h$1>');
+    // Agora inclui h3 e corrigiu o fechamento da tag no regex
+    return html.replace(/<h([1-3])([^>]*)>([\s\S]*?)<\/h\1>/g, '<h$1$2><strong>$3</strong></h$1>');
 }
 
 // Seu Template HTML (Mantido igual)
@@ -421,7 +422,7 @@ const htmlTemplate = (data, content, prevHref, nextHref, slug, relacionados) => 
             </div>
 
             <div class="mt-6 p-4 bg-gray-50 border-l-4 border-orange-500 rounded">
-                <p class="italic text-gray-600">👉 ${data.signature || data.assinatura || 'Reflexão para uma vida com propósito.'}</p>
+                <p class="italic text-gray-600">👉 ${data.signature || data.assinatura || 'O tempo está próximo. Prepare-se!.'}</p>
                 <p class="text-right mt-2 font-bold text-sm">- Essencialista</p>
             </div>
 
