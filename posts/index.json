@@ -4,6 +4,7 @@
     "category": "Profecia",
     "image": "144mil.webp",
     "href": "posts/144mil.html",
+    "tempoLeitura": 5,
     "date": "2026-03-06",
     "mtime": "2026-03-07T12:12:45.045Z"
   },
@@ -12,6 +13,7 @@
     "category": "Profecia",
     "image": "666.webp",
     "href": "posts/666.html",
+    "tempoLeitura": 1,
     "date": "2026-03-07",
     "mtime": "2026-03-15T19:48:35.526Z"
   },
@@ -20,6 +22,7 @@
     "category": "Profecia",
     "image": "7trovões.webp",
     "href": "posts/7trovoes.html",
+    "tempoLeitura": 6,
     "date": "2026-03-28",
     "mtime": "2026-03-28T15:04:50.490Z"
   },
@@ -28,6 +31,7 @@
     "category": "Vida",
     "image": "mente.webp",
     "href": "posts/a-capital-do-corpo.html",
+    "tempoLeitura": 3,
     "date": "2025-12-13",
     "mtime": "2026-02-25T23:31:54.462Z"
   },
@@ -36,6 +40,7 @@
     "category": "Profecia",
     "image": "agora.webp",
     "href": "posts/agora-tempo.html",
+    "tempoLeitura": 2,
     "date": "2026-03-15",
     "mtime": "2026-03-15T19:36:48.586Z"
   },
@@ -44,6 +49,7 @@
     "category": "Fé",
     "image": "artista.webp",
     "href": "posts/artista-mestre.html",
+    "tempoLeitura": 2,
     "date": "2025-12-06",
     "mtime": "2026-02-25T23:32:11.626Z"
   },
@@ -52,6 +58,7 @@
     "category": "Profecia",
     "image": "as-7-igrejas.webp",
     "href": "posts/as-7-igrejas.html",
+    "tempoLeitura": 5,
     "date": "2026-03-20",
     "mtime": "2026-03-20T09:57:35.271Z"
   },
@@ -60,6 +67,7 @@
     "category": "Profecia",
     "image": "reus.webp",
     "href": "posts/banco-dos-reus.html",
+    "tempoLeitura": 2,
     "date": "2026-03-06",
     "mtime": "2026-03-07T11:43:40.681Z"
   },
@@ -68,6 +76,7 @@
     "category": "Profecia",
     "image": "caso-epstein.webp",
     "href": "posts/caso-epstein-o-acerto-de-contas-final-esta-chegando.html",
+    "tempoLeitura": 19,
     "date": "2026-03-16",
     "mtime": "2026-03-20T13:24:00.554Z"
   },
@@ -76,6 +85,7 @@
     "category": "Profecia",
     "image": "imagem-besta.webp",
     "href": "posts/colapso.html",
+    "tempoLeitura": 4,
     "date": "2026-02-21",
     "mtime": "2026-02-25T23:32:11.624Z"
   },
@@ -84,6 +94,7 @@
     "category": "Profecia",
     "image": "sabado.jpg",
     "href": "posts/controversia-mundial.html",
+    "tempoLeitura": 3,
     "date": "2026-02-26T00:00:00.000Z",
     "mtime": "2026-02-26T14:32:21.270Z"
   },
@@ -92,6 +103,7 @@
     "category": "Profecia",
     "image": "daniel-apocalipse.webp",
     "href": "posts/dn-apo.html",
+    "tempoLeitura": 2,
     "date": "2026-03-21",
     "mtime": "2026-03-21T20:56:44.764Z"
   },
@@ -100,6 +112,7 @@
     "category": "...",
     "image": "economist2026.webp",
     "href": "posts/economist.html",
+    "tempoLeitura": 3,
     "date": "2026-02-21",
     "mtime": "2026-02-26T00:36:53.677Z"
   },
@@ -108,6 +121,7 @@
     "category": "Ciência",
     "image": "eletrocultura.webp",
     "href": "posts/eletrocultura.html",
+    "tempoLeitura": 4,
     "date": "2026-03-27",
     "mtime": "2026-03-27T12:36:15.009Z"
   },
@@ -116,6 +130,7 @@
     "category": "Profecia",
     "image": "epstein.webp",
     "href": "posts/epstein.html",
+    "tempoLeitura": 4,
     "date": "2026-02-17",
     "mtime": "2026-02-25T23:32:11.624Z"
   },
@@ -124,6 +139,7 @@
     "category": "Vida",
     "image": "falsos.webp",
     "href": "posts/esta-escrito.html",
+    "tempoLeitura": 4,
     "date": "2026-02-24T00:00:00.000Z",
     "mtime": "2026-02-25T23:32:11.623Z"
   },
@@ -132,6 +148,7 @@
     "category": "Vida",
     "image": "mcp.webp",
     "href": "posts/estudo-eficaz.html",
+    "tempoLeitura": 3,
     "date": "2026-01-10",
     "mtime": "2026-02-25T23:31:54.463Z"
   },
@@ -140,6 +157,7 @@
     "category": "Ciência",
     "image": "falsa-ciencia.webp",
     "href": "posts/falsa-ciencia.html",
+    "tempoLeitura": 2,
     "date": "2026-03-04",
     "mtime": "2026-03-04T11:48:56.163Z"
   },
@@ -148,6 +166,7 @@
     "category": "Fé",
     "image": "gadara.webp",
     "href": "posts/gadara.html",
+    "tempoLeitura": 3,
     "date": "2025-12-13",
     "mtime": "2026-02-25T23:31:54.468Z"
   },
@@ -156,6 +175,7 @@
     "category": "Profecia",
     "image": "guerra-irã-eua.webp",
     "href": "posts/guerra.html",
+    "tempoLeitura": 3,
     "date": "2026-03-04",
     "mtime": "2026-03-04T12:18:01.870Z"
   },
@@ -164,6 +184,7 @@
     "category": "Profecia",
     "image": "hr.webp",
     "href": "posts/hr.html",
+    "tempoLeitura": 4,
     "date": "2026-02-24",
     "mtime": "2026-02-25T23:32:11.623Z"
   },
@@ -172,6 +193,7 @@
     "category": "Profecia",
     "image": "erros.webp",
     "href": "posts/imortalidade-da-alma.html",
+    "tempoLeitura": 3,
     "date": "2026-02-24T00:00:00.000Z",
     "mtime": "2026-02-25T23:32:11.623Z"
   },
@@ -180,6 +202,7 @@
     "category": "Profecia",
     "image": "jesuítas.webp",
     "href": "posts/jesuitas.html",
+    "tempoLeitura": 3,
     "date": "2026-03-06",
     "mtime": "2026-03-06T22:57:02.514Z"
   },
@@ -188,6 +211,7 @@
     "category": "Profecia",
     "image": "medalha-de-honra-ao-papa-leao.webp",
     "href": "posts/medalha-de-honra-ao-papa-leao.html",
+    "tempoLeitura": 5,
     "date": "2026-03-20",
     "mtime": "2026-03-23T01:30:55.698Z"
   },
@@ -196,6 +220,7 @@
     "category": "Profecia",
     "image": "esta-escrito.jpg",
     "href": "posts/minha-playlist.html",
+    "tempoLeitura": 2,
     "date": "2026-02-07",
     "mtime": "2026-02-26T00:22:27.949Z"
   },
@@ -204,6 +229,7 @@
     "category": "Vida",
     "image": "jugo.webp",
     "href": "posts/o-jugo-de-cristo.html",
+    "tempoLeitura": 3,
     "date": "2025-12-05",
     "mtime": "2026-02-25T23:31:54.468Z"
   },
@@ -212,6 +238,7 @@
     "category": "Profecia",
     "image": "7selos.webp",
     "href": "posts/os-sete-selos.html",
+    "tempoLeitura": 13,
     "date": "2026-03-23",
     "mtime": "2026-03-23T04:13:35.398Z"
   },
@@ -220,6 +247,7 @@
     "category": "Profecia",
     "image": "papado.webp",
     "href": "posts/papado.html",
+    "tempoLeitura": 4,
     "date": "2026-03-06",
     "mtime": "2026-03-06T12:26:49.222Z"
   },
@@ -228,6 +256,7 @@
     "category": "Profecia",
     "image": "porta.webp",
     "href": "posts/porta.html",
+    "tempoLeitura": 4,
     "date": "2026-02-20",
     "mtime": "2026-02-25T23:32:11.623Z"
   },
@@ -236,6 +265,7 @@
     "category": "Profecia",
     "image": "reino-dividido.webp",
     "href": "posts/reino-dividido.html",
+    "tempoLeitura": 1,
     "date": "2026-03-07",
     "mtime": "2026-03-15T20:03:57.022Z"
   },
@@ -244,6 +274,7 @@
     "category": "Profecia",
     "image": "6mil.webp",
     "href": "posts/seis-mil-anos.html",
+    "tempoLeitura": 4,
     "date": "2026-02-18",
     "mtime": "2026-02-25T23:32:11.623Z"
   },
@@ -252,6 +283,7 @@
     "category": "Profecia",
     "image": "ruina2.webp",
     "href": "posts/sabado.html",
+    "tempoLeitura": 4,
     "date": "2026-02-17 ",
     "mtime": "2026-02-25T23:32:11.623Z"
   },
@@ -260,6 +292,7 @@
     "category": "Profecia",
     "image": "tempo-curto-trump.webp",
     "href": "posts/tempo-curto.html",
+    "tempoLeitura": 3,
     "date": "2026-03-01",
     "mtime": "2026-03-01T18:19:32.078Z"
   },
@@ -268,6 +301,7 @@
     "category": "Profecia",
     "image": "abismo.webp",
     "href": "posts/terra-desolada.html",
+    "tempoLeitura": 4,
     "date": "2026-02-22",
     "mtime": "2026-02-26T00:36:41.159Z"
   },
@@ -276,6 +310,7 @@
     "category": "Vida",
     "image": "tolice.webp",
     "href": "posts/tolice-digital.html",
+    "tempoLeitura": 3,
     "date": "2026-01-10",
     "mtime": "2026-02-25T23:31:54.475Z"
   },
@@ -284,6 +319,7 @@
     "category": "Ciência",
     "image": "mentir.webp",
     "href": "posts/tv.html",
+    "tempoLeitura": 4,
     "date": "2026-08-01T10:00:00-03:00",
     "mtime": "2026-02-26T00:36:47.071Z"
   },
@@ -292,6 +328,7 @@
     "category": "Profecia",
     "image": "tiago.webp",
     "href": "posts/verdade-presente.html",
+    "tempoLeitura": 3,
     "date": "2026-08-01T10:00:00-03:00",
     "mtime": "2026-03-01T19:09:34.209Z"
   },
@@ -300,6 +337,7 @@
     "category": "Profecia",
     "image": "voto-jesuita.webp",
     "href": "posts/voto-jesuitas.html",
+    "tempoLeitura": 6,
     "date": "2026-03-06",
     "mtime": "2026-03-06T13:30:48.361Z"
   }

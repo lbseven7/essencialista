@@ -1,2 +1,8 @@
 https://essencialista.vercel.app/
 Planilha de comentários do blog: https://docs.google.com/spreadsheets/d/15bjDDZ0aEQ691X1by5gjpRu3SEQipcMD1IFe68oGq1w/edit?gid=0#gid=0
+
+Gerador de cards
+- Gerador de Cards ( generator.html ) : Uma ferramenta interna onde você cola o link do artigo e ele monta o card automaticamente.
+- Imagens Reais : O sistema busca a imagem correta de cada post no seu index.json .
+- Alta Resolução : Os cards são gerados no tamanho padrão de Status/Stories (1080x1920) sem distorções.
+- Botão de Download : Basta um clique para baixar o PNG pronto para postar.
