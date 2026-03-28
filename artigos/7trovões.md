@@ -1,0 +1,103 @@
+---
+title: " OS SETE TROVÕES"
+date: "2026-03-28"
+image: "7trovões.webp"
+category: "Profecia"
+signature: " Então, Jesus disse-lhes: Ainda por um pouco de tempo a luz está convosco. Andai enquanto tendes luz, para que as trevas não venham sobre vós, pois quem anda nas trevas não sabe para onde vai."
+---
+## Introdução
+Precisamos fazer uma correlação teológica profunda para que faça sentido dentro da estrutura escatológica. Precisamos conectar **o segredo de Apocalipse 10** com **o clímax da libertação do povo de Deus**.
+
+## A voz de Deus
+Os sete trovões representam a voz de Deus?
+
+Precisamos provar biblicamente de que isso é uma verdade estabelecida. Considere os textos:
+Jesus se dirige ao céu e diz: ***“Pai, glorifica o teu nome”***. Então, Deus responde:
+
+***Veio, pois, uma voz do céu que dizia: Já o tenho glorificado, e outra vez o glorificarei. Ora, a multidão que ali estava, e que a ouvira, dizia que havia trovejado..." - João 12:28-29***
+
+Davi falando sobre Deus diz:
+
+***A voz do Senhor ouve-se sobre as águas; o Deus da glória troveja; o Senhor está sobre as muitas águas. A voz do Senhor é poderosa; a voz do Senhor é cheia de majestade." - Salmo 29:3-4***
+
+Davi, falando a Deus em cântico, quando foi livrado de Saul e dos inimigos, disse:
+***Trovejou desde os céus o Senhor; e o Altíssimo fez soar a sua voz." - 2 Samuel 22:14***
+
+Eliú, um dos amigos de Jó, falando sobre o poder de Deus completa:
+
+***Depois dela, ruge uma voz; ele troveja com a sua voz majestosa... Com a sua voz troveja Deus maravilhosamente..."***
+
+Bem, aqui não resta dúvidas de que isso é uma verdade estabelecida na palavra de Deus. Então, vamos prosseguir com mais segurança conforme vamos desenvolvendo os argumentos.
+________________________________________
+## Uma Visão Peculiar (adventista)
+Considere agora o trecho do livro O Grande Conflito de Ellen G White, onde ela descreve uma visão onde Deus anuncia o dia e a hora do retorno de Cristo à Terra.
+
+***A voz de Deus é ouvida no Céu, declarando o dia e a hora da vinda de Jesus e reafirmando o concerto eterno com Seu povo. Semelhantes a estrondos do mais forte trovão, Suas palavras ecoam pela Terra inteira. — O Grande Conflito, 640.***
+
+Este anúncio é feito para os fiéis pouco antes de Cristo aparecer. Parece um tipo de consolo, já que o povo estará em angústia nesse tempo. É também um tempo onde a graça já estará findada. Que conforto seria saber o dia e a hora em que viria o socorro!
+
+A Bíblia menciona de que, no momento em que Cristo falou sobre sua vinda, diz que somente o Pai sabia o tempo (Marcos 13:32). Logicamente que Jesus em Sua humanidade realmente não sabia o dia e a hora, mas, acredita-se que após ressuscitar, já glorificado e tendo ido para o Pai (João 20:17), Ele já saberia.
+
+O fato é que essa informação é exclusivamente de interesse dos seres humanos que aguardam a bendita esperança de Seu retorno. Pensando nisso, Jesus afirmou:
+Não veio esta voz por minha causa, mas por causa de vós -  João 12:30.
+
+## Por que João foi mandado selar?
+***E quando os sete trovões proferiram suas vozes, eu estava prestes a escrever; e ouvi uma voz do céu me dizendo: Sela essas coisas que os sete trovões proferiram, e não as escrevas – Apocalipse 10:4***
+
+A interpretação comum é que, se o dia e a hora tivessem sido escritos por João, a natureza do "vigiar e orar" seria alterada pelo conhecimento cronológico antecipado.
+
+•	O Segredo: Os Sete Trovões contêm informações que o povo de Deus não precisava (ou não podia suportar) em **1844** ou nos séculos anteriores.
+
+•	A Revelação: Esse "segredo" só é liberado por Deus no momento da **Sétima Praga**, quando o tempo da graça já se fechou e os santos precisam de consolo e esperança diante do decreto de morte.
+
+## A Voz de Deus vs. Voz do Anjo
+Leia atentamente o capítulo 10 de Apocalipse:
+
+**1. A Identidade de Cristo (Verso 1)**
+
+As características (arco-íris, rosto como o sol, pés de fogo) identificam o Anjo do Senhor como Jesus Cristo. O arco-íris sobre a cabeça reforça que Ele é o mediador da aliança e que Sua mensagem, embora de juízo, é revestida de misericórdia.
+
+**2. O Livro de Daniel Aberto (Verso 2)**
+
+Devemos entender que o "livrinho" é a parte profética do livro de Daniel que estava selada (conforme Daniel 12:4). No tempo do fim (início do século XIX), esse selo foi removido, permitindo que as profecias sobre o tempo (especialmente as 2.300 tardes e manhãs) fossem compreendidas mundialmente.
+**3. As Vozes e o Selamento (Versos 3 e 4)**
+
+Os sete trovões representam eventos ou revelações que ocorreriam durante a proclamação das mensagens angélicas. João foi impedido de escrever porque o povo de Deus deveria passar pela experiência prática daquela profecia antes de compreendê-la totalmente. Como vimos no início do artigo, Deus revelará o dia e a hora do retorno de Cristo para livrar finalmente o seu povo fiél.
+
+**4. "Não haverá mais tempo" (Verso 6)**
+
+Observe que na visão é falado sobre não haver mais tempo (baseada no termo grego chronos), Jesus não está dizendo que a eternidade começou, mas que não haveria mais tempo profético (períodos de tempo profético, como os 1.260 ou 2.300 dias). A última cronologia profética terminaria em 1844.
+
+**5. O Mistério de Deus e o Sétimo Anjo (Verso 7)**
+
+O "mistério" é o plano da salvação e o fechamento do Evangelho Eterno. Quando a sétima trombeta toca, leva à conclusão da história humana.
+
+**6. O Doce e o Amargo: O Grande Desapontamento (Versos 8 a 11)**
+
+Esta é a parte central da aplicação histórica:
+
+•	**Doce na boca**: A alegria dos mileritas ao "comerem" as profecias de Daniel e acreditarem que Jesus voltaria em **22 de outubro de 1844**.
+
+•	**Amargo no ventre**: O sofrimento e a angústia do Grande Desapontamento quando Cristo não apareceu (pois o evento previsto era a purificação do santuário celestial, e não a volta à Terra).
+
+•	**A Missão**: (Verso 11) A ordem "Importa que profetizes outra vez" indica que o movimento não deveria acabar ali. Eles deveriam levar a mensagem do Santuário e das Três Mensagens Angélicas (Apocalipse 14) a "muitos povos, nações, línguas e reis".
+
+•	**O Anjo**: (Cristo) jura que não haverá mais tempo (profético).
+
+•	**Os Sete Trovões**: (Pai) emitem uma mensagem que João (representando a igreja) ouve, mas não pode registrar.
+
+Isso cria um paralelo perfeito: Jesus revela o período (as profecias de tempo), mas o Pai reserva para Si o ponto exato (dia e hora), revelando-o apenas no **tempo do fim do fim**.
+
+Os **7 trovões** seriam, portanto, a última mensagem audível de Deus à humanidade antes que Jesus na nuvem branca apareça no céu.
+
+## Resumo da Lógica
+1.	**Apocalipse 10**: Deus fala (7 trovões), mas o conteúdo é selado.
+
+2.	**Fim da Graça**: O povo de Deus está angustiado.
+
+3.	**Libertação**: Deus fala novamente com "voz de trovão".
+
+4.	**Conclusão**: O conteúdo dos 7 trovões é finalmente entregue aos santos: o Dia e a Hora da Segunda Vinda de Cristo!
+
+## O que você achou desse assunto?
+
