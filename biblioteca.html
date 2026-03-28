@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteca Digital - Essencialista</title>
+    <link rel="icon" type="image/webp" href="images/sem-bg-black.webp">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .book-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .skeleton {
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: loading 1.5s infinite;
+        }
+
+        @keyframes loading {
+            from {
+                background-position: 200% 0;
+            }
+
+            to {
+                background-position: -200% 0;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100 text-gray-800 font-sans">
+    <!-- Menu (Mantido) -->
+    <header class="bg-black text-white p-6 shadow-md sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <a href="home.html"><img src="images/sem-bg-black.webp" alt="Logo" class="h-10"></a>
+                <a href="home.html">
+                    <h1 class="text-2xl font-bold uppercase tracking-tighter italic text-white">Essencialista</h1>
+                </a>
+            </div>
+            <nav>
+                <ul class="flex space-x-6 font-bold text-sm uppercase tracking-widest">
+                    <li><a href="home.html" class="hover:text-orange-500">Início</a></li>
+                    <li><a href="biblioteca.html"
+                            class="text-orange-500 underline decoration-2 underline-offset-8">Biblioteca</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container mx-auto mt-12 p-4 max-w-6xl">
+        <header class="text-center mb-16 animate-fade-in">
+            <h2 class="text-5xl font-black mb-4 uppercase italic tracking-tighter">Biblioteca Digital</h2>
+            <p class="text-gray-500 max-w-2xl mx-auto text-lg">Materiais de estudo exclusivos em formato PDF. Baixe,
+                estude e compartilhe a verdade.</p>
+            <div class="h-1 w-24 bg-orange-600 mx-auto mt-6"></div>
+        </header>
+
+        <!-- Grid de Livros Dinâmico -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 mb-20" id="lista-livros">
+            <!-- Os cards serão inseridos aqui pelo JavaScript -->
+            <div class="skeleton h-96 rounded-2xl"></div>
+            <div class="skeleton h-96 rounded-2xl"></div>
+            <div class="skeleton h-96 rounded-2xl"></div>
+            <div class="skeleton h-96 rounded-2xl"></div>
+        </div>
+
+        <!-- Apoio Pix (Mantido) -->
+        <section class="bg-black text-white p-12 rounded-[3rem] mb-20 text-center shadow-2xl">
+            <h3 class="text-3xl font-black mb-4 italic uppercase">Ajude a manter este projeto</h3>
+            <p class="text-gray-400 max-w-xl mx-auto mb-8 text-lg">Toda doação é investida na criação de novos materiais
+                e na manutenção do blog.</p>
+            <button onclick="copiarPix()"
+                class="bg-orange-600 text-white px-10 py-4 rounded-2xl font-black uppercase tracking-widest hover:bg-white hover:text-black transition-all flex items-center gap-3 mx-auto shadow-xl scale-105">
+                <i class="fas fa-qrcode"></i> Apoiar via Pix
+            </button>
+            <p id="pix-status" class="mt-4 text-xs font-bold text-orange-500 uppercase tracking-widest"></p>
+        </section>
+    </main>
+
+    <footer class="bg-black text-white p-10">
+        <div class="container mx-auto text-center opacity-50">
+            <img src="images/sem-bg-black.webp" alt="Logo" class="h-10 mx-auto mb-4 grayscale invert">
+            <p class="text-sm italic">Essencialista &copy; 2026 - Fé, Ciência e Profecia</p>
+        </div>
+    </footer>
+
+    <script>
+        const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbzqlxGXvaVEPU9w5fl-zhXegyvErILCbOySK23V72zDxK0ZPHEVnDSPnaQi5U7o4KVC/exec';
+
+        async function registrarDownload(livroId) {
+            const url = `${WEB_APP_URL}?action=contarDownload&id=${encodeURIComponent(livroId)}`;
+
+            // Usamos fetch com GET e keepalive para garantir que o Google receba o comando
+            fetch(url, {
+                method: 'GET',
+                mode: 'no-cors',
+                keepalive: true
+            });
+        }
+
+        async function carregarLivros() {
+            const container = document.getElementById('lista-livros');
+            try {
+                const resposta = await fetch('pdfs/livros.json');
+                const livros = await resposta.json();
+
+                container.innerHTML = ''; // Limpa o skeleton
+
+                livros.forEach((livro, index) => {
+                    const card = document.createElement('div');
+                    card.className = `book-card bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-500 flex flex-col h-full animate-fade-in`;
+                    card.style.animationDelay = `${index * 0.1}s`;
+
+                    card.innerHTML = `
+                        <div class="relative h-80 overflow-hidden bg-gray-900 group">
+                            <img src="images/${livro.capa || 'default.webp'}" 
+                                 class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
+                                 alt="${livro.titulo}"
+                                 onerror="this.src='images/default.webp'">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent"></div>
+                            <span class="absolute top-4 right-4 bg-orange-600 text-white text-[9px] font-black px-3 py-1 rounded-full uppercase tracking-tighter">${livro.categoria}</span>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow bg-white">
+                            <h3 class="text-lg font-black mb-2 leading-tight uppercase italic tracking-tighter text-gray-900">${livro.titulo}</h3>
+                            <p class="text-gray-500 text-xs mb-6 flex-grow leading-relaxed">${livro.descricao}</p>
+                            <a href="pdfs/${livro.arquivo}" 
+                               onclick="registrarDownload('${livro.arquivo}')"
+                               download 
+                               class="bg-black text-white text-center py-3 rounded-xl font-black uppercase tracking-widest hover:bg-orange-600 transition-all flex items-center justify-center gap-2 shadow-md">
+                                <i class="fas fa-file-pdf"></i> Download
+                            </a>
+                        </div>
+                    `;
+                    container.appendChild(card);
+                });
+            } catch (erro) {
+                container.innerHTML = '<p class="col-span-full text-center text-red-500 font-bold">Erro ao carregar a biblioteca. Tente novamente mais tarde.</p>';
+            }
+        }
+
+        function copiarPix() {
+            const pix = "01642647527";
+            navigator.clipboard.writeText(pix).then(() => {
+                const status = document.getElementById('pix-status');
+                status.innerText = "Chave Pix copiada! Deus te abençoe.";
+                setTimeout(() => status.innerText = "", 4000);
+            });
+        }
+
+        window.onload = carregarLivros;
+    </script>
+</body>
+
+</html>

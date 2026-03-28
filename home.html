@@ -55,6 +55,8 @@
 
                 <nav id="main-nav" class="hidden md:block">
                     <ul class="flex space-x-6 items-center">
+                        <li><a href="home.html" class="hover:text-orange-500 font-bold">Início</a></li>
+                        <li><a href="biblioteca.html" class="hover:text-orange-500 font-bold">Biblioteca</a></li>
                         <li><a href="#featured-articles" class="hover:text-orange-500 font-bold">Artigos</a></li>
                         <li><a href="about.html" class="hover:text-orange-500 font-bold">Sobre</a></li>
                         <li><a href="admin.html" class="text-gray-500 hover:text-orange-500" aria-label="Painel Admin"><i class="fas fa-user-shield"></i></a></li>
@@ -98,9 +100,8 @@
     </main>
 
     <script>
-        // O Script interno permanece exatamente como o anterior que funcionava bem, 
-        // apenas garantindo que a usabilidade móvel está correta.
-        const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbzvsw1a929OYZMd1sT6jYByl0iRE3a7xXBIiRoP51VREkmq0h6emxajQxkz0QadgUo0/exec';
+        // URL do Backend (Google Apps Script)
+        const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbzqlxGXvaVEPU9w5fl-zhXegyvErILCbOySK23V72zDxK0ZPHEVnDSPnaQi5U7o4KVC/exec';
         let todosOsArtigos = [];
 
         function escapeHTML(str) {
@@ -192,21 +193,35 @@
             const btn = document.getElementById("btnEnviar");
             const status = document.getElementById("msgStatus");
             btn.disabled = true; btn.innerText = "Enviando...";
+            
             try {
                 const payload = {
-                    artigoId: "home",
+                    artigoId: "home", // No convert.js isso será dinâmico: "${slug}"
                     nome: document.getElementById("nome").value,
                     email: document.getElementById("email").value,
                     comentario: document.getElementById("comentario").value
                 };
-                const res = await fetch(WEB_APP_URL, { method: 'POST', body: JSON.stringify(payload) });
-                if(res.ok) {
-                    status.className = "mt-3 text-center font-semibold text-green-600";
-                    status.innerText = "Enviado com sucesso! Aparecerá após a moderação.";
-                    this.reset();
-                }
-            } catch (err) { status.innerText = "Erro ao enviar."; }
-            finally { btn.disabled = false; btn.innerText = "Enviar Comentário"; }
+                
+                // Envio compatível com Google Apps Script
+                await fetch(WEB_APP_URL, { 
+                    method: 'POST', 
+                    mode: 'no-cors', // Evita erro de CORS
+                    cache: 'no-cache',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload) 
+                });
+                
+                // Como no-cors não permite ler a resposta, assumimos sucesso se não der erro de rede
+                status.className = "mt-3 text-center font-semibold text-green-600";
+                status.innerText = "Enviado com sucesso! Aparecerá após a moderação.";
+                this.reset();
+            } catch (err) { 
+                status.className = "mt-3 text-center font-semibold text-red-600";
+                status.innerText = "Erro ao conectar com o servidor."; 
+            } finally { 
+                btn.disabled = false; 
+                btn.innerText = "Enviar Comentário"; 
+            }
         };
 
         // Dark Mode Logic

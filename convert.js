@@ -11,6 +11,9 @@ const md = new MarkdownIt({
 const inputDir = path.join(__dirname, 'artigos');
 const outputDir = path.join(__dirname, 'posts');
 
+// URL do Backend (Google Apps Script) - Atualize aqui se mudar o script
+const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbzqlxGXvaVEPU9w5fl-zhXegyvErILCbOySK23V72zDxK0ZPHEVnDSPnaQi5U7o4KVC/exec';
+
 // Função para criar nomes de arquivos limpos (slugs)
 function slugify(text) {
     return text.toString().toLowerCase()
@@ -166,12 +169,65 @@ const htmlTemplate = (data, content, prevHref, nextHref, slug, relacionados) => 
         </div>
     </footer>
     <script>
-        // ... (Script de comentários mantido igual)
+        const WEB_APP_URL = '${WEB_APP_URL}';
+
+        async function carregarComentarios() {
+            try {
+                const res = await fetch(WEB_APP_URL + '?artigoId=${slug}');
+                const dados = await res.json();
+                document.getElementById('loader')?.remove();
+                if (!Array.isArray(dados)) return;
+                const container = document.getElementById('listaComentarios');
+                dados.forEach(c => {
+                    const div = document.createElement('div');
+                    div.className = 'bg-gray-50 p-4 rounded-lg border-l-4 border-orange-500 mb-4 animate-fade-in';
+                    const n = document.createElement('p'); n.className="font-bold text-gray-900"; n.textContent = c.nome;
+                    const co = document.createElement('p'); co.className="text-sm text-gray-700 mt-1"; co.textContent = c.comentario;
+                    div.append(n, co);
+                    container.appendChild(div);
+                });
+            } catch (e) { console.error("Erro ao carregar comentários:", e); }
+        }
+
+        document.getElementById("commentForm").onsubmit = async function (e) {
+            e.preventDefault();
+            const btn = document.getElementById("btnEnviar");
+            const status = document.getElementById("msgStatus");
+            btn.disabled = true; btn.innerText = "Enviando...";
+            
+            try {
+                const payload = {
+                    artigoId: "${slug}",
+                    nome: document.getElementById("nome").value,
+                    email: document.getElementById("email").value,
+                    comentario: document.getElementById("comentario").value
+                };
+                
+                const res = await fetch(WEB_APP_URL, { 
+                    method: 'POST', 
+                    mode: 'no-cors',
+                    body: JSON.stringify(payload) 
+                });
+                
+                // Com no-cors, não conseguimos ler res.ok, então assumimos sucesso se não houver erro
+                status.className = "mt-3 text-center font-semibold text-green-600";
+                status.innerText = "Enviado com sucesso! Aparecerá após a moderação.";
+                this.reset();
+            } catch (err) { 
+                status.className = "mt-3 text-center font-semibold text-red-600";
+                status.innerText = "Erro ao enviar. Tente novamente."; 
+            } finally { 
+                btn.disabled = false; 
+                btn.innerText = "Enviar Comentário"; 
+            }
+        };
 
         function toggleFocusMode() {
             const isFocus = document.body.classList.toggle('focus-mode');
             if (isFocus) window.scrollTo({ top: 0, behavior: 'smooth' });
         }
+
+        window.onload = carregarComentarios;
     </script>
 </body>
 </html>
@@ -194,15 +250,16 @@ function processMarkdownFiles() {
 
         const stat = fs.statSync(markdownPath);
         
-        // --- LÓGICA DE CACHE (VERIFICAÇÃO DE MUDANÇA) ---
+        // --- LÓGICA DE CACHE (DESABILITADA TEMPORARIAMENTE PARA FORÇAR ATUALIZAÇÃO) ---
         let needsUpdate = true;
+        /*
         if (fs.existsSync(outputPath)) {
             const outputStat = fs.statSync(outputPath);
-            // Se o arquivo MD não foi alterado desde a última conversão, ignore
             if (stat.mtime <= outputStat.mtime) {
                 needsUpdate = false;
             }
         }
+        */
 
         const markdownFile = fs.readFileSync(markdownPath, 'utf8');
         const { data, content } = matter(markdownFile);
