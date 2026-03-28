@@ -127,7 +127,10 @@
                 container.innerHTML = ''; // Limpa o skeleton
 
                 livros.forEach((livro, index) => {
-                    const nomeArquivo = livro.arquivo.toLowerCase().endsWith('.pdf') ? livro.arquivo : `${livro.arquivo}.pdf`;
+                    // Limpa espaços e garante minúsculas para compatibilidade com servidores Linux/Vercel
+                    let arquivoLimpo = livro.arquivo.trim().replace(/\s+/g, '-');
+                    const nomeArquivo = arquivoLimpo.toLowerCase().endsWith('.pdf') ? arquivoLimpo : `${arquivoLimpo}.pdf`;
+                    
                     const card = document.createElement('div');
                     card.className = `book-card bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-500 flex flex-col h-full animate-fade-in`;
                     card.style.animationDelay = `${index * 0.1}s`;
