@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Cards - Essencialista</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <!-- Biblioteca para transformar HTML em Imagem -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+        body { font-family: 'Inter', sans-serif; background: #f3f4f6; }
+        #card-preview {
+            width: 1080px;
+            height: 1920px;
+            background: #000;
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transform: scale(0.3); /* Escala para caber na tela do PC */
+            transform-origin: top center;
+        }
+        .gradient-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60%;
+            background: linear-gradient(to top, rgba(0,0,0,1), rgba(0,0,0,0.8), transparent);
+        }
+    </style>
+</head>
+<body class="p-8">
+
+    <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Controles -->
+        <div class="bg-white p-6 rounded-xl shadow-lg h-fit">
+            <h2 class="text-2xl font-bold mb-6 text-gray-800 border-b pb-2">Configurar Card</h2>
+            
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-1">Link do Artigo:</label>
+                    <input type="text" id="input-link" placeholder="Ex: https://essencialista.vercel.app/posts/os-sete-selos.html" 
+                           class="w-full border p-3 rounded-lg focus:ring-2 focus:ring-orange-500 outline-none border-gray-300">
+                    <button onclick="buscarDados()" class="mt-2 bg-black text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-orange-600 w-full transition">Carregar Dados</button>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-1">Categoria:</label>
+                        <input type="text" id="input-cat" class="w-full border p-2 rounded border-gray-300 uppercase text-xs tracking-widest font-black text-orange-600">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-1">Cor do Tema:</label>
+                        <input type="color" id="input-color" value="#f97316" class="w-full h-10 p-1 rounded border border-gray-300">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-1">Título:</label>
+                    <textarea id="input-title" rows="3" class="w-full border p-2 rounded border-gray-300 font-bold"></textarea>
+                </div>
+
+                <button onclick="baixarCard()" class="bg-green-600 text-white px-6 py-4 rounded-xl font-black uppercase tracking-widest hover:bg-green-700 w-full shadow-lg transition flex items-center justify-center gap-2">
+                    <span class="text-xl">📥</span> BAIXAR PNG
+                </button>
+
+                <!-- <div class="bg-orange-50 p-4 rounded-lg border border-orange-200">
+                    <p class="text-xs text-orange-800 leading-relaxed">
+                        <strong>Dica:</strong> Após configurar, tire um print da área à direita ou use a ferramenta de captura do Windows. Este tamanho (1080x1920) é o padrão perfeito para o Status do WhatsApp.
+                    </p>
+                </div> -->
+            </div>
+        </div>
+
+        <!-- Preview do Card -->
+        <div class="flex flex-col items-center">
+            <h3 class="font-bold text-gray-500 mb-2 uppercase tracking-widest text-sm">Preview</h3>
+            <div id="card-preview" class="shadow-2xl rounded-3xl border-8 border-gray-800">
+                <!-- Fundo com Blur para preencher espaços -->
+                <img id="card-img-blur" src="images/default.webp" class="absolute inset-0 w-full h-full object-cover blur-3xl opacity-50 scale-110">
+                
+                <div class="absolute inset-0 bg-black/60"></div>
+
+                <!-- Imagem Principal (Sem distorção) -->
+                <div class="absolute top-0 left-0 right-0 h-[45%] flex items-center justify-center overflow-hidden">
+                    <img id="card-img" src="images/default.webp" class="w-full h-full object-cover shadow-2xl">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+                </div>
+                
+                <div class="gradient-overlay"></div>
+
+                <!-- Conteúdo -->
+                <div class="relative z-10 w-full px-16 text-center mt-auto pb-24">
+                    <div id="card-cat-box" class="inline-block bg-orange-600 px-6 py-2 rounded-full mb-8">
+                        <span id="card-cat" class="text-2xl font-black uppercase tracking-[0.2em]">CATEGORIA</span>
+                    </div>
+                    
+                    <h1 id="card-title" class="text-8xl font-black leading-tight mb-12 drop-shadow-lg uppercase italic">
+                        TÍTULO DO ARTIGO APARECE AQUI
+                    </h1>
+
+                    <div class="flex items-center justify-center space-x-8 border-t-4 border-white/30 pt-16">
+                        <div id="qrcode" class="p-4 bg-white rounded-2xl shadow-xl"></div>
+                        <div class="text-left">
+                            <p class="text-3xl font-bold text-orange-500 mb-2 tracking-widest">LEIA AGORA EM:</p>
+                            <p class="text-5xl font-black italic tracking-tighter opacity-80">essencialista.com.br</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Logo Topo -->
+                <div class="absolute top-20 left-1/2 -translate-x-1/2 opacity-50">
+                    <img src="images/sem-bg-black.webp" class="h-24 grayscale invert">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const qrcode = new QRCode(document.getElementById("qrcode"), {
+            width: 180,
+            height: 180,
+            colorDark : "#000000",
+            colorLight : "#ffffff",
+            correctLevel : QRCode.CorrectLevel.H
+        });
+
+        function buscarDados() {
+            const link = document.getElementById('input-link').value;
+            if(!link) return;
+
+            // Tenta extrair o nome do arquivo HTML do link
+            const parts = link.split('/');
+            const filename = parts[parts.length - 1];
+            
+            fetch('posts/index.json')
+                .then(res => res.json())
+                .then(posts => {
+                    // Busca o post no manifesto
+                    const post = posts.find(p => p.href.includes(filename));
+                    
+                    if(post) {
+                        document.getElementById('input-title').value = post.title;
+                        document.getElementById('input-cat').value = post.category;
+                        
+                        // Define a imagem real do post em ambas as camadas
+                        const imgPath = post.image ? `images/${post.image}` : 'images/default.webp';
+                        document.getElementById('card-img').src = imgPath;
+                        document.getElementById('card-img-blur').src = imgPath;
+                        
+                        atualizarCard();
+                    } else {
+                        alert('Artigo não encontrado no index.json. Verifique se o link está correto.');
+                    }
+                });
+        }
+
+        function atualizarCard() {
+            const title = document.getElementById('input-title').value;
+            const cat = document.getElementById('input-cat').value;
+            const color = document.getElementById('input-color').value;
+            const link = document.getElementById('input-link').value || 'https://essencialista.com.br';
+
+            document.getElementById('card-title').innerText = title;
+            document.getElementById('card-cat').innerText = cat;
+            document.getElementById('card-cat-box').style.backgroundColor = color;
+
+            qrcode.clear();
+            qrcode.makeCode(link);
+        }
+
+        async function baixarCard() {
+            const btn = event.currentTarget;
+            const originalText = btn.innerHTML;
+            btn.disabled = true;
+            btn.innerHTML = "⌛ GERANDO...";
+
+            const card = document.getElementById('card-preview');
+            
+            // Força o card a ficar em tamanho real para o print
+            const originalTransform = card.style.transform;
+            card.style.transform = 'none';
+
+            try {
+                const canvas = await html2canvas(card, {
+                    useCORS: true,
+                    scale: 1, // Escala 1 para 1080x1920 exato
+                    backgroundColor: "#000000"
+                });
+
+                const link = document.createElement('a');
+                const slug = document.getElementById('input-title').value.toLowerCase().replace(/\s+/g, '-').replace(/[^\w\-]+/g, '');
+                link.download = `card-${slug}.png`;
+                link.href = canvas.toDataURL("image/png");
+                link.click();
+            } catch (err) {
+                console.error(err);
+                alert("Erro ao gerar imagem. Verifique se as imagens do post estão carregando corretamente.");
+            } finally {
+                card.style.transform = originalTransform;
+                btn.disabled = false;
+                btn.innerHTML = originalText;
+            }
+        }
+
+        // Listeners para atualizar em tempo real
+        document.getElementById('input-title').addEventListener('input', atualizarCard);
+        document.getElementById('input-cat').addEventListener('input', atualizarCard);
+        document.getElementById('input-color').addEventListener('input', atualizarCard);
+
+        atualizarCard();
+    </script>
+</body>
+</html>
