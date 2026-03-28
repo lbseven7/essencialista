@@ -32,12 +32,34 @@
         </div>
 
         <div id="listaAdmin" class="space-y-4">
+        </div>
+
+        <!-- Seção de Gerenciamento da Biblioteca -->
+        <div id="adminBiblioteca" class="mt-12 hidden">
+            <h2 class="text-xl font-bold mb-6 border-b-2 border-orange-500 inline-block">Gerenciar Biblioteca</h2>
+            
+            <div class="bg-white p-6 rounded-xl shadow-md mb-8">
+                <h3 class="font-bold mb-4">Adicionar Novo Livro</h3>
+                <form id="bookForm" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <input type="text" id="bookTitle" placeholder="Título do Livro" required class="border p-2 rounded outline-none focus:ring-2 focus:ring-orange-500">
+                    <input type="text" id="bookCat" placeholder="Categoria (ex: Profecia)" required class="border p-2 rounded outline-none focus:ring-2 focus:ring-orange-500">
+                    <input type="text" id="bookFile" placeholder="Nome do arquivo (ex: livro.pdf)" required class="border p-2 rounded outline-none focus:ring-2 focus:ring-orange-500">
+                    <input type="text" id="bookCover" placeholder="Nome da capa (ex: capa.png)" required class="border p-2 rounded outline-none focus:ring-2 focus:ring-orange-500">
+                    <textarea id="bookDesc" placeholder="Descrição curta" required class="border p-2 rounded outline-none focus:ring-2 focus:ring-orange-500 md:col-span-2"></textarea>
+                    <button type="submit" class="bg-orange-600 text-white font-bold py-2 rounded hover:bg-black transition md:col-span-2 uppercase text-sm tracking-widest">Adicionar ao JSON</button>
+                </form>
+                <div id="bookStatus" class="mt-3 text-center text-sm font-bold"></div>
             </div>
+
+            <div class="bg-orange-50 p-4 rounded-lg border border-orange-200 text-sm text-orange-800">
+                <p><strong>Nota:</strong> Como este é um site estático, o formulário acima gerará o código para você copiar e colar no arquivo <code>pdfs/livros.json</code> manualmente, ou você pode automatizar via backend se desejar.</p>
+            </div>
+        </div>
     </div>
 
     <script>
         // URL do Backend (Google Apps Script)
-        const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbzqlxGXvaVEPU9w5fl-zhXegyvErILCbOySK23V72zDxK0ZPHEVnDSPnaQi5U7o4KVC/exec';
+        const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbzHXvmWVpdmuKtWX3AVBVdH95NWhWhJjqHue1H6_UxZv2bhPM-RcOi_58CNOh3-_37T/exec';
 
         async function carregarAdmin() {
             const pw = document.getElementById('senha').value;
@@ -88,6 +110,9 @@
                     `;
                     lista.appendChild(card);
                 });
+
+                // Mostra a seção da biblioteca após o login
+                document.getElementById('adminBiblioteca').classList.remove('hidden');
             } catch (e) {
                 lista.innerHTML = "";
                 msgErro.classList.remove('hidden');
@@ -112,6 +137,44 @@
                 alert("Erro ao conectar com o servidor.");
             }
         }
+        document.getElementById('bookForm').onsubmit = async function(e) {
+            e.preventDefault();
+            const pw = document.getElementById('senha').value;
+            const status = document.getElementById('bookStatus');
+            const btn = this.querySelector('button');
+            
+            btn.disabled = true;
+            btn.innerText = "Enviando...";
+            status.innerText = "";
+
+            const payload = {
+                action: 'adicionarLivro',
+                pw: pw,
+                titulo: document.getElementById('bookTitle').value,
+                descricao: document.getElementById('bookDesc').value,
+                categoria: document.getElementById('bookCat').value,
+                arquivo: document.getElementById('bookFile').value,
+                capa: document.getElementById('bookCover').value
+            };
+
+            try {
+                const res = await fetch(WEB_APP_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    body: JSON.stringify(payload)
+                });
+                
+                status.className = "mt-3 text-center text-sm font-bold text-green-600";
+                status.innerText = "Livro adicionado com sucesso na planilha!";
+                this.reset();
+            } catch (err) {
+                status.className = "mt-3 text-center text-sm font-bold text-red-600";
+                status.innerText = "Erro ao salvar livro.";
+            } finally {
+                btn.disabled = false;
+                btn.innerText = "ADICIONAR À PLANILHA";
+            }
+        };
     </script>
 </body>
 </html>

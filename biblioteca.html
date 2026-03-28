@@ -54,14 +54,13 @@
             <div class="flex items-center space-x-3">
                 <a href="home.html"><img src="images/sem-bg-black.webp" alt="Logo" class="h-10"></a>
                 <a href="home.html">
-                    <h1 class="text-2xl font-bold uppercase tracking-tighter italic text-white">Essencialista</h1>
+                    <h1 class="text-2xl font-bold text-white">Essencialista</h1>
                 </a>
             </div>
             <nav>
-                <ul class="flex space-x-6 font-bold text-sm uppercase tracking-widest">
-                    <li><a href="home.html" class="hover:text-orange-500">Início</a></li>
-                    <li><a href="biblioteca.html"
-                            class="text-orange-500 underline decoration-2 underline-offset-8">Biblioteca</a></li>
+                <ul class="flex space-x-6">
+                    <li><a href="home.html" class="hover:text-orange-500 font-bold">Início</a></li>
+                    <li><a href="biblioteca.html" class="text-orange-500 font-bold underline decoration-2 underline-offset-8">Biblioteca</a></li>
                 </ul>
             </nav>
         </div>
@@ -69,7 +68,7 @@
 
     <main class="container mx-auto mt-12 p-4 max-w-6xl">
         <header class="text-center mb-16 animate-fade-in">
-            <h2 class="text-5xl font-black mb-4 uppercase italic tracking-tighter">Biblioteca Digital</h2>
+            <h2 class="text-5xl font-black mb-4">Biblioteca Digital</h2>
             <p class="text-gray-500 max-w-2xl mx-auto text-lg">Materiais de estudo exclusivos em formato PDF. Baixe,
                 estude e compartilhe a verdade.</p>
             <div class="h-1 w-24 bg-orange-600 mx-auto mt-6"></div>
@@ -105,7 +104,7 @@
     </footer>
 
     <script>
-        const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbzqlxGXvaVEPU9w5fl-zhXegyvErILCbOySK23V72zDxK0ZPHEVnDSPnaQi5U7o4KVC/exec';
+        const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbzHXvmWVpdmuKtWX3AVBVdH95NWhWhJjqHue1H6_UxZv2bhPM-RcOi_58CNOh3-_37T/exec';
 
         async function registrarDownload(livroId) {
             const url = `${WEB_APP_URL}?action=contarDownload&id=${encodeURIComponent(livroId)}`;
@@ -121,7 +120,8 @@
         async function carregarLivros() {
             const container = document.getElementById('lista-livros');
             try {
-                const resposta = await fetch('pdfs/livros.json');
+                // Agora busca diretamente da planilha do Google
+                const resposta = await fetch(`${WEB_APP_URL}?action=listarLivros`);
                 const livros = await resposta.json();
 
                 container.innerHTML = ''; // Limpa o skeleton
