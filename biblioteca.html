@@ -127,9 +127,9 @@
                 container.innerHTML = ''; // Limpa o skeleton
 
                 livros.forEach((livro, index) => {
-                    // Remove apenas espaços extras no início e fim
-                    let arquivoOriginal = livro.arquivo.trim();
-                    const nomeArquivo = arquivoOriginal.toLowerCase().endsWith('.pdf') ? arquivoOriginal : `${arquivoOriginal}.pdf`;
+                    // Normaliza para minúsculas e substitui espaços por hífens para o servidor
+                    let arquivoLimpo = livro.arquivo.trim().toLowerCase().replace(/\s+/g, '-');
+                    const nomeArquivo = arquivoLimpo.endsWith('.pdf') ? arquivoLimpo : `${arquivoLimpo}.pdf`;
                     
                     const card = document.createElement('div');
                     card.className = `book-card bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-500 flex flex-col h-full animate-fade-in`;
