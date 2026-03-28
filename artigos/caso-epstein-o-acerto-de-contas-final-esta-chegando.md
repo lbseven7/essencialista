@@ -105,9 +105,9 @@ Vamos lá, então. Verso três continua. Agora eu quero chamar a sua atenção p
 
 Vamos pro Apocalipse capítulo 14. De nós lermos o texto, o texto bíblico, deixa eu compartilhar mais uma coisa com vocês. 
 
-Há alguns anos, Steve Bennon, figura até controversa, no cenário americano, entrevistou o **Epstein**. No finalzinho da entrevista de Steve Bennon, perguntou o seguinte para ele: "O que você é mesmo pedófilo?
+Há alguns anos, Steve Bennon, figura até controversa, no cenário americano, entrevistou o **Epstein**. No finalzinho da entrevista de Steve Bennon, perguntou o seguinte para ele: "O que você é mesmo?
 
-É um um pedófilo de nível três? Ele respondeu: "Nível um. Eu sou pedófilo de nível um. Bennon respondeu: "nível um é o mais alto e pior." Epstein respondeu: "Não, é o nível mais baixo."
+É um um (...) de nível três? Ele respondeu: "Nível um. Eu sou (...) de nível um. Bennon respondeu: "nível um é o mais alto e pior." Epstein respondeu: "Não, é o nível mais baixo."
 
 Sou do nível mais baixo. O **Epstein** quis dizer é que ele não era o peixe grande. Ele se identificou como nível um, seja, o peixe graúdo tá no nível três.
 
