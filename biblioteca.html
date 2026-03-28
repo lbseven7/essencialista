@@ -127,9 +127,9 @@
                 container.innerHTML = ''; // Limpa o skeleton
 
                 livros.forEach((livro, index) => {
-                    // Limpa espaços e garante minúsculas para compatibilidade com servidores Linux/Vercel
-                    let arquivoLimpo = livro.arquivo.trim().replace(/\s+/g, '-');
-                    const nomeArquivo = arquivoLimpo.toLowerCase().endsWith('.pdf') ? arquivoLimpo : `${arquivoLimpo}.pdf`;
+                    // Remove apenas espaços extras no início e fim
+                    let arquivoOriginal = livro.arquivo.trim();
+                    const nomeArquivo = arquivoOriginal.toLowerCase().endsWith('.pdf') ? arquivoOriginal : `${arquivoOriginal}.pdf`;
                     
                     const card = document.createElement('div');
                     card.className = `book-card bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-500 flex flex-col h-full animate-fade-in`;
