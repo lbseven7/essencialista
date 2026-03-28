@@ -250,16 +250,15 @@ function processMarkdownFiles() {
 
         const stat = fs.statSync(markdownPath);
         
-        // --- LÓGICA DE CACHE (DESABILITADA TEMPORARIAMENTE PARA FORÇAR ATUALIZAÇÃO) ---
+        // --- LÓGICA DE CACHE (VERIFICAÇÃO DE MUDANÇA) ---
         let needsUpdate = true;
-        /*
         if (fs.existsSync(outputPath)) {
             const outputStat = fs.statSync(outputPath);
+            // Se o arquivo MD não foi alterado desde a última conversão, ignore
             if (stat.mtime <= outputStat.mtime) {
                 needsUpdate = false;
             }
         }
-        */
 
         const markdownFile = fs.readFileSync(markdownPath, 'utf8');
         const { data, content } = matter(markdownFile);
