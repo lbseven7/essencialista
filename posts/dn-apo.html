@@ -14,9 +14,29 @@
         .animate-fade-in { animation: fadeIn 0.6s ease forwards; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
         .content-area img { max-width: 100%; height: auto; border-radius: 0.5rem; margin: 1.5rem 0; }
+
+        /* --- ESTILOS DO MODO FOCO --- */
+        body.focus-mode header, 
+        body.focus-mode footer, 
+        body.focus-mode section#comentarios-artigo,
+        body.focus-mode section.mt-12,
+        body.focus-mode .mt-10.flex,
+        body.focus-mode .mt-8.pt-6.border-t { display: none !important; }
+        
+        body.focus-mode { background-color: #f4f1ea !important; color: #1a1a1a !important; }
+        body.focus-mode main { max-width: 800px !important; margin-top: 2rem !important; }
+        body.focus-mode article { box-shadow: none !important; background: transparent !important; padding: 0 !important; }
+        body.focus-mode .content-area { font-size: 1.25rem !important; line-height: 1.8 !important; }
     </style>
 </head>
 <body class="bg-gray-100 text-gray-800 font-sans">
+    <!-- Botão de Alternar Modo Foco -->
+    <div id="focusToggle" class="fixed bottom-6 right-6 z-[100]">
+        <button onclick="toggleFocusMode()" class="bg-black text-white p-4 rounded-full shadow-2xl hover:bg-orange-600 transition-all flex items-center justify-center group">
+            <i class="fas fa-book-open text-xl"></i>
+            <span class="max-w-0 overflow-hidden group-hover:max-w-xs group-hover:ml-2 transition-all duration-500 whitespace-nowrap text-sm font-bold uppercase">Modo Foco</span>
+        </button>
+    </div>
     <header class="bg-black text-white p-6 shadow-md sticky top-0 z-50">
         <div class="container mx-auto flex justify-between items-center relative">
             <div class="flex items-center space-x-3">
@@ -40,18 +60,18 @@
             <img src="../images/daniel-apocalipse.webp" class="w-full h-64 object-cover mb-6 rounded-lg shadow">
             <div class="mb-2"><span class="text-orange-600 font-black text-xs uppercase tracking-widest">Profecia</span></div>
             <h2 class="text-3xl font-bold mb-6 leading-tight">Sobre Daniel e Apocalipse</h2>
-            <div class="content-area space-y-4 leading-relaxed text-justify text-gray-700"><h2>A Condição do Mundo Hoje</h2>
+            <div class="content-area space-y-4 leading-relaxed text-justify text-gray-700"><h2><strong>A Condição do Mundo Hoje</strong></h2>
 <p>Você consegue ver a condição corrupta do nosso mundo? Não é a terrível maldade, que está aumentando continuamente, suficiente para nos levar a apresentar ao mundo livros que contém instruções mais benéficas?</p>
 <p>Deus, o grande Regente moral do Universo, deseja que o Seu povo desperte e use a sua influência para levar outros a entenderem o que está por vir em nosso mundo. Que aluz encontrada no livro <em><strong>Daniel e Apocalipse</strong></em> seja apresentada em linhas claras.</p>
-<h2>Para Iluminar o Mundo</h2>
+<h2><strong>Para Iluminar o Mundo</strong></h2>
 <p>O livro <em><strong>Daniel e Apocalipse</strong></em> deve ser apresentado às pessoas como o livro para este tempo. Este livro contém a mensagem que todos precisam ler e entender. Traduzido para muitas línguas diferentes, será um poder para iluminar o mundo.</p>
 <p>Ao lê-lo, muitas almas chegaram ao conhecimento da verdade. Fala do passado, presente e futuro, traçando o caminho tão claramente que ninguém precisa errar nele. Os que estudarem diligentemente este livro estarão 'vacinados' contra falsos mestres que espalham teorias mirabolantes na interpretação bíblica.</p>
 <p>Existe uma verdade sólida e eterna para este tempo. Todo mundo precisa da luz e das informações que ele contém.</p>
-<h2>Cristo Vem Sem Demora</h2>
+<h2><strong>Cristo Vem Sem Demora</strong></h2>
 <p>O interesse em <em><strong>Daniel e Apocalipse</strong></em> deve continuar enquanto durar o tempo de graça. Deus usou o autor deste livro como um canal por meio do qual comunicar luz para direcionar as mentes para a verdade. Aprecie esta luz que aponta para a vinda de nosso Senhor Jesus Cristo, nosso Rei!</p>
-<h2>COMECE A LER AGORA MESMO</h2>
+<h2><strong>COMECE A LER AGORA MESMO</strong></h2>
 <p><a href="https://drive.google.com/file/d/1TBhUJv5cxGOF43AE9sQd97HF_1et6L0x/view?usp=sharing">📖 Baixar Livro via Google Drive</a></p>
-<h2>SE QUISER ESTUDAR COMIGO, ENTRE EM CONTATO!</h2>
+<h2><strong>SE QUISER ESTUDAR COMIGO, ENTRE EM CONTATO!</strong></h2>
 </div>
             
             <div class="mt-8 pt-6 border-t border-gray-100">
@@ -68,7 +88,7 @@
             <div class="mt-10 flex flex-wrap justify-center gap-3">
                 <a href="../posts/as-7-igrejas.html" class="bg-black text-white px-5 py-2 rounded-full text-sm hover:bg-orange-600 transition">← Anterior</a>
                 <a href="../home.html" class="bg-black text-white px-5 py-2 rounded-full text-sm hover:bg-orange-600 transition font-bold">Home</a>
-                <a href="../posts/verdade-presente.html" class="bg-black text-white px-5 py-2 rounded-full text-sm hover:bg-orange-600 transition">Próximo →</a>
+                <a href="../posts/os-sete-selos.html" class="bg-black text-white px-5 py-2 rounded-full text-sm hover:bg-orange-600 transition">Próximo →</a>
             </div>
         </article>
 
@@ -126,6 +146,11 @@
     </footer>
     <script>
         // ... (Script de comentários mantido igual)
+
+        function toggleFocusMode() {
+            const isFocus = document.body.classList.toggle('focus-mode');
+            if (isFocus) window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
     </script>
 </body>
 </html>

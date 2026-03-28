@@ -54,9 +54,29 @@ const htmlTemplate = (data, content, prevHref, nextHref, slug, relacionados) => 
         .animate-fade-in { animation: fadeIn 0.6s ease forwards; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
         .content-area img { max-width: 100%; height: auto; border-radius: 0.5rem; margin: 1.5rem 0; }
+
+        /* --- ESTILOS DO MODO FOCO --- */
+        body.focus-mode header, 
+        body.focus-mode footer, 
+        body.focus-mode section#comentarios-artigo,
+        body.focus-mode section.mt-12,
+        body.focus-mode .mt-10.flex,
+        body.focus-mode .mt-8.pt-6.border-t { display: none !important; }
+        
+        body.focus-mode { background-color: #f4f1ea !important; color: #1a1a1a !important; }
+        body.focus-mode main { max-width: 800px !important; margin-top: 2rem !important; }
+        body.focus-mode article { box-shadow: none !important; background: transparent !important; padding: 0 !important; }
+        body.focus-mode .content-area { font-size: 1.25rem !important; line-height: 1.8 !important; }
     </style>
 </head>
 <body class="bg-gray-100 text-gray-800 font-sans">
+    <!-- Botão de Alternar Modo Foco -->
+    <div id="focusToggle" class="fixed bottom-6 right-6 z-[100]">
+        <button onclick="toggleFocusMode()" class="bg-black text-white p-4 rounded-full shadow-2xl hover:bg-orange-600 transition-all flex items-center justify-center group">
+            <i class="fas fa-book-open text-xl"></i>
+            <span class="max-w-0 overflow-hidden group-hover:max-w-xs group-hover:ml-2 transition-all duration-500 whitespace-nowrap text-sm font-bold uppercase">Modo Foco</span>
+        </button>
+    </div>
     <header class="bg-black text-white p-6 shadow-md sticky top-0 z-50">
         <div class="container mx-auto flex justify-between items-center relative">
             <div class="flex items-center space-x-3">
@@ -142,6 +162,11 @@ const htmlTemplate = (data, content, prevHref, nextHref, slug, relacionados) => 
     </footer>
     <script>
         // ... (Script de comentários mantido igual)
+
+        function toggleFocusMode() {
+            const isFocus = document.body.classList.toggle('focus-mode');
+            if (isFocus) window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
     </script>
 </body>
 </html>
@@ -164,15 +189,16 @@ function processMarkdownFiles() {
 
         const stat = fs.statSync(markdownPath);
         
-        // --- LÓGICA DE CACHE (VERIFICAÇÃO DE MUDANÇA) ---
-        let needsUpdate = true;
+        // --- FORÇAR ATUALIZAÇÃO (Cache desativado para aplicar Modo Foco) ---
+        let needsUpdate = true; 
+        /*
         if (fs.existsSync(outputPath)) {
             const outputStat = fs.statSync(outputPath);
-            // Se o arquivo MD não foi alterado desde a última conversão, ignore
             if (stat.mtime <= outputStat.mtime) {
                 needsUpdate = false;
             }
         }
+        */
 
         const markdownFile = fs.readFileSync(markdownPath, 'utf8');
         const { data, content } = matter(markdownFile);
