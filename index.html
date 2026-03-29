@@ -145,9 +145,13 @@
                 
                 // Ordenação robusta por data (mais recente primeiro)
                 todosOsArtigos.sort((a, b) => {
-                    const dataA = new Date(a.date || a.mtime).getTime();
-                    const dataB = new Date(b.date || b.mtime).getTime();
-                    return dataB - dataA;
+                    const parseData = (d) => {
+                        if (!d) return 0;
+                        // Se for apenas data (YYYY-MM-DD), ajusta para meio-dia para evitar problemas de fuso horário
+                        if (typeof d === 'string' && d.length === 10) return new Date(d + 'T12:00:00').getTime();
+                        return new Date(d).getTime();
+                    };
+                    return parseData(b.date || b.mtime) - parseData(a.date || a.mtime);
                 });
 
                 renderizarGrid(todosOsArtigos);
