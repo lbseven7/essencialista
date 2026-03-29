@@ -5,45 +5,120 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Essencialista | Fé, Ciência e Vida Cristã</title>
-    
+
     <meta name="theme-color" content="#000000">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
     <style type="text/css">
-:root {
+        :root {
             --color-orange-500: #f97316;
             --color-orange-600: #ea580c;
         }
     </style>
     <style>
-        html { scroll-behavior: smooth; }
-        #progress-container { position: fixed; top: 0; left: 0; width: 100%; height: 4px; background: transparent; z-index: 9999; }
-        #progress-bar { height: 100%; width: 0%; background: linear-gradient(90deg, #f97316, #ea580c); transition: width 0.1s; }
-        header.scrolled { background: rgba(0, 0, 0, 0.9) !important; padding: 0.5rem 1rem !important; }
-        
-        .youtube-card { transition: transform 0.3s ease; opacity: 0; }
-        .youtube-card:hover { transform: translateY(-5px); }
-        
-        .skeleton { background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%); background-size: 200% 100%; animation: loading 1.5s infinite; }
-        @keyframes loading { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
-        
-        .animate-fade-in { animation: fadeIn 0.6s ease forwards; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-        
-        body.dark { background-color: #121212; color: #e5e7eb; }
-        .dark .bg-white { background-color: #1e1e1e !important; color: #f3f4f6; }
-        .dark .text-gray-900 { color: #ffffff !important; }
-        .dark .filter-btn:not(.bg-black) { background-color: #333; color: #ccc; }
+        html {
+            scroll-behavior: smooth;
+        }
+
+        #progress-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: transparent;
+            z-index: 9999;
+        }
+
+        #progress-bar {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, #f97316, #ea580c);
+            transition: width 0.1s;
+        }
+
+        header.scrolled {
+            background: rgba(0, 0, 0, 0.9) !important;
+            padding: 0.5rem 1rem !important;
+        }
+
+        .youtube-card {
+            transition: transform 0.3s ease;
+            opacity: 0;
+        }
+
+        .youtube-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .skeleton {
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: loading 1.5s infinite;
+        }
+
+        @keyframes loading {
+            0% {
+                background-position: 200% 0;
+            }
+
+            100% {
+                background-position: -200% 0;
+            }
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 0.6s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        body.dark {
+            background-color: #121212;
+            color: #e5e7eb;
+        }
+
+        .dark .bg-white {
+            background-color: #1e1e1e !important;
+            color: #f3f4f6;
+        }
+
+        .dark .text-gray-900 {
+            color: #ffffff !important;
+        }
+
+        .dark .filter-btn:not(.bg-black) {
+            background-color: #333;
+            color: #ccc;
+        }
 
         /* Ajuste para rolagem suave de filtros no mobile */
-        #filter-buttons::-webkit-scrollbar { display: none; }
-        #filter-buttons { -ms-overflow-style: none; scrollbar-width: none; }
+        #filter-buttons::-webkit-scrollbar {
+            display: none;
+        }
+
+        #filter-buttons {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
     </style>
 </head>
 
 <body class="bg-gray-100 text-gray-800 font-sans">
-    <div id="progress-container"><div id="progress-bar"></div></div>
+    <div id="progress-container">
+        <div id="progress-bar"></div>
+    </div>
 
     <header class="bg-black text-white p-6 shadow-md sticky top-0 z-50 transition-all">
         <div class="container mx-auto flex items-center justify-between">
@@ -51,20 +126,31 @@
                 <a href="index.html"><img src="images/sem-bg-black.webp" alt="Logo" class="h-10"></a>
                 <h1 class="text-2xl font-bold">Essencialista</h1>
             </div>
-            
+
             <div class="flex items-center space-x-4">
-                <button id="darkModeBtn" aria-label="Alternar modo escuro" class="p-2 rounded-full hover:bg-white/10 min-w-[44px] min-h-[44px]">
+                <button id="darkModeBtn" aria-label="Alternar modo escuro"
+                    class="p-2 rounded-full hover:bg-white/10 min-w-[44px] min-h-[44px]">
                     <i id="darkIcon" class="fas fa-moon text-xl"></i>
                 </button>
-                <button id="mobileMenuBtn" aria-label="Abrir menu" class="md:hidden p-2 min-w-[44px] min-h-[44px] transition-transform active:scale-90"><i class="fas fa-bars text-xl"></i></button>
+                <button id="mobileMenuBtn" aria-label="Abrir menu"
+                    class="md:hidden p-2 min-w-[44px] min-h-[44px] transition-transform active:scale-90"><i
+                        class="fas fa-bars text-xl"></i></button>
 
-                <nav id="main-nav" class="hidden md:block absolute left-0 right-0 top-full w-full bg-black/95 backdrop-blur-sm border-t border-white/10 p-6 md:static md:bg-transparent md:border-none md:p-0">
-                    <ul class="flex flex-col space-y-4 md:flex-row md:space-y-0 md:space-x-6 items-start md:items-center">
-                        <li><a href="index.html" class="hover:text-orange-500 font-bold block w-full py-2">Início</a></li>
-                        <li><a href="biblioteca.html" class="hover:text-orange-500 font-bold block w-full py-2">Biblioteca</a></li>
-                        <li><a href="#featured-articles" class="hover:text-orange-500 font-bold block w-full py-2">Artigos</a></li>
-                        <li><a href="about.html" class="hover:text-orange-500 font-bold block w-full py-2">Sobre</a></li>
-                        <li><a href="admin.html" class="text-gray-500 hover:text-orange-500 py-2" aria-label="Painel Admin"><i class="fas fa-user-shield mr-2 md:mr-0"></i><span class="md:hidden font-bold uppercase text-xs">Admin</span></a></li>
+                <nav id="main-nav"
+                    class="hidden md:block absolute left-0 right-0 top-full w-full bg-black/95 backdrop-blur-sm border-t border-white/10 p-6 md:static md:bg-transparent md:border-none md:p-0">
+                    <ul
+                        class="flex flex-col space-y-4 md:flex-row md:space-y-0 md:space-x-6 items-start md:items-center">
+                        <li><a href="index.html" class="hover:text-orange-500 font-bold block w-full py-2">Início</a>
+                        </li>
+                        <li><a href="biblioteca.html"
+                                class="hover:text-orange-500 font-bold block w-full py-2">Biblioteca</a></li>
+                        <li><a href="#featured-articles"
+                                class="hover:text-orange-500 font-bold block w-full py-2">Artigos</a></li>
+                        <li><a href="about.html" class="hover:text-orange-500 font-bold block w-full py-2">Sobre</a>
+                        </li>
+                        <li><a href="admin.html" class="text-gray-500 hover:text-orange-500 py-2"
+                                aria-label="Painel Admin"><i class="fas fa-user-shield mr-2 md:mr-0"></i><span
+                                    class="md:hidden font-bold uppercase text-xs">Admin</span></a></li>
                     </ul>
                 </nav>
             </div>
@@ -83,14 +169,19 @@
             <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 border-b-4 border-orange-500 pb-2">
                 <h3 class="text-3xl font-bold">Artigos Recentes</h3>
                 <div id="filter-buttons" class="flex gap-3 mt-4 md:mt-0 overflow-x-auto pb-2">
-                    <button onclick="filtrarArtigos('todos', this)" class="filter-btn bg-black text-white px-5 py-2 rounded-full text-sm font-bold whitespace-nowrap min-h-[40px]">Todos</button>
-                    <button onclick="filtrarArtigos('Fé', this)" class="filter-btn bg-gray-200 text-gray-800 px-5 py-2 rounded-full text-sm font-bold whitespace-nowrap min-h-[40px]">Fé</button>
-                    <button onclick="filtrarArtigos('Ciência', this)" class="filter-btn bg-gray-200 text-gray-800 px-5 py-2 rounded-full text-sm font-bold whitespace-nowrap min-h-[40px]">Ciência</button>
-                    <button onclick="filtrarArtigos('Profecia', this)" class="filter-btn bg-gray-200 text-gray-800 px-5 py-2 rounded-full text-sm font-bold whitespace-nowrap min-h-[40px]">Profecia</button>
-                    <button onclick="filtrarArtigos('Vida', this)" class="filter-btn bg-gray-200 text-gray-800 px-5 py-2 rounded-full text-sm font-bold whitespace-nowrap min-h-[40px]">Vida</button>
+                    <button onclick="filtrarArtigos('todos', this)"
+                        class="filter-btn bg-black text-white px-5 py-2 rounded-full text-sm font-bold whitespace-nowrap min-h-[40px]">Todos</button>
+                    <button onclick="filtrarArtigos('Fé', this)"
+                        class="filter-btn bg-gray-200 text-gray-800 px-5 py-2 rounded-full text-sm font-bold whitespace-nowrap min-h-[40px]">Fé</button>
+                    <button onclick="filtrarArtigos('Ciência', this)"
+                        class="filter-btn bg-gray-200 text-gray-800 px-5 py-2 rounded-full text-sm font-bold whitespace-nowrap min-h-[40px]">Ciência</button>
+                    <button onclick="filtrarArtigos('Profecia', this)"
+                        class="filter-btn bg-gray-200 text-gray-800 px-5 py-2 rounded-full text-sm font-bold whitespace-nowrap min-h-[40px]">Profecia</button>
+                    <button onclick="filtrarArtigos('Vida', this)"
+                        class="filter-btn bg-gray-200 text-gray-800 px-5 py-2 rounded-full text-sm font-bold whitespace-nowrap min-h-[40px]">Vida</button>
                 </div>
             </div>
-            
+
             <div id="featuredGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                 <!-- Skeletons iniciais para evitar o pulo de layout -->
                 <div class="skeleton h-72 rounded-xl"></div>
@@ -103,10 +194,15 @@
         <section id="comentar" class="max-w-2xl mx-auto bg-white p-8 rounded-xl shadow-lg mt-20">
             <h3 class="text-2xl font-bold mb-6 text-center">Deixe o seu comentário</h3>
             <form id="commentForm" class="space-y-4">
-                <input type="text" id="nome" placeholder="Seu nome" required class="w-full border p-3 rounded-lg focus:ring-2 focus:ring-orange-500 outline-none">
-                <input type="email" id="email" placeholder="Seu e-mail" required class="w-full border p-3 rounded-lg focus:ring-2 focus:ring-orange-500 outline-none">
-                <textarea id="comentario" placeholder="Escreva aqui..." required rows="4" class="w-full border p-3 rounded-lg focus:ring-2 focus:ring-orange-500 outline-none"></textarea>
-                <button type="submit" id="btnEnviar" class="bg-black text-white px-6 py-3 rounded-lg hover:bg-orange-500 w-full font-bold uppercase transition min-h-[48px]">Enviar Comentário</button>
+                <input type="text" id="nome" placeholder="Seu nome" required
+                    class="w-full border p-3 rounded-lg focus:ring-2 focus:ring-orange-500 outline-none">
+                <input type="email" id="email" placeholder="Seu e-mail" required
+                    class="w-full border p-3 rounded-lg focus:ring-2 focus:ring-orange-500 outline-none">
+                <textarea id="comentario" placeholder="Escreva aqui..." required rows="4"
+                    class="w-full border p-3 rounded-lg focus:ring-2 focus:ring-orange-500 outline-none"></textarea>
+                <button type="submit" id="btnEnviar"
+                    class="bg-black text-white px-6 py-3 rounded-lg hover:bg-orange-500 w-full font-bold uppercase transition min-h-[48px]">Enviar
+                    Comentário</button>
             </form>
             <p id="msgStatus" class="mt-3 text-center font-semibold"></p>
         </section>
@@ -142,7 +238,7 @@
                 const res = await fetch('posts/index.json');
                 if (!res.ok) throw new Error('Falha ao carregar artigos');
                 todosOsArtigos = await res.json();
-                
+
                 // Ordenação robusta por data (mais recente primeiro)
                 todosOsArtigos.sort((a, b) => {
                     const parseData = (item) => {
@@ -156,8 +252,8 @@
                 });
 
                 renderizarGrid(todosOsArtigos);
-            } catch (e) { 
-                console.error(e); 
+            } catch (e) {
+                console.error(e);
                 document.getElementById('featuredGrid').innerHTML = '<p class="col-span-full text-center text-red-500 font-bold py-10">Não foi possível carregar os artigos. Verifique sua conexão.</p>';
             }
         }
@@ -214,8 +310,8 @@
                 dados.forEach(c => {
                     const div = document.createElement('div');
                     div.className = 'bg-white p-4 rounded-lg shadow border-l-4 border-orange-500 mb-4 dark:bg-gray-800';
-                    const n = document.createElement('p'); n.className="font-bold text-gray-900 dark:text-white"; n.textContent = c.nome;
-                    const co = document.createElement('p'); co.className="text-sm text-gray-700 dark:text-gray-300 mt-1"; co.textContent = c.comentario;
+                    const n = document.createElement('p'); n.className = "font-bold text-gray-900 dark:text-white"; n.textContent = c.nome;
+                    const co = document.createElement('p'); co.className = "text-sm text-gray-700 dark:text-gray-300 mt-1"; co.textContent = c.comentario;
                     div.append(n, co);
                     container.appendChild(div);
                 });
@@ -227,7 +323,7 @@
             const btn = document.getElementById("btnEnviar");
             const status = document.getElementById("msgStatus");
             btn.disabled = true; btn.innerText = "Enviando...";
-            
+
             try {
                 const payload = {
                     artigoId: "home", // No convert.js isso será dinâmico: "${slug}"
@@ -235,26 +331,26 @@
                     email: document.getElementById("email").value,
                     comentario: document.getElementById("comentario").value
                 };
-                
+
                 // Envio compatível com Google Apps Script
-                await fetch(WEB_APP_URL, { 
-                    method: 'POST', 
+                await fetch(WEB_APP_URL, {
+                    method: 'POST',
                     mode: 'no-cors', // Evita erro de CORS
                     cache: 'no-cache',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload) 
+                    body: JSON.stringify(payload)
                 });
-                
+
                 // Como no-cors não permite ler a resposta, assumimos sucesso se não der erro de rede
                 status.className = "mt-3 text-center font-semibold text-green-600";
                 status.innerText = "Enviado com sucesso! Aparecerá após a moderação.";
                 this.reset();
-            } catch (err) { 
+            } catch (err) {
                 status.className = "mt-3 text-center font-semibold text-red-600";
-                status.innerText = "Erro ao conectar com o servidor."; 
-            } finally { 
-                btn.disabled = false; 
-                btn.innerText = "Enviar Comentário"; 
+                status.innerText = "Erro ao conectar com o servidor.";
+            } finally {
+                btn.disabled = false;
+                btn.innerText = "Enviar Comentário";
             }
         };
 
@@ -278,7 +374,39 @@
         };
 
         window.onload = () => { carregarArtigos(); carregarComentarios(); };
-        document.getElementById('mobileMenuBtn').onclick = () => document.getElementById('main-nav').classList.toggle('hidden');
+        // document.getElementById('mobileMenuBtn').onclick = () => document.getElementById('main-nav').classList.toggle('hidden');
+        // Lógica do Menu Mobile (Substitua a última linha do seu script por isso)
+        const mainNav = document.getElementById('main-nav');
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+
+        // Abre/Fecha ao clicar no botão hambúrguer
+        mobileMenuBtn.onclick = (e) => {
+            e.stopPropagation();
+            mainNav.classList.toggle('hidden');
+        };
+
+        // Fecha o menu ao clicar em qualquer link interno
+        mainNav.querySelectorAll('a').forEach(link => {
+            link.onclick = () => mainNav.classList.add('hidden');
+        });
+
+        // Fecha o menu ao clicar em qualquer lugar fora dele (Melhoria de UX)
+        document.addEventListener('click', (e) => {
+            if (!mainNav.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                mainNav.classList.add('hidden');
+            }
+        });
+
+        // Abre/Fecha ao clicar no botão hambúrguer
+        mobileMenuBtn.onclick = () => mainNav.classList.toggle('hidden');
+
+        // Fecha o menu ao clicar em qualquer link dentro dele
+        mainNav.querySelectorAll('a').forEach(link => {
+            link.onclick = () => {
+                mainNav.classList.add('hidden');
+            };
+        });
     </script>
 </body>
+
 </html>
