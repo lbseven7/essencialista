@@ -12,7 +12,7 @@
             scroll-behavior: smooth;
         }
     </style>
-    <script>
+    <!-- <script>
         (function () {
             const btn = document.getElementById('mobileMenuBtn');
             const nav = document.getElementById('main-nav');
@@ -29,7 +29,7 @@
                 }
             });
         })();
-    </script>
+    </script> -->
 </head>
 
 <body class="bg-gray-100 text-gray-800 font-sans">
@@ -48,12 +48,11 @@
 
             <div class="ml-auto flex items-center">
                 <button id="mobileMenuBtn" class="md:hidden p-2 rounded bg-white/10 hover:bg-white/20"
-                        aria-label="Abrir menu" aria-expanded="false">
+                    aria-label="Abrir menu" aria-expanded="false">
                     <i class="fas fa-bars"></i>
                 </button>
 
-                <nav id="main-nav"
-                     class="hidden md:block absolute left-0 right-0 top-full w-full z-50 bg-black text-white p-4 shadow-lg max-h-[60vh] overflow-y-auto
+                <nav id="main-nav" class="hidden md:block absolute left-0 right-0 top-full w-full z-50 bg-black text-white p-4 shadow-lg max-h-[60vh] overflow-y-auto
                             md:static md:bg-transparent md:p-0 md:shadow-none md:max-h-none md:overflow-visible">
                     <ul class="flex flex-col space-y-3 md:flex md:flex-row md:space-y-0 md:space-x-6 md:justify-end">
                         <li><a href="index.html" class="hover:text-orange-500">Início</a></li>
@@ -65,41 +64,74 @@
             </div>
         </div>
     </header>
+    <script>
+        (function () {
+            const btn = document.getElementById('mobileMenuBtn');
+            const nav = document.getElementById('main-nav');
 
-    <!-- Main Content -->
-    <main class="container mx-auto mt-20 p-4 max-w-2xl flex justify-center items-center">
-        <div class="bg-white p-8 rounded-xl shadow-lg w-full max-w-md">
-            <h2 class="text-4xl font-bold mb-8 text-center">Contatos</h2>
-            <div class="flex justify-center space-x-8 mb-8">
-                <a href="https://wa.me/73991182932" target="_blank"
-                    class="hover:text-green-500 transition duration-300">
-                    <i class="fab fa-whatsapp text-5xl"></i>
-                </a>
-                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=essencialista7@gmail.com" target="_blank"
-                    class="hover:text-gray-500 transition duration-300">
-                    <i class="fas fa-envelope text-5xl"></i>
-                </a>
-                <a href="https://www.youtube.com/watch?v=fGAFJWtKbHw" target="_blank"
-                    class="hover:text-red-600 transition duration-300">
-                    <i class="fas fa-play text-5xl"></i>
-                </a>
-            </div>
-            <!-- Botão de Voltar -->
-            <div class="mt-6 text-center">
-                <a href="index.html" class="bg-black text-white px-6 py-1 rounded-full hover:bg-orange-500 transition duration-300">
-                    <i class="fas fa-arrow-left"></i>
-                </a>
-            </div>
-        </div>
-    </main>
+            if (!btn || !nav) return;
 
-    <!-- Footer -->
-    <footer class="bg-black text-white p-4 mx-auto fixed bottom-0 w-full z-50">
-        <div class="container mx-auto text-center">
-            <p><img src="./images/sem-bg-black.webp" alt="Essencialista Logo" class="h-10 inline-block">Essencialista.
-                Todos os direitos reservados &copy;lbseven7 2025</p>
+            // Toggle do Menu
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const isHidden = nav.classList.toggle('hidden');
+                btn.setAttribute('aria-expanded', !isHidden);
+            });
+
+            // Fechar ao clicar em qualquer link interno
+            nav.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    nav.classList.add('hidden');
+                    btn.setAttribute('aria-expanded', 'false');
+                });
+            });
+
+            // Fechar ao clicar fora (UX)
+            document.addEventListener('click', (e) => {
+                if (!nav.contains(e.target) && !btn.contains(e.target)) {
+                    nav.classList.add('hidden');
+                    btn.setAttribute('aria-expanded', 'false');
+                }
+            });
+        })();
+    </script>
+</body>
+
+</html>
+<!-- Main Content -->
+<main class="container mx-auto mt-20 p-4 max-w-2xl flex justify-center items-center">
+    <div class="bg-white p-8 rounded-xl shadow-lg w-full max-w-md">
+        <h2 class="text-4xl font-bold mb-8 text-center">Contatos</h2>
+        <div class="flex justify-center space-x-8 mb-8">
+            <a href="https://wa.me/73991182932" target="_blank" class="hover:text-green-500 transition duration-300">
+                <i class="fab fa-whatsapp text-5xl"></i>
+            </a>
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=essencialista7@gmail.com" target="_blank"
+                class="hover:text-gray-500 transition duration-300">
+                <i class="fas fa-envelope text-5xl"></i>
+            </a>
+            <a href="https://www.youtube.com/watch?v=fGAFJWtKbHw" target="_blank"
+                class="hover:text-red-600 transition duration-300">
+                <i class="fas fa-play text-5xl"></i>
+            </a>
         </div>
-    </footer>
+        <!-- Botão de Voltar -->
+        <div class="mt-6 text-center">
+            <a href="index.html"
+                class="bg-black text-white px-6 py-1 rounded-full hover:bg-orange-500 transition duration-300">
+                <i class="fas fa-arrow-left"></i>
+            </a>
+        </div>
+    </div>
+</main>
+
+<!-- Footer -->
+<footer class="bg-black text-white p-4 mx-auto fixed bottom-0 w-full z-50">
+    <div class="container mx-auto text-center">
+        <p><img src="./images/sem-bg-black.webp" alt="Essencialista Logo" class="h-10 inline-block">Essencialista.
+            Todos os direitos reservados &copy;lbseven7 2025</p>
+    </div>
+</footer>
 
 </body>
 
