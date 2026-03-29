@@ -83,15 +83,15 @@ const htmlTemplate = (data, content, prevHref, nextHref, slug, relacionados) => 
     <header class="bg-black text-white p-6 shadow-md sticky top-0 z-50">
         <div class="container mx-auto flex justify-between items-center relative">
             <div class="flex items-center space-x-3">
-                <a href="../home.html"><img src="../images/sem-bg-black.webp" alt="Logo" class="h-10"></a>
-                <a href="../home.html"><h1 class="text-2xl font-bold">Essencialista</h1></a>
+                <a href="../index.html"><img src="../images/sem-bg-black.webp" alt="Logo" class="h-10"></a>
+                <a href="../index.html"><h1 class="text-2xl font-bold">Essencialista</h1></a>
             </div>
             <div class="flex items-center gap-4">
                 <button id="mobileMenuBtn" class="md:hidden p-2 rounded bg-white/10 hover:bg-white/20 min-w-[44px]"><i class="fas fa-bars"></i></button>
                 <nav id="main-nav" class="hidden md:block absolute left-0 right-0 top-full w-full z-50 bg-black text-white p-4 md:static md:bg-transparent md:p-0">
                     <ul class="flex flex-col space-y-3 md:flex-row md:space-y-0 md:space-x-6">
-                        <li><a href="../home.html" class="hover:text-orange-500 font-bold">Início</a></li>
-                        <li><a href="../home.html#featured-articles" class="hover:text-orange-500 font-bold">Artigos</a></li>
+                        <li><a href="../index.html" class="hover:text-orange-500 font-bold">Início</a></li>
+                        <li><a href="../index.html#featured-articles" class="hover:text-orange-500 font-bold">Artigos</a></li>
                         <li><a href="../about.html" class="hover:text-orange-500 font-bold">Sobre</a></li>
                     </ul>
                 </nav>
@@ -123,8 +123,8 @@ const htmlTemplate = (data, content, prevHref, nextHref, slug, relacionados) => 
 
             <div class="mt-10 flex flex-wrap justify-center gap-3">
                 <a href="${prevHref}" class="bg-black text-white px-5 py-2 rounded-full text-sm hover:bg-orange-600 transition">← Anterior</a>
-                <a href="../home.html" class="bg-black text-white px-5 py-2 rounded-full text-sm hover:bg-orange-600 transition font-bold">Home</a>
-                <a href="${nextHref}" class="bg-black text-white px-5 py-2 rounded-full text-sm hover:bg-orange-600 transition">Próximo →</a>
+                <a href="../index.html" class="bg-black text-white px-5 py-2 rounded-full text-sm hover:bg-orange-600 transition font-bold">Home</a>
+                <a href="${prevHref}" class="bg-black text-white px-5 py-2 rounded-full text-sm hover:bg-orange-600 transition">Próximo →</a>
             </div>
         </article>
 
