@@ -134,9 +134,11 @@
                 <!-- Preview Scaled -->
                 <div id="card-preview-container">
                     <div id="card-preview">
-                        <img id="card-img-blur" src="images/default.webp" class="absolute inset-0 w-full h-full object-cover blur-3xl opacity-50 scale-110">
-                        <div class="absolute inset-0 bg-black/60"></div>
-                        <div class="absolute top-0 left-0 right-0 h-[45%] flex items-center justify-center overflow-hidden">
+                        <!-- Fundo Preto Sólido -->
+                        <div class="absolute inset-0 bg-black"></div>
+                        
+                        <!-- Imagem Principal (Sem distorção) -->
+                        <div class="absolute top-0 left-0 right-0 h-[55%] flex items-center justify-center overflow-hidden bg-gray-900">
                             <img id="card-img" src="images/default.webp" class="w-full h-full object-cover shadow-2xl">
                             <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
                         </div>
@@ -254,7 +256,7 @@
             document.getElementById('input-cat').value = p.category;
             const imgPath = p.image ? `images/${p.image}` : 'images/default.webp';
             document.getElementById('card-img').src = imgPath;
-            document.getElementById('card-img-blur').src = imgPath;
+            
             atualizarCard(`https://essencialista.vercel.app/${p.href}`);
         }
 
