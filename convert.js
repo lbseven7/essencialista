@@ -313,7 +313,7 @@ function processMarkdownFiles() {
     // Gerar apenas os arquivos que mudaram
     toGenerate.forEach(g => {
         const currentIndex = sortedManifest.findIndex(m => m.href === g.href);
-        let nextHref = '../home.html', prevHref = '../home.html';
+        let nextHref = '../index.html', prevHref = '../index.html';
 
         if (currentIndex !== -1) {
             if (currentIndex > 0) nextHref = `../${sortedManifest[currentIndex - 1].href}`;
