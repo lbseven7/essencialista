@@ -60,6 +60,8 @@ const htmlTemplate = (data, content, prevHref, nextHref, slug, relacionados) => 
     </style>
     <style>
         html { scroll-behavior: smooth; }
+        #progress-container { position: fixed; top: 0; left: 0; width: 100%; height: 4px; background: transparent; z-index: 9999; }
+        #progress-bar { height: 100%; width: 0%; background: linear-gradient(90deg, #f97316, #ea580c); transition: width 0.1s; }
         .animate-fade-in { animation: fadeIn 0.6s ease forwards; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
         .content-area img { max-width: 100%; height: auto; border-radius: 0.5rem; margin: 1.5rem 0; }
@@ -79,6 +81,9 @@ const htmlTemplate = (data, content, prevHref, nextHref, slug, relacionados) => 
     </style>
 </head>
 <body class="bg-gray-100 text-gray-800 font-sans">
+    <!-- Barra de Progresso -->
+    <div id="progress-container"><div id="progress-bar"></div></div>
+
     <!-- Botão de Alternar Modo Foco -->
     <div id="focusToggle" class="fixed bottom-6 right-6 z-[100]">
         <button onclick="toggleFocusMode()" class="bg-black text-white p-4 rounded-full shadow-2xl hover:bg-orange-600 transition-all flex items-center justify-center group">
@@ -233,6 +238,14 @@ const htmlTemplate = (data, content, prevHref, nextHref, slug, relacionados) => 
             const isFocus = document.body.classList.toggle('focus-mode');
             if (isFocus) window.scrollTo({ top: 0, behavior: 'smooth' });
         }
+
+        // Lógica da Barra de Progresso
+        window.onscroll = () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById("progress-bar").style.width = scrolled + "%";
+        };
 
         document.getElementById('mobileMenuBtn').onclick = () => {
             const nav = document.getElementById('main-nav');
