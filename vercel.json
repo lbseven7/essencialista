@@ -1,8 +1,6 @@
 {
-  "version": 2,
   "cleanUrls": true,
   "trailingSlash": false,
-  "outputDirectory": ".",
   "headers": [
     {
       "source": "/pdfs/(.*)",
@@ -12,12 +10,6 @@
           "value": "public, max-age=0, must-revalidate"
         }
       ]
-    }
-  ],
-  "rewrites": [
-    {
-      "source": "/",
-      "destination": "/home.html"
     }
   ]
 }
