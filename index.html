@@ -142,7 +142,14 @@
                 const res = await fetch('posts/index.json');
                 if (!res.ok) throw new Error('Falha ao carregar artigos');
                 todosOsArtigos = await res.json();
-                todosOsArtigos.sort((a, b) => new Date(b.date || b.mtime).getTime() - new Date(a.date || a.mtime).getTime());
+                
+                // Ordenação robusta por data (mais recente primeiro)
+                todosOsArtigos.sort((a, b) => {
+                    const dataA = new Date(a.date || a.mtime).getTime();
+                    const dataB = new Date(b.date || b.mtime).getTime();
+                    return dataB - dataA;
+                });
+
                 renderizarGrid(todosOsArtigos);
             } catch (e) { 
                 console.error(e); 
