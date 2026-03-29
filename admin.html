@@ -173,6 +173,7 @@
             const pw = document.getElementById('senha').value;
             const lista = document.getElementById('listaAdmin');
             const msgErro = document.getElementById('msgErro');
+            const btnAcesso = document.querySelector('#loginArea button');
             
             // 1. Bloqueio imediato se o campo estiver vazio
             if (!pw || pw.trim() === "") {
@@ -181,11 +182,15 @@
                 return;
             }
 
-            lista.innerHTML = '<div class="text-center py-10"><i class="fas fa-spinner animate-spin text-3xl text-orange-500"></i><p class="mt-2 text-gray-500 font-bold uppercase tracking-widest text-xs">Autenticando e carregando painel...</p></div>';
+            // Iniciar estado de loading no botão e na lista
+            btnAcesso.disabled = true;
+            btnAcesso.innerHTML = '<i class="fas fa-spinner animate-spin mr-2"></i> Autenticando...';
+            
+            lista.classList.remove('hidden');
+            lista.innerHTML = '<div class="text-center py-10"><i class="fas fa-spinner animate-spin text-3xl text-orange-500"></i><p class="mt-2 text-gray-500 font-bold uppercase tracking-widest text-xs">Validando credenciais...</p></div>';
             msgErro.classList.add('hidden');
             
-            // Garantir que tudo esteja escondido antes de tentar o fetch
-            document.getElementById('listaAdmin').classList.add('hidden');
+            // Garantir que as outras seções estejam escondidas
             document.getElementById('adminBiblioteca').classList.add('hidden');
             document.getElementById('adminCards').classList.add('hidden');
 
@@ -194,18 +199,11 @@
                 const dados = await res.json();
                 
                 // 2. VALIDAÇÃO RIGOROSA: No GAS, o modo admin SEMPRE retorna o campo 'email'.
-                // Se recebermos um array vazio ou sem o campo email no primeiro item, a senha está errada.
                 const isRealAdmin = Array.isArray(dados) && dados.length > 0 && dados[0].hasOwnProperty('email');
                 
-                // Se a lista estiver vazia, o GAS retornaria um array vazio []. 
-                // Mas se a senha estiver errada, ele retorna os dados públicos (sem email).
                 if (!isRealAdmin && dados.length > 0) {
-                    throw new Error("Acesso negado: Senha incorreta.");
+                    throw new Error("Senha incorreta.");
                 }
-                
-                // Caso especial: Senha correta mas planilha realmente vazia de comentários
-                // O backend deveria retornar um sinalizador ou o cabeçalho. 
-                // Se chegou aqui e é um array, e não caiu no erro acima, prosseguimos.
 
                 lista.innerHTML = "";
                 
@@ -254,7 +252,13 @@
                 document.getElementById('adminCards').classList.remove('hidden');
             } catch (e) {
                 lista.innerHTML = "";
+                lista.classList.add('hidden');
+                msgErro.innerText = e.message || "Erro de conexão.";
                 msgErro.classList.remove('hidden');
+                
+                // Restaurar botão em caso de erro
+                btnAcesso.disabled = false;
+                btnAcesso.innerHTML = 'Acessar Painel';
             }
         }
 
