@@ -3,7 +3,7 @@ title: "Pseudologia: A Ciência do Entretenimento e o Controle da Mente"
 date: "2026-03-27T10:00:00-03:00"
 category: "Ciência"
 image: "mentir.webp"
-signature: "..."
+signature: "Nascemos em mundo controlado por um tirano. 'Um inimigo fez isso."
 ---
 
 ## Introdução
