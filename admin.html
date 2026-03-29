@@ -125,9 +125,14 @@
                             <textarea id="input-title" rows="3" class="w-full border p-2 rounded border-gray-300 font-bold text-lg leading-tight"></textarea>
                         </div>
 
-                        <button onclick="baixarCard()" class="bg-black text-white px-6 py-4 rounded-xl font-black uppercase tracking-widest hover:bg-orange-600 w-full shadow-lg transition flex items-center justify-center gap-2">
-                            <i class="fas fa-download"></i> BAIXAR PNG (1080x1920)
-                        </button>
+                        <div class="flex gap-2">
+                            <button onclick="baixarCard()" class="flex-grow bg-black text-white px-4 py-4 rounded-xl font-black uppercase tracking-widest hover:bg-orange-600 shadow-lg transition flex items-center justify-center gap-2 text-xs">
+                                <i class="fas fa-download"></i> BAIXAR PNG
+                            </button>
+                            <button onclick="copiarLinkArtigo()" class="bg-gray-100 text-gray-600 px-6 py-4 rounded-xl font-black uppercase tracking-widest hover:bg-gray-200 transition flex items-center justify-center gap-2 text-xs" title="Copiar Link do Artigo">
+                                <i class="fas fa-link"></i> COPIAR LINK
+                            </button>
+                        </div>
                     </div>
                 </div>
 
@@ -152,7 +157,7 @@
                                 <div id="qrcode" class="p-4 bg-white rounded-2xl shadow-xl"></div>
                                 <div class="text-left">
                                     <p class="text-3xl font-bold text-orange-500 mb-2 tracking-widest">LEIA AGORA EM:</p>
-                                    <p class="text-5xl font-black italic tracking-tighter opacity-80">essencialista.vercel.app</p>
+                                    <p id="card-url-display" class="text-4xl font-black italic tracking-tighter opacity-80 break-all max-w-[600px]">essencialista.vercel.app</p>
                                 </div>
                             </div>
                         </div>
@@ -281,6 +286,8 @@
             });
         }
 
+        let linkAtualArtigo = "https://essencialista.vercel.app";
+
         function selecionarPostCard(idx) {
             if(idx === "") return;
             const p = postsParaCard[idx];
@@ -289,20 +296,38 @@
             const imgPath = p.image ? `images/${p.image}` : 'images/default.webp';
             document.getElementById('card-img').src = imgPath;
             
-            atualizarCard(`https://essencialista.vercel.app/${p.href}`);
+            linkAtualArtigo = `https://essencialista.vercel.app/${p.href}`;
+            atualizarCard(linkAtualArtigo);
         }
 
         function atualizarCard(linkManual) {
             const title = document.getElementById('input-title').value;
             const cat = document.getElementById('input-cat').value;
             const color = document.getElementById('input-color').value;
-            const link = linkManual || 'https://essencialista.vercel.app';
+            const link = linkManual || linkAtualArtigo;
 
             document.getElementById('card-title').innerText = title;
             document.getElementById('card-cat').innerText = cat;
             document.getElementById('card-cat-box').style.backgroundColor = color;
+            
+            // Atualiza o link visual no card (remove o https:// para ficar mais limpo)
+            document.getElementById('card-url-display').innerText = link.replace('https://', '');
+
             qrcode.clear();
             qrcode.makeCode(link);
+        }
+
+        function copiarLinkArtigo() {
+            navigator.clipboard.writeText(linkAtualArtigo).then(() => {
+                const btn = event.currentTarget;
+                const originalContent = btn.innerHTML;
+                btn.innerHTML = '<i class="fas fa-check text-green-500"></i> COPIADO!';
+                btn.classList.add('bg-green-50');
+                setTimeout(() => {
+                    btn.innerHTML = originalContent;
+                    btn.classList.remove('bg-green-50');
+                }, 2000);
+            });
         }
 
         async function baixarCard() {
