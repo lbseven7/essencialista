@@ -145,13 +145,14 @@
                 
                 // Ordenação robusta por data (mais recente primeiro)
                 todosOsArtigos.sort((a, b) => {
-                    const parseData = (d) => {
+                    const parseData = (item) => {
+                        // Prioriza o campo 'date' definido no MD, depois o 'mtime'
+                        const d = item.date || item.mtime;
                         if (!d) return 0;
-                        // Se for apenas data (YYYY-MM-DD), ajusta para meio-dia para evitar problemas de fuso horário
                         if (typeof d === 'string' && d.length === 10) return new Date(d + 'T12:00:00').getTime();
                         return new Date(d).getTime();
                     };
-                    return parseData(b.date || b.mtime) - parseData(a.date || a.mtime);
+                    return parseData(b) - parseData(a);
                 });
 
                 renderizarGrid(todosOsArtigos);
