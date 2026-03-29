@@ -8,7 +8,13 @@
     <title>O Artista-Mestre - Essencialista</title>
     <link rel="icon" type="image/webp" href="../images/sem-bg-black.webp">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <style type="text/css">
+        @theme {
+            --color-orange-500: #f97316;
+            --color-orange-600: #ea580c;
+        }
+    </style>
     <style>
         html { scroll-behavior: smooth; }
         .animate-fade-in { animation: fadeIn 0.6s ease forwards; }
@@ -40,16 +46,17 @@
     <header class="bg-black text-white p-6 shadow-md sticky top-0 z-50">
         <div class="container mx-auto flex justify-between items-center relative">
             <div class="flex items-center space-x-3">
-                <a href="../home.html"><img src="../images/sem-bg-black.webp" alt="Logo" class="h-10"></a>
-                <a href="../home.html"><h1 class="text-2xl font-bold">Essencialista</h1></a>
+                <a href="../index.html"><img src="../images/sem-bg-black.webp" alt="Logo" class="h-10"></a>
+                <a href="../index.html"><h1 class="text-2xl font-bold">Essencialista</h1></a>
             </div>
             <div class="flex items-center gap-4">
                 <button id="mobileMenuBtn" class="md:hidden p-2 rounded bg-white/10 hover:bg-white/20 min-w-[44px]"><i class="fas fa-bars"></i></button>
-                <nav id="main-nav" class="hidden md:block absolute left-0 right-0 top-full w-full z-50 bg-black text-white p-4 md:static md:bg-transparent md:p-0">
-                    <ul class="flex flex-col space-y-3 md:flex-row md:space-y-0 md:space-x-6">
-                        <li><a href="../home.html" class="hover:text-orange-500 font-bold">Início</a></li>
-                        <li><a href="../home.html#featured-articles" class="hover:text-orange-500 font-bold">Artigos</a></li>
-                        <li><a href="../about.html" class="hover:text-orange-500 font-bold">Sobre</a></li>
+                <nav id="main-nav" class="hidden md:block absolute left-0 right-0 top-full w-full bg-black/95 backdrop-blur-sm border-t border-white/10 p-6 md:static md:bg-transparent md:border-none md:p-0">
+                    <ul class="flex flex-col space-y-4 md:flex-row md:space-y-0 md:space-x-6 items-start md:items-center">
+                        <li><a href="../index.html" class="hover:text-orange-500 font-bold block w-full py-2">Início</a></li>
+                        <li><a href="../biblioteca.html" class="hover:text-orange-500 font-bold block w-full py-2">Biblioteca</a></li>
+                        <li><a href="../index.html#featured-articles" class="hover:text-orange-500 font-bold block w-full py-2">Artigos</a></li>
+                        <li><a href="../about.html" class="hover:text-orange-500 font-bold block w-full py-2">Sobre</a></li>
                     </ul>
                 </nav>
             </div>
@@ -95,7 +102,7 @@
 
             <div class="mt-10 flex flex-wrap justify-center gap-3">
                 <a href="../posts/o-jugo-de-cristo.html" class="bg-black text-white px-5 py-2 rounded-full text-sm hover:bg-orange-600 transition">← Anterior</a>
-                <a href="../home.html" class="bg-black text-white px-5 py-2 rounded-full text-sm hover:bg-orange-600 transition font-bold">Home</a>
+                <a href="../index.html" class="bg-black text-white px-5 py-2 rounded-full text-sm hover:bg-orange-600 transition font-bold">Home</a>
                 <a href="../posts/gadara.html" class="bg-black text-white px-5 py-2 rounded-full text-sm hover:bg-orange-600 transition">Próximo →</a>
             </div>
         </article>
@@ -198,6 +205,11 @@
             const isFocus = document.body.classList.toggle('focus-mode');
             if (isFocus) window.scrollTo({ top: 0, behavior: 'smooth' });
         }
+
+        document.getElementById('mobileMenuBtn').onclick = () => {
+            const nav = document.getElementById('main-nav');
+            nav.classList.toggle('hidden');
+        };
 
         window.onload = carregarComentarios;
     </script>
