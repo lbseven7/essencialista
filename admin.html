@@ -6,6 +6,48 @@
     <title>Painel de Moderação - Essencialista</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+        
+        #card-preview-container {
+            width: 100%;
+            height: 500px;
+            background: #e5e7eb;
+            border-radius: 1rem;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            border: 2px dashed #d1d5db;
+        }
+
+        #card-preview {
+            width: 1080px;
+            height: 1920px;
+            background: #000;
+            color: #fff;
+            position: absolute;
+            top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transform: scale(0.23); /* Escala fixa para caber no container de 500px */
+            transform-origin: top center;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            border-radius: 3rem;
+        }
+        .gradient-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60%;
+            background: linear-gradient(to top, rgba(0,0,0,1), rgba(0,0,0,0.8), transparent);
+        }
+    </style>
 </head>
 <body class="bg-gray-100 font-sans min-h-screen">
 
@@ -50,9 +92,73 @@
                 </form>
                 <div id="bookStatus" class="mt-3 text-center text-sm font-bold"></div>
             </div>
+        </div>
 
-            <div class="bg-orange-50 p-4 rounded-lg border border-orange-200 text-sm text-orange-800">
-                <p><strong>Nota:</strong> Como este é um site estático, o formulário acima gerará o código para você copiar e colar no arquivo <code>pdfs/livros.json</code> manualmente, ou você pode automatizar via backend se desejar.</p>
+        <!-- Seção do Gerador de Cards -->
+        <div id="adminCards" class="mt-12 hidden">
+            <h2 class="text-xl font-bold mb-6 border-b-2 border-orange-500 inline-block">Gerador de Cards (Status/Redes)</h2>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Controles -->
+                <div class="bg-white p-6 rounded-xl shadow-md h-fit">
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-bold text-gray-500 uppercase mb-1">Selecionar Artigo:</label>
+                            <select id="card-select" onchange="selecionarPostCard(this.value)" class="w-full border p-3 rounded-lg focus:ring-2 focus:ring-orange-500 outline-none border-gray-300 font-bold">
+                                <option value="">Escolha um artigo...</option>
+                            </select>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold text-gray-500 uppercase mb-1">Categoria:</label>
+                                <input type="text" id="input-cat" class="w-full border p-2 rounded border-gray-300 uppercase text-xs tracking-widest font-black text-orange-600">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-gray-500 uppercase mb-1">Cor do Tema:</label>
+                                <input type="color" id="input-color" value="#f97316" class="w-full h-10 p-1 rounded border border-gray-300">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-gray-500 uppercase mb-1">Título do Card:</label>
+                            <textarea id="input-title" rows="3" class="w-full border p-2 rounded border-gray-300 font-bold text-lg leading-tight"></textarea>
+                        </div>
+
+                        <button onclick="baixarCard()" class="bg-black text-white px-6 py-4 rounded-xl font-black uppercase tracking-widest hover:bg-orange-600 w-full shadow-lg transition flex items-center justify-center gap-2">
+                            <i class="fas fa-download"></i> BAIXAR PNG (1080x1920)
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Preview Scaled -->
+                <div id="card-preview-container">
+                    <div id="card-preview">
+                        <img id="card-img-blur" src="images/default.webp" class="absolute inset-0 w-full h-full object-cover blur-3xl opacity-50 scale-110">
+                        <div class="absolute inset-0 bg-black/60"></div>
+                        <div class="absolute top-0 left-0 right-0 h-[45%] flex items-center justify-center overflow-hidden">
+                            <img id="card-img" src="images/default.webp" class="w-full h-full object-cover shadow-2xl">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+                        </div>
+                        <div class="gradient-overlay"></div>
+                        <div class="relative z-10 w-full px-16 text-center mt-auto pb-24">
+                            <div id="card-cat-box" class="inline-block bg-orange-600 px-6 py-2 rounded-full mb-8">
+                                <span id="card-cat" class="text-2xl font-black uppercase tracking-[0.2em]">CATEGORIA</span>
+                            </div>
+                            <h1 id="card-title" class="text-8xl font-black leading-tight mb-12 drop-shadow-lg uppercase italic font-['Inter']">TÍTULO DO ARTIGO</h1>
+                            <div class="flex items-center justify-center space-x-8 border-t-4 border-white/30 pt-16">
+                                <div id="qrcode" class="p-4 bg-white rounded-2xl shadow-xl"></div>
+                                <div class="text-left">
+                                    <p class="text-3xl font-bold text-orange-500 mb-2 tracking-widest">LEIA AGORA EM:</p>
+                                    <p class="text-5xl font-black italic tracking-tighter opacity-80">essencialista.vercel.app</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="absolute top-20 left-1/2 -translate-x-1/2 opacity-50">
+                            <img src="images/sem-bg-black.webp" class="h-24 grayscale invert">
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -77,47 +183,114 @@
                 
                 if (dados.length === 0) {
                     lista.innerHTML = '<div class="bg-white p-8 rounded-xl text-center shadow">Nenhum comentário encontrado na planilha.</div>';
-                    return;
+                } else {
+                    // Inverte para ver os mais novos primeiro
+                    dados.reverse().forEach(c => {
+                        const card = document.createElement('div');
+                        const pendente = c.status !== 'SIM';
+                        
+                        card.className = `bg-white p-6 rounded-xl shadow-md border-l-8 transition-all ${pendente ? 'border-orange-500' : 'border-green-500'}`;
+                        card.innerHTML = `
+                            <div class="flex flex-col md:flex-row justify-between gap-4">
+                                <div class="flex-grow">
+                                    <div class="flex items-center gap-2 mb-1">
+                                        <span class="font-bold text-gray-900 text-lg">${c.nome}</span>
+                                        <span class="text-[10px] px-2 py-1 rounded bg-gray-100 text-gray-500 font-bold uppercase">${c.status}</span>
+                                    </div>
+                                    <p class="text-xs text-gray-400 mb-3">${c.email}</p>
+                                    <p class="text-gray-700 leading-relaxed bg-gray-50 p-3 rounded-lg border border-gray-100">${c.comentario}</p>
+                                </div>
+                                <div class="flex md:flex-col gap-2 justify-end">
+                                    ${pendente ? `
+                                        <button onclick="acao('aprovar', ${c.row})" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg font-bold text-sm flex items-center gap-2">
+                                            <i class="fas fa-check"></i> Aprovar
+                                        </button>
+                                    ` : ''}
+                                    <button onclick="acao('excluir', ${c.row})" class="bg-red-50 text-red-600 hover:bg-red-600 hover:text-white px-4 py-2 rounded-lg font-bold text-sm transition flex items-center gap-2">
+                                        <i class="fas fa-trash-alt"></i> Excluir
+                                    </button>
+                                </div>
+                            </div>
+                        `;
+                        lista.appendChild(card);
+                    });
                 }
 
-                // Inverte para ver os mais novos primeiro
-                dados.reverse().forEach(c => {
-                    const card = document.createElement('div');
-                    const pendente = c.status !== 'SIM';
-                    
-                    card.className = `bg-white p-6 rounded-xl shadow-md border-l-8 transition-all ${pendente ? 'border-orange-500' : 'border-green-500'}`;
-                    card.innerHTML = `
-                        <div class="flex flex-col md:flex-row justify-between gap-4">
-                            <div class="flex-grow">
-                                <div class="flex items-center gap-2 mb-1">
-                                    <span class="font-bold text-gray-900 text-lg">${c.nome}</span>
-                                    <span class="text-[10px] px-2 py-1 rounded bg-gray-100 text-gray-500 font-bold uppercase">${c.status}</span>
-                                </div>
-                                <p class="text-xs text-gray-400 mb-3">${c.email}</p>
-                                <p class="text-gray-700 leading-relaxed bg-gray-50 p-3 rounded-lg border border-gray-100">${c.comentario}</p>
-                            </div>
-                            <div class="flex md:flex-col gap-2 justify-end">
-                                ${pendente ? `
-                                    <button onclick="acao('aprovar', ${c.row})" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg font-bold text-sm flex items-center gap-2">
-                                        <i class="fas fa-check"></i> Aprovar
-                                    </button>
-                                ` : ''}
-                                <button onclick="acao('excluir', ${c.row})" class="bg-red-50 text-red-600 hover:bg-red-600 hover:text-white px-4 py-2 rounded-lg font-bold text-sm transition flex items-center gap-2">
-                                    <i class="fas fa-trash-alt"></i> Excluir
-                                </button>
-                            </div>
-                        </div>
-                    `;
-                    lista.appendChild(card);
-                });
-
-                // Mostra a seção da biblioteca após o login
+                // Carrega posts para o gerador de cards
+                carregarPostsParaCard();
+                
+                // Mostra as seções após o login
                 document.getElementById('adminBiblioteca').classList.remove('hidden');
+                document.getElementById('adminCards').classList.remove('hidden');
             } catch (e) {
                 lista.innerHTML = "";
                 msgErro.classList.remove('hidden');
             }
         }
+
+        // --- LÓGICA DO GERADOR DE CARDS ---
+        const qrcode = new QRCode(document.getElementById("qrcode"), {
+            width: 180, height: 180, colorDark : "#000000", colorLight : "#ffffff", correctLevel : QRCode.CorrectLevel.H
+        });
+
+        let postsParaCard = [];
+        async function carregarPostsParaCard() {
+            const res = await fetch('posts/index.json');
+            postsParaCard = await res.json();
+            const select = document.getElementById('card-select');
+            select.innerHTML = '<option value="">Escolha um artigo...</option>';
+            postsParaCard.forEach((p, idx) => {
+                const opt = document.createElement('option');
+                opt.value = idx;
+                opt.textContent = p.title;
+                select.appendChild(opt);
+            });
+        }
+
+        function selecionarPostCard(idx) {
+            if(idx === "") return;
+            const p = postsParaCard[idx];
+            document.getElementById('input-title').value = p.title;
+            document.getElementById('input-cat').value = p.category;
+            const imgPath = p.image ? `images/${p.image}` : 'images/default.webp';
+            document.getElementById('card-img').src = imgPath;
+            document.getElementById('card-img-blur').src = imgPath;
+            atualizarCard(`https://essencialista.vercel.app/${p.href}`);
+        }
+
+        function atualizarCard(linkManual) {
+            const title = document.getElementById('input-title').value;
+            const cat = document.getElementById('input-cat').value;
+            const color = document.getElementById('input-color').value;
+            const link = linkManual || 'https://essencialista.vercel.app';
+
+            document.getElementById('card-title').innerText = title;
+            document.getElementById('card-cat').innerText = cat;
+            document.getElementById('card-cat-box').style.backgroundColor = color;
+            qrcode.clear();
+            qrcode.makeCode(link);
+        }
+
+        async function baixarCard() {
+            const btn = event.currentTarget;
+            btn.disabled = true; btn.innerHTML = "⌛ GERANDO...";
+            const card = document.getElementById('card-preview');
+            const originalTransform = card.style.transform;
+            card.style.transform = 'none';
+
+            try {
+                const canvas = await html2canvas(card, { useCORS: true, scale: 1, backgroundColor: "#000000" });
+                const link = document.createElement('a');
+                link.download = `card-essencialista.png`;
+                link.href = canvas.toDataURL("image/png");
+                link.click();
+            } catch (err) { alert("Erro ao gerar imagem."); }
+            finally { card.style.transform = originalTransform; btn.disabled = false; btn.innerHTML = '<i class="fas fa-download"></i> BAIXAR PNG (1080x1920)'; }
+        }
+
+        document.getElementById('input-title').addEventListener('input', () => atualizarCard());
+        document.getElementById('input-cat').addEventListener('input', () => atualizarCard());
+        document.getElementById('input-color').addEventListener('input', () => atualizarCard());
 
         async function acao(tipo, linha) {
             const pw = document.getElementById('senha').value;
