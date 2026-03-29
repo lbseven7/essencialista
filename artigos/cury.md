@@ -1,6 +1,6 @@
 ---
 title: "Um Ex-Ateu e Jesus Cristo"
-date: "2026-03-28"
+date: "2026-03-29"
 image: "cury.webp"
 category: "Vida"
 signature: "Esse é nosso Salvador."
