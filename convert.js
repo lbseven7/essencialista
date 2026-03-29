@@ -243,56 +243,58 @@ function processMarkdownFiles() {
     const files = fs.readdirSync(inputDir).filter(f => path.extname(f) === '.md');
 
     files.forEach(file => {
-        const markdownPath = path.join(inputDir, file);
-        const baseName = file.replace('.md', '');
-        const outputFilename = slugify(baseName) + '.html';
-        const outputPath = path.join(outputDir, outputFilename);
+        try {
+            const markdownPath = path.join(inputDir, file);
+            const baseName = file.replace('.md', '');
+            const outputFilename = slugify(baseName) + '.html';
+            const outputPath = path.join(outputDir, outputFilename);
 
-        const stat = fs.statSync(markdownPath);
-        
-        // --- LÓGICA DE CACHE (VERIFICAÇÃO DE MUDANÇA) ---
-        let needsUpdate = true;
-        if (fs.existsSync(outputPath)) {
-            const outputStat = fs.statSync(outputPath);
-            // Se o arquivo MD não foi alterado desde a última conversão, ignore
-            if (stat.mtime <= outputStat.mtime) {
-                needsUpdate = false;
+            const stat = fs.statSync(markdownPath);
+            
+            // --- LÓGICA DE CACHE (VERIFICAÇÃO DE MUDANÇA) ---
+            let needsUpdate = true;
+            if (fs.existsSync(outputPath)) {
+                const outputStat = fs.statSync(outputPath);
+                if (stat.mtime <= outputStat.mtime) {
+                    needsUpdate = false;
+                }
             }
-        }
 
-        const markdownFile = fs.readFileSync(markdownPath, 'utf8');
-        const { data, content } = matter(markdownFile);
-        const title = resolveTitle(data, content, outputFilename);
-        const category = data.category || data.categoria || "Fé";
+            const markdownFile = fs.readFileSync(markdownPath, 'utf8');
+            const { data, content } = matter(markdownFile);
+            const title = resolveTitle(data, content, outputFilename);
+            const category = data.category || data.categoria || "Fé";
 
-        // --- CÁLCULO DE TEMPO DE LEITURA ---
-        const contagemPalavras = content.split(/\s+/).length;
-        const tempoLeitura = Math.max(1, Math.ceil(contagemPalavras / 200)); 
+            const contagemPalavras = content.split(/\s+/).length;
+            const tempoLeitura = Math.max(1, Math.ceil(contagemPalavras / 200)); 
 
-        const href = `posts/${outputFilename}`;
+            const href = `posts/${outputFilename}`;
 
-        manifest.push({
-            title,
-            category,
-            image: data.image || null,
-            href,
-            tempoLeitura,
-            date: data.date || stat.mtime.toISOString(),
-            mtime: stat.mtime.toISOString()
-        });
-
-        if (needsUpdate) {
-            const htmlContent = applyBoldToSubtitles(md.render(content));
-            toGenerate.push({
+            manifest.push({
+                title,
+                category,
+                image: data.image || null,
                 href,
-                outputPath,
-                data: { ...data, title, category, tempoLeitura },
-                htmlContent,
-                slug: slugify(baseName)
+                tempoLeitura,
+                date: data.date || stat.mtime.toISOString(),
+                mtime: stat.mtime.toISOString()
             });
-            console.log(`🆕 Alteração detectada: ${file}`);
-        } else {
-            countIgnored++;
+
+            if (needsUpdate) {
+                const htmlContent = applyBoldToSubtitles(md.render(content));
+                toGenerate.push({
+                    href,
+                    outputPath,
+                    data: { ...data, title, category, tempoLeitura },
+                    htmlContent,
+                    slug: slugify(baseName)
+                });
+                console.log(`🆕 Alteração detectada: ${file}`);
+            } else {
+                countIgnored++;
+            }
+        } catch (err) {
+            console.error(`❌ Erro ao processar o arquivo ${file}:`, err.message);
         }
     });
 
