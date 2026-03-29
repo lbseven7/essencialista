@@ -51,7 +51,13 @@ const htmlTemplate = (data, content, prevHref, nextHref, slug, relacionados) => 
     <title>${data.title} - Essencialista</title>
     <link rel="icon" type="image/webp" href="../images/sem-bg-black.webp">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <style type="text/css">
+        @theme {
+            --color-orange-500: #f97316;
+            --color-orange-600: #ea580c;
+        }
+    </style>
     <style>
         html { scroll-behavior: smooth; }
         .animate-fade-in { animation: fadeIn 0.6s ease forwards; }
