@@ -20,11 +20,15 @@ O **Essencialista** é uma plataforma pessoal do artista **Leo Barbosa**, dedica
 * **Filtros por Categoria:** Navegação rápida entre temas como **Fé, Ciência, Vida e Profecia**.
 * **Artigos Relacionados:** Sugestões inteligentes ao final de cada post baseadas em tema e categoria.
 * **Navegação Inteligente:** Botões "Anterior" e "Próximo" ordenados cronologicamente.
+* **Comentários:** Integração com Google Sheets para comentários de cada post.
+* **Vercel Speed Insights:** Monitoramento de performance e otimização de recursos.
+
 
 ### 💬 Interação e Redes Sociais
 * **Sistema de Comentários:** Integração com Google Sheets e painel de moderação exclusivo (`admin.html`).
 * **Gerador de Cards:** Ferramenta interna (`generator.html`) para criar artes de divulgação profissionais para Status do WhatsApp.
 * **Compartilhamento Direto:** Botão nativo para enviar estudos via WhatsApp com um clique.
+* **Compartilhamento:** Compartilhe o link do post em qualquer aplicação de mensagens.
 
 ---
 
@@ -37,6 +41,8 @@ O **Essencialista** é uma plataforma pessoal do artista **Leo Barbosa**, dedica
 | **Tailwind CSS** | Estilização utilitária para layout 100% responsivo. |
 | **JavaScript (ES6+)** | Lógica de filtragem, Modo Foco e integração com API. |
 | **Google Apps Script** | Backend serverless para armazenamento de comentários. |
+| **Vercel Speed Insights** | Monitoramento de performance e otimização de recursos. |
+| **Markdown-it** | Processador de Markdown para conversão em HTML. |
 
 ---
 
@@ -56,7 +62,7 @@ node convert.js
 ```
 
 ### 3. Criar Artes para Redes Sociais
-Abra o arquivo `generator.html` no seu navegador, cole o link do post e baixe o card PNG em alta resolução.
+Abra o arquivo `admin.html` no seu navegador, coloque a senha de acesso para gerar cards para redes sociais. Você pode compartilhar o link (ou colar no navegador) ou baixar o card do artigo desejado em alta resolução.
 
 ### 4. Compartilhar Com Comentários
 Cada post tem um link exclusivo para comentários. Compartilhe com os seus amigos e veja a interação!
