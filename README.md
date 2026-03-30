@@ -84,4 +84,4 @@ Abra o arquivo `generator.html` no seu navegador, cole o link do post e baixe o 
 ## ⚖️ Licença
 **© 2026 Essencialista - @lbseven7**
 * **Conteúdo:** Propriedade intelectual do autor.
-* **Código-Fonte:** Disponibilizado para estudo. Para uso comercial, entre em contato.
+* **Código-Fonte:** Disponibilizado para estudo. É vedado o uso comercial, entre em contato.
