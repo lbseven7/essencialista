@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/lbseven7/essencialista#readme",
   "dependencies": {
+    "@vercel/speed-insights": "^2.0.0",
     "gray-matter": "^4.0.3",
     "markdown-it": "^14.1.0"
   },
