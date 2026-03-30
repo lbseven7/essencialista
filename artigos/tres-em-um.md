@@ -1,5 +1,5 @@
 ---
-title: "Um, Dois, Três."
+title: "Um, Dois, Três. DEUS!"
 date: "2026-03-30"
 image: "123.webp"
 category: "Profecia"
