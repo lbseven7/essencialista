@@ -58,6 +58,24 @@ node convert.js
 ### 3. Criar Artes para Redes Sociais
 Abra o arquivo `generator.html` no seu navegador, cole o link do post e baixe o card PNG em alta resolução.
 
+### 4. Compartilhar Com Comentários
+Cada post tem um link exclusivo para comentários. Compartilhe com os seus amigos e veja a interação!
+
+### 5. Moderação de Comentários
+Para manter uma discussão positiva, use o painel de moderação (`admin.html`):
+```powershell
+python admin.py
+```
+### 6. Compartilhar Com Redes Sociais
+Utilize o botão nativo de compartilhamento para enviar estudos via WhatsApp. O link será copiado para o seu clipboard e pode ser usado em qualquer aplicação de mensagens.
+
+### 7. Vercel Speed Insights
+Para monitorar a performance do seu site, use o Vercel Speed Insights (`_vercel/speed-insights/script.js).
+```powershell
+node _vercel/speed-insights/script.js
+```
+### 8. Melhorar a Performance
+Para melhorar a performance do seu site, use as dicas fornecidas pelo Vercel Speed Insights.
 ---
 
 ## 📂 Estrutura do Projeto
