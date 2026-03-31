@@ -6,11 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Painel de Moderação - Essencialista</title>
 
-    <!-- Vercel Speed Insights -->
-    <script>
-        window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
-    </script>
-    <script defer src="/_vercel/insights/script.js"></script>
     <script>
         if (window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
             window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
@@ -52,7 +47,6 @@
             align-items: center;
             justify-content: center;
             transform: scale(0.23);
-            /* Escala fixa para caber no container de 500px */
             transform-origin: top center;
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
             border-radius: 3rem;
@@ -66,6 +60,16 @@
             height: 60%;
             background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.8), transparent);
         }
+        
+        /* Animação para o ponto de notificação */
+        .ping-green {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: .3; }
+        }
     </style>
 </head>
 
@@ -75,14 +79,15 @@
         <div class="flex items-center justify-between mb-8 bg-black text-white p-6 rounded-xl shadow-lg">
             <div>
                 <h1 class="text-2xl font-bold italic">Essencialista</h1>
-                <p class="text-gray-400 text-sm">Painel Administrativo</p>
+                <p id="adminStatus" class="text-gray-400 text-sm transition-all duration-500 flex items-center">
+                    Painel Administrativo
+                </p>
             </div>
-            <a href="index.html" class="text-sm bg-gray-800 hover:bg-gray-700 px-4 py-2 rounded-lg transition">Ver
-                Site</a>
+            <a href="index.html" class="text-sm bg-gray-800 hover:bg-gray-700 px-4 py-2 rounded-lg transition">Ver Site</a>
         </div>
 
         <div id="loginArea" class="bg-white p-6 rounded-xl shadow-md mb-8 text-center">
-            <h2 class="text-lg font-bold mb-4 text-gray-800">Area Restrita!</h2>
+            <h2 class="text-lg font-bold mb-4 text-gray-800">Área Restrita!</h2>
             <div class="flex flex-col sm:flex-row gap-3 justify-center">
                 <input type="password" id="senha" placeholder="Digite a senha admin"
                     class="border border-gray-300 p-3 rounded-lg focus:ring-2 focus:ring-orange-500 outline-none w-full sm:w-64">
@@ -95,116 +100,61 @@
             <p id="msgErro" class="text-red-500 mt-3 text-sm hidden">Senha incorreta ou erro de conexão.</p>
         </div>
 
-        <div id="listaAdmin" class="space-y-4 hidden">
-        </div>
+        <div id="listaAdmin" class="space-y-4 hidden"></div>
 
-        <!-- Seção de Gerenciamento da Biblioteca -->
         <div id="adminBiblioteca" class="mt-12 hidden">
             <h2 class="text-xl font-bold mb-6 border-b-2 border-orange-500 inline-block">Gerenciar Biblioteca</h2>
-
             <div class="bg-white p-6 rounded-xl shadow-md mb-8">
-                <h3 class="font-bold mb-4">Adicionar Novo Livro</h3>
+                <h3 class="font-bold mb-4 text-sm uppercase tracking-widest text-gray-400">Adicionar Novo Livro</h3>
                 <form id="bookForm" class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <input type="text" id="bookTitle" placeholder="Título do Livro" required
-                        class="border p-2 rounded outline-none focus:ring-2 focus:ring-orange-500">
-                    <input type="text" id="bookCat" placeholder="Categoria (ex: Profecia)" required
-                        class="border p-2 rounded outline-none focus:ring-2 focus:ring-orange-500">
-                    <input type="text" id="bookFile" placeholder="Nome do arquivo (ex: livro.pdf)" required
-                        class="border p-2 rounded outline-none focus:ring-2 focus:ring-orange-500">
-                    <input type="text" id="bookCover" placeholder="Nome da capa (ex: capa.png)" required
-                        class="border p-2 rounded outline-none focus:ring-2 focus:ring-orange-500">
-                    <textarea id="bookDesc" placeholder="Descrição curta" required
-                        class="border p-2 rounded outline-none focus:ring-2 focus:ring-orange-500 md:col-span-2"></textarea>
-                    <button type="submit"
-                        class="bg-orange-600 text-white font-bold py-2 rounded hover:bg-black transition md:col-span-2 uppercase text-sm tracking-widest">Adicionar
-                        ao JSON</button>
+                    <input type="text" id="bookTitle" placeholder="Título do Livro" required class="border p-2 rounded outline-none focus:ring-2 focus:ring-orange-500">
+                    <input type="text" id="bookCat" placeholder="Categoria" required class="border p-2 rounded outline-none focus:ring-2 focus:ring-orange-500">
+                    <input type="text" id="bookFile" placeholder="Arquivo (livro.pdf)" required class="border p-2 rounded outline-none focus:ring-2 focus:ring-orange-500">
+                    <input type="text" id="bookCover" placeholder="Capa (capa.png)" required class="border p-2 rounded outline-none focus:ring-2 focus:ring-orange-500">
+                    <textarea id="bookDesc" placeholder="Descrição curta" required class="border p-2 rounded outline-none focus:ring-2 focus:ring-orange-500 md:col-span-2"></textarea>
+                    <button type="submit" class="bg-orange-600 text-white font-bold py-3 rounded hover:bg-black transition md:col-span-2 uppercase text-xs tracking-widest">Adicionar à Planilha</button>
                 </form>
                 <div id="bookStatus" class="mt-3 text-center text-sm font-bold"></div>
             </div>
         </div>
 
-        <!-- Seção do Gerador de Cards -->
         <div id="adminCards" class="mt-12 hidden">
-            <h2 class="text-xl font-bold mb-6 border-b-2 border-orange-500 inline-block">Gerador de Cards (Status/Redes)
-            </h2>
-
+            <h2 class="text-xl font-bold mb-6 border-b-2 border-orange-500 inline-block">Gerador de Cards</h2>
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <!-- Controles -->
-                <div class="bg-white p-6 rounded-xl shadow-md h-fit">
-                    <div class="space-y-4">
-                        <div>
-                            <label class="block text-xs font-bold text-gray-500 uppercase mb-1">Selecionar
-                                Artigo:</label>
-                            <select id="card-select" onchange="selecionarPostCard(this.value)"
-                                class="w-full border p-3 rounded-lg focus:ring-2 focus:ring-orange-500 outline-none border-gray-300 font-bold">
-                                <option value="">Escolha um artigo...</option>
-                            </select>
-                        </div>
-
-                        <div class="grid grid-cols-2 gap-4">
-                            <div>
-                                <label class="block text-xs font-bold text-gray-500 uppercase mb-1">Categoria:</label>
-                                <input type="text" id="input-cat"
-                                    class="w-full border p-2 rounded border-gray-300 uppercase text-xs tracking-widest font-black text-orange-600">
-                            </div>
-                            <div>
-                                <label class="block text-xs font-bold text-gray-500 uppercase mb-1">Cor do Tema:</label>
-                                <input type="color" id="input-color" value="#f97316"
-                                    class="w-full h-10 p-1 rounded border border-gray-300">
-                            </div>
-                        </div>
-
-                        <div>
-                            <label class="block text-xs font-bold text-gray-500 uppercase mb-1">Título do Card:</label>
-                            <textarea id="input-title" rows="3"
-                                class="w-full border p-2 rounded border-gray-300 font-bold text-lg leading-tight"></textarea>
-                        </div>
-
-                        <div class="flex gap-2">
-                            <button onclick="baixarCard()"
-                                class="flex-grow bg-black text-white px-4 py-4 rounded-xl font-black uppercase tracking-widest hover:bg-orange-600 shadow-lg transition flex items-center justify-center gap-2 text-xs">
-                                <i class="fas fa-download"></i> BAIXAR PNG
-                            </button>
-                            <button onclick="copiarLinkArtigo()"
-                                class="bg-gray-100 text-gray-600 px-6 py-4 rounded-xl font-black uppercase tracking-widest hover:bg-gray-200 transition flex items-center justify-center gap-2 text-xs"
-                                title="Copiar Link do Artigo">
-                                <i class="fas fa-link"></i> COPIAR LINK
-                            </button>
-                        </div>
+                <div class="bg-white p-6 rounded-xl shadow-md h-fit space-y-4">
+                    <div>
+                        <label class="block text-xs font-bold text-gray-500 uppercase mb-1">Artigo:</label>
+                        <select id="card-select" onchange="selecionarPostCard(this.value)" class="w-full border p-3 rounded-lg outline-none font-bold text-sm"></select>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <input type="text" id="input-cat" placeholder="Categoria" class="border p-2 rounded text-xs uppercase font-black text-orange-600">
+                        <input type="color" id="input-color" value="#f97316" class="w-full h-10 p-1 rounded">
+                    </div>
+                    <textarea id="input-title" rows="3" class="w-full border p-2 rounded font-bold text-lg leading-tight"></textarea>
+                    <div class="flex gap-2">
+                        <button onclick="baixarCard()" class="flex-grow bg-black text-white px-4 py-4 rounded-xl font-black uppercase text-xs tracking-widest hover:bg-orange-600 transition">BAIXAR PNG</button>
+                        <button onclick="copiarLinkArtigo()" class="bg-gray-100 text-gray-600 px-6 py-4 rounded-xl font-black uppercase text-xs tracking-widest hover:bg-gray-200 transition"><i class="fas fa-link"></i></button>
                     </div>
                 </div>
 
-                <!-- Preview Scaled -->
                 <div id="card-preview-container">
                     <div id="card-preview">
-                        <!-- Fundo Preto Sólido -->
                         <div class="absolute inset-0 bg-black"></div>
-
-                        <!-- Imagem Principal (Sem distorção) -->
-                        <div
-                            class="absolute top-0 left-0 right-0 h-[65%] flex items-center justify-center overflow-hidden bg-gray-900">
-                            <img id="card-img" alt="Card Preview" src="images/sem-bg-black.webp"
-                                class="w-full h-full object-cover shadow-2xl">
+                        <div class="absolute top-0 left-0 right-0 h-[65%] flex items-center justify-center overflow-hidden">
+                            <img id="card-img" src="images/sem-bg-black.webp" class="w-full h-full object-cover">
                             <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
                         </div>
                         <div class="gradient-overlay"></div>
                         <div class="relative z-10 w-full px-16 text-center mt-auto pb-32">
-                            <div id="card-cat-box"
-                                class="inline-flex items-center justify-center bg-orange-600 px-8 py-3 rounded-full mb-8 min-w-[300px]">
-                                <span id="card-cat"
-                                    class="text-3xl font-black uppercase tracking-[0.2em] leading-none">CATEGORIA</span>
+                            <div id="card-cat-box" class="inline-flex items-center justify-center bg-orange-600 px-8 py-3 rounded-full mb-8">
+                                <span id="card-cat" class="text-3xl font-black uppercase tracking-[0.2em]">CATEGORIA</span>
                             </div>
-                            <h1 id="card-title"
-                                class="text-8xl font-black leading-tight mb-12 drop-shadow-lg uppercase italic font-['Inter']">
-                                TÍTULO DO ARTIGO</h1>
+                            <h1 id="card-title" class="text-8xl font-black leading-tight mb-12 uppercase italic">TÍTULO DO ARTIGO</h1>
                             <div class="flex items-center justify-center space-x-8 border-t-4 border-white/30 pt-16">
-                                <div id="qrcode" alt="QR Code" class="p-4 bg-white rounded-2xl shadow-xl"></div>
+                                <div id="qrcode" class="p-4 bg-white rounded-2xl shadow-xl"></div>
                                 <div class="text-left">
-                                    <p class="text-3xl font-bold text-orange-500 mb-2 tracking-widest">LEIA AGORA EM:
-                                    </p>
-                                    <p id="card-url-display"
-                                        class="text-4xl font-black italic tracking-tighter opacity-80 break-all max-w-[600px]">
-                                        essencialista.vercel.app</p>
+                                    <p class="text-3xl font-bold text-orange-500 mb-2">LEIA AGORA EM:</p>
+                                    <p id="card-url-display" class="text-4xl font-black italic opacity-80">essencialista.vercel.app</p>
                                 </div>
                             </div>
                         </div>
@@ -215,194 +165,96 @@
     </div>
 
     <script>
-        // URL do Backend (Google Apps Script)
-        const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbzWEYOv2rcWjy4Bnn5DivMPaSl6PCJbVroNEh1sfFkZkzg5VbDYqbuytOcf37V2ehEI/exec';
+        const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbwnnAaAFE0lhzil864Ir-SR7-UNmkFysmIgPiU9ZZypThK0GK2lAApcUpD9siCkl62Q/exec';
 
         async function carregarAdmin() {
             const pw = document.getElementById('senha').value;
             const lista = document.getElementById('listaAdmin');
             const msgErro = document.getElementById('msgErro');
             const btnAcesso = document.querySelector('#loginArea button');
+            const statusTxt = document.getElementById('adminStatus');
 
-            if (!pw || pw.trim() === "") {
-                msgErro.innerText = "Digite a senha para acessar.";
+            if (!pw) {
+                msgErro.innerText = "Digite a senha.";
                 msgErro.classList.remove('hidden');
                 return;
             }
 
             btnAcesso.disabled = true;
-            btnAcesso.innerHTML = '<i class="fas fa-spinner animate-spin mr-2"></i> Autenticando...';
-
+            btnAcesso.innerHTML = '<i class="fas fa-spinner animate-spin"></i>';
             lista.classList.remove('hidden');
-            lista.innerHTML = '<div class="text-center py-10"><i class="fas fa-spinner animate-spin text-3xl text-orange-500"></i><p class="mt-2 text-gray-500 font-bold uppercase tracking-widest text-xs">Validando credenciais...</p></div>';
-            msgErro.classList.add('hidden');
-
-            document.getElementById('adminBiblioteca').classList.add('hidden');
-            document.getElementById('adminCards').classList.add('hidden');
+            lista.innerHTML = '<div class="text-center py-10"><i class="fas fa-spinner animate-spin text-3xl text-orange-500"></i></div>';
 
             try {
                 const res = await fetch(`${WEB_APP_URL}?mode=admin&pw=${pw}`);
                 const dados = await res.json();
 
-                const isRealAdmin = Array.isArray(dados) && dados.length > 0 && dados[0].hasOwnProperty('email');
-
-                if (!isRealAdmin && dados.length > 0) {
-                    throw new Error("Senha incorreta.");
-                }
+                if (dados.error) throw new Error("Senha incorreta.");
 
                 lista.innerHTML = "";
+                const temPendentes = dados.some(c => c.status !== 'SIM');
+
+                // ATUALIZAÇÃO DO ÍCONE DE PENDÊNCIA
+                if (temPendentes) {
+                    statusTxt.classList.replace('text-gray-400', 'text-green-400');
+                    statusTxt.classList.add('font-bold');
+                    statusTxt.innerHTML = '<i class="fas fa-circle text-[8px] mr-2 ping-green"></i> Pendências Ativas';
+                }
 
                 if (dados.length === 0) {
-                    lista.innerHTML = '<div class="bg-white p-8 rounded-xl text-center shadow font-bold text-gray-500 uppercase tracking-widest text-xs">Nenhum comentário pendente.</div>';
+                    lista.innerHTML = '<div class="bg-white p-8 rounded-xl text-center shadow font-bold text-gray-500 uppercase tracking-widest text-xs">Nenhum comentário.</div>';
                 } else {
-                    // Renderização dos cards com os eventos de clique inclusos
                     dados.reverse().forEach(c => {
                         const card = document.createElement('div');
                         const pendente = c.status !== 'SIM';
-
-                        // O MAPA DO ERRO: 
-                        // Verifique se no seu Google Script o nome do campo é 'linha' ou 'row'.
-                        // Se no log do console 'c' não tiver esse campo, ele fica 'undefined'.
                         const numLinha = c.linha || c.row || "";
 
-                        card.className = `bg-white p-6 rounded-xl shadow-md border-l-8 transition-all ${pendente ? 'border-orange-500' : 'border-green-500'}`;
+                        card.className = `bg-white p-6 rounded-xl shadow-md border-l-8 transition-all duration-500 ${pendente ? 'border-orange-500' : 'border-green-500'}`;
                         card.innerHTML = `
-        <div class="flex flex-col md:flex-row justify-between gap-4">
-            <div class="flex-grow">
-                <div class="flex items-center gap-2 mb-1">
-                    <span class="font-bold text-gray-900 text-lg">${c.nome}</span>
-                    <span class="text-[10px] px-2 py-1 rounded bg-gray-100 text-gray-500 font-bold uppercase">${c.status}</span>
-                </div>
-                <p class="text-xs text-gray-400 mb-3">${c.email}</p>
-                <p class="text-gray-700 leading-relaxed bg-gray-50 p-3 rounded-lg border border-gray-100">${c.comentario}</p>
-            </div>
-            <div class="flex md:flex-col gap-2 justify-end">
-                ${pendente ? `
-                    <button onclick="acao('aprovar', '${numLinha}')" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg font-bold text-sm flex items-center gap-2">
-                        <i class="fas fa-check"></i> Aprovar
-                    </button>
-                ` : ''}
-                <button onclick="acao('excluir', '${numLinha}')" class="bg-red-50 text-red-600 hover:bg-red-600 hover:text-white px-4 py-2 rounded-lg font-bold text-sm transition flex items-center gap-2">
-                    <i class="fas fa-trash-alt"></i> Excluir
-                </button>
-            </div>
-        </div>
-    `;
+                            <div class="flex flex-col md:flex-row justify-between gap-4">
+                                <div class="flex-grow">
+                                    <div class="flex items-center gap-2 mb-1">
+                                        <span class="font-bold text-gray-900 text-lg">${c.nome}</span>
+                                        <span class="text-[10px] px-2 py-1 rounded bg-gray-100 text-gray-500 font-bold uppercase">${c.status}</span>
+                                    </div>
+                                    <p class="text-xs text-gray-400 mb-3">${c.email}</p>
+                                    <p class="text-gray-700 bg-gray-50 p-3 rounded-lg border border-gray-100">${c.comentario}</p>
+                                </div>
+                                <div class="flex md:flex-col gap-2 justify-end">
+                                    ${pendente ? `<button onclick="acao('aprovar', '${numLinha}')" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg font-bold text-sm flex items-center gap-2"><i class="fas fa-check"></i> Aprovar</button>` : ''}
+                                    <button onclick="acao('excluir', '${numLinha}')" class="bg-red-50 text-red-600 hover:bg-red-600 hover:text-white px-4 py-2 rounded-lg font-bold text-sm transition flex items-center gap-2"><i class="fas fa-trash-alt"></i> Excluir</button>
+                                </div>
+                            </div>`;
                         lista.appendChild(card);
                     });
                 }
 
                 carregarPostsParaCard();
                 document.getElementById('loginArea').classList.add('hidden');
-                document.getElementById('listaAdmin').classList.remove('hidden');
                 document.getElementById('adminBiblioteca').classList.remove('hidden');
                 document.getElementById('adminCards').classList.remove('hidden');
+
             } catch (e) {
-                lista.innerHTML = "";
                 lista.classList.add('hidden');
-                msgErro.innerText = e.message || "Erro de conexão.";
+                msgErro.innerText = e.message;
                 msgErro.classList.remove('hidden');
                 btnAcesso.disabled = false;
                 btnAcesso.innerHTML = 'Acessar Painel';
             }
         }
 
-        // --- LÓGICA DO GERADOR DE CARDS ---
-        const qrcode = new QRCode(document.getElementById("qrcode"), {
-            width: 180, height: 180, colorDark: "#000000", colorLight: "#ffffff", correctLevel: QRCode.CorrectLevel.H
-        });
-
-        let postsParaCard = [];
-        async function carregarPostsParaCard() {
-            const res = await fetch('posts/index.json');
-            postsParaCard = await res.json();
-            const select = document.getElementById('card-select');
-            select.innerHTML = '<option value="">Escolha um artigo...</option>';
-            postsParaCard.forEach((p, idx) => {
-                const opt = document.createElement('option');
-                opt.value = idx;
-                opt.textContent = p.title;
-                select.appendChild(opt);
-            });
-        }
-
-        let linkAtualArtigo = "https://essencialista.vercel.app";
-
-        function selecionarPostCard(idx) {
-            if (idx === "") return;
-            const p = postsParaCard[idx];
-            document.getElementById('input-title').value = p.title;
-            document.getElementById('input-cat').value = p.category;
-            const imgPath = p.image ? `images/${p.image}` : 'images/default.webp';
-            document.getElementById('card-img').src = imgPath;
-
-            linkAtualArtigo = `https://essencialista.vercel.app/${p.href}`;
-            atualizarCard(linkAtualArtigo);
-        }
-
-        function atualizarCard(linkManual) {
-            const title = document.getElementById('input-title').value;
-            const cat = document.getElementById('input-cat').value;
-            const color = document.getElementById('input-color').value;
-            const link = linkManual || linkAtualArtigo;
-
-            document.getElementById('card-title').innerText = title;
-            document.getElementById('card-cat').innerText = cat;
-            document.getElementById('card-cat-box').style.backgroundColor = color;
-
-            // Atualiza o link visual no card (remove o https:// para ficar mais limpo)
-            document.getElementById('card-url-display').innerText = link.replace('https://', '');
-
-            qrcode.clear();
-            qrcode.makeCode(link);
-        }
-
-        function copiarLinkArtigo() {
-            navigator.clipboard.writeText(linkAtualArtigo).then(() => {
-                const btn = event.currentTarget;
-                const originalContent = btn.innerHTML;
-                btn.innerHTML = '<i class="fas fa-check text-green-500"></i> COPIADO!';
-                btn.classList.add('bg-green-50');
-                setTimeout(() => {
-                    btn.innerHTML = originalContent;
-                    btn.classList.remove('bg-green-50');
-                }, 2000);
-            });
-        }
-
-        async function baixarCard() {
-            const btn = event.currentTarget;
-            btn.disabled = true; btn.innerHTML = "⌛ GERANDO...";
-            const card = document.getElementById('card-preview');
-            const originalTransform = card.style.transform;
-            card.style.transform = 'none';
-
-            try {
-                const canvas = await html2canvas(card, { useCORS: true, scale: 1, backgroundColor: "#000000" });
-                const link = document.createElement('a');
-                link.download = `card-essencialista.png`;
-                link.href = canvas.toDataURL("image/png");
-                link.click();
-            } catch (err) { alert("Erro ao gerar imagem."); }
-            finally { card.style.transform = originalTransform; btn.disabled = false; btn.innerHTML = '<i class="fas fa-download"></i> BAIXAR PNG (1080x1920)'; }
-        }
-
-        document.getElementById('input-title').addEventListener('input', () => atualizarCard());
-        document.getElementById('input-cat').addEventListener('input', () => atualizarCard());
-        document.getElementById('input-color').addEventListener('input', () => atualizarCard());
-
         async function acao(tipo, linha) {
             const pw = document.getElementById('senha').value;
-            if (tipo === 'excluir' && !confirm("Tem certeza que deseja apagar?")) return;
+            if (tipo === 'excluir' && !confirm("Apagar comentário?")) return;
 
             const btn = event.currentTarget;
             const card = btn.closest('.bg-white');
             const lista = document.getElementById('listaAdmin');
+            const statusTxt = document.getElementById('adminStatus');
 
-            // 1. Feedback visual de "Processando"
             card.style.opacity = '0.7';
             card.style.pointerEvents = 'none';
-            const conteudoOriginalBtn = btn.innerHTML;
+            const originalHTML = btn.innerHTML;
             btn.innerHTML = '<i class="fas fa-spinner animate-spin"></i>';
 
             const url = `${WEB_APP_URL}?action=${tipo}&row=${linha}&pw=${encodeURIComponent(pw)}`;
@@ -411,66 +263,121 @@
                 await fetch(url, { mode: 'no-cors' });
 
                 if (tipo === 'aprovar') {
-                    // --- EFEITO DE APROVAÇÃO ANIMADA ---
-
-                    // Ícone de sucesso no botão antes de remover
-                    btn.innerHTML = '<i class="fas fa-check text-white"></i>';
+                    btn.innerHTML = '<i class="fas fa-check"></i>';
                     btn.classList.replace('bg-green-600', 'bg-green-500');
-
+                    
                     setTimeout(() => {
-                        // Troca a cor da borda de laranja para verde com suavidade
-                        card.classList.remove('border-orange-500');
-                        card.classList.add('border-green-500');
-
-                        // Atualiza o crachá de status
+                        card.classList.replace('border-orange-500', 'border-green-500');
                         const badge = card.querySelector('span.text-\\[10px\\]');
                         if (badge) {
                             badge.innerText = 'SIM';
-                            badge.classList.replace('bg-gray-100', 'bg-green-100');
                             badge.classList.replace('text-gray-500', 'text-green-700');
                         }
-
-                        // Remove o botão de aprovar, mas mantém o de excluir
                         btn.remove();
-
-                        // Restaura interação
                         card.style.opacity = '1';
                         card.style.pointerEvents = 'auto';
-                    }, 600); // Pequena pausa para o usuário ver o "check"
-
+                        atualizarNotificacaoAdmin(); // CHECA SE AINDA TEM LARANJA
+                    }, 600);
                 } else {
-                    // --- EXCLUSÃO COM DESAPARECIMENTO ---
                     card.style.transform = 'scale(0.95)';
                     card.style.opacity = '0';
-
                     setTimeout(() => {
                         card.remove();
                         if (lista.children.length === 0) {
-                            lista.innerHTML = '<div class="bg-white p-8 rounded-xl text-center shadow font-bold text-gray-500 uppercase tracking-widest text-xs">Nenhum comentário pendente.</div>';
+                            lista.innerHTML = '<div class="bg-white p-8 rounded-xl text-center shadow font-bold text-gray-500 uppercase tracking-widest text-xs">Nenhum comentário.</div>';
                         }
+                        atualizarNotificacaoAdmin(); // CHECA SE AINDA TEM LARANJA
                     }, 300);
                 }
-
             } catch (e) {
-                btn.innerHTML = conteudoOriginalBtn;
+                btn.innerHTML = originalHTML;
                 card.style.opacity = '1';
                 card.style.pointerEvents = 'auto';
-                console.error("Erro na operação:", e);
             }
         }
+
+        function atualizarNotificacaoAdmin() {
+            const lista = document.getElementById('listaAdmin');
+            const statusTxt = document.getElementById('adminStatus');
+            const aindaTemPendentes = lista.querySelectorAll('.border-orange-500').length > 0;
+
+            if (!aindaTemPendentes) {
+                statusTxt.classList.replace('text-green-400', 'text-gray-400');
+                statusTxt.classList.remove('font-bold');
+                statusTxt.innerHTML = 'Painel Administrativo';
+            }
+        }
+
+        // --- GERADOR DE CARDS ---
+        const qrcode = new QRCode(document.getElementById("qrcode"), { width: 180, height: 180 });
+        let postsParaCard = [];
+
+        async function carregarPostsParaCard() {
+            try {
+                const res = await fetch('posts/index.json');
+                postsParaCard = await res.json();
+                const select = document.getElementById('card-select');
+                select.innerHTML = '<option value="">Escolha um artigo...</option>';
+                postsParaCard.forEach((p, idx) => {
+                    const opt = document.createElement('option');
+                    opt.value = idx;
+                    opt.textContent = p.title;
+                    select.appendChild(opt);
+                });
+            } catch (e) { console.error("Erro ao carregar posts."); }
+        }
+
+        function selecionarPostCard(idx) {
+            if (idx === "") return;
+            const p = postsParaCard[idx];
+            document.getElementById('input-title').value = p.title;
+            document.getElementById('input-cat').value = p.category;
+            document.getElementById('card-img').src = p.image ? `images/${p.image}` : 'images/default.webp';
+            atualizarCard(`https://essencialista.vercel.app/${p.href}`);
+        }
+
+        function atualizarCard(link) {
+            const title = document.getElementById('input-title').value;
+            const cat = document.getElementById('input-cat').value;
+            const color = document.getElementById('input-color').value;
+            document.getElementById('card-title').innerText = title;
+            document.getElementById('card-cat').innerText = cat;
+            document.getElementById('card-cat-box').style.backgroundColor = color;
+            document.getElementById('card-url-display').innerText = link.replace('https://', '');
+            qrcode.clear();
+            qrcode.makeCode(link);
+        }
+
+        async function baixarCard() {
+            const btn = event.currentTarget;
+            const card = document.getElementById('card-preview');
+            const originalTransform = card.style.transform;
+            btn.disabled = true; btn.innerText = "GERANDO...";
+            card.style.transform = 'none';
+            try {
+                const canvas = await html2canvas(card, { useCORS: true, scale: 1 });
+                const a = document.createElement('a');
+                a.download = `card.png`;
+                a.href = canvas.toDataURL();
+                a.click();
+            } catch (err) { alert("Erro."); }
+            card.style.transform = originalTransform;
+            btn.disabled = false; btn.innerHTML = "BAIXAR PNG";
+        }
+
+        document.getElementById('input-title').addEventListener('input', () => atualizarCard(document.getElementById('card-url-display').innerText));
+        document.getElementById('input-cat').addEventListener('input', () => atualizarCard(document.getElementById('card-url-display').innerText));
+        document.getElementById('input-color').addEventListener('input', () => atualizarCard(document.getElementById('card-url-display').innerText));
+
         document.getElementById('bookForm').onsubmit = async function (e) {
             e.preventDefault();
-            const pw = document.getElementById('senha').value;
-            const status = document.getElementById('bookStatus');
             const btn = this.querySelector('button');
-
-            btn.disabled = true;
-            btn.innerText = "Enviando...";
-            status.innerText = "";
-
+            const status = document.getElementById('bookStatus');
+            btn.disabled = true; btn.innerText = "ENVIANDO...";
+            
             const payload = {
                 action: 'adicionarLivro',
-                pw: pw,
+                pw: document.getElementById('senha').value,
                 titulo: document.getElementById('bookTitle').value,
                 descricao: document.getElementById('bookDesc').value,
                 categoria: document.getElementById('bookCat').value,
@@ -479,24 +386,13 @@
             };
 
             try {
-                const res = await fetch(WEB_APP_URL, {
-                    method: 'POST',
-                    mode: 'no-cors',
-                    body: JSON.stringify(payload)
-                });
-
-                status.className = "mt-3 text-center text-sm font-bold text-green-600";
-                status.innerText = "Livro adicionado com sucesso na planilha!";
+                await fetch(WEB_APP_URL, { method: 'POST', mode: 'no-cors', body: JSON.stringify(payload) });
+                status.className = "mt-3 text-green-600 font-bold";
+                status.innerText = "Livro salvo!";
                 this.reset();
-            } catch (err) {
-                status.className = "mt-3 text-center text-sm font-bold text-red-600";
-                status.innerText = "Erro ao salvar livro.";
-            } finally {
-                btn.disabled = false;
-                btn.innerText = "ADICIONAR À PLANILHA";
-            }
+            } catch (err) { status.innerText = "Erro."; }
+            btn.disabled = false; btn.innerText = "ADICIONAR À PLANILHA";
         };
     </script>
 </body>
-
 </html>

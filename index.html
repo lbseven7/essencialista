@@ -8,7 +8,8 @@
 
     <meta name="theme-color" content="#000000">
 
-    <link rel="icon" href="data:;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAMklEQVR42mP8/5+hfgAJgHFQgeP8f4ahfgAJgHFQgeP8f4ahfgAJgHFQgeP8f4ahfgAJgH9f4f4AAW0AAAAASUVORK5CYII=">
+    <link rel="icon"
+        href="data:;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAMklEQVR42mP8/5+hfgAJgHFQgeP8f4ahfgAJgHFQgeP8f4ahfgAJgHFQgeP8f4ahfgAJgH9f4f4AAW0AAAAASUVORK5CYII=">
 
     <!-- Vercel Speed Insights -->
     <script>
@@ -156,9 +157,16 @@
                                 class="hover:text-orange-500 font-bold block w-full py-2">Artigos</a></li>
                         <li><a href="about.html" class="hover:text-orange-500 font-bold block w-full py-2">Sobre</a>
                         </li>
-                        <li><a href="admin.html" class="text-gray-500 hover:text-orange-500 py-2"
-                                aria-label="Painel Admin"><i class="fas fa-user-shield mr-2 md:mr-0"></i><span
-                                    class="md:hidden font-bold uppercase text-xs">Admin</span></a></li>
+                        <li>
+                            <a href="admin.html" id="linkAdminHome"
+                                class="relative text-gray-500 hover:text-orange-500 py-2 transition-all duration-300"
+                                aria-label="Painel Admin">
+                                <i class="fas fa-user-shield mr-2 md:mr-0"></i>
+                                <span class="md:hidden font-bold uppercase text-xs">Admin</span>
+                                <span id="notificacaoAdmin"
+                                    class="hidden absolute -top-1 -right-1 md:-right-2 w-2 h-2 bg-green-500 rounded-full shadow-[0_0_8px_rgba(34,197,94,0.8)] animate-pulse"></span>
+                            </a>
+                        </li>
                     </ul>
                 </nav>
             </div>
@@ -414,6 +422,98 @@
                 mainNav.classList.add('hidden');
             };
         });
+    </script>
+
+  <script>
+        // 1. CONFIGURAÇÕES E SELETORES
+        // Usando a sua nova URL de implementação
+        const WEB_APP_URL_SISTEMA = 'https://script.google.com/macros/s/AKfycbwnnAaAFE0lhzil864Ir-SR7-UNmkFysmIgPiU9ZZypThK0GK2lAApcUpD9siCkl62Q/exec';
+        let artigosLocais = [];
+
+        // Seletores Únicos (Evita o erro "Cannot redeclare")
+        const menuNavegacao = document.getElementById('main-nav');
+        const botaoMobile = document.getElementById('mobileMenuBtn');
+        const alertaPonto = document.getElementById('notificacaoAdmin');
+        const linkAdminIcone = document.getElementById('linkAdminHome');
+
+        // 2. FUNÇÃO DE NOTIFICAÇÃO (PONTO VERDE)
+        async function verificarNotificacoesAtivas() {
+            if (!alertaPonto) return;
+            
+            try {
+                // Usamos o modo 'checkPendencias' que adicionamos ao seu Google Script
+                // O parâmetro '_t' força o navegador a buscar um dado novo, sem cache
+                const resposta = await fetch(`${WEB_APP_URL_SISTEMA}?mode=checkPendencias&_t=${Date.now()}`);
+                const resultado = await resposta.json();
+
+                if (resultado && resultado.pendente === true) {
+                    alertaPonto.classList.remove('hidden');
+                    if (linkAdminIcone) {
+                        linkAdminIcone.classList.replace('text-gray-500', 'text-green-500');
+                    }
+                    console.log("Sistema: Comentários pendentes encontrados.");
+                }
+            } catch (erro) {
+                console.warn("Aviso: Notificações não puderam ser carregadas agora.");
+            }
+        }
+
+        // 3. CARREGAMENTO DE ARTIGOS E COMENTÁRIOS
+        async function inicializarConteudo() {
+            // Carregar Artigos
+            try {
+                const res = await fetch('posts/index.json');
+                artigosLocais = await res.json();
+                artigosLocais.sort((a, b) => new Date(b.date || b.mtime) - new Date(a.date || a.mtime));
+                if (typeof renderizarGrid === "function") renderizarGrid(artigosLocais);
+            } catch (e) { console.error("Erro ao carregar posts:", e); }
+
+            // Carregar Comentários da Home
+            try {
+                const resCom = await fetch(`${WEB_APP_URL_SISTEMA}?artigoId=home`);
+                const lista = await resCom.json();
+                document.getElementById('loader')?.remove();
+                // ... lógica de renderizar comentários se necessário ...
+            } catch (e) { console.error("Erro ao carregar comentários:", e); }
+        }
+
+        // 4. LÓGICA DO MENU E DARK MODE
+        function configurarInterface() {
+            // Menu Mobile
+            if (botaoMobile && menuNavegacao) {
+                botaoMobile.onclick = (e) => {
+                    e.stopPropagation();
+                    menuNavegacao.classList.toggle('hidden');
+                };
+                document.addEventListener('click', () => menuNavegacao.classList.add('hidden'));
+            }
+
+            // Dark Mode
+            const btnDark = document.getElementById('darkModeBtn');
+            if (btnDark) {
+                btnDark.onclick = () => {
+                    const darkAtivo = document.body.classList.toggle('dark');
+                    localStorage.setItem('theme', darkAtivo ? 'dark' : 'light');
+                };
+            }
+        }
+
+        // 5. INICIALIZAÇÃO ÚNICA (window.onload)
+        window.onload = () => {
+            inicializarConteudo();
+            configurarInterface();
+            verificarNotificacoesAtivas();
+        };
+
+        // Barra de Progresso
+        window.onscroll = () => {
+            const winScroll = document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            const bar = document.getElementById("progress-bar");
+            if (bar) bar.style.width = scrolled + "%";
+            document.querySelector('header')?.classList.toggle('scrolled', window.scrollY > 50);
+        };
     </script>
 </body>
 
