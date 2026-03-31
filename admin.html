@@ -77,8 +77,7 @@
             <div class="flex flex-col sm:flex-row gap-3 justify-center">
                 <input type="password" id="senha" placeholder="Digite a senha admin"
                     class="border border-gray-300 p-3 rounded-lg focus:ring-2 focus:ring-orange-500 outline-none w-full sm:w-64">
-                <button onclick="carregarAdmin()"
-                    class="bg-black text-white px-6 py-3 rounded-lg font-bold hover:bg-orange-600 transition">
+                <button aria-label="acessar painel" class="bg-black text-white px-6 py-3 rounded-lg font-bold hover:bg-orange-600 transition" id="loginBtn" type="button" onclick="carregarAdmin()">
                     Acessar Painel
                 </button>
             </div>
@@ -267,11 +266,11 @@
                                 </div>
                                 <div class="flex md:flex-col gap-2 justify-end">
                                     ${pendente ? `
-                                        <button onclick="acao('aprovar', ${c.row})" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg font-bold text-sm flex items-center gap-2">
+                                        <button aria-label="aprovar" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg font-bold text-sm flex items-center gap-2">
                                             <i class="fas fa-check"></i> Aprovar
                                         </button>
                                     ` : ''}
-                                    <button onclick="acao('excluir', ${c.row})" class="bg-red-50 text-red-600 hover:bg-red-600 hover:text-white px-4 py-2 rounded-lg font-bold text-sm transition flex items-center gap-2">
+                                    <button aria-label="excluir" class="bg-red-50 text-red-600 hover:bg-red-600 hover:text-white px-4 py-2 rounded-lg font-bold text-sm transition flex items-center gap-2">
                                         <i class="fas fa-trash-alt"></i> Excluir
                                     </button>
                                 </div>
