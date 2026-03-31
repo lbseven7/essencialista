@@ -3,7 +3,7 @@ title: "O Ambiente da Vida: A Analogia da Criação"
 date: "2026-03-31"
 image: "sustenta.webp"
 category: "Fé"
-signature: "Deus é o nosso ambiente natural. Fomos criados para vivermos em Deus e só n'Ele a vida existe. - Essencialista"
+signature: "Deus é o nosso ambiente natural. Fomos criados para vivermos em Deus e só n'Ele a vida existe."
 ---
 
 ## A Analogia da Criação
