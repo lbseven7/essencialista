@@ -1,7 +1,7 @@
 ---
 title: "The Great Controversy"
 date: "2026-02-07"
-image: "esta-escrito.jpg"
+image: "a-grande-controversia.webp"
 category: "Profecia"
 signature: "Cristo disse: Eis que venho sem demora."
 ---
