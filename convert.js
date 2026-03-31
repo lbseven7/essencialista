@@ -112,7 +112,7 @@ const htmlTemplate = (data, content, prevHref, nextHref, slug, relacionados) => 
     </header>
     <main class="container mx-auto mt-8 p-4 max-w-2xl">
         <article class="bg-white p-6 rounded-lg shadow-lg mb-10 animate-fade-in">
-            ${data.image ? `<img src="../images/${data.image}" class="w-full h-64 object-cover mb-6 rounded-lg shadow">` : ''}
+            ${data.image ? `<img src="../images/${data.image}" class="w-full h-64 object-cover mb-6 rounded-lg shadow" alt="${data.title} Preview">` : ''}
             <div class="mb-2"><span class="text-orange-600 font-black text-xs uppercase tracking-widest">${data.category}</span></div>
             <h2 class="text-3xl font-bold mb-6 leading-tight">${data.title}</h2>
             <div class="content-area space-y-4 leading-relaxed text-justify text-gray-700">${content}</div>
@@ -146,7 +146,7 @@ const htmlTemplate = (data, content, prevHref, nextHref, slug, relacionados) => 
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 ${relacionados.map(r => `
                     <a href="../${r.href}" class="group bg-white rounded-lg shadow hover:shadow-xl transition-all p-3 flex flex-col h-full">
-                        <img src="../images/${r.image || 'default.webp'}" class="w-full h-24 object-cover rounded mb-2">
+                        <img src="../images/${r.image || 'default.webp'}" class="w-full h-24 object-cover rounded mb-2" alt="${r.title} Preview">
                         <span class="text-[9px] font-black text-orange-600 uppercase tracking-widest mb-1">${r.category}</span>
                         <h4 class="font-bold text-xs group-hover:text-orange-600 line-clamp-2 leading-tight">${r.title}</h4>
                     </a>

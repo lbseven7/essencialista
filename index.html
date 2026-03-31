@@ -273,7 +273,7 @@
                 card.innerHTML = `
                     <a href="${p.href}" class="block group">
                         <div class="relative aspect-video skeleton bg-gray-200">
-                            <img src="images/${p.image || 'default.webp'}" class="post-img w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                            <img src="images/${p.image || 'default.webp'}" class="post-img w-full h-full object-cover transition duration-500 group-hover:scale-110" alt="${p.title} Preview">
                         </div>
                         <div class="p-4 flex-grow text-left">
                             <div class="flex items-center justify-between mb-2">
