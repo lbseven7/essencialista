@@ -10,7 +10,16 @@
     <script>
         window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
     </script>
-    <script defer src="/_vercel/speed-insights/script.js"></script>
+    <script defer src="/_vercel/insights/script.js"></script>
+    <script>
+        if (window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
+            window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
+            const s = document.createElement('script');
+            s.defer = true;
+            s.src = '/_vercel/insights/script.js';
+            document.head.appendChild(s);
+        }
+    </script>
 
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -77,7 +86,9 @@
             <div class="flex flex-col sm:flex-row gap-3 justify-center">
                 <input type="password" id="senha" placeholder="Digite a senha admin"
                     class="border border-gray-300 p-3 rounded-lg focus:ring-2 focus:ring-orange-500 outline-none w-full sm:w-64">
-                <button aria-label="acessar painel" class="bg-black text-white px-6 py-3 rounded-lg font-bold hover:bg-orange-600 transition" id="loginBtn" type="button" onclick="carregarAdmin()">
+                <button aria-label="acessar painel"
+                    class="bg-black text-white px-6 py-3 rounded-lg font-bold hover:bg-orange-600 transition"
+                    id="loginBtn" type="button" onclick="carregarAdmin()">
                     Acessar Painel
                 </button>
             </div>
@@ -213,14 +224,12 @@
             const msgErro = document.getElementById('msgErro');
             const btnAcesso = document.querySelector('#loginArea button');
 
-            // 1. Bloqueio imediato se o campo estiver vazio
             if (!pw || pw.trim() === "") {
                 msgErro.innerText = "Digite a senha para acessar.";
                 msgErro.classList.remove('hidden');
                 return;
             }
 
-            // Iniciar estado de loading no botão e na lista
             btnAcesso.disabled = true;
             btnAcesso.innerHTML = '<i class="fas fa-spinner animate-spin mr-2"></i> Autenticando...';
 
@@ -228,7 +237,6 @@
             lista.innerHTML = '<div class="text-center py-10"><i class="fas fa-spinner animate-spin text-3xl text-orange-500"></i><p class="mt-2 text-gray-500 font-bold uppercase tracking-widest text-xs">Validando credenciais...</p></div>';
             msgErro.classList.add('hidden');
 
-            // Garantir que as outras seções estejam escondidas
             document.getElementById('adminBiblioteca').classList.add('hidden');
             document.getElementById('adminCards').classList.add('hidden');
 
@@ -236,7 +244,6 @@
                 const res = await fetch(`${WEB_APP_URL}?mode=admin&pw=${pw}`);
                 const dados = await res.json();
 
-                // 2. VALIDAÇÃO RIGOROSA: No GAS, o modo admin SEMPRE retorna o campo 'email'.
                 const isRealAdmin = Array.isArray(dados) && dados.length > 0 && dados[0].hasOwnProperty('email');
 
                 if (!isRealAdmin && dados.length > 0) {
@@ -248,42 +255,44 @@
                 if (dados.length === 0) {
                     lista.innerHTML = '<div class="bg-white p-8 rounded-xl text-center shadow font-bold text-gray-500 uppercase tracking-widest text-xs">Nenhum comentário pendente.</div>';
                 } else {
-                    // Inverte para ver os mais novos primeiro
+                    // Renderização dos cards com os eventos de clique inclusos
                     dados.reverse().forEach(c => {
                         const card = document.createElement('div');
                         const pendente = c.status !== 'SIM';
 
+                        // O MAPA DO ERRO: 
+                        // Verifique se no seu Google Script o nome do campo é 'linha' ou 'row'.
+                        // Se no log do console 'c' não tiver esse campo, ele fica 'undefined'.
+                        const numLinha = c.linha || c.row || "";
+
                         card.className = `bg-white p-6 rounded-xl shadow-md border-l-8 transition-all ${pendente ? 'border-orange-500' : 'border-green-500'}`;
                         card.innerHTML = `
-                            <div class="flex flex-col md:flex-row justify-between gap-4">
-                                <div class="flex-grow">
-                                    <div class="flex items-center gap-2 mb-1">
-                                        <span class="font-bold text-gray-900 text-lg">${c.nome}</span>
-                                        <span class="text-[10px] px-2 py-1 rounded bg-gray-100 text-gray-500 font-bold uppercase">${c.status}</span>
-                                    </div>
-                                    <p class="text-xs text-gray-400 mb-3">${c.email}</p>
-                                    <p class="text-gray-700 leading-relaxed bg-gray-50 p-3 rounded-lg border border-gray-100">${c.comentario}</p>
-                                </div>
-                                <div class="flex md:flex-col gap-2 justify-end">
-                                    ${pendente ? `
-                                        <button aria-label="aprovar" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg font-bold text-sm flex items-center gap-2">
-                                            <i class="fas fa-check"></i> Aprovar
-                                        </button>
-                                    ` : ''}
-                                    <button aria-label="excluir" class="bg-red-50 text-red-600 hover:bg-red-600 hover:text-white px-4 py-2 rounded-lg font-bold text-sm transition flex items-center gap-2">
-                                        <i class="fas fa-trash-alt"></i> Excluir
-                                    </button>
-                                </div>
-                            </div>
-                        `;
+        <div class="flex flex-col md:flex-row justify-between gap-4">
+            <div class="flex-grow">
+                <div class="flex items-center gap-2 mb-1">
+                    <span class="font-bold text-gray-900 text-lg">${c.nome}</span>
+                    <span class="text-[10px] px-2 py-1 rounded bg-gray-100 text-gray-500 font-bold uppercase">${c.status}</span>
+                </div>
+                <p class="text-xs text-gray-400 mb-3">${c.email}</p>
+                <p class="text-gray-700 leading-relaxed bg-gray-50 p-3 rounded-lg border border-gray-100">${c.comentario}</p>
+            </div>
+            <div class="flex md:flex-col gap-2 justify-end">
+                ${pendente ? `
+                    <button onclick="acao('aprovar', '${numLinha}')" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg font-bold text-sm flex items-center gap-2">
+                        <i class="fas fa-check"></i> Aprovar
+                    </button>
+                ` : ''}
+                <button onclick="acao('excluir', '${numLinha}')" class="bg-red-50 text-red-600 hover:bg-red-600 hover:text-white px-4 py-2 rounded-lg font-bold text-sm transition flex items-center gap-2">
+                    <i class="fas fa-trash-alt"></i> Excluir
+                </button>
+            </div>
+        </div>
+    `;
                         lista.appendChild(card);
                     });
                 }
 
-                // Carrega posts para o gerador de cards
                 carregarPostsParaCard();
-
-                // Mostra as seções após o login bem-sucedido
                 document.getElementById('loginArea').classList.add('hidden');
                 document.getElementById('listaAdmin').classList.remove('hidden');
                 document.getElementById('adminBiblioteca').classList.remove('hidden');
@@ -293,8 +302,6 @@
                 lista.classList.add('hidden');
                 msgErro.innerText = e.message || "Erro de conexão.";
                 msgErro.classList.remove('hidden');
-
-                // Restaurar botão em caso de erro
                 btnAcesso.disabled = false;
                 btnAcesso.innerHTML = 'Acessar Painel';
             }
@@ -386,20 +393,46 @@
 
         async function acao(tipo, linha) {
             const pw = document.getElementById('senha').value;
-            const confirmacao = tipo === 'excluir' ? confirm("Tem certeza que deseja apagar permanentemente este comentário?") : true;
+            if (tipo === 'excluir' && !confirm("Tem certeza que deseja apagar?")) return;
 
-            if (!confirmacao) return;
+            const btn = event.currentTarget;
+            const card = btn.closest('.bg-white');
+            const lista = document.getElementById('listaAdmin');
+
+            // Feedback visual de carregamento
+            card.style.opacity = '0.5';
+            card.style.pointerEvents = 'none';
+
+            const url = `${WEB_APP_URL}?action=${tipo}&row=${linha}&pw=${encodeURIComponent(pw)}`;
 
             try {
-                const res = await fetch(`${WEB_APP_URL}?action=${tipo}&row=${linha}&pw=${pw}`);
-                const texto = await res.text();
-                if (texto === "Sucesso" || texto === "Excluído") {
-                    carregarAdmin(); // Atualiza a lista automaticamente
+                await fetch(url, { mode: 'no-cors' });
+
+                if (tipo === 'aprovar') {
+                    // --- LÓGICA DE APROVAÇÃO ---
+                    // 1. Muda a borda para verde
+                    card.className = card.className.replace('border-orange-500', 'border-green-500');
+                    // 2. Atualiza o texto do status para "SIM"
+                    const statusBadge = card.querySelector('span.text-\\[10px\\]');
+                    if (statusBadge) statusBadge.innerText = 'SIM';
+                    // 3. Remove APENAS o botão de aprovar (o de excluir continua)
+                    btn.remove();
+                    // 4. Restaura a opacidade
+                    card.style.opacity = '1';
+                    card.style.pointerEvents = 'auto';
                 } else {
-                    alert("Erro na operação.");
+                    // --- LÓGICA DE EXCLUSÃO ---
+                    card.remove();
+                    // Verifica se a lista ficou vazia após excluir
+                    if (lista.children.length === 0) {
+                        lista.innerHTML = '<div class="bg-white p-8 rounded-xl text-center shadow font-bold text-gray-500 uppercase tracking-widest text-xs">Nenhum comentário pendente.</div>';
+                    }
                 }
+
             } catch (e) {
-                alert("Erro ao conectar com o servidor.");
+                card.style.opacity = '1';
+                card.style.pointerEvents = 'auto';
+                console.error("Erro na operação:", e);
             }
         }
         document.getElementById('bookForm').onsubmit = async function (e) {
