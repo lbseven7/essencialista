@@ -253,12 +253,16 @@
             try {
                 const res = await fetch('posts/index.json');
                 if (!res.ok) throw new Error('Falha ao carregar artigos');
-                todosOsArtigos = await res.json();
 
-                // Ordenação robusta por data (mais recente primeiro)
-                todosOsArtigos.sort((a, b) => {
+                const dadosBrutos = await res.json();
+
+                // FORÇA a gravação em todos os lugares possíveis
+                window.todosOsArtigos = dadosBrutos;
+                todosOsArtigos = dadosBrutos;
+
+                // Ordenação (sua lógica original)
+                window.todosOsArtigos.sort((a, b) => {
                     const parseData = (item) => {
-                        // Prioriza o campo 'date' definido no MD, depois o 'mtime'
                         const d = item.date || item.mtime;
                         if (!d) return 0;
                         if (typeof d === 'string' && d.length === 10) return new Date(d + 'T12:00:00').getTime();
@@ -267,10 +271,11 @@
                     return parseData(b) - parseData(a);
                 });
 
-                renderizarGrid(todosOsArtigos);
+                console.log("Carga completa! Teste de memória:", window.todosOsArtigos.length);
+                renderizarGrid(window.todosOsArtigos);
+
             } catch (e) {
-                console.error(e);
-                document.getElementById('featuredGrid').innerHTML = '<p class="col-span-full text-center text-red-500 font-bold py-10">Não foi possível carregar os artigos. Verifique sua conexão.</p>';
+                console.error("Erro na carga:", e);
             }
         }
 
@@ -305,17 +310,48 @@
             });
         }
 
+
         function filtrarArtigos(cat, btn) {
+            // 1. Tenta buscar a base em todos os locais possíveis
+            const base = window.todosOsArtigos || todosOsArtigos;
+
+            // 2. Se a base ainda não existir (primeiro clique rápido demais), tenta carregar e para
+            if (!base || base.length === 0) {
+                console.warn("Base de dados ainda não sincronizada. Tentando novamente...");
+                carregarArtigos().then(() => {
+                    // Tenta filtrar de novo automaticamente após carregar
+                    filtrarArtigos(cat, btn);
+                });
+                return;
+            }
+
+            // 3. UI - Resetar e Ativar Botões (Garante que o visual acompanhe o clique)
             document.querySelectorAll('.filter-btn').forEach(b => {
                 b.classList.remove('bg-black', 'text-white');
                 b.classList.add('bg-gray-200', 'text-gray-800');
             });
-            btn.classList.replace('bg-gray-200', 'bg-black');
-            btn.classList.add('text-white');
-            const catAlvo = cat.toLowerCase();
-            renderizarGrid(cat === 'todos' ? todosOsArtigos : todosOsArtigos.filter(a => a.category.toLowerCase() === catAlvo));
-        }
 
+            if (btn) {
+                btn.classList.replace('bg-gray-200', 'bg-black');
+                btn.classList.add('text-white');
+            }
+
+            // 4. Lógica de Filtro com Limpeza de String
+            const catAlvo = cat.toLowerCase().trim();
+
+            // Forçamos o Grid a esvaziar antes de renderizar (evita o "congelamento" do primeiro clique)
+            document.getElementById('featuredGrid').innerHTML = '';
+
+            const filtrados = catAlvo === 'todos'
+                ? base
+                : base.filter(p => {
+                    const categoriaPost = (p.category || "").toLowerCase().trim();
+                    return categoriaPost === catAlvo;
+                });
+
+            // 5. Renderiza imediatamente
+            renderizarGrid(filtrados);
+        }
         async function carregarComentarios() {
             try {
                 const res = await fetch(WEB_APP_URL + '?artigoId=home');
