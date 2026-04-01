@@ -22,3 +22,4 @@ Thumbs.db
 
 # Se você tivesse o Hugo instalado, também ignoraria a pasta de build:
 # /public/
+*.txt
