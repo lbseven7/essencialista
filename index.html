@@ -232,7 +232,7 @@
 
     <script>
         // URL do Backend (Google Apps Script)
-        const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbzWEYOv2rcWjy4Bnn5DivMPaSl6PCJbVroNEh1sfFkZkzg5VbDYqbuytOcf37V2ehEI/exec';
+        const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbwnnAaAFE0lhzil864Ir-SR7-UNmkFysmIgPiU9ZZypThK0GK2lAApcUpD9siCkl62Q/exec';
         let todosOsArtigos = [];
 
         function escapeHTML(str) {
@@ -354,21 +354,51 @@
             renderizarGrid(filtrados);
         }
         async function carregarComentarios() {
+            const container = document.getElementById('listaComentarios');
+            if (!container) return;
+
             try {
+                console.log("Buscando comentários para renderizar...");
                 const res = await fetch(WEB_APP_URL + '?artigoId=home');
                 const dados = await res.json();
-                document.getElementById('loader')?.remove();
-                if (!Array.isArray(dados)) return;
-                const container = document.getElementById('listaComentarios');
+
+                // 1. Limpa TUDO (incluindo o loader e o título antigo)
+                container.innerHTML = '';
+
+                // 2. Recria o Título manualmente para não depender de referências antigas
+                const h3 = document.createElement('h3');
+                h3.className = "text-xl font-bold mb-4 border-b-2 border-black dark:text-white dark:border-white";
+                h3.textContent = "Comentários";
+                container.appendChild(h3);
+
+                if (!Array.isArray(dados) || dados.length === 0) {
+                    const p = document.createElement('p');
+                    p.className = "italic text-gray-500";
+                    p.textContent = "Nenhum comentário aprovado ainda.";
+                    container.appendChild(p);
+                    return;
+                }
+
+                // 3. Renderiza os comentários
                 dados.forEach(c => {
                     const div = document.createElement('div');
-                    div.className = 'bg-white p-4 rounded-lg shadow border-l-4 border-orange-500 mb-4 dark:bg-gray-800';
-                    const n = document.createElement('p'); n.className = "font-bold text-gray-900 dark:text-white"; n.textContent = c.nome;
-                    const co = document.createElement('p'); co.className = "text-sm text-gray-700 dark:text-gray-300 mt-1"; co.textContent = c.comentario;
-                    div.append(n, co);
+                    // Forcei cores sólidas para testar se não é erro de Dark Mode (Texto preto no fundo branco)
+                    div.className = 'bg-white p-4 rounded-lg shadow border-l-4 border-orange-500 mb-4 dark:bg-gray-800 animate-fade-in block';
+
+                    div.innerHTML = `
+                <p class="font-bold text-gray-900 dark:text-white" style="display:block !important;">${c.nome}</p>
+                <p class="text-sm text-gray-700 dark:text-gray-300 mt-1" style="display:block !important;">${c.comentario}</p>
+            `;
+
                     container.appendChild(div);
                 });
-            } catch (e) { console.error(e); }
+
+                console.log("Renderização finalizada no DOM.");
+
+            } catch (e) {
+                console.error("Erro ao renderizar:", e);
+                container.innerHTML = '<p class="text-red-500">Erro ao carregar comentários.</p>';
+            }
         }
 
         document.getElementById("commentForm").onsubmit = async function (e) {
@@ -551,11 +581,22 @@
         }
 
         // 5. INICIALIZAÇÃO ÚNICA (window.onload)
-        window.onload = () => {
-            inicializarConteudo();
-            configurarInterface();
-            verificarNotificacoesAtivas();
-        };
+        window.addEventListener('load', async () => {
+            console.log("Página carregada. Iniciando scripts...");
+
+            try {
+                configurarInterface();
+                verificarNotificacoesAtivas();
+
+                console.log("Chamando carregarComentarios...");
+                await carregarComentarios();
+
+                console.log("Chamando carregarArtigos...");
+                await carregarArtigos();
+            } catch (err) {
+                console.error("Erro na inicialização:", err);
+            }
+        });
 
         // Barra de Progresso
         window.onscroll = () => {
