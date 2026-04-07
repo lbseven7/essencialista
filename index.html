@@ -404,9 +404,22 @@
         document.getElementById("commentForm").onsubmit = async function (e) {
             e.preventDefault();
             const btn = document.getElementById("btnEnviar");
-            const status = document.getElementById("msgStatus"); // Usaremos 'status' em tudo
+            const status = document.getElementById("msgStatus");
+            const emailValue = document.getElementById("email").value.trim();
 
-            // 1. Preparação do envio
+            // Validação de E-mail de Nível Corporativo (Exige .com, .com.br, .org, etc.)
+            // Bloqueia extensões curtas ou e-mails sem extensão padrão
+            const emailRegex = /^[^\s@]+@[^\s@]+\.(com|net|org|edu|gov|br|io|me|info|site|online|xyz|app|tech|dev|blog)(\.[a-z]{2})?$/i;
+            
+            if (!emailRegex.test(emailValue)) {
+                status.className = "mt-3 text-center font-bold text-red-600 dark:text-red-400 animate-bounce";
+                status.innerText = "ERRO: Use um e-mail com extensão válida (ex: .com ou .com.br)";
+                document.getElementById("email").focus();
+                return false; // Bloqueio total
+            }
+
+            // Se passou na validação, limpa mensagens de erro e prossegue
+            status.innerText = "";
             btn.disabled = true;
             btn.innerText = "Enviando...";
 

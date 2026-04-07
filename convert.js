@@ -201,10 +201,23 @@ const htmlTemplate = (data, content, prevHref, nextHref, slug, relacionados) => 
             } catch (e) { console.error("Erro ao carregar comentários:", e); }
         }
 
-        document.getElementById("commentForm").onsubmit = async function (e) {
+        document.getElementById("commentForm").onsubmit = async function(e) {
             e.preventDefault();
             const btn = document.getElementById("btnEnviar");
             const status = document.getElementById("msgStatus");
+            const emailValue = document.getElementById("email").value.trim();
+
+            // Validação de E-mail de Nível Corporativo (Exige .com, .com.br, etc.)
+            const emailRegex = /^[^\s@]+@[^\s@]+\.(com|net|org|edu|gov|br|io|me|info|site|online|xyz|app|tech|dev|blog)(\.[a-z]{2})?$/i;
+            
+            if (!emailRegex.test(emailValue)) {
+                status.className = "mt-3 text-center font-bold text-red-600 dark:text-red-400 animate-bounce";
+                status.innerText = "ERRO: Use um e-mail com extensão válida (ex: .com ou .com.br)";
+                document.getElementById("email").focus();
+                return false;
+            }
+
+            status.innerText = "";
             btn.disabled = true; btn.innerText = "Enviando...";
             
             try {
