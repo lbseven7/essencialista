@@ -12,7 +12,7 @@ const inputDir = path.join(__dirname, 'artigos');
 const outputDir = path.join(__dirname, 'posts');
 
 // URL do Backend (Google Apps Script) - Atualize aqui se mudar o script
-const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbwnnAaAFE0lhzil864Ir-SR7-UNmkFysmIgPiU9ZZypThK0GK2lAApcUpD9siCkl62Q/exec';
+const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbxVuAC4UeWvSORncW4rj5bqquF2ySxMRzP3uwB5CCMIlCKp7yHrNJj3ARv7nrywy2e9/exec';
 
 // Função para criar nomes de arquivos limpos (slugs)
 function slugify(text) {
