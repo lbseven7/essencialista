@@ -205,15 +205,37 @@ const htmlTemplate = (data, content, prevHref, nextHref, slug, relacionados) => 
             e.preventDefault();
             const btn = document.getElementById("btnEnviar");
             const status = document.getElementById("msgStatus");
-            const emailValue = document.getElementById("email").value.trim();
-
-            // Validação de E-mail de Nível Corporativo (Exige .com, .com.br, etc.)
-            const emailRegex = /^[^\s@]+@[^\s@]+\.(com|net|org|edu|gov|br|io|me|info|site|online|xyz|app|tech|dev|blog)(\.[a-z]{2})?$/i;
             
+            const nomeValue = document.getElementById("nome").value.trim();
+            const emailValue = document.getElementById("email").value.trim();
+            const comentarioValue = document.getElementById("comentario").value.trim();
+
+            // 1. Validação de Nome (Mínimo 3 letras)
+            if (!/^[a-zA-ZÀ-ÿ\s]{3,}$/.test(nomeValue)) {
+                status.className = "mt-3 text-center font-bold text-red-600 dark:text-red-400 animate-bounce";
+                status.innerText = "ERRO: Insira um nome válido (mínimo 3 letras).";
+                document.getElementById("nome").focus();
+                return false;
+            }
+
+            // 2. Validação de E-mail de Nível Corporativo
+            const emailRegex = /^[^\s@]+@[^\s@]+\.(com|net|org|edu|gov|br|io|me|info|site|online|xyz|app|tech|dev|blog)(\.[a-z]{2})?$/i;
             if (!emailRegex.test(emailValue)) {
                 status.className = "mt-3 text-center font-bold text-red-600 dark:text-red-400 animate-bounce";
                 status.innerText = "ERRO: Use um e-mail com extensão válida (ex: .com ou .com.br)";
                 document.getElementById("email").focus();
+                return false;
+            }
+
+            // 3. Validação de Comentário (Qualidade de Texto)
+            const temLetras = /[a-zA-ZÀ-ÿ]/.test(comentarioValue);
+            const muitasRepeticoes = /(.)\\1{4,}/.test(comentarioValue); 
+            const excessoSimbolos = (comentarioValue.match(/[^a-zA-ZÀ-ÿ0-9\s]/g) || []).length > comentarioValue.length * 0.4;
+
+            if (comentarioValue.length < 10 || !temLetras || muitasRepeticoes || excessoSimbolos) {
+                status.className = "mt-3 text-center font-bold text-red-600 dark:text-red-400 animate-bounce";
+                status.innerText = "ERRO: O comentário parece inválido ou contém muitos símbolos.";
+                document.getElementById("comentario").focus();
                 return false;
             }
 
