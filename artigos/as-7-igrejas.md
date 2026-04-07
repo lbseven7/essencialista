@@ -1,7 +1,7 @@
 ---
 title: "As 7 Igrejas"
 date: "2026-03-20"
-image: "as-7-igrejas.webp"
+image: "igreja.webp"
 category: "Profecia"
 signature: "..."
 ---
