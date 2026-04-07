@@ -418,11 +418,16 @@
                 return false;
             }
 
-            // 2. Validação de E-mail de Nível Corporativo
+            // 2. Validação de E-mail de Nível Corporativo + Lista Negra
             const emailRegex = /^[^\s@]+@[^\s@]+\.(com|net|org|edu|gov|br|io|me|info|site|online|xyz|app|tech|dev|blog)(\.[a-z]{2})?$/i;
-            if (!emailRegex.test(emailValue)) {
+            const dominiosBanidos = ['mailinator.com', 'yopmail.com', '10minutemail.com', 'tempmail.com', 'guerrillamail.com', 'sharklasers.com', 'dispostable.com', 'getnada.com'];
+            const dominioEmail = emailValue.split('@')[1]?.toLowerCase();
+
+            if (!emailRegex.test(emailValue) || dominiosBanidos.includes(dominioEmail)) {
                 status.className = "mt-3 text-center font-bold text-red-600 dark:text-red-400 animate-bounce";
-                status.innerText = "ERRO: Use um e-mail com extensão válida (ex: .com ou .com.br)";
+                status.innerText = dominiosBanidos.includes(dominioEmail) 
+                    ? "ERRO: E-mails temporários não são permitidos." 
+                    : "ERRO: Use um e-mail com extensão válida (ex: .com ou .com.br)";
                 document.getElementById("email").focus();
                 return false; 
             }
