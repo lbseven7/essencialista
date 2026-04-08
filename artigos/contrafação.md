@@ -1,5 +1,5 @@
 ---
-title: "A Falsa Tríade do Mal"
+title: "A Tríade do Mal"
 date: "2026-04-07"
 image: "e-falso.webp"
 category: "Profecia"
@@ -8,68 +8,101 @@ signature: "Satanás não cria nada, pois, é criatura. Ele faz contrafações d
 
 ## O mestre da Contrafação
 
-Costumo dizer que o que o diabo copia de Deus é uma cópia "Ching Ling". Mas, não quero dizer que a sua cópia é malfeita (entenda).
-Essa cópia torna-se "mal feita", quando você conhece muito bem a original.
-Do contrário, você será enganado pela semelhança com a verdadeira obra de Deus. 
-Não é atoa que a Palavra de Deus diz que ele se disfarça de anjo de luz e se possível, enganaria os próprios eleitos. Logo, todo cuidado é pouco para não cair nas garras do dragão.
+Costumo dizer que tudo o que satanás copia de Deus é uma cópia "Ching Ling". Mas, não quero dizer que a sua cópia é malfeita (entenda).
 
-Dito isto, vamos lá.
+Essa cópia torna-se "mal feita", quando você conhece muito bem a original. É como saber tudo sobre a nota de dinheiro verdadeira. Quando a falsa chega você nota logo.
 
-Deus é nosso Criador e somos criaturas Suas. Somos mantidos por Ele e nossa vida depende Dele.
+Se você não souber bem o que é a verdade divina, será enganado pela falsificação do inimigo de Deus.
 
-Os anjos também são criaturas Dele. Um pouco maior do que o ser humano, em estatura, estrutura material e poder. Entretanto, os anjos não criam nada.
+## Anjo de Luz
 
-Eles vão até onde o Senhor permite. Como na história de Jó, por exemplo.
+Não é atoa que a Palavra de Deus diz que ele se disfarça de anjo de luz (2Coríntios 11:14) e  (Mateus 24:24). Logo, todo cuidado é pouco para não cair nas garras do dragão. Dito isto, vamos lá.
 
-Então, uma terça parte desses anjos caídos estão aqui na terra atormentando o ser humano e o afastando de Seu Criador através da desobediência e rebelião contra o governo do Céu.
+## Criatura não é criador
 
-Por causa dessa rebelião é que foram expulsos do Céu (Ap.12:9). Satanás, como líder dos rebeldes, continua em rebelião declarada contra o trono de Deus
-e contra os seguidores do Cordeiro (Jesus).
+Deus é nosso Criador e somos criaturas Suas. Somos mantidos por Ele e nossa vida depende Dele. Os anjos também são criaturas Dele. Um pouco maior do que o ser humano, em estatura, estrutura material e poder. Entretanto, os anjos não criam nada.
 
-Lembremos também de que o grande conflito que já dura quase seis mil anos, está quase no fim. As profecias
+Eles só vão até onde o Senhor permite. Como na história de Jó, por exemplo.
+
+## A rebelião
+
+Então, uma terça parte desses anjos caídos estão aqui na terra (Apocalipse 12:9) atormentando o ser humano e através da desobediência e rebelião, colocando os homens em rebelião contra o governo do Céu.
+
+Por causa dessa rebelião é que foram expulsos do Céu (Apocalipse 12:9). Satanás, como líder dos rebeldes, continua em rebelião declarada contra o trono de Deus
+e contra os seguidores de Jesus.
+
+## Satanás tem pouco tempo
+
+Lembremos também de que o grande conflito que já dura quase seis mil anos, está quase no fim. 
+As profecias
 do capítulo 11 de Daniel quase atingiram seu total cumprimento. Nesse contexto, sabendo que pouco tempo lhe resta, ele
 inventa toda sorte de contrafações para manter o mundo absorto no engano.
 
-Um dos seus maiores enganos é querer ser igual a Deus, e para sustentar o engodo, em contraposição à verdade sobre Deus, ele
-faz sua própria "verdade" sobre ele próprio e mantém multidões em seu "terreno encantado".
+## 
 
-## A Verdade sobre a Divindade
+Um dos seus maiores enganos é querer ser igual a Deus, e para sustentar o engodo, em contraposição à verdade sobre Deus, ele
+faz sua própria "verdade" sobre si próprio e mantém multidões em seu "terreno encantado".
+
+Para se colocar em posição de "igualdade" com Deus, ele tem que fazer uma "falsificação" da verdade sobre Deus, sobre Jesus e sobre o Espírito Santo.
+
+Está escrito em Daniel 8: 12:
+
+***"E ele jogou a verdade por terra. E que ele fez prosperou."***
+
+Ou seja, ele obteve exito em sua falsificação da verdade sobre a divindade. Assim, a verdade sobre Deus, Jesus e sobre o Espírito Santo foram jogadas por terra.
+
+## A falsificação da verdadeade
 
 Antes de desvendar essa mega mentira é preciso saber a plena verdade sobre a divindade.
-Sabemos que, na Bíblia coexistem: Deus Pai, Filho e Espírito Santo (Mateus 28). Mas podemos saber mais, se buscarmos a fundo.
+Sabemos que, na Bíblia coexistem: O Pai, Filho e Espírito Santo (Mateus 28). Vamos deixar as coisas bem definidas.
 
-Então, vejamos sobre Deus o que NÃO é:
+Então, vejamos Quem É Quem na divindade:
 
 1 - O Pai NÃO é o Filho;
+
 2 - O Filho NÃO é Pai;
+
 3 - O Espírito Santo NÃO é nem o Pai e nem o Filho;
 
 Logo, observamos que:
 
 1 - O Pai é uma Pessoa distinta do Filho e do Espírito Santo;
+
 2 - O Filho é uma Pessoa distinta do Espírito Santo e do Pai;
+
 3 - O Espírito Santo é uma Pessoa distinta do Pai e do Filho;
 
-Assim, chegamos a seguinte conclusão: Existe um Único Deus (Deuteronômio 6:4), com todas as Suas prerrogativas divinas (Onipotênte, Oniciente e Onipresente) e que Se manifesta em Três Pessoas distintas.
-Logo, afirmamos que:
+Assim, chegamos a seguinte conclusão: Existe um Único Deus, com todas os Seus atributos divinos (Onipotênte, Oniciente e Onipresente) e que Se manifesta em Três Pessoas distintas.
 
-1 - O Pai é Deus;
-2 - O Filho é Deus;
-3 - O Espírito Santo é Deus;
+Logo, afirmamos que Deus é composto de:
+
+1 - O Pai (Deuteronômio 6:4);
+
+2 - O Filho (João 20:28);
+
+3 - O Espírito Santo (Atos 5:3,4);
 
 ## A Falsa Tríade
 
-Satanás falsifica este Trio Celestial da seguinte forma:
+Assim como existe o Trio celestial,Satanás compo~e o seu próprio trio infernal composto de poderes terrestres.
 
 Em Apocalipse 13 aparecem três poderes em oposição aos Dignitários do Céu.
 
 São eles:
 
-1 - O Dragão (Satanás)
-2 - A Besta do mar (Papado ou o chifre pequeno de Daniel 7)
-3 - O Falso Profeta ou A Besta da terra (EUA)
+1 - O Dragão (O próprio Satanás)
 
-Com esse trio infernal, o diabo engana todo o mundo. Ele é o "pai" [da mentira], o papado é o "filho" [anticristo] e o falso profeta é o "espírito" [apóstata].
+2 - A Besta do mar (O Papado ou o chifre pequeno de Daniel 7)
+
+3 - O Falso Profeta ou A Besta da terra (Os EUA)
+
+Com essa falsa trindade infernal, ele engana todo o mundo. Logicamente que você já deduziu quem é quem né?
+
+Satanás assume o papel de "pai".;
+
+O papado assume o papel de "filho".
+
+O falso profeta assume o papel de "espírito".
 
 Podemos provar isto na Bíblia? Sim, podemos. Analise Apocalipse 16:13:
 
