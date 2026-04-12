@@ -302,15 +302,10 @@ function processMarkdownFiles() {
     if (!fs.existsSync(outputDir)) fs.mkdirSync(outputDir, { recursive: true });
 
     const manifest = [];
-    let toGenerate = [];
-    const allEntries = [];
+    const toGenerate = [];
     let countIgnored = 0;
 
     const files = fs.readdirSync(inputDir).filter(f => path.extname(f) === '.md');
-    const previousIndexPath = path.join(outputDir, 'index.json');
-    const previousManifest = fs.existsSync(previousIndexPath)
-        ? JSON.parse(fs.readFileSync(previousIndexPath, 'utf8'))
-        : [];
 
     files.forEach(file => {
         try {
@@ -357,7 +352,6 @@ function processMarkdownFiles() {
                 htmlContent: applyBoldToSubtitles(md.render(content)),
                 slug: slugify(baseName)
             };
-            allEntries.push(entry);
 
             if (needsUpdate) {
                 toGenerate.push(entry);
@@ -373,21 +367,12 @@ function processMarkdownFiles() {
     const sortedManifest = [...manifest].sort((a, b) => {
         const dateDiff = new Date(b.date).getTime() - new Date(a.date).getTime();
         if (dateDiff !== 0) return dateDiff;
-        const mtimeDiff = new Date(b.mtime).getTime() - new Date(a.mtime).getTime();
-        if (mtimeDiff !== 0) return mtimeDiff;
-        return a.title.localeCompare(b.title, 'pt-BR');
+        return a.href.localeCompare(b.href, 'pt-BR');
     });
 
     fs.writeFileSync(path.join(outputDir, 'index.json'), JSON.stringify(sortedManifest, null, 2), 'utf8');
 
-    const previousOrder = previousManifest.map(item => item.href).join('|');
-    const currentOrder = sortedManifest.map(item => item.href).join('|');
-    if (previousOrder && previousOrder !== currentOrder) {
-        toGenerate = allEntries;
-        console.log('🔁 Ordem dos artigos mudou. Regenerando todos os posts para sincronizar a navegação.');
-    }
-
-    // Gerar os arquivos necessários
+    // Gerar apenas os arquivos modificados
     toGenerate.forEach(g => {
         const currentIndex = sortedManifest.findIndex(m => m.href === g.href);
         let nextHref = '../index.html', prevHref = '../index.html';
