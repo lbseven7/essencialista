@@ -143,9 +143,9 @@ Ele não retornará mais à sua casa, nem o seu lugar o conhecerá mais.&quot;</
             </div>
 
             <div class="mt-10 flex flex-wrap justify-center gap-3">
-                <a href="../posts/choro-e-ranger-de-dentes.html" class="bg-black text-white px-5 py-2 rounded-full text-sm hover:bg-orange-600 transition">← Anterior</a>
+                <a href="../posts/desconectado.html" class="bg-black text-white px-5 py-2 rounded-full text-sm hover:bg-orange-600 transition">← Anterior</a>
                 <a href="../index.html" class="bg-black text-white px-5 py-2 rounded-full text-sm hover:bg-orange-600 transition font-bold">Home</a>
-                <a href="../index.html" class="bg-black text-white px-5 py-2 rounded-full text-sm hover:bg-orange-600 transition">Próximo →</a>
+                <a href="../posts/contrafacao.html" class="bg-black text-white px-5 py-2 rounded-full text-sm hover:bg-orange-600 transition">Próximo →</a>
             </div>
         </article>
 
@@ -154,22 +154,22 @@ Ele não retornará mais à sua casa, nem o seu lugar o conhecerá mais.&quot;</
             <h3 class="text-xl font-bold mb-6 border-b-4 border-orange-500 inline-block">Você também pode gostar</h3>
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 
-                    <a href="../posts/desconectado.html" class="group bg-white rounded-lg shadow hover:shadow-xl transition-all p-3 flex flex-col h-full">
-                        <img src="../images/sustenta.webp" class="w-full h-24 object-cover rounded mb-2" alt="O Ambiente da Vida: A Analogia da Criação Preview">
+                    <a href="../posts/remorso.html" class="group bg-white rounded-lg shadow hover:shadow-xl transition-all p-3 flex flex-col h-full">
+                        <img src="../images/remorso.webp" class="w-full h-24 object-cover rounded mb-2" alt="Satanás procura reintegração Preview">
                         <span class="text-[9px] font-black text-orange-600 uppercase tracking-widest mb-1">Fé</span>
-                        <h4 class="font-bold text-xs group-hover:text-orange-600 line-clamp-2 leading-tight">O Ambiente da Vida: A Analogia da Criação</h4>
+                        <h4 class="font-bold text-xs group-hover:text-orange-600 line-clamp-2 leading-tight">Satanás procura reintegração</h4>
                     </a>
                 
-                    <a href="../posts/gadara.html" class="group bg-white rounded-lg shadow hover:shadow-xl transition-all p-3 flex flex-col h-full">
-                        <img src="../images/gadara.webp" class="w-full h-24 object-cover rounded mb-2" alt="Luz em Gadara Preview">
+                    <a href="../posts/rebeliao.html" class="group bg-white rounded-lg shadow hover:shadow-xl transition-all p-3 flex flex-col h-full">
+                        <img src="../images/rebeliao.webp" class="w-full h-24 object-cover rounded mb-2" alt="Conseqüências da rebelião Preview">
                         <span class="text-[9px] font-black text-orange-600 uppercase tracking-widest mb-1">Fé</span>
-                        <h4 class="font-bold text-xs group-hover:text-orange-600 line-clamp-2 leading-tight">Luz em Gadara</h4>
+                        <h4 class="font-bold text-xs group-hover:text-orange-600 line-clamp-2 leading-tight">Conseqüências da rebelião</h4>
                     </a>
                 
-                    <a href="../posts/artista-mestre.html" class="group bg-white rounded-lg shadow hover:shadow-xl transition-all p-3 flex flex-col h-full">
-                        <img src="../images/artista.webp" class="w-full h-24 object-cover rounded mb-2" alt="O Artista-Mestre Preview">
+                    <a href="../posts/adao-e-eva.html" class="group bg-white rounded-lg shadow hover:shadow-xl transition-all p-3 flex flex-col h-full">
+                        <img src="../images/adao-e-eva.webp" class="w-full h-24 object-cover rounded mb-2" alt="Adão e Eva no Éden Preview">
                         <span class="text-[9px] font-black text-orange-600 uppercase tracking-widest mb-1">Fé</span>
-                        <h4 class="font-bold text-xs group-hover:text-orange-600 line-clamp-2 leading-tight">O Artista-Mestre</h4>
+                        <h4 class="font-bold text-xs group-hover:text-orange-600 line-clamp-2 leading-tight">Adão e Eva no Éden</h4>
                     </a>
                 
             </div>
@@ -202,7 +202,7 @@ Ele não retornará mais à sua casa, nem o seu lugar o conhecerá mais.&quot;</
         </div>
     </footer>
     <script>
-        const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbwnnAaAFE0lhzil864Ir-SR7-UNmkFysmIgPiU9ZZypThK0GK2lAApcUpD9siCkl62Q/exec';
+        const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbxVuAC4UeWvSORncW4rj5bqquF2ySxMRzP3uwB5CCMIlCKp7yHrNJj3ARv7nrywy2e9/exec';
 
         async function carregarComentarios() {
             try {
@@ -222,10 +222,50 @@ Ele não retornará mais à sua casa, nem o seu lugar o conhecerá mais.&quot;</
             } catch (e) { console.error("Erro ao carregar comentários:", e); }
         }
 
-        document.getElementById("commentForm").onsubmit = async function (e) {
+        document.getElementById("commentForm").onsubmit = async function(e) {
             e.preventDefault();
             const btn = document.getElementById("btnEnviar");
             const status = document.getElementById("msgStatus");
+            
+            const nomeValue = document.getElementById("nome").value.trim();
+            const emailValue = document.getElementById("email").value.trim();
+            const comentarioValue = document.getElementById("comentario").value.trim();
+
+            // 1. Validação de Nome (Mínimo 3 letras)
+            if (!/^[a-zA-ZÀ-ÿs]{3,}$/.test(nomeValue)) {
+                status.className = "mt-3 text-center font-bold text-red-600 dark:text-red-400 animate-bounce";
+                status.innerText = "ERRO: Insira um nome válido (mínimo 3 letras).";
+                document.getElementById("nome").focus();
+                return false;
+            }
+
+            // 2. Validação de E-mail de Nível Corporativo + Lista Negra
+            const emailRegex = /^[^s@]+@[^s@]+.(com|net|org|edu|gov|br|io|me|info|site|online|xyz|app|tech|dev|blog)(.[a-z]{2})?$/i;
+            const dominiosBanidos = ['mailinator.com', 'yopmail.com', '10minutemail.com', 'tempmail.com', 'guerrillamail.com', 'sharklasers.com', 'dispostable.com', 'getnada.com'];
+            const dominioEmail = emailValue.split('@')[1]?.toLowerCase();
+
+            if (!emailRegex.test(emailValue) || dominiosBanidos.includes(dominioEmail)) {
+                status.className = "mt-3 text-center font-bold text-red-600 dark:text-red-400 animate-bounce";
+                status.innerText = dominiosBanidos.includes(dominioEmail) 
+                    ? "ERRO: E-mails temporários não são permitidos." 
+                    : "ERRO: Use um e-mail com extensão válida (ex: .com ou .com.br)";
+                document.getElementById("email").focus();
+                return false;
+            }
+
+            // 3. Validação de Comentário (Qualidade de Texto)
+            const temLetras = /[a-zA-ZÀ-ÿ]/.test(comentarioValue);
+            const muitasRepeticoes = /(.)\1{4,}/.test(comentarioValue); 
+            const excessoSimbolos = (comentarioValue.match(/[^a-zA-ZÀ-ÿ0-9s]/g) || []).length > comentarioValue.length * 0.4;
+
+            if (comentarioValue.length < 10 || !temLetras || muitasRepeticoes || excessoSimbolos) {
+                status.className = "mt-3 text-center font-bold text-red-600 dark:text-red-400 animate-bounce";
+                status.innerText = "ERRO: O comentário parece inválido ou contém muitos símbolos.";
+                document.getElementById("comentario").focus();
+                return false;
+            }
+
+            status.innerText = "";
             btn.disabled = true; btn.innerText = "Enviando...";
             
             try {

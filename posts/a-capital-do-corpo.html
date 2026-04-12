@@ -17,6 +17,8 @@
     </style>
     <style>
         html { scroll-behavior: smooth; }
+        #progress-container { position: fixed; top: 0; left: 0; width: 100%; height: 4px; background: transparent; z-index: 9999; }
+        #progress-bar { height: 100%; width: 0%; background: linear-gradient(90deg, #f97316, #ea580c); transition: width 0.1s; }
         .animate-fade-in { animation: fadeIn 0.6s ease forwards; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
         .content-area img { max-width: 100%; height: auto; border-radius: 0.5rem; margin: 1.5rem 0; }
@@ -36,6 +38,9 @@
     </style>
 </head>
 <body class="bg-gray-100 text-gray-800 font-sans">
+    <!-- Barra de Progresso -->
+    <div id="progress-container"><div id="progress-bar"></div></div>
+
     <!-- Botão de Alternar Modo Foco -->
     <div id="focusToggle" class="fixed bottom-6 right-6 z-[100]">
         <button onclick="toggleFocusMode()" class="bg-black text-white p-4 rounded-full shadow-2xl hover:bg-orange-600 transition-all flex items-center justify-center group">
@@ -64,7 +69,7 @@
     </header>
     <main class="container mx-auto mt-8 p-4 max-w-2xl">
         <article class="bg-white p-6 rounded-lg shadow-lg mb-10 animate-fade-in">
-            <img src="../images/mente.webp" class="w-full h-64 object-cover mb-6 rounded-lg shadow">
+            <img src="../images/mente.webp" class="w-full h-64 object-cover mb-6 rounded-lg shadow" alt="A Mente Forte Preview">
             <div class="mb-2"><span class="text-orange-600 font-black text-xs uppercase tracking-widest">Vida</span></div>
             <h2 class="text-3xl font-bold mb-6 leading-tight">A Mente Forte</h2>
             <div class="content-area space-y-4 leading-relaxed text-justify text-gray-700"><h1><strong>A Capital do Corpo Humano</strong></h1>
@@ -102,9 +107,9 @@
             </div>
 
             <div class="mt-10 flex flex-wrap justify-center gap-3">
-                <a href="../posts/gadara.html" class="bg-black text-white px-5 py-2 rounded-full text-sm hover:bg-orange-600 transition">← Anterior</a>
+                <a href="../posts/artista-mestre.html" class="bg-black text-white px-5 py-2 rounded-full text-sm hover:bg-orange-600 transition">← Anterior</a>
                 <a href="../index.html" class="bg-black text-white px-5 py-2 rounded-full text-sm hover:bg-orange-600 transition font-bold">Home</a>
-                <a href="../posts/tolice-digital.html" class="bg-black text-white px-5 py-2 rounded-full text-sm hover:bg-orange-600 transition">Próximo →</a>
+                <a href="../posts/gadara.html" class="bg-black text-white px-5 py-2 rounded-full text-sm hover:bg-orange-600 transition">Próximo →</a>
             </div>
         </article>
 
@@ -113,22 +118,22 @@
             <h3 class="text-xl font-bold mb-6 border-b-4 border-orange-500 inline-block">Você também pode gostar</h3>
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 
+                    <a href="../posts/mortos-vivos.html" class="group bg-white rounded-lg shadow hover:shadow-xl transition-all p-3 flex flex-col h-full">
+                        <img src="../images/mortos-vivos.webp" class="w-full h-24 object-cover rounded mb-2" alt="Mortos-Vivos: A Única Escolha Essencial na Visão Bíblica Preview">
+                        <span class="text-[9px] font-black text-orange-600 uppercase tracking-widest mb-1">Vida</span>
+                        <h4 class="font-bold text-xs group-hover:text-orange-600 line-clamp-2 leading-tight">Mortos-Vivos: A Única Escolha Essencial na Visão Bíblica</h4>
+                    </a>
+                
                     <a href="../posts/cury.html" class="group bg-white rounded-lg shadow hover:shadow-xl transition-all p-3 flex flex-col h-full">
-                        <img src="../images/cury.webp" class="w-full h-24 object-cover rounded mb-2">
+                        <img src="../images/cury.webp" class="w-full h-24 object-cover rounded mb-2" alt="Um Ex-Ateu e Jesus Cristo Preview">
                         <span class="text-[9px] font-black text-orange-600 uppercase tracking-widest mb-1">Vida</span>
                         <h4 class="font-bold text-xs group-hover:text-orange-600 line-clamp-2 leading-tight">Um Ex-Ateu e Jesus Cristo</h4>
                     </a>
                 
                     <a href="../posts/esta-escrito.html" class="group bg-white rounded-lg shadow hover:shadow-xl transition-all p-3 flex flex-col h-full">
-                        <img src="../images/falsos.webp" class="w-full h-24 object-cover rounded mb-2">
+                        <img src="../images/falsos.webp" class="w-full h-24 object-cover rounded mb-2" alt="Está Escrito! Preview">
                         <span class="text-[9px] font-black text-orange-600 uppercase tracking-widest mb-1">Vida</span>
                         <h4 class="font-bold text-xs group-hover:text-orange-600 line-clamp-2 leading-tight">Está Escrito!</h4>
-                    </a>
-                
-                    <a href="../posts/estudo-eficaz.html" class="group bg-white rounded-lg shadow hover:shadow-xl transition-all p-3 flex flex-col h-full">
-                        <img src="../images/mcp.webp" class="w-full h-24 object-cover rounded mb-2">
-                        <span class="text-[9px] font-black text-orange-600 uppercase tracking-widest mb-1">Vida</span>
-                        <h4 class="font-bold text-xs group-hover:text-orange-600 line-clamp-2 leading-tight">O Estudo Mais Eficaz</h4>
                     </a>
                 
             </div>
@@ -161,7 +166,7 @@
         </div>
     </footer>
     <script>
-        const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbzWEYOv2rcWjy4Bnn5DivMPaSl6PCJbVroNEh1sfFkZkzg5VbDYqbuytOcf37V2ehEI/exec';
+        const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbxVuAC4UeWvSORncW4rj5bqquF2ySxMRzP3uwB5CCMIlCKp7yHrNJj3ARv7nrywy2e9/exec';
 
         async function carregarComentarios() {
             try {
@@ -181,10 +186,50 @@
             } catch (e) { console.error("Erro ao carregar comentários:", e); }
         }
 
-        document.getElementById("commentForm").onsubmit = async function (e) {
+        document.getElementById("commentForm").onsubmit = async function(e) {
             e.preventDefault();
             const btn = document.getElementById("btnEnviar");
             const status = document.getElementById("msgStatus");
+            
+            const nomeValue = document.getElementById("nome").value.trim();
+            const emailValue = document.getElementById("email").value.trim();
+            const comentarioValue = document.getElementById("comentario").value.trim();
+
+            // 1. Validação de Nome (Mínimo 3 letras)
+            if (!/^[a-zA-ZÀ-ÿs]{3,}$/.test(nomeValue)) {
+                status.className = "mt-3 text-center font-bold text-red-600 dark:text-red-400 animate-bounce";
+                status.innerText = "ERRO: Insira um nome válido (mínimo 3 letras).";
+                document.getElementById("nome").focus();
+                return false;
+            }
+
+            // 2. Validação de E-mail de Nível Corporativo + Lista Negra
+            const emailRegex = /^[^s@]+@[^s@]+.(com|net|org|edu|gov|br|io|me|info|site|online|xyz|app|tech|dev|blog)(.[a-z]{2})?$/i;
+            const dominiosBanidos = ['mailinator.com', 'yopmail.com', '10minutemail.com', 'tempmail.com', 'guerrillamail.com', 'sharklasers.com', 'dispostable.com', 'getnada.com'];
+            const dominioEmail = emailValue.split('@')[1]?.toLowerCase();
+
+            if (!emailRegex.test(emailValue) || dominiosBanidos.includes(dominioEmail)) {
+                status.className = "mt-3 text-center font-bold text-red-600 dark:text-red-400 animate-bounce";
+                status.innerText = dominiosBanidos.includes(dominioEmail) 
+                    ? "ERRO: E-mails temporários não são permitidos." 
+                    : "ERRO: Use um e-mail com extensão válida (ex: .com ou .com.br)";
+                document.getElementById("email").focus();
+                return false;
+            }
+
+            // 3. Validação de Comentário (Qualidade de Texto)
+            const temLetras = /[a-zA-ZÀ-ÿ]/.test(comentarioValue);
+            const muitasRepeticoes = /(.)\1{4,}/.test(comentarioValue); 
+            const excessoSimbolos = (comentarioValue.match(/[^a-zA-ZÀ-ÿ0-9s]/g) || []).length > comentarioValue.length * 0.4;
+
+            if (comentarioValue.length < 10 || !temLetras || muitasRepeticoes || excessoSimbolos) {
+                status.className = "mt-3 text-center font-bold text-red-600 dark:text-red-400 animate-bounce";
+                status.innerText = "ERRO: O comentário parece inválido ou contém muitos símbolos.";
+                document.getElementById("comentario").focus();
+                return false;
+            }
+
+            status.innerText = "";
             btn.disabled = true; btn.innerText = "Enviando...";
             
             try {
@@ -218,6 +263,14 @@
             const isFocus = document.body.classList.toggle('focus-mode');
             if (isFocus) window.scrollTo({ top: 0, behavior: 'smooth' });
         }
+
+        // Lógica da Barra de Progresso
+        window.onscroll = () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById("progress-bar").style.width = scrolled + "%";
+        };
 
         document.getElementById('mobileMenuBtn').onclick = () => {
             const nav = document.getElementById('main-nav');

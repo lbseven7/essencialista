@@ -302,10 +302,15 @@ function processMarkdownFiles() {
     if (!fs.existsSync(outputDir)) fs.mkdirSync(outputDir, { recursive: true });
 
     const manifest = [];
-    const toGenerate = [];
+    let toGenerate = [];
+    const allEntries = [];
     let countIgnored = 0;
 
     const files = fs.readdirSync(inputDir).filter(f => path.extname(f) === '.md');
+    const previousIndexPath = path.join(outputDir, 'index.json');
+    const previousManifest = fs.existsSync(previousIndexPath)
+        ? JSON.parse(fs.readFileSync(previousIndexPath, 'utf8'))
+        : [];
 
     files.forEach(file => {
         try {
@@ -345,15 +350,17 @@ function processMarkdownFiles() {
                 mtime: stat.mtime.toISOString()
             });
 
+            const entry = {
+                href,
+                outputPath,
+                data: { ...data, title, category, tempoLeitura },
+                htmlContent: applyBoldToSubtitles(md.render(content)),
+                slug: slugify(baseName)
+            };
+            allEntries.push(entry);
+
             if (needsUpdate) {
-                const htmlContent = applyBoldToSubtitles(md.render(content));
-                toGenerate.push({
-                    href,
-                    outputPath,
-                    data: { ...data, title, category, tempoLeitura },
-                    htmlContent,
-                    slug: slugify(baseName)
-                });
+                toGenerate.push(entry);
                 console.log(`🆕 Alteração detectada: ${file}`);
             } else {
                 countIgnored++;
@@ -363,13 +370,24 @@ function processMarkdownFiles() {
         }
     });
 
-    // Salva o index.json (Sempre atualiza para garantir que a lista de posts esteja certa)
-    fs.writeFileSync(path.join(outputDir, 'index.json'), JSON.stringify(manifest, null, 2), 'utf8');
+    const sortedManifest = [...manifest].sort((a, b) => {
+        const dateDiff = new Date(b.date).getTime() - new Date(a.date).getTime();
+        if (dateDiff !== 0) return dateDiff;
+        const mtimeDiff = new Date(b.mtime).getTime() - new Date(a.mtime).getTime();
+        if (mtimeDiff !== 0) return mtimeDiff;
+        return a.title.localeCompare(b.title, 'pt-BR');
+    });
 
-    // Ordenação do manifesto
-    const sortedManifest = [...manifest].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+    fs.writeFileSync(path.join(outputDir, 'index.json'), JSON.stringify(sortedManifest, null, 2), 'utf8');
 
-    // Gerar apenas os arquivos que mudaram
+    const previousOrder = previousManifest.map(item => item.href).join('|');
+    const currentOrder = sortedManifest.map(item => item.href).join('|');
+    if (previousOrder && previousOrder !== currentOrder) {
+        toGenerate = allEntries;
+        console.log('🔁 Ordem dos artigos mudou. Regenerando todos os posts para sincronizar a navegação.');
+    }
+
+    // Gerar os arquivos necessários
     toGenerate.forEach(g => {
         const currentIndex = sortedManifest.findIndex(m => m.href === g.href);
         let nextHref = '../index.html', prevHref = '../index.html';
