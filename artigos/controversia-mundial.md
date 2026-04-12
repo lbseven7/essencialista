@@ -1,7 +1,7 @@
 ---
 title: "O Ponto de Controvérsia Mundial"
 category: "Profecia"
-image: "sabado.jpg"
+image: "sabado.webp"
 description: "Qual a probabilidade de um decreto para uma guarda obrigatória desse dia ser promulgado [a pedido popular] nos EUA e em que ano isso pode ocorrer?"
 date: "2026-02-26T00:00:00.000Z"
 signature: "Deixe seu comentário!"
