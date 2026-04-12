@@ -3,4 +3,6 @@ https://essencialista.vercel.app/
 localStorage.setItem("modo_admin", "true");
 location.reload();
 
+localStorage.removeItem("modo_admin");
+location.reload();
 
