@@ -405,7 +405,7 @@
             e.preventDefault();
             const btn = document.getElementById("btnEnviar");
             const status = document.getElementById("msgStatus");
-            
+
             const nomeValue = document.getElementById("nome").value.trim();
             const emailValue = document.getElementById("email").value.trim();
             const comentarioValue = document.getElementById("comentario").value.trim();
@@ -425,11 +425,11 @@
 
             if (!emailRegex.test(emailValue) || dominiosBanidos.includes(dominioEmail)) {
                 status.className = "mt-3 text-center font-bold text-red-600 dark:text-red-400 animate-bounce";
-                status.innerText = dominiosBanidos.includes(dominioEmail) 
-                    ? "ERRO: E-mails temporários não são permitidos." 
+                status.innerText = dominiosBanidos.includes(dominioEmail)
+                    ? "ERRO: E-mails temporários não são permitidos."
                     : "ERRO: Use um e-mail com extensão válida (ex: .com ou .com.br)";
                 document.getElementById("email").focus();
-                return false; 
+                return false;
             }
 
             // 3. Validação de Comentário (Qualidade de Texto)

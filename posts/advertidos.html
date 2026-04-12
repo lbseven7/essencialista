@@ -1,0 +1,279 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="category" content="Fé">
+    <title>Adão e Eva Advertidos - Essencialista</title>
+    <link rel="icon" type="image/webp" href="../images/sem-bg-black.webp">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <style type="text/css">
+        @theme {
+            --color-orange-500: #f97316;
+            --color-orange-600: #ea580c;
+        }
+    </style>
+    <style>
+        html { scroll-behavior: smooth; }
+        #progress-container { position: fixed; top: 0; left: 0; width: 100%; height: 4px; background: transparent; z-index: 9999; }
+        #progress-bar { height: 100%; width: 0%; background: linear-gradient(90deg, #f97316, #ea580c); transition: width 0.1s; }
+        .animate-fade-in { animation: fadeIn 0.6s ease forwards; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .content-area img { max-width: 100%; height: auto; border-radius: 0.5rem; margin: 1.5rem 0; }
+
+        /* --- ESTILOS DO MODO FOCO --- */
+        body.focus-mode header, 
+        body.focus-mode footer, 
+        body.focus-mode section#comentarios-artigo,
+        body.focus-mode section.mt-12,
+        body.focus-mode .mt-10.flex,
+        body.focus-mode .mt-8.pt-6.border-t { display: none !important; }
+        
+        body.focus-mode { background-color: #f4f1ea !important; color: #1a1a1a !important; }
+        body.focus-mode main { max-width: 800px !important; margin-top: 2rem !important; }
+        body.focus-mode article { box-shadow: none !important; background: transparent !important; padding: 0 !important; }
+        body.focus-mode .content-area { font-size: 1.25rem !important; line-height: 1.8 !important; }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800 font-sans">
+    <!-- Barra de Progresso -->
+    <div id="progress-container"><div id="progress-bar"></div></div>
+
+    <!-- Botão de Alternar Modo Foco -->
+    <div id="focusToggle" class="fixed bottom-6 right-6 z-[100]">
+        <button onclick="toggleFocusMode()" class="bg-black text-white p-4 rounded-full shadow-2xl hover:bg-orange-600 transition-all flex items-center justify-center group">
+            <i class="fas fa-book-open text-xl"></i>
+            <span class="max-w-0 overflow-hidden group-hover:max-w-xs group-hover:ml-2 transition-all duration-500 whitespace-nowrap text-sm font-bold uppercase">Modo Foco</span>
+        </button>
+    </div>
+    <header class="bg-black text-white p-6 shadow-md sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center relative">
+            <div class="flex items-center space-x-3">
+                <a href="../index.html"><img src="../images/sem-bg-black.webp" alt="Logo" class="h-10"></a>
+                <a href="../index.html"><h1 class="text-2xl font-bold">Essencialista</h1></a>
+            </div>
+            <div class="flex items-center gap-4">
+                <button id="mobileMenuBtn" class="md:hidden p-2 rounded bg-white/10 hover:bg-white/20 min-w-[44px]"><i class="fas fa-bars"></i></button>
+                <nav id="main-nav" class="hidden md:block absolute left-0 right-0 top-full w-full bg-black/95 backdrop-blur-sm border-t border-white/10 p-6 md:static md:bg-transparent md:border-none md:p-0">
+                    <ul class="flex flex-col space-y-4 md:flex-row md:space-y-0 md:space-x-6 items-start md:items-center">
+                        <li><a href="../index.html" class="hover:text-orange-500 font-bold block w-full py-2">Início</a></li>
+                        <li><a href="../biblioteca.html" class="hover:text-orange-500 font-bold block w-full py-2">Biblioteca</a></li>
+                        <li><a href="../index.html#featured-articles" class="hover:text-orange-500 font-bold block w-full py-2">Artigos</a></li>
+                        <li><a href="../about.html" class="hover:text-orange-500 font-bold block w-full py-2">Sobre</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <main class="container mx-auto mt-8 p-4 max-w-2xl">
+        <article class="bg-white p-6 rounded-lg shadow-lg mb-10 animate-fade-in">
+            <img src="../images/advertidos.webp" class="w-full h-64 object-cover mb-6 rounded-lg shadow" alt="Adão e Eva Advertidos Preview">
+            <div class="mb-2"><span class="text-orange-600 font-black text-xs uppercase tracking-widest">Fé</span></div>
+            <h2 class="text-3xl font-bold mb-6 leading-tight">Adão e Eva Advertidos</h2>
+            <div class="content-area space-y-4 leading-relaxed text-justify text-gray-700"><h2><strong>Alerta No Céu</strong></h2>
+<p>Deus reuniu a hoste angélica para tomar medidas e impedir o perigo ameaçador. Ficou decidido no concílio celestial que anjos deviam visitar o Éden e advertir Adão de que ele estava em perigo pela presença de um adversário. Dois anjos apressaram-se a visitar nossos primeiros pais. O santo par recebeu-os com inocente alegria, expressando gratidão a seu Criador por assim havê-los rodeado com tal profusão de Sua bondade. Todas as coisas amáveis e atrativas eram para sua alegria e tudo parecia sabiamente adaptado às suas necessidades; e o que estimavam acima de todas as outras bênçãos, era a associação com o Filho de Deus e com os anjos celestiais, pois tinham muito a relatar-lhes a cada visita, sobre suas novas descobertas das belezas naturais de seu lar edênico, e tinham muitas perguntas a fazer relativas a muita coisa que só podiam compreender indistintamente.</p>
+<h2><strong>Felicidade Sob Condição</strong></h2>
+<p>Os anjos benévola e amorosamente davam a informação que desejavam. Também contaram a triste história da rebelião e queda de Satanás. Então, claramente informaram-nos de que a árvore do conhecimento fora colocada no jardim para ser um penhor de sua obediência e amor a Deus; que a elevada e feliz condição de santos anjos seria conservada sob a condição de obediência; que eles estavam numa situação similar; que podiam obedecer à lei de Deus e ser inexprimivelmente felizes, ou desobedecer e perder sua elevada condição e serem mergulhados num desespero irremediável.</p>
+<h2><strong>O Inimigo de Tudo</strong></h2>
+<p>Contaram a Adão e Eva que Deus não os compelia a obedecer — que Ele não removera deles o poder de seguirem ao contrário de Sua vontade; que eles eram agentes morais, livres para obedecer ou desobedecer. Havia apenas uma proibição que Deus considerara próprio impor-lhes. Se transgredissem a vontade de Deus certamente morreriam. Contaram a Adão e Eva que o mais exaltado anjo, imediato a Cristo, recusara obedecer à lei de Deus, a qual tinha Ele ordenado para governar os seres celestiais; que esta rebelião causara guerra no Céu, a qual resultara na expulsão dos rebeldes, de todos aqueles que se uniram a ele em pôr em dúvida a autoridade do grande Jeová; e que o rebelde caído era agora inimigo de tudo o que interessasse a Deus e Seu amado Filho.</p>
+<h2><strong>Um Inimigo à Solta</strong></h2>
+<p>Contaram-lhes que Satanás propusera-se fazer-lhes mal, e que era necessário estarem alerta, porque podiam entrar em contato com o inimigo caído; mas, que não podia causar-lhes dano enquanto rendessem obediência aos mandamentos de Deus, e que, se necessário, todos os anjos do Céu viriam em seu auxílio antes que ele pudesse de alguma maneira prejudicá-los. Mas se desobedecessem ao mandamento de Deus, então Satanás teria poder para sempre molestá-los, confundi-los e causar-lhes dificuldades. Se permanecessem resolutos contra as primeiras insinuações de Satanás, estariam tão seguros quanto os anjos celestiais. Mas, se cedessem ao tentador, Aquele que não poupou os exaltados anjos, não os pouparia. Deviam sofrer o castigo da sua transgressão, pois a lei de Deus é tão sagrada como Ele próprio, e Deus requer implícita obediência de todos no Céu e na Terra.</p>
+<h2><strong>O ódio de Satanás contra o Casal do Éden</strong></h2>
+<p>Os anjos preveniram Eva para que não se separasse do marido em suas ocupações, pois podia ser levada a um contato com esse inimigo caído. Se se separassem um do outro, estariam em maior perigo do que se ficassem juntos. Os anjos insistiram que seguissem bem de perto as instruções dadas por Deus com referência à árvore do conhecimento, que na obediência perfeita estariam seguros, e que o inimigo não teria poder para enganá-los. Deus não permitiria que Satanás seguisse o santo par com contínuas tentações. Poderia ter acesso a eles apenas na árvore do conhecimento do bem e do mal.</p>
+<h2><strong>Satanás: Inveja, Ódio e malignidade</strong></h2>
+<p>Adão e Eva asseguraram aos anjos que nunca transgrediriam o expresso mandamento de Deus, pois era seu mais elevado prazer fazer a Sua vontade. Os anjos associaram-se a Adão e Eva em santos acordes de harmoniosa música, e como seus cânticos ressoassem cheios de alegria pelo Éden, Satanás ouviu o som de suas melodias de adoração ao Pai e ao Filho. E quando Satanás o ouviu, sua inveja, ódio e malignidade aumentaram, e ele expressou a seus seguidores a sua ansiedade por incitá-los (Adão e Eva) a desobedecer, atraindo assim sobre eles a ira de Deus e mudando os seus cânticos de louvor em ódio e maldições ao seu Criador.</p>
+</div>
+            
+            <div class="mt-8 pt-6 border-t border-gray-100 flex flex-col sm:flex-row items-center justify-between gap-4">
+                 <a href="#comentarios-artigo" class="inline-block bg-gray-100 text-gray-600 px-4 py-2 rounded-lg hover:text-orange-600 transition">
+                    <i class="far fa-comment-dots mr-2"></i>Deixar um comentário
+                 </a>
+                 <a href="https://api.whatsapp.com/send?text=Olha%20esse%20estudo%20interessante%20no%20Essencialista:%20Ad%C3%A3o%20e%20Eva%20Advertidos%20-%20https://essencialista.vercel.app/posts/advertidos.html" 
+                    target="_blank" 
+                    class="inline-block bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition font-bold flex items-center gap-2">
+                    <i class="fab fa-whatsapp text-lg"></i> Compartilhar
+                 </a>
+            </div>
+
+            <div class="mt-6 p-4 bg-gray-50 border-l-4 border-orange-500 rounded">
+                <p class="italic text-gray-600">👉 O tempo está próximo. Prepare-se!.</p>
+                <p class="text-right mt-2 font-bold text-sm">- Essencialista</p>
+            </div>
+
+            <div class="mt-10 flex flex-wrap justify-center gap-3">
+                <a href="../posts/conspiracao.html" class="bg-black text-white px-5 py-2 rounded-full text-sm hover:bg-orange-600 transition">← Anterior</a>
+                <a href="../index.html" class="bg-black text-white px-5 py-2 rounded-full text-sm hover:bg-orange-600 transition font-bold">Home</a>
+                <a href="../posts/adao-e-eva.html" class="bg-black text-white px-5 py-2 rounded-full text-sm hover:bg-orange-600 transition">Próximo →</a>
+            </div>
+        </article>
+
+        
+        <section class="mt-12">
+            <h3 class="text-xl font-bold mb-6 border-b-4 border-orange-500 inline-block">Você também pode gostar</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                
+                    <a href="../posts/adao-e-eva.html" class="group bg-white rounded-lg shadow hover:shadow-xl transition-all p-3 flex flex-col h-full">
+                        <img src="../images/adao-e-eva.webp" class="w-full h-24 object-cover rounded mb-2" alt="Adão e Eva no Éden Preview">
+                        <span class="text-[9px] font-black text-orange-600 uppercase tracking-widest mb-1">Fé</span>
+                        <h4 class="font-bold text-xs group-hover:text-orange-600 line-clamp-2 leading-tight">Adão e Eva no Éden</h4>
+                    </a>
+                
+                    <a href="../posts/conspiracao.html" class="group bg-white rounded-lg shadow hover:shadow-xl transition-all p-3 flex flex-col h-full">
+                        <img src="../images/conspiracao.webp" class="w-full h-24 object-cover rounded mb-2" alt="A Conspiração Contra a Família Humana Preview">
+                        <span class="text-[9px] font-black text-orange-600 uppercase tracking-widest mb-1">Fé</span>
+                        <h4 class="font-bold text-xs group-hover:text-orange-600 line-clamp-2 leading-tight">A Conspiração Contra a Família Humana</h4>
+                    </a>
+                
+                    <a href="../posts/criacao.html" class="group bg-white rounded-lg shadow hover:shadow-xl transition-all p-3 flex flex-col h-full">
+                        <img src="../images/criacao.webp" class="w-full h-24 object-cover rounded mb-2" alt="A Criação Preview">
+                        <span class="text-[9px] font-black text-orange-600 uppercase tracking-widest mb-1">Fé</span>
+                        <h4 class="font-bold text-xs group-hover:text-orange-600 line-clamp-2 leading-tight">A Criação</h4>
+                    </a>
+                
+            </div>
+        </section>
+        
+
+        <section id="comentarios-artigo" class="mt-20">
+            <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-black">
+                <h3 class="text-2xl font-bold mb-6 text-center">Espaço do Leitor</h3>
+                <form id="commentForm" class="space-y-4">
+                    <input type="hidden" id="artigoId" value="advertidos">
+                    <input type="text" id="nome" placeholder="Seu nome" required class="border border-gray-200 p-3 rounded-lg w-full focus:ring-2 focus:ring-orange-500 outline-none transition">
+                    <input type="email" id="email" placeholder="Seu e-mail" required class="border border-gray-200 p-3 rounded-lg w-full focus:ring-2 focus:ring-orange-500 outline-none transition">
+                    <textarea id="comentario" placeholder="O que você achou deste texto?" required rows="4" class="border border-gray-200 p-3 rounded-lg w-full focus:ring-2 focus:ring-orange-500 outline-none transition"></textarea>
+                    <button type="submit" id="btnEnviar" class="bg-black text-white px-6 py-3 rounded-lg hover:bg-orange-600 transition duration-300 w-full font-bold uppercase">Enviar Comentário</button>
+                </form>
+                <p id="msgStatus" class="mt-3 text-center font-semibold"></p>
+            </div>
+            <div id="listaComentarios" class="mt-10 space-y-4 mb-20">
+                <h3 class="text-xl font-bold border-b-2 border-orange-500 inline-block mb-4">Comentários</h3>
+                <div id="loader" class="text-gray-500 italic text-sm">Buscando interações...</div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-black text-white p-10 mt-12">
+        <div class="container mx-auto text-center">
+            <img src="../images/sem-bg-black.webp" alt="Essencialista Logo" class="h-12 mx-auto mb-4">
+            <p class="text-gray-400 text-sm">Essencialista &copy; 2026 - Fé e Ciência em Equilíbrio</p>
+        </div>
+    </footer>
+    <script>
+        const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbxVuAC4UeWvSORncW4rj5bqquF2ySxMRzP3uwB5CCMIlCKp7yHrNJj3ARv7nrywy2e9/exec';
+
+        async function carregarComentarios() {
+            try {
+                const res = await fetch(WEB_APP_URL + '?artigoId=advertidos');
+                const dados = await res.json();
+                document.getElementById('loader')?.remove();
+                if (!Array.isArray(dados)) return;
+                const container = document.getElementById('listaComentarios');
+                dados.forEach(c => {
+                    const div = document.createElement('div');
+                    div.className = 'bg-gray-50 p-4 rounded-lg border-l-4 border-orange-500 mb-4 animate-fade-in';
+                    const n = document.createElement('p'); n.className="font-bold text-gray-900"; n.textContent = c.nome;
+                    const co = document.createElement('p'); co.className="text-sm text-gray-700 mt-1"; co.textContent = c.comentario;
+                    div.append(n, co);
+                    container.appendChild(div);
+                });
+            } catch (e) { console.error("Erro ao carregar comentários:", e); }
+        }
+
+        document.getElementById("commentForm").onsubmit = async function(e) {
+            e.preventDefault();
+            const btn = document.getElementById("btnEnviar");
+            const status = document.getElementById("msgStatus");
+            
+            const nomeValue = document.getElementById("nome").value.trim();
+            const emailValue = document.getElementById("email").value.trim();
+            const comentarioValue = document.getElementById("comentario").value.trim();
+
+            // 1. Validação de Nome (Mínimo 3 letras)
+            if (!/^[a-zA-ZÀ-ÿs]{3,}$/.test(nomeValue)) {
+                status.className = "mt-3 text-center font-bold text-red-600 dark:text-red-400 animate-bounce";
+                status.innerText = "ERRO: Insira um nome válido (mínimo 3 letras).";
+                document.getElementById("nome").focus();
+                return false;
+            }
+
+            // 2. Validação de E-mail de Nível Corporativo + Lista Negra
+            const emailRegex = /^[^s@]+@[^s@]+.(com|net|org|edu|gov|br|io|me|info|site|online|xyz|app|tech|dev|blog)(.[a-z]{2})?$/i;
+            const dominiosBanidos = ['mailinator.com', 'yopmail.com', '10minutemail.com', 'tempmail.com', 'guerrillamail.com', 'sharklasers.com', 'dispostable.com', 'getnada.com'];
+            const dominioEmail = emailValue.split('@')[1]?.toLowerCase();
+
+            if (!emailRegex.test(emailValue) || dominiosBanidos.includes(dominioEmail)) {
+                status.className = "mt-3 text-center font-bold text-red-600 dark:text-red-400 animate-bounce";
+                status.innerText = dominiosBanidos.includes(dominioEmail) 
+                    ? "ERRO: E-mails temporários não são permitidos." 
+                    : "ERRO: Use um e-mail com extensão válida (ex: .com ou .com.br)";
+                document.getElementById("email").focus();
+                return false;
+            }
+
+            // 3. Validação de Comentário (Qualidade de Texto)
+            const temLetras = /[a-zA-ZÀ-ÿ]/.test(comentarioValue);
+            const muitasRepeticoes = /(.)\1{4,}/.test(comentarioValue); 
+            const excessoSimbolos = (comentarioValue.match(/[^a-zA-ZÀ-ÿ0-9s]/g) || []).length > comentarioValue.length * 0.4;
+
+            if (comentarioValue.length < 10 || !temLetras || muitasRepeticoes || excessoSimbolos) {
+                status.className = "mt-3 text-center font-bold text-red-600 dark:text-red-400 animate-bounce";
+                status.innerText = "ERRO: O comentário parece inválido ou contém muitos símbolos.";
+                document.getElementById("comentario").focus();
+                return false;
+            }
+
+            status.innerText = "";
+            btn.disabled = true; btn.innerText = "Enviando...";
+            
+            try {
+                const payload = {
+                    artigoId: "advertidos",
+                    nome: document.getElementById("nome").value,
+                    email: document.getElementById("email").value,
+                    comentario: document.getElementById("comentario").value
+                };
+                
+                const res = await fetch(WEB_APP_URL, { 
+                    method: 'POST', 
+                    mode: 'no-cors',
+                    body: JSON.stringify(payload) 
+                });
+                
+                // Com no-cors, não conseguimos ler res.ok, então assumimos sucesso se não houver erro
+                status.className = "mt-3 text-center font-semibold text-green-600";
+                status.innerText = "Enviado com sucesso! Aparecerá após a moderação.";
+                this.reset();
+            } catch (err) { 
+                status.className = "mt-3 text-center font-semibold text-red-600";
+                status.innerText = "Erro ao enviar. Tente novamente."; 
+            } finally { 
+                btn.disabled = false; 
+                btn.innerText = "Enviar Comentário"; 
+            }
+        };
+
+        function toggleFocusMode() {
+            const isFocus = document.body.classList.toggle('focus-mode');
+            if (isFocus) window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Lógica da Barra de Progresso
+        window.onscroll = () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById("progress-bar").style.width = scrolled + "%";
+        };
+
+        document.getElementById('mobileMenuBtn').onclick = () => {
+            const nav = document.getElementById('main-nav');
+            nav.classList.toggle('hidden');
+        };
+
+        window.onload = carregarComentarios;
+    </script>
+</body>
+</html>
