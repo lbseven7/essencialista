@@ -105,11 +105,10 @@ e contra os teus dois amigos, porque não falastes de mim aquilo que é certo, c
 
 Pela intercessão de Jó, foram perdoados por falarem o que não era certo sobre o caráter de Deus.
 
-
 ## O irmão mais velho e o irmão mais novo
 
 O irmão arrependido volta à casa do pai, mas, nem todos se alegram com o seu retorno.
-Os sentimentos cultivados pelo filho mais velho lhe trouxe **ira** e **acusações** contra seu pai.
+Os sentimentos cultivados pelo filho mais velho lhe trouxeram **ira** e **acusações** contra seu pai.
 
 Lucas 15:25-27
 "Ora, o seu filho mais velho estava no campo; e vindo, ao aproximar-se da casa, ele ouviu a música e as danças.
@@ -126,10 +125,11 @@ tu nunca me deste um cabrito, para que eu pudesse me alegrar com os meus amigos;
 E, ele lhe disse: Filho, tu sempre estás comigo, e tudo o que eu tenho é teu.
 Mas era necessário fazer festa e regozijarmo-nos; **porque este teu irmão estava morto, e vive novamente; tinha-se perdido, e foi achado.**
 
+Sentimentos de **insatisfação contra o seu irmão** que, arrependido, voltou à casa paterna.
+
 ## O Sinédrio e Estevão
 
-Em respostas à **acusações feitas contra ele**, Estevão faz uma exortação aos líderes religiosos e ao final ele confirma
-que eles eram responsáveis pela morte de Cristo e por não guardar a lei.
+Em respostas à **acusações feitas contra ele**, Estevão faz uma exortação aos líderes religiosos e ao final ele os expõe como responsáveis pela morte de Cristo e por não guardar a lei.
 
 Atos 7:54,59
 "E, eles ouvindo estas coisas, cortou-se-lhes o coração e **rangiam os seus dentes sobre ele**.
@@ -150,22 +150,22 @@ começou a olhar para a sua irmã Maria. Maria estva aos pés de Cristo, ouvindo
 Lucas 10:40
 "Marta, porém, estava atarefada com muito serviço, e, vindo até ele, disse: Senhor, não te importas que minha irmã me deixe servir sozinha? **Ordena, portanto, que ela me ajude.**"
 
-Marta estava criando **insatisfação** contra a sua irmã Maria**.
-A resposta de Jesus a Marta já nos diz tudo:
+Marta estava criando **insatisfação** contra a sua irmã Maria** por ela não estar empenhada nas obras para Cristo.
+A resposta de Jesus a Marta foi:
 
 Lucas 10:41-42
-"E, Jesus respondendo, disse-lhe: Marta, Marta, tu estás **preocupada e perturbada** com muitas coisas;
+"Marta, Marta, tu estás **preocupada e perturbada** com muitas coisas;
 mas uma coisa só é necessária; e Maria escolheu a boa parte, a qual não lhe será tomada."
 
 ## Os Judeus e os Gentios
 
-O povo judeu se achavam superiores a qualquer outro povo por serem detentores dos oráculos de Deus. Se orgulhavam de seus ritos e cerimônias e
-tinham um apego ao nacionalismo. Eram exclusivistas e faziam ao contrário do que Jesus ensinava.
+O povo judeu se achava superior a qualquer outro povo por ser detentor dos oráculos de Deus. Se orgulhavam de seus ritos e cerimônias e
+tinham um apego a um 'nacionalismo exclusivista' e faziam ao contrário do que Jesus ensinava.
 
 Daniel 9:24
 "Setenta semanas são determinadas sobre o teu povo e sobre a tua santa cidade,..."
 
-A profecia das 70 semanas de Daniel 9 estava prestes a se cumprir e o povo judeu selou a sua sorte ao **rejeitar o Messias na Pessoa de Cristo**
+A profecia das setenta semanas de Daniel nove estava prestes a se cumprir e o povo judeu selou a sua sorte ao **rejeitar o Messias na Pessoa de Cristo**
 
 Após João Batista ser rejeitado pelos líderes do povo, Jesus entra em cena para dar a última mensagem de misericórdia a um **povo rebelde**.
 
@@ -208,7 +208,7 @@ Mas, se não credes nos seus escritos, como crereis nas minhas palavras?"
 João 9:34
 "Responderam eles e disseram-lhe: **Tu nasceste inteiramente em pecados,** e queres ensinar-nos? **E expulsaram-no.**"
 
-Os sentimentos do povo judeu contra os outros, trouxe **ira** e **morte** contra Jesus e Seus seguidores.
+Os sentimentos do povo judeu contra os outros, trouxeram **ira** e **morte** contra Jesus e Seus seguidores.
 
 ## Os trabalhadores da primeira e os trabalhadores da hora undécima
 
@@ -225,31 +225,29 @@ Mateus 20: 10-11
 "E, recebendo-o, **murmuravam contra o dono da casa,**
 dizendo: Estes últimos trabalharam somente uma hora, e os fizestes iguais a nós, que suportamos o fardo e o calor do dia."
 
-Jesus sabendo disso, alertou os discípulos logo em seguida
-a esta parábola:
+Jesus sabendo disso, alertou os discípulos logo em seguida:
 
 Mateus 20:17-19
 "E, subindo Jesus para Jerusalém, tomou à parte os seus doze discípulos no caminho, e disse-lhes:
 Eis que nós subimos para Jerusalém, e o Filho do homem **será traído** aos principais sacerdotes e aos escribas, e eles **o condenarão à morte,**
 e o entregarão aos gentios para que dele **zombem**, e o **açoitem e crucifiquem**, e ao terceiro dia ele ressuscitará."
 
-**Esta insatisfação da nação judaica e seus sentimentos de nacionalismo, trouxeram ira e morte**. 
+Esta insatisfação da nação judaica e seus sentimentos de nacionalismo, trouxeram **ira e morte**. 
 
-## Eu e quem discorda de mim
+## Uma lição para mim
 
 Os exemplos acima, deixam claro que há uma **ira** contra aqueles que "descansam na justiça provida por Deus".
-Quantas vezes, eu fiquei **ira** quando alguém discordou de minha opinião ou desdenhou algo que eu disse? E quantas vezes, discordaram de mim e 
-eu me **irritou**, **disciuti** ou **guardei magoa**? 
+Quantas vezes, ficamos **irados** quando alguém discorda de nossa opinião ou desdenha algo que nós dissemos? Quantas vezes, **discutimos** ou **guardamos mágoa**? 
 
-Isso é muito fácil de acontecer, já que o inimigo de Deus incita justamente ocasiões como essas para
-**causar dissenções e disputas que desonram a Deus, crucificam Jesus e perseguem os Seus seguidores**.
+Isso é muito fácil de acontecer, já que o inimigo incita justamente ocasiões como essas para
+**causar dissenções e disputas que desonram a Deus, crucificam a Jesus e perseguem os Seus seguidores**.
 
 1Corintios 13:5
 "Examinai-vos a vós mesmos se estais na fé; provai-vos a vós mesmos. Ou não vos conheceis a vós mesmos, de que Jesus Cristo está em vós? A menos que estejais reprovados."
 
 ## Raciocine da causa para o efeito
 
-Deixo aqui o conselho de Gamaliel, que foi um integrante da **facção da obra** e que foi convertido:
+Deixo aqui o conselho de Gamaliel, que foi um ex-integrante da **facção da obra**:
 
 "E agora eu vos digo: **Abstenham-se destes homens, e deixai-os, porque se este conselho ou esta obra é de homens, isso vai acabar em nada,
 mas, se é de Deus, não podereis destruí-los; para que não sejais achados lutando contra Deus.**"
