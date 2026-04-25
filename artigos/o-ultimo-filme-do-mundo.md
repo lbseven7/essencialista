@@ -258,49 +258,44 @@ Este movimento tem uma certidão profética. Você não é adventista por acaso 
 
 Este é o evangelho. Por isso, a primeira mensagem angélica se espalha com o evangelho eterno por todo o mundo, pois é este evangelho. Não podia ser pregado na idade das trevas, pois foi tirado. Em 1844, tudo foi restaurado.
 
-Adventistas são batistas metodistas. Apenas seguimos com a verdade.
+Adventistas são batistas, metodistas. Apenas seguimos com a verdade.
 
-O diabo com toda sua banda já está no campo. Eles acham que o jogo acabou. Acham que vocês, como adventistas são um povo derrotado? Amados, quero apenas lhes dizer que Deus deseja que nós completemos vençamos o jogo.
+O diabo e seus anjos já estão no campo de batalha. Eles acham que a guerra acabou. Acham que vocês, como adventistas são um povo derrotado. Mas, quero apenas dizer a vocês que Deus deseja que nós completemos vençamos essa guerra.
 
-Amém. É só isso que estou dizendo, meus amados. Escutem-me. Não resta nenhum sequer no cronômetro, amados.
+Não resta nenhum minuto sequer a perder.
 
-Entendem? Foi a última profecia de tempo. Na minha mente vejo os anjos de pé ou em suas asas como a torcida num jogo vibrando por nós. Eles estão dizendo: "Vamos, levem até o tempo do fim".
+Entendem? Foi a última profecia de tempo. Na minha mente vejo os anjos de pé ou em suas asas como a torcendo por nós. Eles estão dizendo: "Levem até o tempo do fim".
 
-Quer dizer, a endone. O povo de Deus avança. A primeira, a segunda a terceira mensagem angélica. Amados, tudo está lá.
+O povo de Deus avança. A primeira, a segunda a terceira mensagem angélica.
 
-Amados, ouçam. Preciso resumir. As três mensagens angélicas não são nada mais, nada menos do que a mensagem de Noé. Entrem na arca.
+As três mensagens angélicas não são nada mais, nada menos do que a mensagem de Noé. Entrem na arca (simbolizando a **arca da aliança**).
 
-Certo? Não, não entenderam. Humum. Não, vocês não pegaram.
+Porque o selo de Deus está na arca e todos aqueles que estiverem fora da arca serão marcados para a morte eterna. Amém. Os anjos com as sete últimas pragas são vistos saindo do lugar santíssimo. Por quê?
 
-Vamos tentar de novo. Entrem na arca, pessoal. Entrem na arca antes que tarde, amados. Por quê?
+Porque quem recebe as pragas são os que rejeitaram o que havia no **lugar santíssimo**. Nossa mensagem é: entrem na arca. Salmos diz: "Aquele que habita no esconderijo do Altíssimo, a sombra do onipotente descansará..., e depois diz: "Nenhuma praga chegará à sua tenda".
 
-Porque o selo de Deus está na arca todos aqueles que estiverem fora da arca serão marcados para a morte eterna. Amém. Os anjos com as sete últimas pragas são vistos saindo do lugar santíssimo. Por quê?
-
-Porque quem recebe as pragas são os que rejeitaram o que havia no lugar santíssimo. Nossa mensagem é: entrem na arca. Salmos diz: "Aquele que habita no esconderijo do Altíssimo, a sombra do onipotente, e versículos adiante diz: "Nenhuma praga". OK?
-
-Nenhuma praga. Jesus vem, ele rasga o céu, mortos ressuscitam, eles vão para o céu, para o júri. Amados, escutem.
+Nenhuma praga. Jesus vem, ele rasga o céu, mortos ressuscitam, eles vão para o céu, para o júri. Para julgarem.
 
 Quando os livros se abriram em 1844, foi bem assim: "Satanás acusa o povo de Deus. Deus abre os livros não para condená-los, mas para desmascarar Satanás como mentiroso.
 
-Quando Satanás diz, ele fez isso", Deus diz: "Meu livro diz que eles se arrependeram". Sim. Os livros contêm as provas chave para salvar vocês, não para destruir. Sim.
+Quando Satanás diz, "ele fez isso", Deus diz: "Meu livro diz que eles se arrependeram". Sim. Os livros contêm as provas chave para salvar vocês, não para destruir. Sim.
 
-Então os anjos dizem: "Justos verdadeiros são teus caminhos, ó Deus. Tu julgas com retidão.
+Então os anjos dizem: "Justos verdadeiros são teus caminhos, ó Deus. Tu julgas com retidão."
 
-Quando o juízo começa no milênio, amados, os justos vêm os livros se unem ao couro dos anjos. Justos verdadeiros são teus caminhos, ó Deus. No fim do milênio, Deus desce ressuscita os ímpios mortos. Amados, a Bíblia nos é dito que, escutem, quando os ímpios mortos ressuscitarem, nesse momento, este mundo se tornará o maior cinema que a Terra já viu.
+Quando o juízo começa no milênio, os justos vêm os livros se unem ao coro dos anjos. Justos verdadeiros são teus caminhos, ó Deus. No fim do milênio, Deus desce ressuscita os ímpios mortos. A Bíblia nos é dito que, quando os ímpios mortos ressuscitarem, nesse momento, este mundo se tornará o maior cinema que a Terra já viu.
 
-Nos é dito que em vista panorâmica, digam comigo, em visão panorâmica, todos assistirão ao filme, o último o último filme da Terra. En White diz que cada um recorda seu papel. Amados, eu quero que vocês, Isso é a vida real, isto não é faz de conta. Eu não quero que os ímpios olhem para mim digam: "Você viu esse filme não me falou nada?
+Nos é dito que em vista panorâmica, todos assistirão ao filme, o último o último filme da Terra. Ellen White diz que cada um recorda seu papel. Eu não quero que os ímpios olhem para mim digam: "Você viu esse filme não me falou nada?
 
-Você me falou do Homem-Aranha. Você me falou de qualquer outro filme? Você me falou de Harry Potter não me falou do filme que realmente importava? Amados, chegou a hora de Deus destruir os ímpios serei breve.
+Você me falou do Homem-Aranha. Você me falou de qualquer outro filme? Você me falou de Harry Potter não me falou do filme que realmente importava? Irmãos, chegou a hora de Deus destruir os ímpios.
 
-Amados, o tempo está se esgotando. O tempo está acabando. Deus deve destruir os ímpios.
+Irmãos, o tempo está se esgotando. O tempo está acabando. Deus deve destruir os ímpios.
 
-Mas, amados, entendam que a razão pela qual ele usa o fogo não é ira sim amor.
+Mas, entendam que a razão pela qual ele usa o fogo não é ira e sim amor.
 
-Vejam, amados, Deus é fogo consumidor. Cantares de Salomão diz que esse fogo é como amor. Já se apaixonou? Maridos, por favor, levantem a mão.
+Vejam, Deus é fogo consumidor. Cantares de Salomão diz que esse fogo é como amor.
 
-Muito bem, vocês sentiram esse fogo? É assim que Deus é, amados. Ele é fogo. Sua cidade é uma cidade de fogo.
-
-Seu trono é um trono de fogo. Ele quer que possamos habitar nesse fogo sem sermos consumidos. Amados, se querem a presença de Deus, sejam a prova de fogo. Amados, Deus, como ao mostrar a Moisés a sarça ardente que não se consumia, ele queria revelar: "Este é o meu ideal para a humanidade.
+Muito bem, é assim que Deus é, irmãos. Ele é fogo. Sua cidade é uma cidade de fogo.
+Seu trono é um trono de fogo. Ele quer que possamos habitar nesse fogo sem sermos consumidos. Irmãos, se querem a presença de Deus, sejam a prova de fogo. Irmãos, Deus, como ao mostrar a Moisés a sarça ardente que não se consumia, ele queria revelar: "Este é o meu ideal para a humanidade."
 
 Ele deseja que fiquemos em sua presença, como Sadraque, Mesaque Abednego que lançados ao fogo não se queimaram. Amados, escutem! São os justos que queimam para sempre. Não, não entenderam isso.
 
